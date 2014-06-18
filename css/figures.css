@@ -1,0 +1,41 @@
+#form-figures{
+    margin-top: 10px;
+}
+label{
+    display: block;
+    padding: 4px 0;
+    font-weight: bold;
+    cursor: pointer;
+}
+input[type='text']{
+    width: 98%;
+    padding: 4px;
+    font-size: 1.1em;
+}
+#form-figures .info{
+    display: block;
+    font-size: 0.9em;
+}
+#form-figures .resource{
+    display: block;
+    font-size: 1.2em;
+    padding: 4px 0;
+    border-bottom: 2px solid #CCC;
+}
+input[type='button']{
+    font-size: 1.2em;
+    margin-top: 15px;
+    padding: 5px 10px;
+}
+input[type='button'].submit{
+    font-size: 1.2em;
+    margin-top: 15px;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+.error{
+    display: none;
+    padding: 2px 0;
+    font-size: 0.9em;
+    color: #f00;
+}

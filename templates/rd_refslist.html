@@ -1,0 +1,11 @@
+<h2><{$lang_references}></h2>
+<div id="ahRefsContainer">
+<ol>
+<{foreach item=ref from=$references}>
+<li id="ref<{$ref.id}>">
+<a name="ref<{$ref.id}>"></a>
+<strong><a href="#top<{$ref.id}>">↑</a></strong> <{$ref.text}>
+</li>
+<{/foreach}>
+</ol>
+</div>

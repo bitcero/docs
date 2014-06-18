@@ -1,0 +1,20 @@
+.form_container label{
+    display: block;
+    font-weight: bold;
+    padding: 3px 0;
+}
+.form_container input[type='text'],
+.form_container select,
+.form_container textarea,
+.table_form textarea#desc{
+    width: 95%;
+    padding: 3px;
+    font-size: 1.2em;
+}
+label.error{
+    color: #F00;
+    display: none;
+}
+.form_container .form_captions{
+    width: 30%;
+}

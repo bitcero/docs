@@ -1,0 +1,59 @@
+<form name="frmtext" method="POST" action="pages.php">
+	<strong><{$lang_res}></strong>
+	<select name="id" onchange="submit()">
+	<option value=0><{$lang_select}></option>
+	<{foreach item=res from=$resources}>
+		<option value="<{$res.id}>" <{if $res.id==$id}>selected<{/if}>><{$res.title}></option>
+	<{/foreach}>
+	</select>
+
+	<strong><{$lang_sec}></strong>
+	<select name="sec" onchange="submit()">
+	<option value=0><{$lang_select}></option>
+	<{foreach item=sec from=$sections}>
+		<option value="<{$sec.id}>" <{if $sec.id==$id_sec}>selected<{/if}>><{$sec.title}></option>
+	<{/foreach}>
+	</select>
+
+
+</form>
+
+<{if $id && $id_sec}>
+<form name="frmcont" method="POST" action="pages.php">
+<table class="outer" width="100%" cellspacing="1">
+	<tr>
+		<th colspan="6"><{$lang_textsexist}></th>
+	</tr>
+	<tr class="head" align="center">
+		<td><{$lang_id}></td>
+		<td width="350"><{$lang_title}></td>
+		<td><{$lang_modified}></td>
+		<td><{$lang_uname}></td>
+		<td><{$lang_order}></td>
+		<td><{$lang_options}></td>
+	</tr>
+	<{foreach item=text from=$texts}>
+	<tr class="<{cycle values="even,odd"}>">
+		<td align="center"><{$text.id}></td>
+		<td width="350"><{$text.title}></td>
+		<td align="center"><{$text.modified}></td>
+		<td><{$text.uname}></td>
+		<td align="center"><input type="text" name="orders[<{$text.id}>]" id="orders[<{$text.id}>]" value="<{$text.order}>" size="1" /></td>
+		<td align="center"><a href="./pages.php?op=edit&amp;id=<{$id}>&amp;sec=<{$id_sec}>&amp;text=<{$text.id}>" ><{$lang_insert}></a> &bull; <a href="./pages.php?op=delete&amp;id=<{$id}>&amp;sec=<{$id_sec}>&amp;text=<{$text.id}>"><{$lang_del}></a> &bull; <{if $text.recommend}><a href="./pages.php?op=recommend&amp;id=<{$id}>&amp;sec=<{$id_sec}>&amp;text=<{$text.id}>" ><{$lang_recommend}></a><{else}><a href="./pages.php?op=norecommend&amp;id=<{$id}>&amp;sec=<{$id_sec}>&amp;text=<{$text.id}>"><{$lang_norecommend}></a><{/if}></td>
+	</tr>
+	<{/foreach}>
+	<tr class="foot">
+		<td align="right"><img src="<{$xoops_url}>/images/root.gif" alt="" /></td>
+		<td colspan="5"><input type="button" class="formButtonOk" value="<{$lang_save}>" onclick="document.forms['frmcont'].op.value='order'; submit();"/></td>
+	</tr>
+</table>
+<{$token}>
+<input type="hidden" name="op" value="" />
+<input type="hidden" name="id" value="<{$id}>" />
+<input type="hidden" name="sec" value="<{$id_sec}>" />
+<input type="hidden" name="text" value="<{$id_text}>" />
+</form>
+
+<{else}>
+	<h3><{$lang_msg}></h3>
+<{/if}>

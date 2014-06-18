@@ -1,0 +1,29 @@
+<{include file="db:ahelp_header.html"}>
+
+<div id="ahelpHome">
+	<a href="./"><{$lang_home}></a> &raquo;<a href="<{$url_doc}><{$id_res}>"><{$lang_indexpublic}></a> &raquo;<{$resource}>
+</div>
+
+<h2><{$resource}></h2>
+
+<h3><strong><{$sec_title}><strong/></h3>
+<table>
+	<{foreach item=item from=$items}>
+	<tr>
+		<td>
+		<{$item.title}><br />
+		<{$item.text}>
+
+		</td>
+	</tr>
+	<{/foreach}>
+</table>
+<br />
+<table width="100%">
+	<tr align="center">
+		<td><{if $item.sec_min || $item.id_min}><{if !$item.id_min}><{if $access==2}><a href="<{$url_idmin}><{$url}><{$item.sec_min}>"><{else}><a href="<{$url_idmin}><{$item.sec_min}>"><{/if}><{else}><{if $access==2}><a href="<{$url_idmin}><{$url}><{$item.id_min}>"><{else}><a href="<{$url_idmin}><{$item.id_min}>"><{/if}><{/if}><strong><{$lang_back}></strong></a><{/if}></td>
+		<td><a href="<{$url_doc}><{$id_res}>"><strong><{$lang_index}></strong></a></td>
+		<td><{if $item.sec_max || $item.id_max}><{if !$item.id_max}><{if $access==2}><a href="<{$url_idmax}><{$url}><{$item.sec_max}>"><{else}><a href="<{$url_idmax}><{$item.sec_max}>"><{/if}><{else}><{if $access==2}><a href="<{$url_idmax}><{$url}><{$item.id_max}>"><{else}><a href="<{$url_idmax}><{$item.id_max}>"><{/if}><{/if}><strong><{$lang_next}></strong></a><{/if}></td>
+	</tr>
+</table><br />
+<{include file="db:ahelp_footer.html"}>

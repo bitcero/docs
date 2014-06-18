@@ -1,0 +1,214 @@
+/**
+* Dashboard
+*/
+.rd_rightleft{
+    overflow: hidden;
+}
+.rd_rightleft .rd_bk_left{
+    float: left;
+    width: 49%;
+}
+.rd_rightleft .rd_bk_right{
+    float: right;
+    width: 49%;
+}
+#rd-top-resources{
+    text-align: center;
+}
+#rd-resume-data{
+    overflow: hidden;
+}
+#rd-resume-data div{
+    padding: 5px;
+    border-bottom: 1px dotted #CCC;
+    font-size: 1.3em;
+}
+#rd-resume-data div strong{
+    font-family: georgia, times, serif;
+    font-size: 1.2em;
+    font-weight: normal;
+}
+#rd-resume-data .left{
+    float: left;
+    width: 48%;
+}
+#rd-resume-data .right{
+    float: right;
+    width: 48%;
+}
+.rd_listres{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.rd_listres li{
+    list-style: none;
+}
+
+
+.rd_loptions{
+    padding: 10px 5px;
+}
+.rmc_pages_navigation_container{
+    float: right;
+}
+#rd-form-container .section_options td{
+    vertical-align: top;
+}
+#rd-form-container .section_options label{
+    display: block;
+    padding: 4px 0;
+}
+#rd-form-container .section_options input[type="text"],
+#rd-form-container .section_options select{
+    width: 94%;
+}
+#rd-form-container .large{
+    width: 99%;
+    font-size: 1.8em;
+}
+#rd-form-container #section-url{
+    padding: 6px 2px;
+}
+#rd-form-container #section-url span{
+    background: #FFFFC0;
+}
+#rd-form-container .info{
+    padding: 5px;
+    text-align: center;
+    margin: 5px 0;
+    background: #FFED97;
+    border: 1px solid #fed22f;
+}
+.rd_large{
+    display: block;
+    width: 98%;
+}
+
+.rd_widget_form label{
+    display: block;
+    cursor: pointer;
+    padding: 5px;
+}
+.rd_widget_form input[type='button'],
+.rd_widget_form input[type='submit']{
+    margin: 5px 0;
+}
+#rd-wd-references,
+#rd-wd-figures{
+    overflow: hidden;
+    position: relative;
+}
+#rd-wd-references ul,
+#rd-wd-figures ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+#rd-wd-references ul li,
+#rd-wd-figures ul li{
+    padding: 2px 2px;
+    border-bottom: 1px dotted #CCC;
+}
+#rd-wd-references ul li a{
+    display: block;
+    background: url(../images/notes.png) no-repeat left;
+    padding: 2px 2px 2px 20px;
+}
+#rd-wd-references .loader,
+#rd-wd-figures .loader{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -32px;
+    margin-left: -16px;
+    display: none;
+}
+#rd-wd-figures ul li a{
+    display: block;
+    background: url(../images/figures.png) no-repeat left;
+    padding: 2px 2px 2px 20px;
+}
+.rd_hidden{
+    display: none;
+}
+#rd_res_search{
+    float: right;
+    padding: 4px 0 0 0;
+}
+#rd_res_search input{
+    width: 100px;
+}
+.rd_column_left{
+    overflow: hidden;
+    width: 30%;
+    float: left;
+}
+.rd_column_right{
+    float: right;
+    width: 69%;
+    float: right;
+}
+.rd_forms label{
+    display: block;
+    font-weight: bold;
+    padding: 4px 0;
+    cursor: pointer;
+}
+.rd_forms input[type='text']{
+    width: 95%;
+}
+.rd_forms textarea{
+    width: 95%;
+    height: 200px;
+}
+.rd_forms input[type='submit']{
+    margin: 5px 0 0 0;
+}
+#rd-figures-editor{
+    display: none;
+    width: 600px;
+    height: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -300px;
+    margin-left: -300px;
+    background: #FFF;
+    border: 2px solid #CCC;
+    padding: 10px;
+}
+
+/** REVIEW **/
+.rd_review_con{
+    overflow: hidden;
+    line-height: 150%;
+}
+.rd_review_con .rd_original{
+    width: 48%;
+    float: left;
+    border-right: 3px solid #CCC;
+    padding: 0 10px 10px 0;
+    margin: 0 10px 0 0;
+}
+.rd_review_con .rd_new{
+    width: 48%;
+    float: left;
+}
+.rd_review_con label{
+    display: block;
+    padding: 4px 0;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+.rd_review_con .title{
+    display: block;
+    padding: 4px 0;
+}
+.rd_review_con .content{
+    overflow: auto;
+    max-height: 450px;
+    border: 1px dotted #CCC;
+    padding: 0px 5px;
+}

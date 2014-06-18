@@ -1,0 +1,18 @@
+<{include file="db:ahelp_header.html"}>
+<{if $what=='figures'}>
+<{foreach item=fig from=$figures}>
+<h3><{$fig.title}></h3>
+<{$fig.content}>
+<br clear="all" />
+<{/foreach}>
+<{else}>
+<ol>
+<{foreach item=ref from=$references}>
+<li>
+<h3><{$ref.title}></h3>
+<{$ref.content}>
+<br clear="all" />
+</li>
+<{/foreach}>
+</ol>
+<{/if}>

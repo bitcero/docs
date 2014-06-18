@@ -1,0 +1,22 @@
+body{
+    font-family: Arial, helvetica, sans-serfi;
+    font-size: 12px;
+    line-height: 150%;
+    text-align: justify;
+    background: #FFF;
+    color: #000;
+    margin: 20px;
+}
+a img{
+    border: 0;
+}
+.even, tr.even{
+    padding: 3px;
+}
+.odd, tr.odd{
+    padding: 3px;
+    background: #ebebeb;
+}
+#rd-header{
+    display: none;
+}

@@ -1,0 +1,99 @@
+<?php
+// $Id: tc_replacements.php 821 2011-12-08 23:46:19Z i.bitcero $
+// --------------------------------------------------------------
+// RapidDocs
+// Documentation system for Xoops.
+// Author: Eduardo Cortés <i.bitcero@gmail.com>
+// Email: i.bitcero@gmail.com
+// License: GPL 2.0
+// --------------------------------------------------------------
+
+function generate_res_index($matches){
+    global $xoopsModuleConfig;
+    
+    switch($matches[0]){
+        case '[RD_RESINDEX]':
+            if(defined('RESINDEX_ALL'))
+                return '';
+            
+            define('RESINDEX_ALL', 1);
+            return RDFunctions::resources_index('all', $xoopsModuleConfig['display_type'], $xoopsModuleConfig['index_cols'], $xoopsModuleConfig['index_num']);
+            break;
+            
+        case '[RD_FEATINDEX]':
+            if(defined('RESINDEX_FEATURED'))
+                return '';
+            
+            define('RESINDEX_FEATURED', 1);
+            return RDFunctions::resources_index('featured', $xoopsModuleConfig['display_type'], $xoopsModuleConfig['index_cols'], $xoopsModuleConfig['index_num']);
+            break;
+            
+    } 
+}
+
+/**
+* Build a note or reference
+* 
+* @param int ID of note
+*/
+function rd_build_note($id){
+    global $xoopsModuleConfig;
+    
+    static $note_number = 1;
+    $ref = new RDReference($id);
+    if ($ref->isNew()) return;
+    
+    $tpl = RMTemplate::get();
+    
+    $rep = array('<p>','</p>');
+    $tpl->append('references', array('id'=>$ref->id(),'text'=>str_replace($rep, '', $ref->getVar('text'))));
+    
+    $ret = "<a name='top$note_number'></a><sup><a class='note-link' href='#note-$note_number' title='".$ref->getVar('title')."'>";
+    $ret .= "$note_number</a></sup>";
+    
+    $note_number++;
+    
+    return $ret;
+}
+
+/**
+* Build a figure
+* 
+* @param int ID of figure
+* @return string
+*/
+function rd_build_figure($id){
+    
+    if ($id<=0) return;
+    
+    $fig = new RDFigure($id);
+    if ($fig->isNew()) return;
+    
+    ob_start();
+    include RMEvents::get()->run_event('docs.template.build.figure', RMTemplate::get()->get_template('specials/rd_figure.php', 'module', 'docs'));
+    $ret = ob_get_clean();
+    return $ret;
+    
+}
+
+/**
+* Generate a Table of Contents for an specific section
+*/
+function rd_generate_toc(){
+    
+    $id = rmc_server_var($_GET, 'id', 0);
+    $number = rmc_server_var($GLOBALS, 'rd_section_number', 0);
+    
+    if($id<=0) return;
+    
+    $sec = new RDSection($id);
+    if($sec->isNew()) return;
+    
+    $toc = RDFunctions::get_section_tree($id, new RDResource($sec->getVar('id_res')), $number);
+    
+    ob_start();
+    include RMEvents::get()->run_event('docs.template.toc', RMTemplate::get()->get_template('specials/rd_toc.php', 'module', 'docs'));
+    $ret = ob_get_clean();
+    return $ret;
+    
+}

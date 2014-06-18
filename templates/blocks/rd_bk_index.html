@@ -1,0 +1,18 @@
+<ul class="rd_block_list">
+<{foreach item=section from=$block.sections}>
+<li<{if $section.jump>0}> style="padding-left: 10px;"<{/if}>>
+	<{if $section.jump<=0}><strong><{/if}>
+	<{if $section.jump==0 && $section.nameid!=$block.section}>
+		<{assign var='switch' value=1}>
+	<{elseif $section.jump==0 && $section.nameid==$block.section}>
+		<{assign var='switch' value=0}>
+	<{/if}>
+	<{if $section.nameid==''}>
+		<{$section.number}> <{$section.title}>
+	<{else}>
+		<a href="<{$section.link}>"><{$section.number}> <{$section.title}></a>
+	<{/if}>
+	<{if $section.jump<=0}></strong><{/if}>
+</li>
+<{/foreach}>
+</ul>

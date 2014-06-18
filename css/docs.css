@@ -1,0 +1,136 @@
+.rd_res_description{}
+
+#rd-toc{
+    list-style: none;
+    padding: 0 0 0 10px;
+}
+#rd-toc li{
+    list-style: none;
+}
+
+.rd_item_options{
+    display: block;
+    float: right;
+    padding: 10px 0 0 0;
+    font-size: 0.9em;
+}
+.rd_notes{
+    padding: 10px 0 0 0;
+    margin: 10px 0 0 0;
+    border-top: 1px solid #CCC;
+}
+.rd_notes ol{em;
+    font-size: 0.9em;
+}
+.rd_nav_links{
+    border-top: 1px solid #CCC;
+    padding: 5px 0;
+    margin: 10px 0 3px 0;
+    font-size: 0.9em;
+    overflow: hidden;
+}
+.rd_nav_links .left{
+    float: left;
+    display: block;
+}
+.rd_nav_links .right{
+    float: right;
+    display: block;
+}
+.rd_nav_links .rd_toc{
+    display: block;
+    clear: both;
+    padding: 4px 0 2px 0;
+    text-align: center;
+}
+.rd_section_data{
+    padding: 2px 0;
+    font-size: 0.9em;
+    overflow: hidden;
+}
+.rd_section_data .left{
+    float: left;
+}
+.rd_section_data .right{
+    float: right;
+    text-align: right;
+}
+/** TOC **/
+.rd_toc_section{
+    border: 1px solid #CCC;
+    padding: 15px;
+    float: left;
+    margin: 10px 0;
+}
+.rd_toc_section h3{
+    margin: 0 0 10px 0;
+}
+.rd_toc_section ul{
+    list-style: none;
+    padding: 0;
+}
+/** Figures **/
+.rd_figure_title{
+    padding: 4px;
+    font-weight: bold;
+    font-size: 0.9em;
+    text-align: center;
+}
+.rd_figure_content{
+    padding: 4px;
+}
+.rd_figure_content p{
+    margin: 0;
+}
+.rd_figure_foot{
+    font-size: 0.9em;
+    padding: 4px;
+    text-align: center;
+}
+.figure_center{
+    padding: 1px;
+    border: 1px solid #CCC;
+}
+.figure_left{
+    float: left;
+    border: 1px solid #CCC;
+    padding: 1px;
+    margin: 3px 5px 5px 0;
+}
+.figure_right{
+    float: right;
+    border: 1px solid #CCC;
+    padding: 1px;
+    margin: 3px 0 5px 5px;
+}
+
+/** Search **/
+.rd_search_item{
+    padding: 8px;
+    border-bottom: 1px dotted #CCC;
+}
+.rd_search_item h4{
+    margin: 0 0 3px 0;
+    padding: 0;
+    font-size: 1.3em;
+}
+.rd_search_item .rd_info{
+    font-size: 0.85em;
+    display: block;
+    padding: 2px 0;
+}
+
+/** Header **/
+#rd-header{
+    padding: 4px;
+    font-size: 0.9em;
+    overflow: hidden;
+    border-bottom: 1px solid #CCC;
+}
+#rd-header .right{
+    float: right;
+}
+.rmc_pages_navigation_container{
+    margin: 10px 0;
+}
+

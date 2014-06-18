@@ -1,0 +1,32 @@
+#rd-news{
+    padding: 5px;
+    overflow: hidden;
+    font-size: 0.9em;
+}
+.news_item{
+    padding: 0 0 8px 0;
+    margin-bottom: 5px;
+    border-bottom: 1px dotted #CCC;
+    overflow: hidden;
+}
+#rd-news .news_item:last-child{
+    border-bottom: none;
+}
+.news_item h3{
+    margin: 0 0 10px 0;
+}
+.news_item a.thumb img{
+    float: left;
+    margin: 0 5px 2px 0;
+    padding: 1px;
+    border: 1px solid #CCC;
+    width: 60px;
+}
+.news_item .news_content{
+    line-height: 150%;
+    color: #444;
+}
+.news_item .link{
+    display: block;
+    margin: 10px 0 0 0;
+}

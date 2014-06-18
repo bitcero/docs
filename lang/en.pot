@@ -1,0 +1,1737 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: RapidDocs\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-01-06 02:48-0600\n"
+"PO-Revision-Date: 2012-01-06 02:48-0600\n"
+"Last-Translator: Eduardo Cortés <i.bitcero@gmail.com>\n"
+"Language-Team: Red Mexico <i.bitcero@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-Country: UNITED KINGDOM\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SearchPath-0: C:\\wamp\\www\\cu\\modules\\docs\n"
+
+#: C:\wamp\www\cu\modules\docs/content.php:221
+msgid "This content is not available!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/content.php:226
+msgid "You are not allowed to read this content!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/edit.php:14
+#: C:\wamp\www\cu\modules\docs/edit.php:48
+#: C:\wamp\www\cu\modules\docs/edit.php:105
+#: C:\wamp\www\cu\modules\docs/edit.php:171
+#: C:\wamp\www\cu\modules\docs/edit.php:178
+msgid "Operation not allowed!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/edit.php:40
+#: C:\wamp\www\cu\modules\docs/edit.php:97
+#: C:\wamp\www\cu\modules\docs/edit.php:216
+msgid "Specified section does not exists!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/edit.php:57
+#, php-format
+msgid "Manage Document \"%s\""
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/edit.php:63
+#, php-format
+msgid "Pages in %s"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/edit.php:146
+#, php-format
+msgid "Editing \"%s\""
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/edit.php:148
+msgid "Create new section"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/edit.php:185
+msgid "This Document has not been approved yet!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/edit.php:200
+msgid "You can not edit this content!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/edit.php:209
+msgid "Specified section is not valid!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/edit.php:224
+msgid "Already exists another section with same title!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/edit.php:307
+msgid "Section could not be saved!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/edit.php:315
+#: C:\wamp\www\cu\modules\docs/edit.php:317
+#: C:\wamp\www\cu\modules\docs/edit.php:319
+#: C:\wamp\www\cu\modules\docs/figures.php:263
+msgid "Database updated successfully!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/edit.php:340
+#: C:\wamp\www\cu\modules\docs/figures.php:217
+#: C:\wamp\www\cu\modules\docs/figures.php:281
+#: C:\wamp\www\cu\modules\docs/publish.php:87
+#: C:\wamp\www\cu\modules\docs/references.php:177
+#: C:\wamp\www\cu\modules\docs/references.php:252
+#: C:\wamp\www\cu\modules\docs/admin/figures.php:175
+#: C:\wamp\www\cu\modules\docs/admin/figures.php:235
+msgid "Session token expired!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/edit.php:345
+msgid "Sorry, the data provided contains some errors!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/edit.php:361
+#, php-format
+msgid "Order could not be saved for section %s"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/edit.php:367
+msgid "Errors ocurred while trying to update orders"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/edit.php:369
+msgid "Sections updated successfully!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/figures.php:28
+#: C:\wamp\www\cu\modules\docs/figures.php:34
+#: C:\wamp\www\cu\modules\docs/references.php:28
+#: C:\wamp\www\cu\modules\docs/references.php:34
+msgid "You are not allowed to view this page"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/figures.php:128
+#: C:\wamp\www\cu\modules\docs/references.php:141
+msgid "Select Document"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/figures.php:131
+msgid "Select another Document to show the figures that belong to this."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/figures.php:134
+#: C:\wamp\www\cu\modules\docs/admin/figures.php:107
+#: C:\wamp\www\cu\modules\docs/admin/figures.php:137
+msgid "Create Figure"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/figures.php:137
+msgid "Create a new figure"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/figures.php:165
+msgid "A Document has not been specified!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/figures.php:172
+msgid "No figure has been specified"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/figures.php:179
+msgid "Sepecified figure does not exists"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/figures.php:223
+msgid "No Document has been selected!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/figures.php:230
+#: C:\wamp\www\cu\modules\docs/references.php:190
+#: C:\wamp\www\cu\modules\docs/admin/figures.php:29
+#: C:\wamp\www\cu\modules\docs/admin/figures.php:119
+msgid "Specified Document does not exists!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/figures.php:238
+msgid "No figure has been selected!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/figures.php:245
+#: C:\wamp\www\cu\modules\docs/admin/figures.php:131
+#: C:\wamp\www\cu\modules\docs/admin/figures.php:189
+msgid "Specified figure does not exists!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/figures.php:261
+msgid "Database could not be updated!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/figures.php:286
+msgid "Select a figure to delete!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/figures.php:294
+msgid "Errores ocurred while trying to delete figures."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/figures.php:296
+#: C:\wamp\www\cu\modules\docs/admin/figures.php:246
+msgid "Figures deleted successfully!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/publish.php:23
+msgid "The creation of new Documents has been disabled by administrator."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/publish.php:30
+msgid "You can not create Documents."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/publish.php:34
+#: C:\wamp\www\cu\modules\docs/publish.php:36
+msgid "Create Document"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/publish.php:38
+msgid "Document title"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/publish.php:39
+#: C:\wamp\www\cu\modules\docs/admin/figures.php:140
+msgid "Description"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/publish.php:42
+msgid "Editors"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/publish.php:45
+msgid "Groups that can read Document"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/publish.php:46
+msgid "Quick index"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/publish.php:47
+msgid "Show index to restricted users"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/publish.php:48
+msgid "Show content in a single page"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/publish.php:50
+msgid "Approved"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/publish.php:50
+msgid "Inmediatly"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/publish.php:50
+msgid "Wait for approval"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/publish.php:53
+msgid "Publish Document"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/publish.php:96
+msgid "Already exists a Document with same name!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/publish.php:133
+msgid "Document could not be created!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/publish.php:139
+msgid "New Document created at RapidDocs is waiting for approval"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/publish.php:146
+msgid "Your Document has been created, however the email to administrator could no be sent."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/publish.php:149
+msgid "Your Document has been created and is pending for approval. We will sent an email when you can access to it and add content."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/publish.php:160
+msgid "Document created successfully!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/references.php:109
+msgid "A note has not been specified!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/references.php:114
+#: C:\wamp\www\cu\modules\docs/references.php:202
+msgid "Specified note does not exists!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/references.php:144
+msgid "Select another Document to show the notes that belong to this."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/references.php:147
+msgid "Create Note"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/references.php:150
+msgid "Create a new note."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/references.php:183
+msgid "Document ID not provided!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/references.php:197
+msgid "Note id not provided!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/references.php:210
+#: C:\wamp\www\cu\modules\docs/references.php:220
+msgid "Another note with same title already exists"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/references.php:231
+msgid "Note saved successfully"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/references.php:234
+msgid "Errors ocurred while trying to save note"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/references.php:257
+msgid "Select a note to delete!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/references.php:265
+msgid "Errores ocurred while trying to delete notes."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/references.php:267
+msgid "Notes deleted successfully!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/resource.php:31
+msgid "Sorry, this Document does not exists!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/resource.php:38
+#: C:\wamp\www\cu\modules\docs/resource.php:43
+msgid "Sorry, you are not authorized to view this Document"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/search.php:52
+#: C:\wamp\www\cu\modules\docs/search.php:106
+msgid "Browsing recent Documents"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/search.php:57
+msgid "Recent Documents"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/search.php:57
+msgid "Top Documents"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/search.php:111
+#, php-format
+msgid "Search results for \"%s\""
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/xoops_version.php:15
+#: C:\wamp\www\cu\modules\docs/xoops_version.php:17
+msgid "RapidDocs"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/xoops_version.php:16
+msgid "Create documentation in Xoops, quicky and an advanced way."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/xoops_version.php:67
+msgid "PHP Default"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/xoops_version.php:67
+msgid "Name based"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/xoops_version.php:96
+msgid "As list"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/xoops_version.php:96
+msgid "As table"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/xoops_version.php:175
+msgid "Documents"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/xoops_version.php:176
+msgid "List of Documents"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/xoops_version.php:185
+msgid "Document TOC"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/xoops_version.php:186
+msgid "Table of content for a specific Document"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/edits.php:49
+msgid "%M% %d%, %Y%"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/edits.php:54
+#: C:\wamp\www\cu\modules\docs/admin/edits.php:108
+#: C:\wamp\www\cu\modules\docs/admin/edits.php:275
+msgid "Waiting Content"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/edits.php:76
+msgid "You have not specified any section!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/edits.php:82
+#: C:\wamp\www\cu\modules\docs/admin/edits.php:234
+msgid "Specified content does not exists!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/edits.php:88
+msgid "The section indicated by current element does not exists!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/edits.php:108
+#: C:\wamp\www\cu\modules\docs/admin/edits.php:275
+#, php-format
+msgid "Editing %s"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/edits.php:228
+msgid "You have not specified any waiting section!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/edits.php:240
+msgid "This waiting content does not have any section assigned!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/edits.php:246
+#: C:\wamp\www\cu\modules\docs/admin/edits.php:278
+msgid "Editing Waiting Content"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/edits.php:247
+msgid "Belong to"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/edits.php:248
+#: C:\wamp\www\cu\modules\docs/admin/figures.php:139
+msgid "Title"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/edits.php:249
+msgid "Contenido"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/edits.php:252
+msgid "Parent Section"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/edits.php:253
+msgid "Select section..."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/edits.php:262
+msgid "Display order"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/edits.php:264
+msgid "Owner"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/edits.php:267
+msgid "Save Now"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/edits.php:268
+#: C:\wamp\www\cu\modules\docs/admin/figures.php:148
+msgid "Cancel"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/figures.php:24
+msgid "First select a Document to view the figures."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/figures.php:85
+#, php-format
+msgid "Figures in %s"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/figures.php:88
+#: C:\wamp\www\cu\modules\docs/admin/figures.php:229
+msgid "You have not selected any figure!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/figures.php:89
+msgid "Do you really wish to delete selected figures?"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/figures.php:91
+msgid "Figures"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/figures.php:107
+msgid "Edit Figure"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/figures.php:114
+msgid "First select a Document to manage the figures."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/figures.php:125
+msgid "You have not specified a figure to edit!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/figures.php:137
+msgid "Editing Figure"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/figures.php:141
+msgid "Content"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/figures.php:143
+msgid "Attributes"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/figures.php:147
+msgid "Save Changes"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/figures.php:147
+msgid "Save Figure"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/figures.php:182
+msgid "Figure id not specified!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/figures.php:205
+msgid "Figure saved successfully!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/figures.php:208
+msgid "Figure could not be saved!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/figures.php:244
+msgid "Figures could not be deleted!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/hpage.php:16
+#: C:\wamp\www\cu\modules\docs/admin/menu.php:26
+#: C:\wamp\www\cu\modules\docs/class/rdfunctions.php:449
+msgid "Home Page"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/hpage.php:39
+msgid "Page saved successfully!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/hpage.php:41
+msgid "Page could not be saved!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/menu.php:20
+#: C:\wamp\www\cu\modules\docs/class/rdfunctions.php:14
+msgid "Dashboard"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/menu.php:37
+msgid "All Documents"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/menu.php:38
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:118
+msgid "New Document"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/menu.php:39
+msgid "Drafts"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/menu.php:43
+#: C:\wamp\www\cu\modules\docs/class/rdfunctions.php:16
+msgid "Sections"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/menu.php:48
+msgid "All sections"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/menu.php:49
+msgid "New section"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/menu.php:53
+#: C:\wamp\www\cu\modules\docs/class/rdfunctions.php:17
+msgid "Notes"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/menu.php:58
+msgid "All notes"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/menu.php:67
+msgid "All figures"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/menu.php:68
+msgid "New figure"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/menu.php:72
+msgid "Waiting"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/notes.php:24
+msgid "Select a Document to view notes from this"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/notes.php:30
+#: C:\wamp\www\cu\modules\docs/admin/sections.php:59
+msgid "The specified Document does not exists!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/notes.php:86
+#, php-format
+msgid "Notes in %s"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/notes.php:89
+msgid "You have not selected any note!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/notes.php:90
+msgid "Do you really wish to delete selected notes?"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/notes.php:92
+msgid "References"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/notes.php:107
+#: C:\wamp\www\cu\modules\docs/admin/notes.php:108
+msgid "Editing Note"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/notes.php:115
+msgid "Document not specified"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/notes.php:126
+msgid "Note not specified"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/notes.php:138
+msgid "Edit Note"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/notes.php:181
+msgid "Note id not specified!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/notes.php:202
+msgid "Already exists a note with same title"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/notes.php:211
+msgid "Note saved successfully!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/notes.php:214
+msgid "Note could not be saved!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/notes.php:235
+msgid "No note selected!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/notes.php:241
+msgid "Session token expired"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/notes.php:250
+msgid "Notes could not be deleted!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:75
+msgid "Do you really wish to delete selected Documents?"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:76
+msgid "You must select an element before to do this action!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:96
+msgid "Editing Document"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:105
+msgid "You must provide an ID from some Document to edit!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:118
+#, php-format
+msgid "Edit Document: %s"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:121
+msgid "Document slug"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:127
+msgid "Document owner"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:129
+msgid "Approve content and changes by editors"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:130
+msgid "Groups that can see this Document"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:131
+msgid "Set as public"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:137
+msgid "Featured"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:138
+msgid "Approve inmediatly"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:140
+msgid "When you enable this option the Document content will show in a single page."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:143
+msgid "Update Document"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:188
+msgid "You must provide a valid Document ID"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:203
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:213
+msgid "A Document with same title exists already!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:260
+msgid "Document could not be saved!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:279
+msgid "Document saved successfully!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:294
+msgid "Select at least one document to delete!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:307
+#, php-format
+msgid "\"%s\" is not a valid Document ID"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:313
+#, php-format
+msgid "Document with ID \"%s\" does not exists"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:318
+#, php-format
+msgid "Document \"%s\" could not be deleted!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:324
+msgid "Errors ocurred while deleting documents"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:326
+msgid "Documents deleted susccessfully!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:347
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:398
+msgid "You must select at least a single Document!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:356
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:407
+#, php-format
+msgid "Provided Document ID \"%s\" is not valid!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:363
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:414
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:484
+#, php-format
+msgid "Document with ID \"%s\" does not exists!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:369
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:420
+#, php-format
+msgid "Document \"%s\" could not be updated!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:374
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:425
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:502
+msgid "Errors ocurred while trying to update resources."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:377
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:428
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:504
+msgid "Documents updated successfully!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:446
+msgid "Database coould not be updated!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:468
+msgid "Select at least a Document!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:477
+#, php-format
+msgid "Document ID \"%s\" is not valid!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:492
+#, php-format
+msgid "Resoource \"%s\" could not be saved!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/resources.php:495
+msgid "Notification email could not be sent!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/sections.php:53
+msgid "Select a Document to see the sections inside this"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/sections.php:84
+#: C:\wamp\www\cu\modules\docs/admin/sections.php:85
+msgid "Sections Management"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/sections.php:110
+msgid "You must select a Document in order to create a new section"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/sections.php:129
+msgid "Specify a section to edit"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/sections.php:136
+msgid "Specified section does not exists"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/sections.php:164
+#: C:\wamp\www\cu\modules\docs/admin/sections.php:165
+msgid "Edit Section"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/sections.php:164
+#: C:\wamp\www\cu\modules\docs/admin/sections.php:165
+msgid "Create Section"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/sections.php:191
+msgid "A Document was not specified!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/sections.php:207
+msgid "No section has been specified"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/sections.php:214
+msgid "Section does not exists!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/sections.php:292
+msgid "Sections has been saved but some errors ocurred"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/sections.php:321
+msgid "You have not specify a Document id"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/sections.php:333
+msgid "You have not specified a section ID to delete!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/sections.php:344
+msgid "Errors ocurred while trying to delete sections!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/sections.php:347
+msgid "Sections deleted successfully!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/sections.php:389
+msgid "Data not valid!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/admin/sections.php:406
+msgid "Sections positions saved!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/blocks/rd_resources.php:54
+#, php-format
+msgid "Created by %s"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/blocks/rd_resources.php:55
+#, php-format
+msgid "Viewed %s times"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/blocks/rd_resources.php:71
+msgid "Block type:"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/blocks/rd_resources.php:80
+msgid "Number of documents:"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/blocks/rd_resources.php:84
+msgid "Show description"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/blocks/rd_resources.php:91
+msgid "Description length:"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/blocks/rd_resources.php:91
+msgid "If you wish to show all description, then specify the length as \"0\"."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/class/docscontroller.php:61
+#: C:\wamp\www\cu\modules\docs/class/docscontroller.php:75
+#: C:\wamp\www\cu\modules\docs/class/docscontroller.php:91
+#: C:\wamp\www\cu\modules\docs/class/docscontroller.php:109
+msgid "Unknow element"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/class/rdfunctions.php:39
+#, php-format
+msgid "Publication <%s> approved!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/class/rdfunctions.php:341
+msgid "ERROR 404. Document not Found"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/events/rmcommon.php:64
+msgid "Notes & References"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/events/rmcommon.php:90
+msgid "Insert notes & references"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/events/rmcommon.php:97
+msgid "Insert figures"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/events/rmcommon.php:103
+msgid "Insert Table Of Contents"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/events/rmcommon.php:115
+#: C:\wamp\www\cu\modules\docs/events/rmcommon.php:116
+#: C:\wamp\www\cu\modules\docs/events/rmcommon.php:140
+msgid "Documents Index"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/events/rmcommon.php:121
+msgid "Insert Documents Index"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/events/rmcommon.php:153
+#: C:\wamp\www\cu\modules\docs/events/rmcommon.php:251
+#: C:\wamp\www\cu\modules\docs/events/rmcommon.php:310
+msgid "Featured Documents"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/include/admin_widgets.php:24
+msgid "Section Options"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/include/admin_widgets.php:32
+msgid "Save and return"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/include/admin_widgets.php:34
+msgid "Save Section"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/include/admin_widgets.php:35
+msgid "Discard Section"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/include/admin_widgets.php:49
+msgid "Notes &amp; References"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/include/admin_widgets.php:62
+msgid "There are not exists references for this Document yet!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/include/admin_widgets.php:84
+msgid "Document Figures"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/include/admin_widgets.php:97
+msgid "There are not exists figures for this Document yet!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/include/admin_widgets.php:121
+msgid "New Note"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/include/admin_widgets.php:126
+#: C:\wamp\www\cu\modules\docs/templates/rd_figures.php:120
+msgid "Title:"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/include/admin_widgets.php:128
+msgid "Content:"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/language/english/modinfo.php:13
+msgid "Display method for documents index"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/language/english/modinfo.php:14
+msgid "Choose the method that you wish to use when display the documents index. This option affects to All, Recent and Featured index of documents."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/language/english/modinfo.php:15
+msgid "Subdomain on which RapidDocs will be used"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/language/english/modinfo.php:16
+msgid "You can specify a subdomain if your htaccess file has been configured for it (e.g. http://docs.xoops.org)."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/language/english/modinfo.php:17
+msgid "URLs mode:"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/language/english/modinfo.php:18
+msgid "This options indicate the way in which RapidDocs will generate the URLs for documents."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/language/english/modinfo.php:19
+msgid "Base path for URLs"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/language/english/modinfo.php:20
+msgid "Indicate the base path used to generate URLs (eg. /docs)."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/language/english/modinfo.php:21
+msgid "Number of columns for index"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/language/english/modinfo.php:22
+msgid "This option is used only when selected display method is \"as list\""
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/language/english/modinfo.php:23
+msgid "Number of documents in the index"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/language/english/modinfo.php:24
+msgid "This is the limit for documents displayed in index"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/language/english/modinfo.php:25
+msgid "Groups with authorization to create new documents"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/language/english/modinfo.php:26
+msgid "Select the groups that you wish to authorize to create new documents."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/language/english/modinfo.php:27
+msgid "Allow the creation of new documents"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/language/english/modinfo.php:28
+msgid "Auto approve documents created for authorized users"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_figures.php:6
+#: C:\wamp\www\cu\modules\docs/templates/rd_notes_and_refs.php:2
+msgid "Notes and References"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_figures.php:52
+msgid "Search:"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_figures.php:54
+msgid "Go"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_figures.php:64
+#: C:\wamp\www\cu\modules\docs/templates/rd_figures.php:87
+msgid "Options"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_figures.php:81
+msgid "Existing Figures"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_figures.php:85
+msgid "Id"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_figures.php:95
+msgid "Insert"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_figures.php:96
+#: C:\wamp\www\cu\modules\docs/templates/rd_item.php:4
+msgid "Edit"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_figures.php:102
+msgid "Delete"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_figures.php:103
+msgid "Close Window"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_figures.php:113
+msgid "Wait a second..."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_figures.php:119
+msgid "Document:"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_figures.php:122
+msgid "Description:"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_figures.php:124
+msgid "Description is a required attribute!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_figures.php:126
+msgid "You must input the content for this figure!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_figures.php:127
+msgid "Atributes:"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_figures.php:129
+msgid "Here you can specify another atributes to include with the figure. You can specify a css class name, or an id for figure."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_header.php:9
+msgid "Search"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_item.php:3
+msgid "Top"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_quickindex.php:2
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_resources.php:95
+msgid "Quick Index"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_references.php:59
+msgid "Existing notes and references"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_references.php:63
+#: C:\wamp\www\cu\modules\docs/templates/rd_viewsec.php:11
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_figures.php:28
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_figures.php:36
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_notes.php:28
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_notes.php:36
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_resources.php:34
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_resources.php:47
+msgid "ID"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_references.php:70
+msgid "Notes was not found."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_references.php:73
+msgid "Select Document first"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_references.php:76
+msgid "Create new note"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_references.php:95
+msgid "Do you really wish to delet selected notes?"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_references.php:96
+msgid "Close"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_resall.php:15
+#: C:\wamp\www\cu\modules\docs/templates/rd_section.php:32
+msgid "Create PDF Book"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_resall.php:16
+#: C:\wamp\www\cu\modules\docs/templates/rd_section.php:34
+msgid "Print Book"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_resall.php:22
+#: C:\wamp\www\cu\modules\docs/templates/rd_section.php:41
+#, php-format
+msgid "Published at %s."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_resall.php:23
+#: C:\wamp\www\cu\modules\docs/templates/rd_section.php:42
+#, php-format
+msgid "Modified by last time at %s."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_resall.php:24
+#: C:\wamp\www\cu\modules\docs/templates/rd_section.php:43
+#, php-format
+msgid "Edited by %s."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_resall.php:25
+#: C:\wamp\www\cu\modules\docs/templates/rd_section.php:44
+#, php-format
+msgid "Read %s times."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_resall.php:34
+#: C:\wamp\www\cu\modules\docs/templates/rd_section.php:55
+msgid "Comments"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_resindextoc.php:5
+#: C:\wamp\www\cu\modules\docs/templates/rd_section.php:16
+#: C:\wamp\www\cu\modules\docs/templates/rd_section.php:22
+#: C:\wamp\www\cu\modules\docs/templates/rd_section.php:26
+msgid "Table of Contents"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_search.php:4
+#, php-format
+msgid "Results for \"%s\""
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_search.php:16
+#, php-format
+msgid "%s by %s."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_search.php:16
+msgid "Created on %M% %d%, %Y%."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_search.php:17
+#, php-format
+msgid "Viewed %s times."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_sec.php:3
+msgid "Edit Page"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_sec.php:3
+msgid "New Page"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_sec.php:7
+msgid "Document"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_sec.php:12
+msgid "Parent"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_sec.php:14
+msgid "Select parent..."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_sec.php:23
+msgid "Custom Fields"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_sec.php:27
+#: C:\wamp\www\cu\modules\docs/templates/rd_sec.php:44
+msgid "Name"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_sec.php:28
+#: C:\wamp\www\cu\modules\docs/templates/rd_sec.php:45
+msgid "Value"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_sec.php:41
+msgid "Add new field:"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_sec.php:52
+msgid "- Select -"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_sec.php:58
+msgid "Enter New"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_sec.php:65
+msgid "Please provide a value for this meta field"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_sec.php:71
+msgid "Add custom field"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_sec.php:75
+msgid "Custom fields can be used to add extra metadata to a post that you can use in your theme."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_sec.php:82
+msgid "Save and return to content"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_sec.php:83
+msgid "Save and return to form"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_sec.php:84
+msgid "Save and return to list"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_sec.php:86
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_homepage.php:11
+msgid "Save Page"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_section.php:33
+msgid "Generate PDF"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_section.php:35
+msgid "Print Section"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_viewsec.php:5
+msgid "New Section"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_viewsec.php:8
+msgid "Existing Sections"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_viewsec.php:13
+msgid "Order"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/rd_viewsec.php:28
+msgid "Save Orders"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_figures.php:3
+msgid "Search Figures:"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_figures.php:14
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_figures.php:66
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_notes.php:15
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_notes.php:66
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_resources.php:17
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_resources.php:104
+msgid "Bulk actions..."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_figures.php:17
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_figures.php:69
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_notes.php:18
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_notes.php:69
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_resources.php:26
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_resources.php:113
+msgid "Apply"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_figures.php:19
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_notes.php:20
+msgid "Choose another Document"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_figures.php:20
+msgid "All Figures"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_figures.php:21
+msgid "New Figure"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_figures.php:44
+msgid "There are not figures created for this Document."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_homepage.php:1
+msgid "Home Page Editor"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_homepage.php:3
+msgid "You can edit and customize the home page for RapidDocs."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_homepage.php:5
+msgid "Add your own content and include Documents to integrate the home page with your site."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_index.php:9
+msgid "Documents by popularity"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_index.php:30
+msgid "Sections by comments"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_index.php:65
+msgid "RapidDocs Resume"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_index.php:67
+#, php-format
+msgid "%s Documents"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_index.php:68
+#, php-format
+msgid "%s Sections"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_index.php:70
+#, php-format
+msgid "%s Figures"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_index.php:71
+#, php-format
+msgid "%s Notes & References"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_index.php:78
+msgid "Documents waiting for approval"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_index.php:92
+msgid "No Published Documents"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_index.php:114
+msgid "There are not documents to show here."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_index.php:120
+msgid "RapidDocs News"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_notes.php:3
+msgid "Search Notes:"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_notes.php:21
+msgid "All Notes"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_notes.php:44
+msgid "There are not notes created for this Document."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_resources.php:3
+msgid "Search Documents:"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_resources.php:8
+#, php-format
+msgid "Documents: results for \"%s\""
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_resources.php:10
+msgid "Available Documents"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_resources.php:18
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_resources.php:105
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_reviewedit.php:26
+msgid "Approve"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_resources.php:19
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_resources.php:106
+msgid "Draft"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_resources.php:21
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_resources.php:108
+msgid "Set as private"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_resources.php:22
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_resources.php:109
+msgid "Enable quick index"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_resources.php:23
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_resources.php:110
+msgid "Disable quick index"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_resources.php:28
+msgid "Show All"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_resources.php:37
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_resources.php:50
+msgid "Created"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_resources.php:68
+msgid "Not featured"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_resources.php:74
+msgid "View Sections"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_resources.php:80
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_resources.php:82
+msgid "View Notes"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_resources.php:86
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_resources.php:88
+msgid "View Figures"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_resources.php:94
+msgid "Published"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_reviewedit.php:1
+msgid "Reviewing Modifications"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_reviewedit.php:5
+msgid "Original Data"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_reviewedit.php:7
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_reviewedit.php:20
+msgid "Section Title:"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_reviewedit.php:9
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_reviewedit.php:22
+msgid "Section Content:"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_reviewedit.php:13
+msgid "View Section"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_reviewedit.php:18
+msgid "New Data"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_reviewedit.php:28
+msgid "Discard"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_sections.php:11
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_sections.php:82
+#, php-format
+msgid "Do you really wish to delete %s?"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_sections.php:12
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_sections.php:83
+msgid "Add Section"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_sections.php:39
+#, php-format
+msgid "Sections in %s"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_sections.php:44
+msgid "List Sections"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_sections.php:46
+msgid "Sort Sections"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_sections.php:54
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_sections.php:63
+msgid "Author"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_sections.php:56
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_sections.php:65
+msgid "Updated"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_sections.php:72
+msgid "There are not sections created in this document!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_sections.php:99
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_sections.php:108
+msgid "Save Positions"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_sections.php:115
+msgid "Saving"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_sections.php:115
+msgid "..."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_sections_form.php:5
+msgid "You must provide a title for this section!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_sections_form.php:19
+msgid "Remember to save this section in order to activate all options."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_sections_form.php:27
+msgid "Section Author:"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_sections_form.php:35
+msgid "Sections Options"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_sections_form.php:38
+msgid "Parent section:"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_sections_form.php:40
+msgid "Select..."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_sections_form.php:47
+msgid "Display order:"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_waiting.php:2
+msgid "Select at least one element before to do this action!"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_waiting.php:3
+msgid "Do you really wish to delete selected items?"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_waiting.php:7
+msgid "Next are the edited sections waiting for approve and revision. Please, be carefull with content to prevent spam or another inconvenniences."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_waiting.php:25
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_waiting.php:34
+msgid "Section"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_waiting.php:26
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_waiting.php:35
+msgid "New Title"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_waiting.php:27
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_waiting.php:36
+msgid "Modified"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_waiting.php:28
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_waiting.php:37
+msgid "Edited by"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_waiting.php:43
+msgid "There are not waiting contents at this time"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/admin/rd_waiting.php:55
+msgid "Review"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/mail/resource_approved.php:4
+#, php-format
+msgid "This is an automatic email message sent from %s site."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/mail/resource_approved.php:7
+#, php-format
+msgid "Your Document \"%s\" has been approved and now is visible for other users. To visit this Document, please follow next link."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/mail/resource_approved.php:14
+msgid "Please do not respond to this message. This is an automatic message."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/mail/resource_for_approval.php:4
+msgid "A new Document has been created and is waiting for your approval."
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/mail/resource_for_approval.php:7
+msgid "To view more details please visit the next link:"
+msgstr ""
+
+#: C:\wamp\www\cu\modules\docs/templates/mail/resource_for_approval.php:13
+msgid "This message has been automatically created by RapidDocs."
+msgstr ""
+

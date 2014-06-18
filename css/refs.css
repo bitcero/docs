@@ -1,0 +1,152 @@
+.options_top ul{
+    list-style: none;
+    z-index: 3000;
+}
+.options_top ul li{
+    float: right;
+    position: relative;
+    padding: 0;
+    border: 1px solid #FFF;
+}
+.options_top ul li a{
+    font-weight: bold;
+    display: block;
+    padding: 2px 2px 2px 16px;
+    background: url(../images/down.png) no-repeat left;
+    border: 1px solid #FFF;
+}
+.options_top ul li:hover{
+    border: 1px solid #CCC;
+}
+.options_top ul li:hover a{
+    background-color: #ebebeb;
+}
+.options_top ul li ul{
+    position: absolute;
+    top: 18px;
+    left: -135px;
+    display: none;
+    list-style: none;
+    background: #f2f2f2;
+    border: 1px solid #333;
+    width: 200px;
+    padding: 0;
+    margin: 0;
+    -moz-box-shadow: 3px 3px 6px #666;
+}
+.options_top ul li:hover > ul{
+    display: block;
+}
+.options_top ul li ul li{
+    width: 190px;
+    border: 0;
+    border-bottom: 1px solid #CCC;
+    border-top: 1px solid #FFF;
+    padding: 3px 5px;
+    float: none;
+}
+.options_top ul li ul li a{
+    padding: 2px 5px 2px 20px;
+    display: block;
+    font-weight: bold;
+    text-align: left;
+    border: 0;
+    font-size: 0.9em;
+    background-color: #f2f2f2;
+    text-decoration: none;
+}
+.options_top ul li ul li:hover{
+    border-left: 0;
+    border-right: 0;
+    background: #ebebeb;
+    border-top: 1px solid #FFF;
+}
+.options_top ul li ul li:hover a{
+
+}
+.options_top ul li ul li a:hover{
+    color: #000;
+}
+.options_top ul li ul li:last-child{
+    border-bottom: 0;
+}
+
+#option-new{
+    background: url(../images/notenew.png) no-repeat left;
+    padding-left: 20px;
+}
+#option-new-fig{
+    background: url(../images/figures.png) no-repeat left;
+    padding-left: 20px;
+}
+#option-resource{
+    background: url(../images/select-res.png) no-repeat left;
+    padding-left: 20px;
+}
+#resources-list{
+    display: none;
+}
+.resources_list a{
+    display: block;
+    padding: 2px 2px 2px 20px;
+    background: url(../images/book.png) no-repeat left;
+}
+#resources-form{
+    display: none;
+}
+#resources-form label{
+    display: block;
+    padding: 2px 0;
+    font-weight: bold;
+    cursor: pointer;
+}
+#resources-form input{
+    width: 95%;
+    padding: 2px;
+    font-size: 1.1em;
+    color: #000;
+    font-family: arial, helvetica, sans-serif;
+    margin-bottom: 5px;
+}
+#resources-form textarea{
+    width: 95%;
+    padding: 2px;
+    color: #000;
+    font-size: 1.1em;
+    font-family: arial, helvetica, sans-serif;
+}
+.rmc_pages_navigation_container{
+    float: right;
+}
+div.errorMsg{
+    -moz-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background: #cd0a0a;
+    padding: 10px 10px 10px 23px;
+    border: 1px solid #cd0a0a;
+    color: #ffffff;
+    margin-bottom: 10px;
+    text-align: center;
+}
+div.infoMsg{
+    -moz-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background: #FFED97;
+    padding: 10px 10px 10px 23px;
+    border: 1px solid #fed22f;
+    color: #363636;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.image_waiting{
+    position: relative;
+    /*display: none;*/
+    top: 50%;
+    left: 50%;
+    margin-top: -10px;
+    margin-left: -16px;
+}
