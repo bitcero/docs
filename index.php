@@ -17,14 +17,14 @@ define('INCLUDED_INDEX',1);
 
 if ($xoopsModuleConfig['permalinks']){
     
-    $url = RMFunctions::current_url();
+    $url = RMUris::current_url();
     if (FALSE!==strpos($url, XOOPS_URL.'/modules/docs')){
         header('location: '.RDFunctions::url());
         die();
     }
     
     // If friendly urls are activated
-    $path = str_replace(XOOPS_URL, '', RMFunctions::current_url());
+    $path = str_replace(XOOPS_URL, '', RMUris::current_url());
     $path = str_replace($xoopsModuleConfig['htpath'], '', $path);
     $path = trim($path, '/');
     
@@ -39,7 +39,7 @@ if ($xoopsModuleConfig['permalinks']){
 } else {
     
     // If friendly urls are disabled
-    $path = parse_url(RMFunctions::current_url());
+    $path = parse_url(RMUris::current_url());
     if(isset($path['query']))
         parse_str($path['query']);
     

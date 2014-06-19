@@ -3,7 +3,7 @@
 <h1><?php $edit ? _e('Edit Page','docs') : _e('New Page','docs'); ?></h1>
 
 <div class="form_container">
-<form name="frmPage" id="frm-page" method="post" action="<?php echo RMFunctions::current_url(); ?>">
+<form name="frmPage" id="frm-page" method="post" action="<?php echo RMUris::current_url(); ?>">
 <label><?php _e('Document','docs'); ?></label>
 <span><?php echo $res->getVar('title'); ?></span>
 <label for="sec-title"><?php _e('Title','docs'); ?></label>

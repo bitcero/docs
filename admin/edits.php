@@ -51,12 +51,13 @@ function showEdits(){
         );
 	}
 	
-	xoops_cp_location("<a href='./'>".$xoopsModule->name()."</a> &raquo; ".__('Waiting Content','docs'));
+	$bc = RMBreadCrumb::get();
+    $bc->add_crumb( __('Waiting for approval', 'docs'), '', 'fa fa-clock-o' );
 	
 	xoops_cp_header();
     
-    RMTemplate::get()->add_local_script('jquery.checkboxes.js', 'rmcommon', 'include');
-    RMTemplate::get()->add_local_script('admin.js', 'docs', 'include');
+    RMTemplate::get()->add_script('jquery.checkboxes.js', 'rmcommon', array('directory' => 'include'));
+    RMTemplate::get()->add_script('admin.js', 'docs');
     RMTemplate::get()->add_style('admin.css', 'docs');
     
     include RMEvents::get()->run_event("docs.waiting.template", RMTemplate::get()->get_template("admin/rd_waiting.php",'module','docs'));

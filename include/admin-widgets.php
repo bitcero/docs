@@ -116,7 +116,7 @@ function rd_widget_figures(){
 function rd_widget_newnote(){
     global $xoopsSecurity;
     
-    $id_res = rmc_server_var($_GET, 'res', 0);
+    $id_res = RMHttpRequest::get( 'res', 'integer', 0 );
     if($id_res<=0) return null;
     $rtn['title'] = __('New Note','docs');
     ob_start();
@@ -134,10 +134,10 @@ function rd_widget_newnote(){
         <button type="submit" class="btn btn-primary"><span class="fa fa-check"></span> <?php _e('Create Note','docs'); ?></button>
     </div>
 
-    <input type="hidden" name="action" value="save" />
+    <input type="hidden" name="action" value="save">
     <?php echo $xoopsSecurity->getTokenHTML(); ?>
-    <input type="hidden" name="action" value="save" />
-    <input type="hidden" name="res" value="<?php echo $id_res; ?>"
+    <input type="hidden" name="action" value="save">
+    <input type="hidden" name="res" value="<?php echo $id_res; ?>">
     <?php RMEvents::get()->run_event('docs.notes.form.fields'); ?>
 
 </form>

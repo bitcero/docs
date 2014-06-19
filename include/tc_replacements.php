@@ -36,9 +36,9 @@ function generate_res_index($matches){
 * 
 * @param int ID of note
 */
-function rd_build_note($id){
+function rd_build_note($m){
     global $xoopsModuleConfig;
-    
+    $id = $m[1];
     static $note_number = 1;
     $ref = new RDReference($id);
     if ($ref->isNew()) return;
@@ -62,8 +62,9 @@ function rd_build_note($id){
 * @param int ID of figure
 * @return string
 */
-function rd_build_figure($id){
-    
+function rd_build_figure($m){
+
+    $id = $m[1];
     if ($id<=0) return;
     
     $fig = new RDFigure($id);
@@ -79,7 +80,7 @@ function rd_build_figure($id){
 /**
 * Generate a Table of Contents for an specific section
 */
-function rd_generate_toc(){
+function rd_generate_toc($m){
     
     $id = rmc_server_var($_GET, 'id', 0);
     $number = rmc_server_var($GLOBALS, 'rd_section_number', 0);

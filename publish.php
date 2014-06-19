@@ -33,7 +33,7 @@ function formPublish(){
 	
     $xoopsTpl->assign('xoops_pagetitle', __('Create Document','docs'));
 
-	$form=new RMForm(__('Create Document','docs'),'frmres', RMFunctions::current_url());
+	$form=new RMForm(__('Create Document','docs'),'frmres', RMUris::current_url());
 	$form->setExtra("enctype='multipart/form-data'");
 	$form->addElement(new RMFormText(__('Document title','docs'),'title',50,150),true);
 	$form->addElement(new RMFormTextArea(__('Description','docs'),'desc',5,50),true);

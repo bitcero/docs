@@ -421,7 +421,7 @@ class RDFunctions
         
         $config = RMSettings::module_settings('docs');
         
-        $groups = $config['create_groups'];
+        $groups = $config->create_groups;
         
         if (!is_array($gid)){
             if ($gid == XOOPS_GROUP_ADMIN) return true;
@@ -457,7 +457,7 @@ class RDFunctions
         
         $config = RMSettings::module_settings('docs');
         
-        if (!$config['permalinks']){
+        if (!$config->permalinks){
             
             $q = '';
             foreach($params as $k => $v){
@@ -469,7 +469,7 @@ class RDFunctions
             
         }
         
-        $base_url = ($config['subdomain']!='' ? $config['subdomain'] : XOOPS_URL).rtrim($config['htpath'], '/').'/';
+        $base_url = ($config->subdomain!='' ? $config->subdomain : XOOPS_URL).rtrim($config->htpath, '/').'/';
         
         switch($page){
             case 'explore':
@@ -523,7 +523,7 @@ function rd_insert_edit(&$item, $key){
         
     }else{
     
-        if($config['permalinks']){
+        if($config->permalinks){
             
             $item['editlink'] = RDURL.'/edit/'.$item['id'].'/'.$item['resource'].'/';
             

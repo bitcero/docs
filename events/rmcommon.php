@@ -333,14 +333,14 @@ class DocsRmcommonPreload{
         $text = preg_replace_callback("/\[RD_FEATINDEX\]/", 'generate_res_index', $text);
         
         // Build notes
-        $pattern = "/\[note:(.*)]/esU";
-        $replacement = "rd_build_note(\\1)";
-        $text = preg_replace($pattern, $replacement, $text);
+        $pattern = "/\[note:(.*)]/sU";
+        $replacement = "rd_build_note";
+        $text = preg_replace_callback($pattern, $replacement, $text);
         
         // Build figures
-        $pattern = "/\[figure:(.*)]/esU";
-        $replacement = "rd_build_figure(\\1)";
-        $text = preg_replace($pattern, $replacement, $text);
+        $pattern = "/\[figure:(.*)]/sU";
+        $replacement = "rd_build_figure";
+        $text = preg_replace_callback($pattern, $replacement, $text);
         
         // Build TOC
         $text = preg_replace_callback("/\[TOC\]/", 'rd_generate_toc', $text);

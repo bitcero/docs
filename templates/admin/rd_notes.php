@@ -95,7 +95,7 @@
                 </select>
                 <button type="button" id="the-op-bottom" onclick="before_submit('frm-notes');" class="btn btn-default"><?php _e('Apply','docs'); ?></button>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 text-right">
                 <?php $nav->display(false); ?>
             </div>
         </div>

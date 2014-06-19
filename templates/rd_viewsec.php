@@ -1,5 +1,5 @@
 <?php include RMTemplate::get()->get_template('rd_header.php', 'module', 'docs'); ?>
-<form name="frmsec" method="POST" action="<?php echo RMFunctions::current_url(); ?>">
+<form name="frmsec" method="POST" action="<?php echo RMUris::current_url(); ?>">
 <table class="outer" width="100%" cellspacing="0">
 	<tr>
 		<td colspan="5" align="right"><a class="addpage" href="<?php echo $new_link; ?>"><?php _e('New Section','docs'); ?></a></td>

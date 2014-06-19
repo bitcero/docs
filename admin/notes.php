@@ -8,6 +8,7 @@
 // License: GPL 2.0
 // --------------------------------------------------------------
 
+define( 'RMCLOCATION', 'notes' );
 include 'header.php';
 
 /**
@@ -82,14 +83,16 @@ function rd_show_notes(){
     $notes = RMEvents::get()->run_event('docs.loading.notes', $notes, $res);
 	
     RMTemplate::get()->add_style('admin.css', 'docs');
-    RMTemplate::get()->add_script('../include/js/admin.js');
+    RMTemplate::get()->add_script('admin.js', 'docs');
     RMTemplate::get()->assign('xoops_pagetitle', sprintf(__('Notes in %s', 'docs'), $res->getVar('title')));
-    RMTemplate::get()->add_script(RMCURL.'/include/js/jquery.checkboxes.js');
-    RMTemplate::get()->add_head('<script type="text/javascript">
-    var rd_select_message = "'.__('You have not selected any note!','docs').'";
-    var rd_message = "'.__('Do you really wish to delete selected notes?','docs').'";
-    </script>');
-	xoops_cp_location("<a href='./'>".$xoopsModule->name()."</a> &raquo; ".__('References','docs'));
+    RMTemplate::get()->add_script('jquery.checkboxes.js', 'rmcommon', array('directory' => 'include'));
+    RMTemplate::get()->add_head_script('var rd_select_message = "'.__('You have not selected any note!','docs').'";
+    var rd_message = "'.__('Do you really wish to delete selected notes?','docs').'";');
+
+    $bc = RMBreadCrumb::get();
+    $bc->add_crumb( $res->getVar('title'), 'resources.php', 'fa fa-book' );
+    $bc->add_crumb( __('Notes & references', 'docs'), '', 'fa fa-hand-o-right' );
+
 	xoops_cp_header();
 	
     include RMEvents::get()->run_event('docs.admin.template.notes', RMTemplate::get()->get_template('admin/rd_notes.php','module','docs'));
@@ -104,9 +107,6 @@ function rd_show_notes(){
 function rd_edit_note(){
 	global $xoopsModule;
     
-    RMTemplate::get()->assign('xoops_pagetitle', __('Editing Note','docs'));
-	xoops_cp_location("<a href='./'>".$xoopsModule->name()."</a> &raquo; ".__('Editing Note','docs'));
-	xoops_cp_header();
 
 	$id = rmc_server_var($_GET, 'id', 0);
     $id_res = rmc_server_var($_GET, 'res', 0);
@@ -133,6 +133,14 @@ function rd_edit_note(){
 		redirectMsg('./notes.php?res='.$res, __('Specified note does not exists!','docs'),1);
 		die();
 	}
+
+    $bc = RMBreadCrumb::get();
+    $bc->add_crumb( $res->getVar('title'), 'resources.php', 'fa fa-book' );
+    $bc->add_crumb( __('Notes & references', 'docs'), 'notes.php?res=' . $res->id(), 'fa fa-hand-o-right' );
+    $bc->add_crumb( __('Editing Note', 'docs'), '', 'fa fa-edit' );
+    RMTemplate::get()->assign('xoops_pagetitle', __('Editing Note','docs'));
+
+    xoops_cp_header();
 
 	//Formulario
 	$form=new RMForm(__('Edit Note','docs'),'frmref','notes.php');
@@ -164,16 +172,25 @@ function rd_save_note($edit = 0){
 
     $id = 0;
     
-	foreach ($_POST as $k=>$v){
-		$$k=$v;
-	}
+	$title = RMHttpRequest::post( 'title', 'string', '' );
+	$content = RMHttpRequest::post( 'reference', 'string', '' );
+	$doc = RMHttpRequest::post( 'res', 'integer', 0 );
+	$id = RMHttpRequest::post( 'id', 'integer', 0 );
 
-	$ruta="?res=$res";
+	$ruta="?res=$doc";
 
 	if (!$xoopsSecurity->validateToken()){
 		redirectMsg('./notes.php'.$ruta, __('Session token expired!','docs'),1);
 		die();
 	}
+
+    $res = new RDResource( $doc );
+    if ( $res->isNew() )
+        RMUris::redirect_with_message(
+            __('The specified document does not exists!', 'docs'),
+            "notes.php",
+            RMMSG_ERROR
+        );
     
     if ($edit){
 	    //Verifica que referencia sea válida
@@ -196,19 +213,19 @@ function rd_save_note($edit = 0){
 	
     $db = XoopsDatabaseFactory::getDatabaseConnection();
 	//Comprobar si el título de la referencia en esa publicación existe
-	$sql="SELECT COUNT(*) FROM ".$db->prefix('mod_docs_references')." WHERE title='$title' AND id_res='$res' AND id_ref<>'$id'";
+	$sql="SELECT COUNT(*) FROM ".$db->prefix('mod_docs_references')." WHERE title='$title' AND id_res='$doc'";
+    $sql .= $edit ? ' AND id_ref != ' . $ref->id() : '';
 	list($num)=$db->fetchRow($db->queryF($sql));
-	if ($num>0){
-		redirectMsg('./notes.php'.$ruta, __('Already exists a note with same title','docs'),1);
-		die();
-	}
+	if ($num>0)
+		RMUris::redirect_with_message( __('Already exists a note with same title','docs'), './notes.php'.$ruta, RMMSG_ERROR );
+
 
 	$ref->setVar('title',$title);
-	$ref->setVar('text',$reference);
-    $ref->setVar('id_res', $res);
+	$ref->setVar('text', $content);
+    $ref->setVar('id_res', $doc);
 
 	if ($ref->save()){
-		redirectMsg('./notes.php?action=locate&res='.$res.'&id='.$ref->id(), __('Note saved successfully!','docs'),0);
+		redirectMsg('./notes.php?action=locate&res='.$doc.'&id='.$ref->id(), __('Note saved successfully!','docs'),0);
 		die();
 	}else{
 		redirectMsg('./notes.php?res='.$res, __('Note could not be saved!','docs').'<br />'.$ref->errors(),1);

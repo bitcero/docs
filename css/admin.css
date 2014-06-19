@@ -179,3 +179,8 @@
     border: 1px dotted #CCC;
     padding: 0px 5px;
 }
+
+/* PAGINATION */
+.pagination{
+    margin: 0!important;
+}

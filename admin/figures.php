@@ -81,14 +81,16 @@ function rd_show_figures(){
     
     RMTemplate::get()->add_style('admin.css', 'docs');
     RMTemplate::get()->add_style('jquery.css', 'rmcommon');
-    RMTemplate::get()->add_script('../include/js/admin.js');
+    RMTemplate::get()->add_script('admin.js', 'docs');
     RMTemplate::get()->assign('xoops_pagetitle', sprintf(__('Figures in %s', 'docs'), $res->getVar('title')));
-    RMTemplate::get()->add_script(RMCURL.'/include/js/jquery.checkboxes.js');
-    RMTemplate::get()->add_head('<script type="text/javascript">
-    var rd_select_message = "'.__('You have not selected any figure!','docs').'";
-    var rd_message = "'.__('Do you really wish to delete selected figures?','docs').'";
-    </script>');
-    xoops_cp_location("<a href='./'>".$xoopsModule->name()."</a> &raquo; ".__('Figures','docs'));
+    RMTemplate::get()->add_script('jquery.checkboxes.js', 'rmcommon', array('directory' => 'include'));
+    RMTemplate::get()->add_head_script('var rd_select_message = "'.__('You have not selected any figure!','docs').'";
+    var rd_message = "'.__('Do you really wish to delete selected figures?','docs').'";');
+
+    $bc = RMBreadCrumb::get();
+    $bc->add_crumb( $res->getVar('title'), 'resources.php', 'fa fa-book' );
+    $bc->add_crumb( __('Figuras', 'docs'), '', 'fa fa-bar-chart-o');
+
     xoops_cp_header();
     
     include RMEvents::get()->run_event('docs.admin.template.figures', RMTemplate::get()->get_template('admin/rd_figures.php', 'module', 'docs'));
@@ -104,9 +106,6 @@ function rd_figures_form($edit=0){
 	global $xoopsModule,$xoopsConfig;
     
     
-	xoops_cp_location("<a href='./'>".$xoopsModule->name()."</a> &raquo; ".$edit ? __('Edit Figure','docs') : __('Create Figure'));
-	xoops_cp_header();
-
 	$id = rmc_server_var($_GET, 'id', 0);
 	$id_res = rmc_server_var($_GET, 'res', 0);
     
@@ -133,6 +132,12 @@ function rd_figures_form($edit=0){
         }
         
     }
+
+    $bc = RMBreadCrumb::get();
+    $bc->add_crumb( $res->getVar('title'), 'resources.php', 'fa fa-book' );
+    $bc->add_crumb( __('Figuras', 'docs'), 'figures.php?res=' . $res->id(), 'fa fa-bar-chart-o');
+    $bc->add_crumb( $edit ? __('Edit a figure', 'docs') : __('Create a figure', 'docs'), '', $edit ? 'fa fa-edit' : 'fa fa-plus' );
+    xoops_cp_header();
 	
 	$form=new RMForm($edit ? __('Editing Figure','docs') : __('Create Figure','docs'),'frmfig','figures.php');
 	
@@ -140,7 +145,7 @@ function rd_figures_form($edit=0){
     $form->addElement(new RMFormText(__('Description','docs'),'desc',50,255, $edit ? $fig->getVar('desc') : ''),true);
 	$form->addElement(new RMFormEditor(__('Content','docs'),'figure','100%','300px',$edit ? $fig->getVar('content','e') : ''),true);
 
-	$form->addElement(new RMFormText(__('Attributes','docs'),'attrs',50,150, $edit ? $fig->getVar('attrs') : ''));
+	$form->addElement(new RMFormText(__('Attributes','docs'),'attrs',50,150, $edit ? $fig->getVar('attrs', 'e') : ''));
 
 	$buttons=new RMFormButtonGroup();
 
@@ -163,7 +168,7 @@ function rd_figures_form($edit=0){
 * @desc Almacena información perteneciente a la figura
 **/
 function rd_save_figures($edit = 0){
-    global $xoopsSecurity;
+    global $xoopsSecurity, $xoopsDB;
     
 	foreach ($_POST as $k=>$v){
 		$$k=$v;
@@ -194,6 +199,13 @@ function rd_save_figures($edit = 0){
         $fig = new RDFigure();
         
     }
+
+    //Comprobar si el título de la figura en esa publicación existe
+    $sql="SELECT COUNT(*) FROM ".$xoopsDB->prefix('mod_docs_figures')." WHERE title='$title' AND id_res='$res'";
+    $sql .= $edit ? ' AND id_fig != ' . $fig->id() : '';
+    list($num)=$xoopsDB->fetchRow($xoopsDB->queryF($sql));
+    if ($num>0)
+        RMUris::redirect_with_message( __('Already exists a figure with same title','docs'), './figures.php'.$ruta, RMMSG_ERROR );
 
 	$fig->setVar('title', $title);
 	$fig->setVar('desc', $desc);
