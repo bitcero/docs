@@ -14,11 +14,11 @@ load_mod_locale('docs');
 
 // Mensajes de Error
 $rmc_messages = array();
-if (isset($_SESSION['rmMsg'])){
-    foreach ($_SESSION['rmMsg'] as $msg){
+if (isset($_SESSION['cu_redirect_messages'])){
+    foreach ($_SESSION['cu_redirect_messages'] as $msg){
         $rmc_messages[] = $msg;
     }
-    unset($_SESSION['rmMsg']);
+    unset($_SESSION['cu_redirect_messages']);
 }
 
 $id=rmc_server_var($_GET, 'id', 0);
@@ -46,7 +46,7 @@ function references($edit=0){
 	$search = rmc_server_var($_REQUEST, 'search', '');
 	$id_ref = rmc_server_var($_REQUEST, 'ref', 0);
 	$id_editor = rmc_server_var($_REQUEST, 'editor', 0);
-    $rmc_config = RMFunctions::configs();
+    $rmc_config = RMSettings::cu_settings();
 
 	$db = XoopsDatabaseFactory::getDatabaseConnection();
     
@@ -120,18 +120,13 @@ function references($edit=0){
     $theme_css = xoops_getcss();
     $vars = $xoopsTpl->get_template_vars();
     extract($vars);
+
+    RMTemplate::get()->add_script('jquery.checkboxes.js', 'rmcommon', array('directory' => 'include', 'footer' => 1));
+    RMTemplate::get()->add_script('scripts.php?file=ajax.js', 'docs');
+    RMTemplate::get()->add_script('references.js', 'docs');
+    RMTemplate::get()->add_script('editor-'.$rmc_config->editor_type.'.js', 'docs');
     
-    RMTemplate::get()->add_script(RMCURL.'/include/js/jquery.min.js');
-    RMTemplate::get()->add_script(RMCURL.'/include/js/jquery-ui.min.js');
-    RMTemplate::get()->add_script(RMCURL.'/include/js/jquery.checkboxes.js');
-    RMTemplate::get()->add_script('include/js/scripts.php?file=ajax.js');
-    RMTemplate::get()->add_script('include/js/references.js');
-    RMTemplate::get()->add_script('include/js/editor-'.$rmc_config['editor_type'].'.js');
-    
-    if ($rmc_config['editor_type']=='tiny')
-        RMTemplate::get()->add_script(XOOPS_URL.'/modules/rmcommon/api/editors/tinymce/tiny_mce_popup.js');
-    elseif($rmc_config['editor_type']=='xoops')
-        RMTemplate::get()->add_script(XOOPS_URL.'/modules/rmcommon/api/editors/exmcode/editor-popups.js');
+
     
     RMTemplate::get()->add_style('refs.css','docs');
     RMTemplate::get()->add_style('jquery.css','rmcommon');
@@ -241,6 +236,7 @@ function saveReferences($edit=0){
 * @desc Elimina las referencias especificadas
 **/
 function deleteReferences(){
+
 	global $xoopsSecurity;
 	$id = rmc_server_var($_POST, 'id', 0);
  	$references = rmc_server_var($_POST, 'refs', array());
@@ -271,6 +267,7 @@ function deleteReferences(){
 }
 
 $action= rmc_server_var($_REQUEST, 'action', '');
+//echo $action; die();
 
 switch ($action){
 	case 'edit':

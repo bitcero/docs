@@ -35,7 +35,7 @@ var docsAjax = jQuery.extend({
     
     displayForm: function(){
         
-        $("#resources-form").dialog("destroy");
+        //$("#resources-form").dialog("destroy");
         $("#resources-form input[name=action]").val('save');
         $("#resources-form").dialog({
             autoOpen: false,
@@ -59,7 +59,7 @@ var docsAjax = jQuery.extend({
                     $("#resources-form input").hide('fast');
                     $("#resources-form textarea").hide('fast');
                     $("#resources-form .image_waiting").show('fast');
-                    $("#frm-notes").submit();
+                    $("#frm-notes-add").submit();
                 },
                 '<?php _e('Cancel','docs'); ?>': function(){
                     $("#resources-form input[type=text]").val('');

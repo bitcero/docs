@@ -13,7 +13,7 @@ class RDEdit extends RMObject{
 	function __construct($id=null, $sec = null){
 
 		$this->db =& XoopsDatabaseFactory::getDatabaseConnection();
-		$this->_dbtable = $this->db->prefix("rd_edits");
+		$this->_dbtable = $this->db->prefix("mod_docs_edits");
 		$this->setNew();
 		$this->initVarsFromTable();
 
@@ -73,9 +73,9 @@ class RDEdit extends RMObject{
 	}
     
     private function save_metas(){
-        $this->db->queryF("DELETE FROM ".$this->db->prefix("rd_meta")." WHERE section='".$this->id()."'");
+        $this->db->queryF("DELETE FROM ".$this->db->prefix("mod_docs_meta")." WHERE section='".$this->id()."'");
         if (empty($this->metas)) return true;
-        $sql = "INSERT INTO ".$this->db->prefix("rd_meta")." (`name`,`value`,`section`,`edit`) VALUES ";
+        $sql = "INSERT INTO ".$this->db->prefix("mod_docs_meta")." (`name`,`value`,`section`,`edit`) VALUES ";
         $values = '';
         foreach ($this->metas as $name => $value){
             if (is_array($value)) $value = $value['value'];

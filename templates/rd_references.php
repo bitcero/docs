@@ -1,20 +1,16 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $xoops_langcode; ?>" lang="<?php echo $xoops_langcode; ?>">
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=<?php echo $xoops_charset; ?>" />
 	<meta http-equiv="content-language" content="<?php echo $xoops_langcode; ?>" />
 	<title><?php _e('Notes & References','docs'); ?> &raquo; <?php echo $xoops_sitename; ?></title>
-	<link rel="stylesheet" type="text/css" media="all" href="<?php echo $theme_css; ?>" />
-	<style type="text/css">
-		body{
-			background:#FFF;
-			margin: 10px;
-
-		}
-		.outer{
-			width: 100%;
-		}
-	</style>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <?php if ($rmc_config->editor_type == 'tiny'): ?>
+    <script type="text/javascript" src="<?php echo XOOPS_URL; ?>/modules/rmcommon/api/editors/tinymce/tiny_mce_popup.js"></script>
+    <?php elseif($rmc_config->editor_type=='xoops'): ?>
+    <script type="text/javascript" src="<?php echo XOOPS_URL; ?>/modules/rmcommon/api/editors/exmcode/editor-popups.js"></script>
+    <?php endif; ?>
 </head>
 <body>
 <?php foreach($rmc_messages as $message): ?>
@@ -24,16 +20,22 @@
 <?php endforeach; ?>
 <div id='nav'>
  <form name="frm" method="POST" action="./references.php">
- <table class="outer" cellspacing="1" width="100%">
+ <table class="table">
         <tr class="even">
-	    <td><strong><?php _e('Search','docs'); ?></strong>
-		<input type="text" name="search" size="15" value="<?php echo $search; ?>"/>
-		<input name="sbtsearch" class="formButton" value="<?php _e('Go','docs'); ?>" type="submit"/>
+	    <td>
+
+            <div class="input-group" style="width: 200px;">
+                <input type="text" name="search" class="form-control" size="15" value="<?php echo $search; ?>">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit"><span class="fa fa-search"></span>&nbsp;</button>
+                </span>
+            </div>
+
         <input name="id" value="<?php echo $id; ?>" type="hidden" />
         <input name="section" value="<?php echo $id_sec; ?>" type="hidden" />
         <input name="page" value="<?php echo $page; ?>" type="hidden" />    
 	    </td>
-        <td align="center">
+        <td align="center" valign="middle">
             <?php $nav->render(false); echo $nav->get_showing(); ?>
         </td>
             <td align="right" class="options_top">
@@ -54,30 +56,35 @@
 </div>
 
 <form name="frmref" id="frm-notes" method="POST" action="references.php">
-<table class='outer' cellspacing="1">
-	<tr>
-		<th colspan="4"><?php _e('Existing notes and references','docs'); ?></th>
-	</tr>
-	<tr class="head" align="center">
-		<td><input type="checkbox" name="checkall" id="checkall" onchange="$('#frm-notes').toggleCheckboxes(':not(#checkall)');"/></td>
-		<td><?php _e('ID','docs'); ?></td>
-		<td><?php _e('Title','docs'); ?></td>
-		<td><?php _e('Options','docs'); ?></td>
-	</tr>
-    <?php if(empty($references)): ?>
-    <tr clss="even" align="center">
-        <td colspan="4">
-            <?php _e('Notes was not found.','docs'); ?>
-            <?php if($id<=0): ?>
-                <br />
-                <a href="javascript:;" onclick="docsAjax.getSectionsList(1);"><?php _e('Select Document first','docs'); ?></a>
-            <?php else: ?>
-                <br />
-                <a href="javascript:;" onclick="docsAjax.displayForm();"><?php _e('Create new note','docs'); ?></a>
-            <?php endif; ?>
-        </td>
+<table class='table table-striped'>
+    <thead>
+    <tr>
+        <th colspan="4"><?php _e('Existing notes and references','docs'); ?></th>
     </tr>
+    <tr class="head" align="center">
+        <th><input type="checkbox" name="checkall" id="checkall" onchange="$('#frm-notes').toggleCheckboxes(':not(#checkall)');"/></th>
+        <th><?php _e('ID','docs'); ?></th>
+        <th><?php _e('Title','docs'); ?></th>
+        <th><?php _e('Options','docs'); ?></th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php if(empty($references)): ?>
+        <tr clss="even" align="center">
+            <td colspan="4">
+                <span class="text-warning"><?php _e('No notes was not found.','docs'); ?></span>
+                <?php if($id<=0): ?>
+                    <br />
+                    <a href="javascript:;" onclick="docsAjax.getSectionsList(1);"><?php _e('Select Document first','docs'); ?></a>
+                <?php else: ?>
+                    <br />
+                    <a href="javascript:;" onclick="docsAjax.displayForm();"><?php _e('Create new note','docs'); ?></a>
+                <?php endif; ?>
+            </td>
+        </tr>
     <?php endif; ?>
+    </tbody>
+
 	<?php foreach($references as $ref): ?>
 	<tr align="center" valign="top" class="<?php echo tpl_cycle("even,odd"); ?>">
 		<td width="20" align="center"><input type="checkbox" name="refs[]" value="<?php echo $ref['id']; ?>" /></td>
@@ -86,14 +93,14 @@
             <strong><a href="javascript:;" onclick="editor.insertNote(<?php echo $ref['id']; ?>);"><?php echo $ref['title']; ?></a><br /></strong>
             <?php echo $ref['content']; ?>
         </td>
-		<td nowrap="nowrap"><a href="javascript:;" onclick="editor.insertNote(<?php echo $ref['id']; ?>);"><?php _e('Insert','docs'); ?></a> |
-		<a href="javascript:;" onclick="docsAjax.editNote(<?php echo $ref['id']; ?>);"><?php _e('Edit','docs'); ?></a></td>
+		<td nowrap="nowrap"><a href="javascript:;" onclick="editor.insertNote(<?php echo $ref['id']; ?>);" class="btn btn-info btn-sm"><?php _e('Insert','docs'); ?></a>
+		<a href="javascript:;" onclick="docsAjax.editNote(<?php echo $ref['id']; ?>);" class="btn btn-default btn-sm"><?php _e('Edit','docs'); ?></a></td>
 	</tr>
 	<?php endforeach; ?>
 	<tr class="foot">
 		<td colspan="4">
-		<input name="delete" class="formButton" type="submit" value="<?php _e('Delete','docs'); ?>" onclick="return confirm('<?php _e('Do you really wish to delet selected notes?','docs'); ?>');" />
-		<input name="close" class="formButton" type="button" value="<?php _e('Close','docs'); ?>" onclick="editor.close();" />
+            <button class="btn btn-danger" type="submit" onclick="return confirm('<?php _e('Do you really wish to delet selected notes?','docs'); ?>');"><?php _e('Delete','docs'); ?></button>
+            <button class="btn btn-warning" type="button" onclick="editor.close();"><?php _e('Close','docs'); ?></button>
 		<?php $nav->display(false); ?></td>
 	</tr>
 </table>
@@ -108,7 +115,7 @@
 
 <div id="resources-list" title="<?php _e('Select Document','docs'); ?>"><img src="images/wait.gif" class="image_waiting" alt="<?php _e('Wait a second...','docs'); ?>" /></div>
 <div id="resources-form" title="<?php _e('Create Note','docs'); ?>">
-<form name="frmRefs" id="frm-notes" method="post" action="references.php">
+<form name="frmRefs" id="frm-notes-add" method="post" action="references.php">
 <label><?php _e('Title:','docs'); ?></label>
 <input type="text" name="title" id="note-title" value="" class="required" />
 <label><?php _e('Content:','docs'); ?></label>

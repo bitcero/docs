@@ -14,11 +14,11 @@ load_mod_locale('docs');
 
 // Mensajes de Error
 $rmc_messages = array();
-if (isset($_SESSION['redirect_message'])){
-    foreach ($_SESSION['redirect_message'] as $msg){
+if (isset($_SESSION['cu_redirect_messages'])){
+    foreach ($_SESSION['cu_redirect_messages'] as $msg){
         $rmc_messages[] = $msg;
     }
-    unset($_SESSION['redirect_message']);
+    unset($_SESSION['cu_redirect_messages']);
 }
 
 $id=rmc_server_var($_GET, 'id', 0);
@@ -45,7 +45,7 @@ function Figures(){
     define('DF_LOCATION','list');
 	$id = rmc_server_var($_GET, 'id', 0);
 	$search = rmc_server_var($_GET, 'search', '');
-    $rmc_config = RMFunctions::configs();
+    $rmc_config = RMSettings::cu_settings();
 
 	//Navegador de páginas
     $db = XoopsDatabaseFactory::getDatabaseConnection();
@@ -105,20 +105,15 @@ function Figures(){
 		
 	}
     
-    RMTemplate::get()->add_script(RMCURL.'/include/js/jquery.min.js');
-    RMTemplate::get()->add_script(RMCURL.'/include/js/jquery-ui.min.js');
-    RMTemplate::get()->add_script(RMCURL.'/include/js/jquery.checkboxes.js');
-    RMTemplate::get()->add_script('include/js/scripts.php?file=ajax.js');
-    RMTemplate::get()->add_script('include/js/editor-'.$rmc_config['editor_type'].'.js');
+    //RMTemplate::get()->add_script(RMCURL.'/include/js/jquery.min.js');
+    //RMTemplate::get()->add_script(RMCURL.'/include/js/jquery-ui.min.js');
+    RMTemplate::get()->add_script('jquery.checkboxes.js', 'rmcommon', array('directory' => 'include'));
+    RMTemplate::get()->add_script('scripts.php?file=ajax.js', 'docs');
+    RMTemplate::get()->add_script('editor-'.$rmc_config->editor_type.'.js', 'docs');
     
     $theme_css = xoops_getcss();
     $vars = $xoopsTpl->get_template_vars();
     extract($vars);
-    
-    if ($rmc_config['editor_type']=='tiny')
-        RMTemplate::get()->add_script(XOOPS_URL.'/modules/rmcommon/api/editors/tinymce/tiny_mce_popup.js');
-    elseif($rmc_config['editor_type']=='xoops')
-        RMTemplate::get()->add_script(XOOPS_URL.'/modules/rmcommon/api/editors/exmcode/editor-popups.js');
     
     RMTemplate::get()->add_style('refs.css','docs');
     RMTemplate::get()->add_style('jquery.css','rmcommon');
@@ -181,9 +176,6 @@ function formFigures($edit=0){
 		}
 
 	}
-
-    RMTemplate::get()->add_script(RMCURL.'/include/js/jquery.min.js');
-    RMTemplate::get()->add_script(RMCURL.'/include/js/jquery-ui.min.js');
     
     $form=new RMForm($edit ? '' : '','frmfig','figures.php');
     $theme_css = xoops_getcss();
@@ -231,6 +223,13 @@ function saveFigures($edit=0){
 		die();
 
 	}
+
+    if ( $title == '' || $content == '' )
+        RMUris::redirect_with_message(
+            __('Title and content are required fields. Please fill them and try again.', 'docs'),
+            "figures.php?action=new&id=$id&page=$page",
+            RMMSG_ERROR
+        );
 
 	if ($edit){
 		//Comprueba que la figura sea válida
@@ -288,10 +287,10 @@ function deleteFigures(){
     }
     
     $db = XoopsDatabaseFactory::getDatabaseConnection();
-    $sql = "DELETE FROM ".$db->prefix("pa_figures")." WHERE id_fig IN(".implode(',',$figs).")";
+    $sql = "DELETE FROM ".$db->prefix("mod_docs_figures")." WHERE id_fig IN(".implode(',',$figs).")";
     
     if (!$db->queryF($sql)){
-        redirectMsg($ruta, __('Errores ocurred while trying to delete figures.'),1);
+        redirectMsg($ruta, __('Errores ocurred while trying to delete figures.') . $db->error(),1);
     }else{
         redirectMsg($ruta, __('Figures deleted successfully!','docs'),0);
     }

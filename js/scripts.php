@@ -8,6 +8,7 @@
 // License: GPL 2.0
 // --------------------------------------------------------------
 
+header('Content-type: text/javascript');
 $wfile = isset($_GET['file']) ? $_GET['file'] : '';
 if ($wfile=='') exit();
 
@@ -15,9 +16,9 @@ $path = dirname(__FILE__);
 if (!file_exists($path.'/'.$wfile)) exit();
 
 $path .= '/'.$wfile;
-
-include_once '../../../../mainfile.php';
-include_once '../../../rmcommon/loader.php';
+$root = dirname(dirname(dirname(dirname(__FILE__))));
+include_once $root . '/mainfile.php';
+include_once $root . '/modules/rmcommon/loader.php';
 
 global $xoopsLogger;
 $xoopsLogger->renderingEnabled = false;

@@ -63,10 +63,10 @@ $(document).ready(function(){
         count++;
         
         $("table#metas-container").show();
-        var html = '<tr class="even">';
-        html += '<td valign="top"><input type="text" name="metas['+count+'][key]" id="meta-key-'+count+'" value="'+name+'" class="rd_large" style="width: 95%;" />';
-        html += '<a href="javascript:;" onclick="remove_meta($(this));"><?php _e('Remove','docs'); ?></td>';
-        html += '<td><textarea name="metas['+count+'][value]" id="metas['+count+'][value]" class="rd_large">'+value+'</textarea></td></tr>';
+        var html = '<tr>';
+        html += '<td valign="top"><input type="text" name="metas['+count+'][key]" id="meta-key-'+count+'" value="'+name+'" class="form-control" />';
+        html += '<a href="javascript:;" onclick="$(this).parents(\'tr\').remove();"><?php _e('Remove','docs'); ?></a></td>';
+        html += '<td><textarea name="metas['+count+'][value]" id="metas['+count+'][value]" class="form-control">'+value+'</textarea></td></tr>';
         $("table#metas-container").append(html);
         
         $("select#meta-name-sel option[selected='selected']").removeAttr('selected');

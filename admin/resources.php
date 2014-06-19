@@ -14,7 +14,7 @@ include 'header.php';
 /**
 * @desc Muestra todas las publicaciones existentes
 **/
-function show_resources(){
+function show_resources( $public = 1 ){
 	global $xoopsModule,$xoopsConfig, $xoopsSecurity;
 	
     $query = rmc_server_var($_REQUEST,'query','');
@@ -40,7 +40,14 @@ function show_resources(){
 
 	//Fin navegador de páginas
 	
-	$sql="SELECT * FROM ".$db->prefix('mod_docs_resources').($query!='' ? " WHERE title LIKE '%$query%'" : '')." ORDER BY `created` DESC LIMIT $start,$limit";
+	$sql="SELECT * FROM ".$db->prefix('mod_docs_resources');
+    $sql .= $query!='' ? " WHERE title LIKE '%$query%'" : '';
+
+    if ( $public == 0 )
+        $sql .= ($query != '' ? ' AND ' : ' WHERE ') . ' public=0 ';
+
+    $sql .= " ORDER BY `created` DESC LIMIT $start,$limit";
+
 	$result=$db->queryF($sql);
 	$resources = array();
 	
@@ -68,16 +75,14 @@ function show_resources(){
 
     RMTemplate::get()->add_style('admin.css', 'docs');
     RMTemplate::get()->assign('xoops_pagetitle', __('Documents', 'docs'));
-    RMTemplate::get()->add_script(RMCURL.'/include/js/jquery.checkboxes.js');
-    RMTemplate::get()->add_script(XOOPS_URL.'/modules/docs/include/js/admin.js');
+    RMTemplate::get()->add_script('jquery.checkboxes.js', 'rmcommon', array('footer' => 1, 'directory' => 'include'));
+    RMTemplate::get()->add_script('admin.js', 'docs');
     
-    RMTemplate::get()->add_head('<script type="text/javascript">
-    var rd_message = "'.__('Do you really wish to delete selected Documents?','docs').'";
-    var rd_select_message = "'.__('You must select an element before to do this action!','docs').'";
-    </script>');
+    RMTemplate::get()->add_head_script('var rd_message = "'.__('Do you really wish to delete selected Documents?','docs').'";
+    var rd_select_message = "'.__('You must select an element before to do this action!','docs').'";');
     
 	xoops_cp_location("<a href='./'>".$xoopsModule->name()."</a> &raquo; ".__('Documents','docs'));
-	RDFunctions::toolbar();
+
 	xoops_cp_header();
 	
 	include RMTemplate::get()->get_template('admin/rd_resources.php', 'module', 'docs'); 
@@ -550,6 +555,6 @@ switch ($action){
 		approved_resources(0);
 	break;
 	default:
-		show_resources();
+		show_resources( $action == 'drafts' ? 0 : 1 );
 
 }

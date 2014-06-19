@@ -80,7 +80,7 @@ $modversion = array(
      */
 
     # SQL file
-    'sqlfile'       => 'sql/mysql.sql',
+    'sqlfile'       => array( 'mysql' => 'sql/mysql.sql'),
 
     # Tables
     'tables'        => array(

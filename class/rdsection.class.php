@@ -18,7 +18,7 @@ class RDSection extends RMObject{
 	function __construct($id=null, $res=0){
 
 		$this->db =& XoopsDatabaseFactory::getDatabaseConnection();
-		$this->_dbtable = $this->db->prefix("rd_sections");
+		$this->_dbtable = $this->db->prefix("mod_docs_sections");
 		$this->setNew();
 		$this->initVarsFromTable();
 
@@ -47,7 +47,7 @@ class RDSection extends RMObject{
     private function load_meta(){
         if (!empty($this->metas)) return;
 
-        $result = $this->db->query("SELECT * FROM ".$this->db->prefix("rd_meta")." WHERE section='".$this->id()."' AND edit='0'");
+        $result = $this->db->query("SELECT * FROM ".$this->db->prefix("mod_docs_meta")." WHERE section='".$this->id()."' AND edit='0'");
         while($row = $this->db->fetchArray($result)){
             $this->metas[$row['name']] = $row;
         }
@@ -120,13 +120,13 @@ class RDSection extends RMObject{
             return "#".$this->getVar('nameid');
         }
         
-        if ($config['permalinks']){
+        if ($config->permalinks){
             
             if($this->getVar('parent')>0){
                 $sec = new RDSection($this->getVar('parent'));
                 $perma = $sec->permalink().'#'.($edit ? '<span>'.$this->getVar('nameid').'</span>' : $this->getVar('nameid'));
             } else {
-                $perma = ($config['subdomain']!='' ? $config['subdomain'] : XOOPS_URL).$config['htpath'].'/'.$res->getVar('nameid').'/'.($edit ? '<span>'.$this->getVar('nameid').'</span>' : $this->getVar('nameid')).'/';
+                $perma = ($config->subdomain != '' ? $config->subdomain : XOOPS_URL).$config->htpath . '/'.$res->getVar('nameid').'/'.($edit ? '<span>'.$this->getVar('nameid').'</span>' : $this->getVar('nameid')).'/';
                 $perma .= $standalone ? 'standalone/1/' : '';
             }
             
@@ -150,7 +150,7 @@ class RDSection extends RMObject{
     public function editlink(){
         
         $config = RMSettings::module_settings('docs');
-        if ($config['permalinks']){
+        if ($config->permalinks ){
             $link = RDFunctions::url().'/edit/'.$this->id().'/'.$this->getVar('id_res');
         } else {
             $link = RDFunctions::url().'?page=edit&id='.$this->id().'&res='.$this->getVar('id_res');
@@ -176,9 +176,9 @@ class RDSection extends RMObject{
 	}
     
     private function save_metas(){
-        $this->db->queryF("DELETE FROM ".$this->db->prefix("rd_meta")." WHERE section='".$this->id()."'");
+        $this->db->queryF("DELETE FROM ".$this->db->prefix("mod_docs_meta")." WHERE section='".$this->id()."'");
         if (empty($this->metas)) return true;
-        $sql = "INSERT INTO ".$this->db->prefix("rd_meta")." (`name`,`value`,`section`,`edit`) VALUES ";
+        $sql = "INSERT INTO ".$this->db->prefix("mod_docs_meta")." (`name`,`value`,`section`,`edit`) VALUES ";
         $values = '';
         foreach ($this->metas as $name => $value){
             if (is_array($value)) $value = $value['value'];
@@ -197,7 +197,7 @@ class RDSection extends RMObject{
 		$ret=false;
 	
 		// Change the parent on child sections
-		$sql="UPDATE ".$this->db->prefix('rd_sections')." SET parent=0 WHERE parent='".$this->id()."'";
+		$sql="UPDATE ".$this->db->prefix('mod_docs_sections')." SET parent=0 WHERE parent='".$this->id()."'";
 		$result=$this->db->queryF($sql);
 
 		if (!$result) return $ret;		

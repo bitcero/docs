@@ -17,14 +17,14 @@ class DocsRmcommonPreload{
             return $widgets;
         
         if (defined("RMCSUBLOCATION") && RMCSUBLOCATION=='newresource'){
-            include_once '../include/admin_widgets.php';
+            include_once '../include/admin-widgets.php';
             $widgets[] = rd_widget_options();
             $widgets[] = rd_widget_references();
             $widgets[] = rd_widget_figures(); 
         }
         
         if(defined('RMCSUBLOCATION') && RMCSUBLOCATION=='notes_list'){
-            include_once '../include/admin_widgets.php';
+            include_once '../include/admin-widgets.php';
             $widgets[] = rd_widget_newnote();
         }
         
@@ -38,8 +38,8 @@ class DocsRmcommonPreload{
         
         $ret = parse_url($_SERVER['HTTP_REFERER']);
         
-        if($config['permalinks']){
-            $ref = XOOPS_URL.'/'.trim($config['htpath'], '/').'/';
+        if($config->permalinks){
+            $ref = XOOPS_URL.'/'.trim($config->htpath, '/').'/';
         } else {
             $ref = XOOPS_URL.'/modules/docs/edit.php';
         }

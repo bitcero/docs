@@ -45,10 +45,6 @@
     list-style: none;
 }
 
-
-.rd_loptions{
-    padding: 10px 5px;
-}
 .rmc_pages_navigation_container{
     float: right;
 }
@@ -133,38 +129,9 @@
 .rd_hidden{
     display: none;
 }
-#rd_res_search{
-    float: right;
-    padding: 4px 0 0 0;
-}
 #rd_res_search input{
-    width: 100px;
-}
-.rd_column_left{
-    overflow: hidden;
-    width: 30%;
-    float: left;
-}
-.rd_column_right{
-    float: right;
-    width: 69%;
-    float: right;
-}
-.rd_forms label{
-    display: block;
-    font-weight: bold;
-    padding: 4px 0;
-    cursor: pointer;
-}
-.rd_forms input[type='text']{
-    width: 95%;
-}
-.rd_forms textarea{
-    width: 95%;
-    height: 200px;
-}
-.rd_forms input[type='submit']{
-    margin: 5px 0 0 0;
+    width: 150px;
+    display: inline-block;
 }
 #rd-figures-editor{
     display: none;

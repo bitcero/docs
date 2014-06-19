@@ -48,21 +48,21 @@ function rd_widget_references(){
     
     $ret['title'] = __('Notes &amp; References','docs');
     $count = 0;
-    $references = RDFunctions::references($res->id(),&$count, '',0,6);
+    $references = RDFunctions::references($res->id(), $count, '',0,6);
 
     $nav = new RMPageNav($count, 6, 1, 3);
     $nav->target_url('javascript:;" onclick="docsAjax.getNotes('.$res->id().',6,{PAGE_NUM},\'rd-wd-references\')');
-    RMTemplate::get()->add_script('../include/js/scripts.php?file=ajax.js');
+    RMTemplate::get()->add_script('scripts.php?file=ajax.js', 'docs');
 
     ob_start();
 ?>
 <div id="rd-wd-references">
     <ul>
     <?php
-        if(count($references)<=0) _e('There are not exists references for this Document yet!','docs');
+        if(count($references)<=0) _e('There are not references for this Document yet!','docs');
         foreach($references as $ref):
     ?>
-        <li><a href="javascript:;" onclick="docsAjax.insertIntoEditor('[note:<?php echo $ref['id']; ?>]','<?php echo $rmc_config['editor_type']; ?>');"><?php echo $ref['title']; ?></a></li>
+        <li><a href="javascript:;" onclick="docsAjax.insertIntoEditor('[note:<?php echo $ref['id']; ?>]','<?php echo $rmc_config->editor_type; ?>');"><?php echo $ref['title']; ?></a></li>
     <?php
         endforeach;
     ?>
@@ -83,21 +83,21 @@ function rd_widget_figures(){
     
     $ret['title'] = __('Document Figures','docs');
     $count = 0;
-    $figures = RDFunctions::figures($res->id(),&$count, '',0,6);
+    $figures = RDFunctions::figures($res->id(), $count, '',0,6);
 
     $nav = new RMPageNav($count, 6, 1, 3);
     $nav->target_url('javascript:;" onclick="docsAjax.getFigures('.$res->id().',6,{PAGE_NUM},\'rd-wd-figures\')');
-    RMTemplate::get()->add_script('../include/js/scripts.php?file=ajax.js');
+    RMTemplate::get()->add_script('scripts.php?file=ajax.js', 'docs');
 
     ob_start();
 ?>
 <div id="rd-wd-figures">
     <ul>
     <?php
-        if(count($figures)<=0) _e('There are not exists figures for this Document yet!','docs');
+        if(count($figures)<=0) _e('There are not figures for this Document yet!','docs');
         foreach($figures as $fig):
     ?>
-        <li><a href="javascript:;" onclick="docsAjax.insertIntoEditor('[figure:<?php echo $fig['id']; ?>]','<?php echo $rmc_config['editor_type']; ?>');"><?php echo $fig['title']; ?></a></li>
+        <li><a href="javascript:;" onclick="docsAjax.insertIntoEditor('[figure:<?php echo $fig['id']; ?>]','<?php echo $rmc_config->editor_type; ?>');"><?php echo $fig['title']; ?></a></li>
     <?php
         endforeach;
     ?>
@@ -121,20 +121,27 @@ function rd_widget_newnote(){
     $rtn['title'] = __('New Note','docs');
     ob_start();
 ?>
-<div class="rd_forms">
 <form name="frmNewNote" id="frm-wnotes" method="post" action="notes.php">
-<label for="note-title"><?php _e('Title:','docs'); ?></label>
-<input type="text" name="title" id="note-title" value="" class="required" />
-<label><?php _e('Content:','docs'); ?></label>
-<textarea name="reference" id="note-content" cols="45" rows="6" class="required"></textarea>
-<input type="hidden" name="action" value="save" />
-<?php echo $xoopsSecurity->getTokenHTML(); ?>
-<input type="hidden" name="action" value="save" />
-<input type="hidden" name="res" value="<?php echo $id_res; ?>"
-<?php RMEvents::get()->run_event('docs.notes.form.fields'); ?>
-<input type="submit" value="<?php _e('Create Note','docs'); ?>" />
+    <div class="form-group">
+        <label for="note-title"><?php _e('Title:','docs'); ?></label>
+        <input type="text" name="title" id="note-title" value="" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="note-content"><?php _e('Content:','docs'); ?></label>
+        <textarea name="reference" id="note-content" cols="45" rows="6" class="form-control" required></textarea>
+    </div>
+    <div class="form-group text-center">
+        <button type="submit" class="btn btn-primary"><span class="fa fa-check"></span> <?php _e('Create Note','docs'); ?></button>
+    </div>
+
+    <input type="hidden" name="action" value="save" />
+    <?php echo $xoopsSecurity->getTokenHTML(); ?>
+    <input type="hidden" name="action" value="save" />
+    <input type="hidden" name="res" value="<?php echo $id_res; ?>"
+    <?php RMEvents::get()->run_event('docs.notes.form.fields'); ?>
+
 </form>
-</div>
+
 <?php
     $rtn['content'] = ob_get_clean();
     return $rtn;

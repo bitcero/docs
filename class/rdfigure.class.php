@@ -14,7 +14,7 @@ class RDFigure extends RMObject{
 	function __construct($id=null){
 
 		$this->db =& XoopsDatabaseFactory::getDatabaseConnection();
-		$this->_dbtable = $this->db->prefix("rd_figures");
+		$this->_dbtable = $this->db->prefix("mod_docs_figures");
 		$this->setNew();
 		$this->initVarsFromTable();
         $this->setVarType('attrs', XOBJ_DTYPE_SOURCE);

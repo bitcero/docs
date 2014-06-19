@@ -20,8 +20,8 @@ function rd_show_page(){
     $content = @file_get_contents(XOOPS_CACHE_PATH.'/rd_homepage.html');
     $content = TextCleaner::getInstance()->to_display($content);
     $editor = new RMFormEditor('', 'homepage', '100%', '450px', $content);
-    $rmc_config = RMFunctions::configs();
-    if ($rmc_config['editor_type']=='tiny'){
+    $rmc_config = RMSettings::cu_settings();
+    if ($rmc_config->editor_type == 'tiny'){
         $tiny = TinyEditor::getInstance();
         $tiny->add_config('theme_advanced_buttons1', 'res_index');
     }

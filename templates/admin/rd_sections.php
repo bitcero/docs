@@ -36,15 +36,32 @@ function rd_print_sections($sections,$id, $table=true){
 }
 
 ?>
-<h1 class="cu-section-title mw_titles"><span style="background-position: left -32px;">&nbsp;</span><?php if(!isset($res)): _e('Sections Management','docs'); else: echo sprintf(__('Sections in %s','docs'), $res->getVar('title')); endif; ?></h1>
+<h1 class="cu-section-title mw_titles">
+    <?php if(!isset($res)): _e('Sections Management','docs'); else: echo sprintf(__('Sections in %s','docs'), '&laquo;' . $res->getVar('title') . '&raquo;'); endif; ?>
+</h1>
 
 <form name="frmsec" method="POST" action="sections.php" id="frm-sections">
-<div class="rd_loptions">
-    <strong><a href="resources.php"><?php _e('Choose another Document','docs'); ?></a></strong> |
-    <a href="sections.php?id=<?php echo $id; ?>"><?php _e('List Sections','docs'); ?></a> |
-    <a href="sections.php?id=<?php echo $id; ?>&amp;action=new"><?php _e('New Section','docs'); ?></a> |
-    <a href="#" id="start-sortable"><?php _e('Sort Sections','docs'); ?></a>
-    <?php RMEvents::get()->run_event('docs.get.sections.options'); ?>
+<div class="cu-bulk-actions">
+    <ul class="nav nav-pills">
+        <li class="dropdown">
+            <a href="#" data-toggle="dropdown" role="button">Select option...<b class="caret"></b></a>
+            <ul id="menu-option" class="dropdown-menu" role="menu" aria-labelledby="menu-option">
+                <li>
+                    <a href="resources.php"><span class="fa fa-book fa-fw"></span> <?php _e('Choose another Document','docs'); ?></a>
+                </li>
+                <li>
+                    <a href="sections.php?id=<?php echo $id; ?>"><span class="fa fa-list fa-fw"></span> <?php _e('List Sections','docs'); ?></a>
+                </li>
+                <li>
+                    <a href="sections.php?id=<?php echo $id; ?>&amp;action=new"><span class="fa fa-plus fa-fw"></span> <?php _e('New Section','docs'); ?></a>
+                </li>
+                <li>
+                    <a href="#" id="start-sortable"><span class="fa fa-sort fa-fw"></span> <?php _e('Sort Sections','docs'); ?></a>
+                </li>
+                <?php RMEvents::get()->run_event('docs.get.sections.options'); ?>
+            </ul>
+        </li>
+    </ul>
 </div>
 <div id="table-sections">
 <table class="outer" width="100%" cellspacing="0">

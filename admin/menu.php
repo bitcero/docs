@@ -61,8 +61,8 @@ $adminmenu[5]['link'] = "admin/figures.php?res=".$res;
 $adminmenu[5]['icon'] = "../images/figures.png";
 $adminmenu[5]['location'] = "figures";
 $adminmenu[5]['options'] = array(
-    array('title'=>__('All figures','docs'), 'link'=>'figures.php?res='.$res, 'selected'=>'figures'),
-    array('title'=>__('New figure','docs'), 'link'=>'figures.php?action=new&amp;res='.$res, 'selected'=>'newfigure')
+    array('title'=>__('All figures','docs'), 'link'=>'admin/figures.php?res='.$res, 'selected'=>'figures'),
+    array('title'=>__('New figure','docs'), 'link'=>'admin/figures.php?action=new&amp;res='.$res, 'selected'=>'newfigure')
 );
 
 //Ediciones

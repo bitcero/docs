@@ -48,7 +48,7 @@ function child(&$sections, $id,$parent,$indent){
 function rd_show_sections(){
 	global $xoopsModule, $xoopsSecurity;
 
-	$id= rmc_server_var($_GET,'id', 0);
+	$id= RMHttpRequest::get( 'id', 'integer', 0);
     if($id<=0){
         redirectMsg('resources.php', __('Select a Document to see the sections inside this','docs'), 0);
         die();
@@ -79,14 +79,12 @@ function rd_show_sections(){
     
     // Event
     $sections = RMEvents::get()->run_event('docs.loading.sections', $sections);
-    
-	RDFunctions::toolbar();
-	xoops_cp_location("<a href='./'>".$xoopsModule->name()."</a> &raquo; ".__('Sections Management','docs'));
+
     RMTemplate::get()->assign('xoops_pagetitle', __('Sections Management','docs'));
     RMTemplate::get()->add_style('admin.css', 'docs');
     RMTemplate::get()->add_style('sections.css', 'docs');
-    RMTemplate::get()->add_local_script('sections.js','docs','include');
-    RMTemplate::get()->add_local_script('jquery.ui.nestedSortable.js','docs','include');
+    RMTemplate::get()->add_script('sections.js','docs');
+    RMTemplate::get()->add_script('jquery.ui.nestedSortable.js','docs', array('footer' => 1));
 	xoops_cp_header();
     
     include RMEvents::get()->run_event('docs.get.sections.template', RMTemplate::get()->get_template('admin/rd_sections.php', 'module', 'docs'));
@@ -101,10 +99,10 @@ function rd_show_sections(){
 **/
 function rd_show_form($edit=0){
 	global $xoopsModule, $xoopsConfig, $xoopsSecurity, $xoopsUser, $xoopsModuleConfig, $rmc_config;
-     
+
     define('RMCSUBLOCATION','newresource');
-	$id=rmc_server_var($_GET, 'id', 0);
-    $parent=rmc_server_var($_GET, 'parent', 0);
+	$id = RMHttpRequest::get( 'id', 'integer', 0 );
+    $parent = RMHttpRequest::get( 'parent', 'integer', 0 );
     
     if ($id<=0){
         redirectMsg('sections.php?id='.$id, __('You must select a Document in order to create a new section','docs'),1);
@@ -143,25 +141,28 @@ function rd_show_form($edit=0){
     $order = RDFunctions::order('MAX', $parent, $res->id());
     $order++;
     
-    $rmc_config = RMFunctions::configs();
+    $rmc_config = RMSettings::cu_settings();
     $form=new RMForm('','frmsec','sections.php');
     
-    if ($rmc_config['editor_type']=='tiny'){
+    if ($rmc_config->editor_type == 'tiny'){
         $tiny = TinyEditor::getInstance();
         $tiny->add_config('theme_advanced_buttons1', 'rd_refs');
         $tiny->add_config('theme_advanced_buttons1', 'rd_figures');
         $tiny->add_config('theme_advanced_buttons1', 'rd_toc');
     }
     
-    $editor = new RMFormEditor('','content','100%','300px',$edit ? $rmc_config['editor_type']=='tiny' ? $sec->getVar('content') : $sec->getVar('content', 'e') : '','', 0);
+    $editor = new RMFormEditor('','content','100%','300px',$edit ? $rmc_config->editor_type == 'tiny' ? $sec->getVar('content') : $sec->getVar('content', 'e') : '','', 0);
     $usrfield = new RMFormUser('','uid',false,$edit ? array($sec->getVar('uid')) : $xoopsUser->getVar('uid'));
     
     RMTemplate::get()->add_style('admin.css', 'docs');
-    RMTemplate::get()->add_script('../include/js/scripts.php?file=metas.js');
-    RMTemplate::get()->add_script(RMCURL.'/include/js/jquery.validate.min.js');
-    RMTemplate::get()->add_head('<script type="text/javascript">var docsurl = "'.XOOPS_URL.'/modules/docs";</script>');
-    RDFunctions::toolbar();
-    xoops_cp_location("<a href='./'>".$xoopsModule->name()."</a> &raquo; ".($edit ? __('Edit Section','docs') : __('Create Section','docs')));
+    RMTemplate::get()->add_script('scripts.php?file=metas.js', 'docs');
+    RMTemplate::get()->add_script('jquery.validate.min.js', 'rmcommon', array('footer' => 1));
+    RMTemplate::get()->add_head_script('var docsurl = "'.XOOPS_URL.'/modules/docs";');
+
+    $bc = RMBreadCrumb::get();
+    $bc->add_crumb( __('Documents', 'docs'), 'resources.php', 'fa fa-book' );
+    $bc->add_crumb( __('Sections', 'docs'), 'sections.php?id=' . RMHttpRequest::get( 'id', 'integer', 0 ), 'fa fa-list' );
+    $bc->add_crumb( $edit ? __('Edit Section', 'docs') : __('New Section', 'docs'), '', $edit ? 'fa fa-edit' : 'fa fa-plus' );
     RMTemplate::get()->assign('xoops_pagetitle', ($edit ? __('Edit Section','docs') : __('Create Section','docs')));
     xoops_cp_header();
     
