@@ -11,13 +11,13 @@ var editor = jQuery.extend({
     
     insertNote: function(id){
         ed = tinyMCEPopup.editor;
-        ed.execCommand("mceInsertContent", true, '[note:'+id+']');
+        ed.execCommand("mceInsertContent", true, '[note id='+id+']');
         tinyMCEPopup.close();
     },
     
     insertFigure: function(id){
         ed = tinyMCEPopup.editor;
-        ed.execCommand("mceInsertContent", true, '[figure:'+id+']');
+        ed.execCommand("mceInsertContent", true, '[figure id='+id+']');
         tinyMCEPopup.close();
     },
     

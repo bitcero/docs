@@ -124,7 +124,9 @@ function rd_show_form($edit=0){
 	
 	$form->addElement(new RMFormText(__('Document title', 'docs'),'title',50,150,$edit ? $res->getVar('title') : ''),true);
 	if ($edit) $form->addElement(new RMFormText(__('Document slug', 'docs'),'nameid',50,150,$res->getVar('nameid')));
-	$form->addElement(new RMFormTextArea(__('Description', 'docs'),'desc',5,50,$edit ? $res->getVar('description','e') : ''),true);
+
+    //$form->addElement(new RMFormEditor( __('Description', 'docs'),'desc', '100%', '200px', $edit ? $res->getVar('description','e') : ''),true);
+    $form->addElement(new RMFormTextArea(__('Description', 'docs'),'desc',5,50,$edit ? $res->getVar('description','e') : ''),true);
 	$form->addElement(new RMFormUser(__('Editors','docs'),'editors',1,$edit ? $res->getVar('editors') : '',30));
 
 	//Propietario de la publicacion

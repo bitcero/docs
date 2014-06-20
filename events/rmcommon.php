@@ -82,7 +82,7 @@ class DocsRmcommonPreload{
             });
 
             ed.addCommand('mceRapidDocsTOC', function() {
-                ed.execCommand("mceInsertContent", true, '[TOC]');
+                ed.execCommand("mceInsertContent", true, '[TOC id=<?php echo $str['sec']; ?>]');
             });
             
             // Register buttons
@@ -328,25 +328,29 @@ class DocsRmcommonPreload{
         if(function_exists('xoops_cp_header')) return $text;
         
         // If home page contains some index
-        include_once XOOPS_ROOT_PATH.'/modules/docs/include/tc_replacements.php';
+
         $text = preg_replace_callback("/\[RD_RESINDEX\]/", 'generate_res_index', $text);
         $text = preg_replace_callback("/\[RD_FEATINDEX\]/", 'generate_res_index', $text);
         
-        // Build notes
-        $pattern = "/\[note:(.*)]/sU";
-        $replacement = "rd_build_note";
-        $text = preg_replace_callback($pattern, $replacement, $text);
-        
-        // Build figures
-        $pattern = "/\[figure:(.*)]/sU";
-        $replacement = "rd_build_figure";
-        $text = preg_replace_callback($pattern, $replacement, $text);
-        
         // Build TOC
-        $text = preg_replace_callback("/\[TOC\]/", 'rd_generate_toc', $text);
+        //$text = preg_replace_callback("/\[TOC\]/", 'rd_generate_toc', $text);
         
         return $text;
         
+    }
+
+    /**
+     * Add custom codes support
+     */
+    public function eventRmcommonIncludeCommonLanguage(){
+        global $rmCodes;
+
+        include_once XOOPS_ROOT_PATH.'/modules/docs/include/tc_replacements.php';
+
+        $rmCodes->add( 'TOC', 'rd_generate_toc' );
+        $rmCodes->add( 'note', 'rd_build_note' );
+        $rmCodes->add( 'figure', 'rd_build_figure' );
+
     }
 
 }

@@ -145,7 +145,12 @@ function rd_figures_form($edit=0){
     $form->addElement(new RMFormText(__('Description','docs'),'desc',50,255, $edit ? $fig->getVar('desc') : ''),true);
 	$form->addElement(new RMFormEditor(__('Content','docs'),'figure','100%','300px',$edit ? $fig->getVar('content','e') : ''),true);
 
-	$form->addElement(new RMFormText(__('Attributes','docs'),'attrs',50,150, $edit ? $fig->getVar('attrs', 'e') : ''));
+    $ele = new RMFormSelect( __('Alignment', 'docs'), 'align', 0, $edit ? array( $fig->getVar('align') ) : array('center') );
+    $ele->addOption( 'left', __('Left', 'docs') );
+    $ele->addOption( 'center', __('Center', 'docs') );
+    $ele->addOption( 'right', __('Right', 'docs') );
+    $form->addElement( $ele );
+	$form->addElement(new RMFormText(__('Width','docs'),'size',50,10, $edit ? $fig->getVar('size', 'e') : '250'));
 
 	$buttons=new RMFormButtonGroup();
 
@@ -211,7 +216,8 @@ function rd_save_figures($edit = 0){
 	$fig->setVar('desc', $desc);
 	$fig->setVar('content', $figure);
     $fig->setVar('id_res', $res);
-    $fig->setVar('attrs', $attrs);
+    $fig->setVar('align', $align);
+    $fig->setVar('size', $size);
 
 	if ($fig->save()){
         redirectMsg('./figures.php?action=locate&res='.$res.'&id='.$fig->id(), __('Figure saved successfully!','docs'),0);

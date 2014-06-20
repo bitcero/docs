@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $xoops_langcode; ?>" lang="<?php echo $xoops_langcode; ?>">
-<head>
+<head><?php $rmc_config = RMSettings::cu_settings(); ?>
     <meta http-equiv="content-type" content="text/html; charset=<?php echo $xoops_charset; ?>" />
     <meta http-equiv="content-language" content="<?php echo $xoops_langcode; ?>" />
     <title><?php _e('Notes and References','docs'); ?> &raquo; <?php echo $xoops_sitename; ?></title>
@@ -24,7 +24,7 @@
     </style>
     <?php if(defined('DF_LOCATION') && DF_LOCATION=='form'): ?>
     <script type="text/javascript">
-    <?php include 'include/js/figures-form.js'; ?>
+    <?php include 'js/figures-form.js'; ?>
     </script>
     <?php endif; ?>
     <script type="text/javascript">
@@ -42,6 +42,8 @@
                 
     }
     </script>
+    <!-- RMTemplateHeader -->
+    <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 <?php foreach($rmc_messages as $message): ?>
@@ -134,10 +136,20 @@
 <div id="resources-list" title="<?php _e('Select Document','docs'); ?>"><img src="images/wait.gif" class="image_waiting" alt="<?php _e('Wait a second...','docs'); ?>" /></div>
 <?php else: ?>
 
-<h3><?php $edit ? _e('Edit Figure','docs') : _e('Create Figure','docs'); ?></h3>
-    <hr>
-<div id="form-figures">
-    <form name="frmfig" id="frm-figs" method="post" accept="figures.php">
+<div class="container">
+    <h2><?php $edit ? _e('Edit Figure','docs') : _e('Create Figure','docs'); ?></h2>
+
+    <ul class="nav nav-tabs">
+        <li class="active<?php echo $edit && $fig->type == 'image' ? ' hidden' : ''; ?>">
+            <a href="#type-content" data-toggle="tab"><?php _e('With Content', 'docs'); ?></a>
+        </li>
+        <li<?php echo $edit && $fig->type == 'content' ? ' class="hidden"' : ($edit ? ' class="active"' : ''); ?>>
+            <a href="#type-image" data-toggle="tab"><?php _e('Only Image', 'docs'); ?></a>
+        </li>
+    </ul><br>
+
+    <div class="tab-content">
+
         <div class="form-group">
             <div class="input-group">
                 <span class="input-group-addon"><?php _e('Document:','docs'); ?></span>
@@ -146,40 +158,118 @@
             </span>
             </div>
         </div>
-        <div class="form-group">
-            <label for="title"><?php _e('Title:','docs'); ?></label>
-            <input type="text" name="title" id="title" size="50" value="<?php echo $edit ? $fig->getVar('title','e') : ''; ?>" class="form-control">
+        <div id="type-content" class="tab-pane fade in active<?php echo $edit && $fig->type == 'image' ? ' hidden' : ''; ?>">
+            <form name="frmfigContent" id="frm-figs" method="post" action="figures.php">
+
+                <div class="form-group">
+                    <label for="title"><?php _e('Title:','docs'); ?></label>
+                    <input type="text" name="title" id="title" size="50" value="<?php echo $edit ? $fig->getVar('title','e') : ''; ?>" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="desc"><?php _e('Description:','docs'); ?></label>
+                    <input type="text" name="desc" id="desc" size="50" value="<?php echo $edit ? $fig->getVar('desc','e') : ''; ?>" class="form-control">
+                    <span class="error_desc error"><?php _e('Description is a required attribute!','docs'); ?></span>
+                </div>
+
+                <?php echo $editor->render(); ?>
+                <span class="error_content error"><?php _e('You must input the content for this figure!','docs'); ?></span>
+                <hr>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="form-group">
+                            <label for="fig-align"><?php _e('Alignment', 'docs'); ?></label>
+                            <select class="form-control" name="align" id="fig-align">
+                                <option value="left"><?php _e('Left', 'docs'); ?></option>
+                                <option value="center"><?php _e('Center', 'docs'); ?></option>
+                                <option value="right"><?php _e('Right', 'docs'); ?></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="form-group">
+                            <label for="fig-size"><?php _e('Width', 'docs'); ?></label>
+                            <input type="text" id="fig-size" name="size" class="form-control" value="250">
+                        </div>
+                    </div>
+                </div>
+
+                <input type="hidden" name="action" value="<?php echo $edit ? 'saveedit' : 'save'; ?>" />
+                <input type="hidden" name="page" value="<?php echo $page; ?>" />
+                <input type="hidden" name="id" value="<?php echo $id; ?>" />
+                <input type="hidden" name="type" value="content" />
+                <?php if($edit): ?>
+                    <input type="hidden" name="id_fig" value="<?php echo $id_fig; ?>" />
+                <?php endif; ?>
+                <?php echo $xoopsSecurity->getTokenHTML(); ?>
+
+                <div class="form-group text-center">
+                    <button type="button" onclick="history.go(-1);" class="btn btn-default"><?php _e('Cancel','docs'); ?></button>
+                    <button type="submit" class="btn btn-primary"><?php $edit ? _e('Save Changes','docs') : _e('Create Figure','docs'); ?></button>
+                </div>
+            </form>
         </div>
 
-        <div class="form-group">
-            <label for="desc"><?php _e('Description:','docs'); ?></label>
-            <input type="text" name="desc" id="desc" size="50" value="<?php echo $edit ? $fig->getVar('desc','e') : ''; ?>" class="form-control">
-            <span class="error_desc error"><?php _e('Description is a required attribute!','docs'); ?></span>
+        <div id="type-image" class="tab-pane fade<?php echo $edit && $fig->type=='content' ? ' hidden' : ' in active'; ?>">
+
+            <form name="frmFiguresImage" id="frm-fig-image" method="post" action="figures.php">
+                <div class="form-group">
+                    <label for="title-image"><?php _e('Title:','docs'); ?></label>
+                    <input type="text" name="title" id="title-image" size="50" value="<?php echo $edit ? $fig->getVar('title','e') : ''; ?>" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="desc-image"><?php _e('Description:','docs'); ?></label>
+                    <input type="text" name="desc" id="desc-image" size="50" value="<?php echo $edit ? $fig->getVar('desc','e') : ''; ?>" class="form-control">
+                    <span class="error_desc error"><?php _e('Description is a required attribute!','docs'); ?></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="image"><?php _e('Image:', 'docs'); ?></label>
+                    <?php $fImg = new RMFormImage('Image','content', $edit ? $fig->getVar('content','e') : ''); echo $fImg->render(); ?>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="form-group">
+                            <label for="fig-align-image"><?php _e('Alignment', 'docs'); ?></label>
+                            <select class="form-control" name="align" id="fig-align-image">
+                                <option value="left"<?php echo $fig->align == 'left' ? ' selected' : ''; ?>><?php _e('Left', 'docs'); ?></option>
+                                <option value="center"<?php echo $fig->align == 'center' ? ' selected' : ''; ?>><?php _e('Center', 'docs'); ?></option>
+                                <option value="right"<?php echo $fig->align == 'right' ? ' selected' : ''; ?>><?php _e('Right', 'docs'); ?></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="form-group">
+                            <label for="fig-size-image"><?php _e('Width', 'docs'); ?></label>
+                            <input type="text" id="fig-size-image" name="size" class="form-control" value="<?php echo $edit ? $fig->size : '250'; ?>">
+                        </div>
+                    </div>
+                </div>
+
+                <input type="hidden" name="action" value="<?php echo $edit ? 'saveedit' : 'save'; ?>" />
+                <input type="hidden" name="page" value="<?php echo $page; ?>" />
+                <input type="hidden" name="id" value="<?php echo $id; ?>" />
+                <input type="hidden" name="type" value="image" />
+                <?php if($edit): ?>
+                    <input type="hidden" name="id_fig" value="<?php echo $id_fig; ?>" />
+                <?php endif; ?>
+                <?php echo $xoopsSecurity->getTokenHTML(); ?>
+
+                <div class="form-group text-center">
+                    <button type="button" onclick="history.go(-1);" class="btn btn-default"><?php _e('Cancel','docs'); ?></button>
+                    <button type="submit" class="btn btn-primary"><?php $edit ? _e('Save Changes','docs') : _e('Create Figure','docs'); ?></button>
+                </div>
+
+            </form>
+
         </div>
 
-        <?php echo $editor->render(); ?>
-        <span class="error_content error"><?php _e('You must input the content for this figure!','docs'); ?></span>
+    </div>
 
-        <div class="form-group">
-            <label for="attrs"><?php _e('Atributes:','docs'); ?></label>
-            <input type="text" name="attrs" id="attrs" value="<?php echo $edit ? $fig->getVar('attrs','e') : htmlspecialchars($xoopsModuleConfig['attrs']); ?>" class="form-control">
-            <small class="help-block"><?php _e('Here you can specify another atributes to include with the figure. You can specify a css class name, or an id for figure.','docs'); ?></small>
-        </div>
-
-        <input type="hidden" name="action" value="<?php echo $edit ? 'saveedit' : 'save'; ?>" />
-        <input type="hidden" name="page" value="<?php echo $page; ?>" />
-        <input type="hidden" name="id" value="<?php echo $id; ?>" />
-        <?php if($edit): ?>
-        <input type="hidden" name="id_fig" value="<?php echo $id_fig; ?>" />
-        <?php endif; ?>
-        <?php echo $xoopsSecurity->getTokenHTML(); ?>
-
-        <div class="form-group text-center">
-            <button type="button" onclick="history.go(-1);" class="btn btn-default"><?php _e('Cancel','docs'); ?></button>
-            <button type="submit" class="btn btn-primary"><?php $edit ? _e('Save Changes','docs') : _e('Create Figure','docs'); ?></button>
-        </div>
-    </form>
 </div>
+
 <?php endif; ?>
 </body>
 

@@ -1,10 +1,12 @@
 <?php include RMTemplate::get()->get_template('rd_header.php', 'module', 'docs'); ?>
-<h1 class="title"><?php echo $res->getVar('title'); ?></h1>
-<p class="rd_res_description"><?php echo $res->getVar('description'); ?></p>
+<div class="page-header">
+    <h1 class="title"><?php echo $res->getVar('title'); ?></h1>
+</div>
 
-<h2><?php _e('Table of Contents','docs'); ?></h2>
+<?php echo $res->getVar('description'); ?>
 
 <?php if(!empty($toc)): ?>
+    <strong>Contenido:</strong>
 <ul id="rd-toc">
 <?php foreach($toc as $sec): ?>
     <li><a href="<?php echo $sec['link']; ?>"><strong><?php echo $sec['number']; ?></strong>. <?php echo $sec['title']; ?></a></li>

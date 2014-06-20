@@ -91,7 +91,7 @@ function showSection(RDResource &$res, RDSection &$section){
     
     RMTemplate::get()->add_style('docs.css', 'docs');
     RMTemplate::get()->add_jquery();
-    RMTemplate::get()->add_script(XOOPS_URL.'/modules/docs/include/js/docs.js');
+    RMTemplate::get()->add_script('docs.js', 'docs');
     
     // URLs
     if ($xoopsModuleConfig['permalinks']){

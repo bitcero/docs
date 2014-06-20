@@ -32,6 +32,6 @@
 
 <!-- Comments -->
 <h3><?php _e('Comments','docs'); ?></h3>
-<?php echo $xoopsTpl->fetch(RMCPATH."/templates/rmc_comments_display.html"); ?>
-<?php echo $xoopsTpl->fetch(RMCPATH."/templates/rmc_comments_form.html"); ?>
+<?php echo $xoopsTpl->fetch(RMCPATH."/templates/rmc-comments-display.html"); ?>
+<?php echo $xoopsTpl->fetch(RMCPATH."/templates/rmc-comments-form.html"); ?>
 <!-- End Comments -->

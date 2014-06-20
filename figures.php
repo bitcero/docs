@@ -206,7 +206,7 @@ function saveFigures($edit=0){
 	$ruta='id='.$id.'&pag='.$pag.'&search='.$search;
 
 	if (!$xoopsSecurity->check()){
-		redirectMsg('./figures.php?'.$ruta, __('Session token expired!','docs'), 1);
+		redirectMsg('figures.php?'.$ruta, __('Session token expired!','docs'), 1);
 		die();
 	}
 
@@ -250,10 +250,17 @@ function saveFigures($edit=0){
 		$fig=new RDFigure();
 	}
 
+    if ( $type == 'image' && $content == '' )
+        RMUris::redirect_with_message( __('Please provide an image for this figure.', 'docs'), 'action=new&figures.php?id=' . $id);
+    elseif ( $type == 'content' && $content == '' )
+        RMUris::redirect_with_message( __('Please provide the content for this figure.', 'docs'), 'action=new&figures.php?id=' . $id);
+
 	$fig->setVar('id_res',$id);
-	$fig->setVar('attrs',$attrs);
+	$fig->setVar('size',$size);
+	$fig->setVar('align',$align);
+	$fig->setVar('type',$type);
 	$fig->setVar('desc',$desc);
-	$fig->setVar('content',$content);
+	$fig->setVar('content', $content);
     $fig->setVar('title',$title);
 	
 	if (!$fig->save()){

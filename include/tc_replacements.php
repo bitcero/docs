@@ -36,9 +36,14 @@ function generate_res_index($matches){
 * 
 * @param int ID of note
 */
-function rd_build_note($m){
+function rd_build_note($atts){
     global $xoopsModuleConfig;
-    $id = $m[1];
+
+    $cc = RMCustomCode::get();
+    extract($cc->atts(array(
+        'id'    => 0
+    ), $atts));
+
     static $note_number = 1;
     $ref = new RDReference($id);
     if ($ref->isNew()) return;
@@ -62,9 +67,14 @@ function rd_build_note($m){
 * @param int ID of figure
 * @return string
 */
-function rd_build_figure($m){
+function rd_build_figure( $atts ){
+    static $figures_number = 1;
 
-    $id = $m[1];
+    $cc = RMCustomCode::get();
+    extract($cc->atts(array(
+        'id'    => 0
+    ), $atts));
+
     if ($id<=0) return;
     
     $fig = new RDFigure($id);
@@ -73,6 +83,9 @@ function rd_build_figure($m){
     ob_start();
     include RMEvents::get()->run_event('docs.template.build.figure', RMTemplate::get()->get_template('specials/rd_figure.php', 'module', 'docs'));
     $ret = ob_get_clean();
+
+    $figures_number++;
+
     return $ret;
     
 }
@@ -80,17 +93,20 @@ function rd_build_figure($m){
 /**
 * Generate a Table of Contents for an specific section
 */
-function rd_generate_toc($m){
-    
-    $id = rmc_server_var($_GET, 'id', 0);
-    $number = rmc_server_var($GLOBALS, 'rd_section_number', 0);
+function rd_generate_toc( $atts ){
+
+    $cc = RMCustomCode::get();
+    extract($cc->atts(array(
+        'id'    => 0,
+        'doc'   => 0
+    ), $atts));
     
     if($id<=0) return;
     
     $sec = new RDSection($id);
     if($sec->isNew()) return;
     
-    $toc = RDFunctions::get_section_tree($id, new RDResource($sec->getVar('id_res')), $number);
+    $toc = RDFunctions::get_section_tree($id, new RDResource($sec->getVar('id_res')));
     
     ob_start();
     include RMEvents::get()->run_event('docs.template.toc', RMTemplate::get()->get_template('specials/rd_toc.php', 'module', 'docs'));

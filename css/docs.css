@@ -8,10 +8,17 @@
     list-style: none;
 }
 
+.section-title{
+    margin: 0 0 10px 0;
+}
+.doc-section{
+    margin-bottom: 25px;
+}
+.doc-section.is-header > header{
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
 .rd_item_options{
-    display: block;
-    float: right;
-    padding: 10px 0 0 0;
     font-size: 0.9em;
 }
 .rd_notes{
@@ -19,7 +26,7 @@
     margin: 10px 0 0 0;
     border-top: 1px solid #CCC;
 }
-.rd_notes ol{em;
+.rd_notes ol{
     font-size: 0.9em;
 }
 .rd_nav_links{
@@ -70,38 +77,35 @@
     padding: 0;
 }
 /** Figures **/
-.rd_figure_title{
-    padding: 4px;
-    font-weight: bold;
+.docs-figure{
     font-size: 0.9em;
-    text-align: center;
+    max-width: 100%!important;
+    text-align: left;
 }
-.rd_figure_content{
-    padding: 4px;
+.docs-figure.center{
+    margin: 10px auto;
 }
-.rd_figure_content p{
-    margin: 0;
-}
-.rd_figure_foot{
-    font-size: 0.9em;
-    padding: 4px;
-    text-align: center;
-}
-.figure_center{
-    padding: 1px;
-    border: 1px solid #CCC;
-}
-.figure_left{
+.docs-figure.left{
     float: left;
-    border: 1px solid #CCC;
-    padding: 1px;
-    margin: 3px 5px 5px 0;
+    margin: 5px 10px 5px 0;
 }
-.figure_right{
+.docs-figure.right{
     float: right;
-    border: 1px solid #CCC;
-    padding: 1px;
-    margin: 3px 0 5px 5px;
+    margin: 10px 0 10px 10px;
+}
+.docs-figure > .thumbnail > img{
+    border: 1px solid rgba(0,0,0,0.1);
+}
+.docs-figure > .thumbnail > .caption{
+    padding: 4px;
+    text-align: left;
+}
+.docs-figure.center > .thumbnail > .caption{
+    padding: 4px;
+    text-align: center;
+}
+.docs-figure > .thumbnail > .caption-content{
+    background: rgba(0,0,0,0.05);
 }
 
 /** Search **/
@@ -121,15 +125,6 @@
 }
 
 /** Header **/
-#rd-header{
-    padding: 4px;
-    font-size: 0.9em;
-    overflow: hidden;
-    border-bottom: 1px solid #CCC;
-}
-#rd-header .right{
-    float: right;
-}
 .rmc_pages_navigation_container{
     margin: 10px 0;
 }

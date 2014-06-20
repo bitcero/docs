@@ -2,7 +2,7 @@ $(document).ready(function(){
     $("#form-figures .submit").click(function(){
         var error = false;
         
-        <?php if($rmc_config['editor_type']=='tiny'): ?>
+        <?php if($rmc_config->editor_type == 'tiny'): ?>
         tinyMCE.triggerSave();
         <?php endif; ?>
         

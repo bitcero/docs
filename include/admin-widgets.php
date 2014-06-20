@@ -62,7 +62,7 @@ function rd_widget_references(){
         if(count($references)<=0) _e('There are not references for this Document yet!','docs');
         foreach($references as $ref):
     ?>
-        <li><a href="javascript:;" onclick="docsAjax.insertIntoEditor('[note:<?php echo $ref['id']; ?>]','<?php echo $rmc_config->editor_type; ?>');"><?php echo $ref['title']; ?></a></li>
+        <li><a href="javascript:;" onclick="docsAjax.insertIntoEditor('[note id=<?php echo $ref['id']; ?>]','<?php echo $rmc_config->editor_type; ?>');"><?php echo $ref['title']; ?></a></li>
     <?php
         endforeach;
     ?>
@@ -97,7 +97,7 @@ function rd_widget_figures(){
         if(count($figures)<=0) _e('There are not figures for this Document yet!','docs');
         foreach($figures as $fig):
     ?>
-        <li><a href="javascript:;" onclick="docsAjax.insertIntoEditor('[figure:<?php echo $fig['id']; ?>]','<?php echo $rmc_config->editor_type; ?>');"><?php echo $fig['title']; ?></a></li>
+        <li><a href="javascript:;" onclick="docsAjax.insertIntoEditor('[figure id=<?php echo $fig['id']; ?>]','<?php echo $rmc_config->editor_type; ?>');"><?php echo $fig['title']; ?></a></li>
     <?php
         endforeach;
     ?>

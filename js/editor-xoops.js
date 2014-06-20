@@ -13,12 +13,12 @@ var exmPopup = window.parent[name];
 var editor = jQuery.extend({
     
     insertNote: function(id){
-        exmPopup.insertText('[note:'+id+']');
+        exmPopup.insertText('[note id='+id+']');
         exmPopup.closePopup();
     },
     
     insertFigure: function(id){
-        exmPopup.insertText('[figure:'+id+']');
+        exmPopup.insertText('[figure id='+id+']');
         exmPopup.closePopup();
     },
     
