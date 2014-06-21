@@ -3,7 +3,7 @@
 <head><?php $rmc_config = RMSettings::cu_settings(); ?>
     <meta http-equiv="content-type" content="text/html; charset=<?php echo $xoops_charset; ?>" />
     <meta http-equiv="content-language" content="<?php echo $xoops_langcode; ?>" />
-    <title><?php _e('Notes and References','docs'); ?> &raquo; <?php echo $xoops_sitename; ?></title>
+    <title><?php _e('Figures','docs'); ?> &raquo; <?php echo $xoops_sitename; ?></title>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <?php if ($rmc_config->editor_type == 'tiny'): ?>

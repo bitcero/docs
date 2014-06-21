@@ -1,11 +1,10 @@
-.rd_res_description{}
-
-#rd-toc{
-    list-style: none;
-    padding: 0 0 0 10px;
+#document-toc li{
+    padding: 2px 0;
 }
-#rd-toc li{
-    list-style: none;
+#document-toc > strong{
+    font-size: 1.2em;
+    display: block;
+    margin-bottom: 6px;
 }
 
 .section-title{
@@ -21,61 +20,30 @@
 .rd_item_options{
     font-size: 0.9em;
 }
-.rd_notes{
-    padding: 10px 0 0 0;
-    margin: 10px 0 0 0;
-    border-top: 1px solid #CCC;
-}
 .rd_notes ol{
     font-size: 0.9em;
 }
-.rd_nav_links{
-    border-top: 1px solid #CCC;
-    padding: 5px 0;
-    margin: 10px 0 3px 0;
-    font-size: 0.9em;
-    overflow: hidden;
+
+/* Navigation */
+.document-navigation .pager{
+    margin: 5px 0;
 }
-.rd_nav_links .left{
-    float: left;
-    display: block;
-}
-.rd_nav_links .right{
-    float: right;
-    display: block;
-}
-.rd_nav_links .rd_toc{
-    display: block;
-    clear: both;
-    padding: 4px 0 2px 0;
-    text-align: center;
-}
-.rd_section_data{
-    padding: 2px 0;
-    font-size: 0.9em;
-    overflow: hidden;
-}
-.rd_section_data .left{
-    float: left;
-}
-.rd_section_data .right{
-    float: right;
-    text-align: right;
-}
+
 /** TOC **/
-.rd_toc_section{
-    border: 1px solid #CCC;
+.document-toc-section{
+    background: #f2f2f2;
+    background: rgba(0,0,0, 0.05);
+    border: 1px solid rgba(0,0,0,0.1);
     padding: 15px;
     float: left;
     margin: 10px 0;
 }
-.rd_toc_section h3{
-    margin: 0 0 10px 0;
+.document-toc-section > strong{
+    font-size: 1.2em;
+    display: block;
+    margin-bottom: 8px;
 }
-.rd_toc_section ul{
-    list-style: none;
-    padding: 0;
-}
+
 /** Figures **/
 .docs-figure{
     font-size: 0.9em;
@@ -109,6 +77,10 @@
 }
 
 /** Search **/
+.document-search-item .thumbnail{
+    width: 100px;
+    margin: 0 10px 0 0;
+}
 .rd_search_item{
     padding: 8px;
     border-bottom: 1px dotted #CCC;

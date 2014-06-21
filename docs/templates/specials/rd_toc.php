@@ -1,10 +1,9 @@
-<div style="overflow: hidden; margin-bottom: 10px;">
-    <div class="odd rd_toc_section">
-    <h3><?php _e('Contenido','docs'); ?></h3>
-    <ul>
+<div class="odd document-toc-section">
+    <strong><?php _e('Contenido','docs'); ?></strong>
+    <ul class="list-unstyled">
     <?php foreach($toc as $sec): ?>
-        <li style="padding-left: <?php echo $sec['jump']*10; ?>px;"><a href="#<?php echo $sec['nameid']; ?>"><strong><?php echo $sec['number']; ?></strong> <?php echo $sec['title']; ?></a></li>
+        <li style="padding-left: <?php echo $sec['jump']*10; ?>px;"><a href="#<?php echo $sec['nameid']; ?>"><?php echo $sec['number']; ?> <?php echo $sec['title']; ?></a></li>
     <?php endforeach; ?>
     </ul>
-    </div>
 </div>
+<div class="clearfix"></div>

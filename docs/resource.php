@@ -49,14 +49,14 @@ RMBreadCrumb::get()->add_crumb($res->getVar('title'), $res->permalink());
 
 // Check if we must show all content for Document
 if($res->getVar('single')){
-    
+    global $last_author;
     if(!$allowed)
         RDfunctions::error_404();
         
     // Show all content
     $toc = array();
     RDFunctions::sections_tree_index(0, 0, $res, '', '', false, $toc, true);
-    
+    $last_author = array();
     array_walk($toc, 'rd_insert_edit');
     $last_modification = 0;
     foreach($toc as $sec){
@@ -70,7 +70,7 @@ if($res->getVar('single')){
     }
     
     RMTemplate::get()->add_jquery();
-    RMTemplate::get()->add_script(XOOPS_URL.'/modules/docs/include/js/docs.js');
+    RMTemplate::get()->add_script('docs.js', 'docs');
     
     // Comments
     RMFunctions::get_comments('docs', 'res='.$res->id(), 'module', 0);
@@ -137,14 +137,18 @@ if($res->getVar('single')){
 	
     $toc = array();
     RDFunctions::sections_tree_index(0, 0, $res, '', '', false, $toc);
+
+    // Comments
+    RMFunctions::get_comments('docs', 'res='.$res->id(), 'module', 0);
+    RMFunctions::comments_form('docs', 'res='.$res->id(), 'module', RDPATH.'/class/docscontroller.php');
     
-    include RMTemplate::get()->get_template('rd_resindextoc.php','module','docs');
+    include RMTemplate::get()->get_template('docs-resource-index.php','module','docs');
 	
 }
 
 RMTemplate::get()->add_style('docs.css', 'docs');
 RMTemplate::get()->add_jquery();
-RMTemplate::get()->add_script(RDURL.'/include/js/docs.js');
+RMTemplate::get()->add_script('docs.js', 'docs');
 
 if($standalone)
     RDFunctions::standalone();

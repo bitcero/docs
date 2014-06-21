@@ -1,37 +1,54 @@
+<?php include RMTemplate::get()->get_template('rd_header.php', 'module', 'docs'); ?>
 <a name="rd_top"></a>
-<!-- Table of Contents -->
-<?php include RMTEmplate::get()->get_template('rd_resindextoc.php', 'module', 'docs'); ?>
-<!-- /Table of Contents -->
 
-<!-- Document Content -->
-<?php foreach($toc as $sec): ?>
-    <?php include RMTemplate::get()->get_template('rd_item.php','module','docs'); ?>
-<?php endforeach; ?>
-<!-- /End Document content -->
-
-<div class="rd_nav_links">&nbsp;</div>
-<div class="rd_section_data">
-    <p class="left">
-        <?php if(isset($pdf_book_url) && $pdf_book_url!=''): ?><a href="<?php echo $pdf_book_url; ?>"><?php _e('Create PDF Book','docs'); ?></a><br /><?php endif; ?>
-        <?php if(isset($print_book_url) && $print_book_url!=''): ?><a href="<?php echo $print_book_url; ?>"><?php _e('Print Book','docs'); ?></a><br /><?php endif; ?>
-        <?php if(isset($publish_url)): ?>
-        <a href="<?php echo $publish_url; ?>"><?php _e('Create Document','docs'); ?></a>
-        <?php endif; ?>
-    </p>
-    <p class="right">
-        <?php echo sprintf(__('Published at %s.','docs'), '<strong>'.formatTimestamp($toc[0]['created'],'l').'</strong>'); ?><br />
-        <?php echo sprintf(__('Modified by last time at %s.','docs'), '<strong>'.formatTimestamp($res->getVar('modified'),'l').'</strong>'); ?><br />
-        <?php echo sprintf(__('Edited by %s.','docs'), '<a href="'.XOOPS_URL.'/userinfo.php?uid='.$last_author['id'].'">'.$last_author['name'].'</a>'); ?><br />
-        <?php echo sprintf(__("Read %s times.",'docs'), '<strong>'.$res->getVar('reads').'</strong>'); ?>
-    </p>
+<div class="page-header">
+    <h1 class="title"><?php echo $res->getVar('title'); ?></h1>
 </div>
 
-<!-- Notes and references -->
-<?php include RMTemplate::get()->get_template('rd_notes_and_refs.php','module','docs'); ?>
-<!-- /End Notes and references -->
+<article>
 
+    <!-- Table of Contents -->
+    <?php include RMTEmplate::get()->get_template('rd_resindextoc.php', 'module', 'docs'); ?>
+    <!-- /Table of Contents -->
+
+    <!-- Document Content -->
+    <?php foreach($toc as $sec): ?>
+        <?php include RMTemplate::get()->get_template('rd_item.php','module','docs'); ?>
+    <?php endforeach; ?>
+    <!-- /End Document content -->
+
+    <?php if(!$standalone): ?>
+    <hr>
+    <section class="rd-section-data row">
+        <div class="col-sm-6">
+            <small>
+                <?php if(isset($pdf_book_url) && $pdf_book_url!=''): ?><a href="<?php echo $pdf_book_url; ?>"><?php _e('Create PDF Book','docs'); ?></a><br /><?php endif; ?>
+                <?php if(isset($print_book_url) && $print_book_url!=''): ?><a href="<?php echo $print_book_url; ?>"><?php _e('Print Book','docs'); ?></a><br /><?php endif; ?>
+                <?php if(isset($publish_url)): ?>
+                <a href="<?php echo $publish_url; ?>"><?php _e('Create Document','docs'); ?></a>
+                <?php endif; ?>
+            </small>
+        </div>
+        <div class="col-sm-6 text-right">
+            <small class="help-block" style="margin: 0;">
+                <?php echo sprintf(__('Published at %s.','docs'), '<strong>'.RMTimeFormatter::get()->format( $toc[0]['created'], __( '%T% %d%, %Y%', 'docs' ) ).'</strong>'); ?><br />
+                <?php echo sprintf(__('Modified by last time at %s.','docs'), '<strong>'.RMTimeFormatter::get()->format($res->getVar('modified'), __( '%T% %d%, %Y%', 'docs' ) ).'</strong>'); ?><br />
+                <?php echo sprintf(__('Edited by %s.','docs'), '<a href="'.XOOPS_URL.'/userinfo.php?uid='.$last_author['id'].'">'.$last_author['name'].'</a>'); ?><br />
+                <?php echo sprintf(__("Read %s times.",'docs'), '<strong>'.$res->getVar('reads').'</strong>'); ?>
+            </small>
+        </div>
+    </section>
+    <?php endif; ?>
+
+    <!-- Notes and references -->
+    <hr>
+    <?php include RMTemplate::get()->get_template('rd_notes_and_refs.php','module','docs'); ?>
+    <!-- /End Notes and references -->
+</article>
+<hr>
 <!-- Comments -->
-<h3><?php _e('Comments','docs'); ?></h3>
+<h4><?php _e('Comments','docs'); ?></h4>
 <?php echo $xoopsTpl->fetch(RMCPATH."/templates/rmc-comments-display.html"); ?>
+<hr>
 <?php echo $xoopsTpl->fetch(RMCPATH."/templates/rmc-comments-form.html"); ?>
 <!-- End Comments -->

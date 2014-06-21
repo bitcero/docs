@@ -5,10 +5,12 @@
 <meta http-equiv="content-language" content="<?php echo $xoops_langcode; ?>" />
 <title><?php echo $xoops_pagetitle; ?> &raquo; <?php echo $xoops_sitename; ?></title>
 <link href="<?php echo XOOPS_URL; ?>/favicon.ico" rel="SHORTCUT ICON" />
-<link rel="stylesheet" type="text/css" media="all" href="<?php echo XOOPS_URL; ?>/modules/docs/css/print.css" />
-<link rel="stylesheet" type="text/css" media="all" href="<?php echo XOOPS_URL; ?>/modules/docs/css/docs.css" />
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" media="all" href="<?php echo XOOPS_URL; ?>/modules/docs/css/print.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="<?php echo XOOPS_URL; ?>/modules/docs/css/docs.css" />
 </head>
-<body>
+<body onload="window.print();">
 <?php include RMTemplate::get()->get_template('rd_resindextoc.php','module','docs'); ?>
 <?php $not_show_top = 1; ?>
 <?php foreach($toc as $sec): ?>

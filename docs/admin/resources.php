@@ -129,6 +129,8 @@ function rd_show_form($edit=0){
     $form->addElement(new RMFormTextArea(__('Description', 'docs'),'desc',5,50,$edit ? $res->getVar('description','e') : ''),true);
 	$form->addElement(new RMFormUser(__('Editors','docs'),'editors',1,$edit ? $res->getVar('editors') : '',30));
 
+    $form->addElement( new RMFormImage( __('Featured image', 'docs'), 'image', $edit ? $res->getVar('image', 'e') : '' ) );
+
 	//Propietario de la publicacion
 	if ($edit){
 		$form->addElement(new RMFormUser(__('Document owner', 'docs'),'owner',0,$edit ? array($res->getVar('owner')) : '',30));
@@ -245,6 +247,7 @@ function rd_save_resource($edit=0){
 	$res->setVar('description', $desc);
 	$res->isNew() ? $res->setVar('created', time()) : $res->setVar('modified', time());
 	$res->setVar('editors', $editors);
+	$res->setVar('image', $image);
 	$res->setVar('editor_approve', $approvededit);
 	$res->setVar('groups', $groups);
 	$res->setVar('public', $public);

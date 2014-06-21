@@ -32,7 +32,7 @@ function show_resources($by, $order='DESC'){
     $result = $db->query($sql);
     
     $resources = array();
-    
+    $image = new RMImage();
     while($row = $db->fetchArray($result)){
         $res = new RDResource();
         $res->assignVars($row);
@@ -44,7 +44,8 @@ function show_resources($by, $order='DESC'){
             'created' => $res->getVar('created'),
             'owner' => $res->getVar('owner'),
             'uname' => $res->getVar('owname'),
-            'reads' => $res->getVar('reads')
+            'reads' => $res->getVar('reads'),
+            'image' => $res->image
         );
     }
     
