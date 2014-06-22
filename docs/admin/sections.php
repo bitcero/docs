@@ -298,11 +298,15 @@ function rd_save_sections($edit=0){
         $res->setVar('modified', time());
         $res->save();
         RMEvents::get()->run_event('docs.section.saved',$sec);
-		if ($return){
+
+        header('location: sections.php?action=review&id=' . $sec->id() . '&res=' . $id . '&return=' . $return);
+        die();
+
+		/*if ($return){
 			redirectMsg('./sections.php?action=edit&sec='.$sec->id().'&id='.$id, __('Database updated successfully!','docs'),0);
 		} else {
 			redirectMsg('./sections.php?id='.$id, __('Database updated successfully!','docs'),0);
-		}
+		}*/
 	}
 
 
@@ -408,6 +412,216 @@ function changeOrderSections(){
 
 }
 
+/**
+ * This function allows to review special markup included in page content.
+ */
+function docs_review_content(){
+
+    // Section
+    $id = RMHttpRequest::get( 'id', 'integer', 0 );
+    // Document
+    $doc_id = RMHttpRequest::get( 'res', 'integer', 0 );
+    // Return or go to list
+    $return = RMHttpRequest::get( 'return', 'integer', 0 );
+
+    $page = new RDSection( $id, $doc_id );
+    if ( $page->isNew() )
+        RMUris::redirect_with_message(
+            __('Specified page does not exists!', 'docs'),
+            'sections.php',
+            RMMSG_ERROR
+        );
+
+    $links = array();
+    preg_match_all( "/\[\[([^\[\]]+)\]\]/", $page->content, $links );
+
+    if ( count($links) <= 1 )
+        RMUris::redirect_with_message(
+            '',
+            'sections.php?id=' . $doc_id . ($return ? '&sec=' . $id : ''),
+            RMMSG_ERROR
+        );
+
+    $document = new RDResource( $doc_id );
+    $tc = TextCleaner::getInstance();
+    $results = $links[1];
+
+    $reported = array();
+
+    foreach( $results as $data ){
+
+        $link = explode( ":", $data );
+        if ( count( $link ) == 1 ){
+
+            /**
+             * The link points directly to a page inside this document
+             */
+            //
+            $linked_page = new RDSection( $tc->sweetstring( $link[0] ), $doc_id );
+            if ( $linked_page->isNew() )
+                $reported['pages'][] = ucfirst( $link[0] );
+
+        } elseif ( count( $link ) > 1 ) {
+
+            /**
+             * The link points to a document and a page from that document
+             */
+            $linked_document = new RDResource( $tc->sweetstring( $link[0] ) );
+            if ( $linked_document->isNew() )
+                $reported['docs'][] = ucfirst( $link[0] );
+
+            $count = count( $link );
+            if ( $linked_document->id() != $document->id() )
+                $path = '<strong>' . ucfirst( $link[0] ) . '</strong>';
+            else
+                $path = '';
+
+            for( $i=1; $i < $count; $i++){
+
+                $path .= ($path != '' ? "/" : '') . ucfirst( $link[$i] );
+                if ( $linked_document->isNew() )
+                    $reported['pages'][] = $path;
+                else {
+                    $linked_page = new RDSection( $tc->sweetstring( $link[$i] ), $linked_document->id() );
+                    if ( $linked_page->isNew() )
+                        $reported['pages'][] = $path;
+                }
+
+
+            }
+
+        }
+
+    }
+
+    RMTemplate::get()->assign( 'xoops_pagetitle', __('Revisión de contenido', 'docs' ) );
+    $bc = RMBreadCrumb::get();
+    $bc->add_crumb( $document->title, 'resources.php', 'fa fa-book' );
+    $bc->add_crumb( $page->title, 'sections.php?id=' . $doc_id, 'fa fa-list' );
+    $bc->add_crumb( __('Content review', 'docs'), '', 'fa fa-eye' );
+    RMTemplate::get()->add_style( 'admin.css', 'docs' );
+
+    RMTemplate::get()->header();
+
+    include RMTemplate::get()->get_template( "docs-review-content.php", 'module', 'docs' );
+
+    RMTemplate::get()->footer();
+
+}
+
+function docs_create_reviewed_content(){
+    global $xoopsUser;
+    // Section
+    $id = RMHttpRequest::get( 'id', 'integer', 0 );
+    // Document
+    $doc_id = RMHttpRequest::get( 'res', 'integer', 0 );
+    // Return or go to list
+    $return = RMHttpRequest::get( 'return', 'integer', 0 );
+
+    $page = new RDSection( $id, $doc_id );
+    if ( $page->isNew() )
+        RMUris::redirect_with_message(
+            __('Specified page does not exists!', 'docs'),
+            'sections.php',
+            RMMSG_ERROR
+        );
+
+    $links = array();
+    preg_match_all( "/\[\[([^\[\]]+)\]\]/", $page->content, $links );
+
+    if ( count($links) <= 1 ){
+        header('location: sections.php?id=' . $doc_id . ($return ? '&sec=' . $id : ''));
+        die();
+    }
+
+    $document = new RDResource( $doc_id );
+    $tc = TextCleaner::getInstance();
+    $results = $links[1];
+
+    $reported = array();
+
+    foreach( $results as $data ){
+
+        $link = explode( ":", $data );
+
+        if ( count( $link ) == 1 ){
+
+            /**
+             * The link points directly to a page inside this document
+             */
+            //
+            $linked_page = new RDSection( $tc->sweetstring( $link[0] ), $doc_id );
+            if ( $linked_page->isNew() ){
+                
+                $linked_page->setVar('title', ucfirst( $link[0] ) );
+                $linked_page->setVar('nameid', $tc->sweetstring( $link[0] ) );
+                $linked_page->setVar('id_res', $doc_id );
+                $linked_page->setVar('uid', $xoopsUser->uid() );
+                $linked_page->setVar('uname', $xoopsUser->uname() );
+                $linked_page->setVar('created', time() );
+                $linked_page->setVar('modified', time() );
+                $linked_page->save();
+            }
+
+        } elseif ( count( $link ) > 1 ) {
+
+            /**
+             * The link points to a document and a page from that document
+             */
+            $linked_document = new RDResource( $tc->sweetstring( $link[0] ) );
+            if ( $linked_document->isNew() ){
+
+                $linked_document->setVar( 'title', $link[0] );
+                $linked_document->setVar( 'created', time() );
+                $linked_document->setVar( 'modified', time() );
+                $linked_document->setVar( 'owner', $xoopsUser->uid() );
+                $linked_document->setVar( 'owname', $xoopsUser->uname() );
+                $linked_document->setVar( 'editors', array($xoopsUser->uid()) );
+                $linked_document->setVar( 'editors_approve', 1 );
+                $linked_document->setVar( 'groups', array(0) );
+                $linked_document->setVar( 'public', 1 );
+                $linked_document->setVar( 'nameid', $tc->sweetstring( $link[0] ) );
+                $linked_document->setVar( 'show_index', 1 );
+                $linked_document->setVar( 'approved', 1 );
+                $linked_document->save();
+
+            }
+
+            $count = count( $link );
+            $parent = 0;
+
+            for( $i=1; $i < $count; $i++){
+
+                $linked_page = new RDSection( $tc->sweetstring( $link[$i] ), $linked_document->id(), $parent );
+                if ( $linked_page->isNew() ){
+                    $linked_page->setVar('title', ucfirst( $link[$i] ) );
+                    $linked_page->setVar('nameid', $tc->sweetstring( $link[$i] ) );
+                    $linked_page->setVar('id_res', $linked_document->id() );
+                    $linked_page->setVar('uid', $xoopsUser->uid() );
+                    $linked_page->setVar('uname', $xoopsUser->uname() );
+                    $linked_page->setVar('created', time() );
+                    $linked_page->setVar('modified', time() );
+                    $linked_page->setVar('parent', $parent);
+                    $linked_page->save();
+                    $parent = $linked_page->id();
+                    echo $parent.'<br>';
+                }
+
+
+            }
+
+        }
+
+    }
+
+    RMUris::redirect_with_message(
+        __('Documents and pages created successfully', 'docs'),
+        'sections.php?id=' . $doc_id . ( $return ? '&action=edit&sec=' . $id : '' ),
+        RMMSG_SUCCESS
+    );
+
+}
+
 
 $action = rmc_server_var($_REQUEST, 'action', '');
 
@@ -417,7 +631,7 @@ switch ($action){
 	    break;
 	case 'edit':
 		rd_show_form(1);
-	break;
+	    break;
 	case 'save':
 		rd_save_sections();
 		break;
@@ -427,15 +641,31 @@ switch ($action){
 	case 'delete':
 		rd_delete_sections();
 	    break;
-        case 'savesort':
-            changeOrderSections();
-            break;
+    case 'savesort':
+        changeOrderSections();
+        break;
 	case 'recommend':
 		recommendSections(1);
-	break;
+	    break;
 	case 'norecommend':
 		recommendSections(0);
-	break;
+	    break;
+    case 'review':
+
+        /**
+         * Review links and special markup included in page
+         */
+        docs_review_content();
+        break;
+
+    case 'create-review':
+
+        /**
+         * Create the missing document and pages
+         */
+        docs_create_reviewed_content();
+        break;
+
 	default: 
 		rd_show_sections();
         break;

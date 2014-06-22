@@ -1,4 +1,4 @@
-<?php include RMTemplate::get()->get_template('rd_header.php', 'module', 'docs'); ?>
+<?php include RMTemplate::get()->get_template('docs-header.php', 'module', 'docs'); ?>
 <a name="rd_top"></a>
 
 <div class="page-header">
@@ -8,14 +8,16 @@
 <article>
 
     <!-- Table of Contents -->
-    <?php include RMTEmplate::get()->get_template('rd_resindextoc.php', 'module', 'docs'); ?>
+    <?php include RMTEmplate::get()->get_template('docs-resource-toc.php', 'module', 'docs'); ?>
     <!-- /Table of Contents -->
 
     <!-- Document Content -->
     <?php foreach($toc as $sec): ?>
-        <?php include RMTemplate::get()->get_template('rd_item.php','module','docs'); ?>
+        <?php include RMTemplate::get()->get_template('docs-item-section.php','module','docs'); ?>
     <?php endforeach; ?>
     <!-- /End Document content -->
+
+    <div class="clearfix"></div>
 
     <?php if(!$standalone): ?>
     <hr>
@@ -42,7 +44,7 @@
 
     <!-- Notes and references -->
     <hr>
-    <?php include RMTemplate::get()->get_template('rd_notes_and_refs.php','module','docs'); ?>
+    <?php include RMTemplate::get()->get_template('docs-notes-references.php','module','docs'); ?>
     <!-- /End Notes and references -->
 </article>
 <hr>

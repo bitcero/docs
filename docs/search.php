@@ -57,7 +57,7 @@ function show_resources($by, $order='DESC'){
     include 'header.php';
     $xoopsTpl->assign('xoops_pagetitle', $by=='created' ? __('Recent Documents','docs') : __('Top Documents','docs'));
     
-    include RMEvents::get()->run_event('docs.template.explore', RMTemplate::get()->get_template('rd_search.php','module','docs'));
+    include RMEvents::get()->run_event('docs.template.explore', RMTemplate::get()->get_template('docs-search.php','module','docs'));
     
     include 'footer.php';
     
@@ -99,7 +99,8 @@ function search_resources(){
             'created' => $res->getVar('created'),
             'owner' => $res->getVar('owner'),
             'uname' => $res->getVar('owname'),
-            'reads' => $res->getVar('reads')
+            'reads' => $res->getVar('reads'),
+            'image' => $res->image
         );
     }
     
@@ -111,7 +112,7 @@ function search_resources(){
     include 'header.php';
     $xoopsTpl->assign('xoops_pagetitle', sprintf(__('Search results for "%s"','docs'), $keyword));
     
-    include RMEvents::get()->run_event('docs.template.search', RMTemplate::get()->get_template('rd_search.php','module','docs'));
+    include RMEvents::get()->run_event('docs.template.search', RMTemplate::get()->get_template('docs-search.php','module','docs'));
     
     include 'footer.php';
      

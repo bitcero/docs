@@ -1,48 +1,9 @@
 /**
 * Dashboard
 */
-.rd_rightleft{
-    overflow: hidden;
-}
-.rd_rightleft .rd_bk_left{
-    float: left;
-    width: 49%;
-}
-.rd_rightleft .rd_bk_right{
-    float: right;
-    width: 49%;
-}
+
 #rd-top-resources{
     text-align: center;
-}
-#rd-resume-data{
-    overflow: hidden;
-}
-#rd-resume-data div{
-    padding: 5px;
-    border-bottom: 1px dotted #CCC;
-    font-size: 1.3em;
-}
-#rd-resume-data div strong{
-    font-family: georgia, times, serif;
-    font-size: 1.2em;
-    font-weight: normal;
-}
-#rd-resume-data .left{
-    float: left;
-    width: 48%;
-}
-#rd-resume-data .right{
-    float: right;
-    width: 48%;
-}
-.rd_listres{
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-.rd_listres li{
-    list-style: none;
 }
 
 .rmc_pages_navigation_container{
@@ -183,4 +144,12 @@
 /* PAGINATION */
 .pagination{
     margin: 0!important;
+}
+
+.detected-links .link{
+    background: #FFFF00;
+}
+.report code{
+    color: #000;
+    background: none;
 }

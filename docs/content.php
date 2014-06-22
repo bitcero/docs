@@ -125,7 +125,7 @@ function showSection(RDResource &$res, RDSection &$section){
     RMBreadCrumb::get()->add_crumb($res->getVar('title'), $res->permalink());
     RMBreadCrumb::get()->add_crumb($section->getVar('title'), $section->permalink());
     
-    include RMEvents::get()->run_event('docs.section.template', RMTemplate::get()->get_template('rd_section.php', 'module', 'docs'));
+    include RMEvents::get()->run_event('docs.section.template', RMTemplate::get()->get_template('docs-display-section.php', 'module', 'docs'));
     
     if($standalone)
         RDFunctions::standalone();
@@ -153,11 +153,11 @@ function rd_section_forprint($all = 0){
         $toc = array();
         RDFunctions::sections_tree_index(0, 0, $res, '', '', false, $toc, true);
         
-        include RMEvents::get()->run_event('docs.print.template', RMTemplate::get()->get_template('rd_printsection.php', 'module', 'docs'));      
+        include RMEvents::get()->run_event('docs.print.template', RMTemplate::get()->get_template('docs-print-section.php', 'module', 'docs'));
     } else {
         $toc = RDFunctions::get_section_tree($section->id(), $res, '1', true);
         
-        include RMEvents::get()->run_event('docs.print.template', RMTemplate::get()->get_template('rd_printsection.php', 'module', 'docs'));
+        include RMEvents::get()->run_event('docs.print.template', RMTemplate::get()->get_template('docs-print-section.php', 'module', 'docs'));
     }
     
 }

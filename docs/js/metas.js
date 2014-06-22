@@ -65,7 +65,7 @@ $(document).ready(function(){
         $("table#metas-container").show();
         var html = '<tr>';
         html += '<td valign="top"><input type="text" name="metas['+count+'][key]" id="meta-key-'+count+'" value="'+name+'" class="form-control" />';
-        html += '<a href="javascript:;" onclick="$(this).parents(\'tr\').remove();"><?php _e('Remove','docs'); ?></a></td>';
+        html += '<a href="#" onclick="$(this).parents(\'tr\').remove(); return false;"><?php _e('Remove','docs'); ?></a></td>';
         html += '<td><textarea name="metas['+count+'][value]" id="metas['+count+'][value]" class="form-control">'+value+'</textarea></td></tr>';
         $("table#metas-container").append(html);
         

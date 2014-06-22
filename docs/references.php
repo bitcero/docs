@@ -151,7 +151,7 @@ function references($edit=0){
     $other_content = '';
     $other_content = RMEvents::get()->run_event('docs.additional.notes.content', $other_content, $id, $edit, $edit ? $ref : null);
     
-	include RMTemplate::get()->get_template('rd_references.php', 'module', 'docs');
+	include RMTemplate::get()->get_template('docs-references.php', 'module', 'docs');
 
 }
 

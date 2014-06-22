@@ -68,7 +68,7 @@ function showSection(){
         $new_link = RDFunctions::url().'?page=edit&action=new&res='.$res->id();
     }
 	
-    include RMEvents::get()->run_event('docs.template.editsection', RMTemplate::get()->get_template('rd_viewsec.php', 'module', 'docs'));
+    include RMEvents::get()->run_event('docs.template.editsection', RMTemplate::get()->get_template('docs-sections-control-panel.php', 'module', 'docs'));
     
 	include ('footer.php');
 
@@ -123,7 +123,7 @@ function formSection($edit=0){
 	include ('header.php');
 
 	include_once RMCPATH.'/class/form.class.php';
-    define('RD_NO_FIGURES', 1);
+    define('NO_CUSTOM_CODES', 1);
 	$rmc_config = RMFunctions::configs();
 	$editor = new RMFormEditor('','content','100%','300px',$edit ? $section->getVar('content', $rmc_config['editor_type']=='tiny' ? 's' : 'e') : '', '', false);
     if ($rmc_config['editor_type']=='tiny'){
@@ -149,8 +149,8 @@ function formSection($edit=0){
     
     RMTemplate::get()->add_jquery(true);
     RMTemplate::get()->add_style('forms.css', 'docs');
-    RMTemplate::get()->add_script(XOOPS_URL.'/modules/docs/include/js/scripts.php?file=metas.js');
-    include RMEvents::get()->run_event('docs.template.formsections.front', RMTemplate::get()->get_template('rd_sec.php','module','docs'));
+    RMTemplate::get()->add_script('scripts.php?file=metas.js', 'docs');
+    include RMEvents::get()->run_event('docs.template.formsections.front', RMTemplate::get()->get_template('docs-section-form.php','module','docs'));
 
 	include ('footer.php');
 

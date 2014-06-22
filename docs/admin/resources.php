@@ -1,5 +1,5 @@
 <?php
-// $Id: resources.php 911 2012-01-06 08:46:39Z i.bitcero $
+// $Id: resources.php $
 // --------------------------------------------------------------
 // RapidDocs
 // Documentation system for Xoops.

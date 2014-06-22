@@ -294,7 +294,7 @@ class RDFunctions
     /**
     * Get resources index according to given options
     */
-    public function resources_index($type='all', $display=1, $cols=3, $limit=15){
+    public function resources_index($type='all', $limit=15){
 
         $db = XoopsDatabaseFactory::getDatabaseConnection();
         $sql = "SELECT * FROM ".$db->prefix("mod_docs_resources");
@@ -314,13 +314,14 @@ class RDFunctions
                 'id' => $res->id(),
                 'title' => $res->getVar('title'),
                 'desc' => $res->getVar('description'),
-                'link' => $res->permalink()
+                'link' => $res->permalink(),
+                'image' => $res->image
             );
         }
         
         ob_start();
         
-        include RMEvents::get()->run_event('docs.template.resources.index', RMTemplate::get()->get_template('rd_resindex.php','module','docs'));
+        include RMEvents::get()->run_event('docs.template.resources.index', RMTemplate::get()->get_template('docs-resources-index.php','module','docs'));
         
         $ret = ob_get_clean();
         
@@ -495,7 +496,7 @@ class RDFunctions
         $rd_contents = ob_get_clean();
         $xoopsTpl->assign('rd_contents', $rd_contents);
         unset($rd_contents);
-        $xoopsTpl->display(RMTemplate::get()->get_template('rd_standalone.html', 'module', 'docs'));
+        $xoopsTpl->display(RMTemplate::get()->get_template('docs-display-standalone.html', 'module', 'docs'));
         die();
         
     }

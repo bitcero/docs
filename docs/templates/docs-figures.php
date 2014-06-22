@@ -105,7 +105,7 @@
         <tr align="center" class="<?php echo tpl_cycle("even,odd"); ?>">
             <td width="20"><input type="checkbox" name="figs[]" value="<?php echo $figure['id']; ?>" /></td>
             <td><?php echo $figure['id']; ?></td>
-            <td align="left"><a href="javascript:;" onclick="editor.insertFigure(<?php echo $figure['id']; ?>);"><?php echo $figure['desc']; ?></a></td>
+            <td align="left"><a href="javascript:;" onclick="editor.insertFigure(<?php echo $figure['id']; ?>);"><?php echo $figure['title']; ?></a></td>
             <td>
                 <a href="#" class="btn btn-info btn-sm" onclick="editor.insertFigure(<?php echo $figure['id']; ?>);"><?php _e('Insert','docs'); ?></a>
                 <a class="btn btn-default btn-sm" href="./figures.php?action=edit&amp;id=<?php echo $id; ?>&amp;fig=<?php echo $figure['id']; ?>&amp;page=<?php echo $page; ?>&amp;search=<?php echo $search; ?>"><?php _e('Edit','docs'); ?></a></td>

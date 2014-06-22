@@ -9,7 +9,8 @@
 // --------------------------------------------------------------
 
 function generate_res_index($matches){
-    global $xoopsModuleConfig;
+
+    $mc = RMSettings::module_settings( 'docs' );
     
     switch($matches[0]){
         case '[RD_RESINDEX]':
@@ -17,7 +18,7 @@ function generate_res_index($matches){
                 return '';
             
             define('RESINDEX_ALL', 1);
-            return RDFunctions::resources_index('all', $xoopsModuleConfig['display_type'], $xoopsModuleConfig['index_cols'], $xoopsModuleConfig['index_num']);
+            return RDFunctions::resources_index( 'all', $mc->index_num );
             break;
             
         case '[RD_FEATINDEX]':
@@ -25,7 +26,7 @@ function generate_res_index($matches){
                 return '';
             
             define('RESINDEX_FEATURED', 1);
-            return RDFunctions::resources_index('featured', $xoopsModuleConfig['display_type'], $xoopsModuleConfig['index_cols'], $xoopsModuleConfig['index_num']);
+            return RDFunctions::resources_index('featured', $mc->index_num);
             break;
             
     } 
@@ -81,7 +82,7 @@ function rd_build_figure( $atts ){
     if ($fig->isNew()) return;
     
     ob_start();
-    include RMEvents::get()->run_event('docs.template.build.figure', RMTemplate::get()->get_template('specials/rd_figure.php', 'module', 'docs'));
+    include RMEvents::get()->run_event('docs.template.build.figure', RMTemplate::get()->get_template('specials/docs-single-figure.php', 'module', 'docs'));
     $ret = ob_get_clean();
 
     $figures_number++;
@@ -109,8 +110,41 @@ function rd_generate_toc( $atts ){
     $toc = RDFunctions::get_section_tree($id, new RDResource($sec->getVar('id_res')));
     
     ob_start();
-    include RMEvents::get()->run_event('docs.template.toc', RMTemplate::get()->get_template('specials/rd_toc.php', 'module', 'docs'));
+    include RMEvents::get()->run_event('docs.template.toc', RMTemplate::get()->get_template('specials/docs-section-toc.php', 'module', 'docs'));
     $ret = ob_get_clean();
     return $ret;
     
+}
+
+function docs_make_internal_links( $m ){
+
+    $tc = TextCleaner::getInstance();
+    global $res;
+
+    if ( $m[1] == '' )
+        return;
+
+    $parts = explode( ":", $m[1] );
+    $link = '<a href="' . RDURL .'/';
+
+    if ( count($parts) > 1 ){
+
+        foreach( $parts as $i => $part ){
+
+            if ( $i <= 1 )
+                $link .= $tc->sweetstring( $part ) . '/';
+            else
+                $link .= '#' . $tc->sweetstring( $part );
+
+        }
+
+    } else {
+
+        $link .= $res->nameid . '/' . $tc->sweetstring( $parts[0] ) . '/';
+
+    }
+
+    $link .= '">' . array_pop( $parts ) . '</a>';
+    return $link;
+
 }

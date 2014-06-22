@@ -101,7 +101,7 @@ function Figures(){
 		
 		$fig = new RDFigure();
 		$fig->assignVars($rows);
-		$figures[] = array('id'=>$fig->id(),'desc'=>$fig->getVar('desc'));
+		$figures[] = array('id'=>$fig->id(), 'title' => $fig->title, 'desc'=>$fig->getVar('desc'));
 		
 	}
     
@@ -138,7 +138,7 @@ function Figures(){
     $other_content = '';
     $other_content = RMEvents::get()->run_event('docs.additional.figures.content', $other_content, $id);
         
-	include RMTemplate::get()->get_template('rd_figures.php','module','docs');
+	include RMTemplate::get()->get_template('docs-figures.php','module','docs');
 
 }
 
@@ -189,7 +189,7 @@ function formFigures($edit=0){
     $editor = new RMFormEditor('','content','100%','200px',$edit ? $fig->getVar('content','e') : '');
     $rmc_config = RMFunctions::configs();
     
-	include RMTemplate::get()->get_template('rd_figures.php','module','docs');
+	include RMTemplate::get()->get_template('docs-figures.php','module','docs');
 
 }
 

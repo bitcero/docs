@@ -100,7 +100,7 @@ if($res->getVar('single')){
             $publish_url = RDFunctions::url().'/?action=publish';
     }
     
-    include RMTemplate::get()->get_template('rd_resall.php','module','docs');
+    include RMTemplate::get()->get_template('docs-display-full-resource.php','module','docs');
     
 } elseif ($res->getVar('quick')){
     // Show Quick Index to User
@@ -126,7 +126,7 @@ if($res->getVar('single')){
         );
 	}	
     
-    include RMTemplate::get()->get_template('rd_quickindex.php','module','docs');
+    include RMTemplate::get()->get_template('docs-quick-index.php','module','docs');
 	
 	
 } else {

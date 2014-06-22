@@ -17,7 +17,7 @@ function rd_show_page(){
     xoops_cp_header();
 
     include_once RMCPATH.'/class/form.class.php';
-    $content = @file_get_contents(XOOPS_CACHE_PATH.'/rd_homepage.html');
+    $content = @file_get_contents(XOOPS_CACHE_PATH.'/docs-homepage.html');
     $content = TextCleaner::getInstance()->to_display($content);
     $editor = new RMFormEditor('', 'homepage', '100%', '450px', $content);
     $rmc_config = RMSettings::cu_settings();
@@ -35,7 +35,7 @@ function rd_save_page(){
     
     $page = rmc_server_var($_POST, 'homepage', '');
     
-    if (file_put_contents(XOOPS_CACHE_PATH.'/rd_homepage.html', $page)){
+    if (file_put_contents(XOOPS_CACHE_PATH.'/docs-homepage.html', $page)){
         redirectMsg('hpage.php', __('Page saved successfully!','docs'), 0);
     } else {
         redirectMsg('hpage.php', __('Page could not be saved!','docs'), 1);

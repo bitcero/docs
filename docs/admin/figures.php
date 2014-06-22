@@ -93,7 +93,7 @@ function rd_show_figures(){
 
     xoops_cp_header();
     
-    include RMEvents::get()->run_event('docs.admin.template.figures', RMTemplate::get()->get_template('admin/rd_figures.php', 'module', 'docs'));
+    include RMEvents::get()->run_event('docs.admin.template.figures', RMTemplate::get()->get_template('admin/docs-figures.php', 'module', 'docs'));
 	 
 	xoops_cp_footer();
 

@@ -1,5 +1,5 @@
 <a name="rd_top"></a>
-<?php include RMTemplate::get()->get_template('rd_header.php', 'module', 'docs'); ?>
+<?php include RMTemplate::get()->get_template('docs-header.php', 'module', 'docs'); ?>
 <div class="page-header">
     <h1><?php echo $res->getVar('title'); ?></h1>
 </div>
@@ -7,8 +7,11 @@
 <!-- Document Content -->
 <article>
 <?php foreach($sections as $sec): ?>
-    <?php include RMTemplate::get()->get_template('rd_item.php','module','docs'); ?>
+    <?php include RMTemplate::get()->get_template('docs-item-section.php','module','docs'); ?>
 <?php endforeach; ?>
+
+<div class="clearfix"></div>
+
 <!-- /End Document content -->
 <hr>
 <!-- Navigation links -->
@@ -64,7 +67,7 @@
 
     <footer>
     <!-- Notes and references -->
-    <?php include RMTemplate::get()->get_template('rd_notes_and_refs.php','module','docs'); ?>
+    <?php include RMTemplate::get()->get_template('docs-notes-references.php','module','docs'); ?>
     <!-- /End Notes and references -->
     </footer>
 </article>

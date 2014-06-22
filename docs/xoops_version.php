@@ -34,7 +34,7 @@ $modversion = array(
     'rmversion'     => array('major'=>1,'minor'=>0,'revision'=>1,'stage'=>-2, 'name'=>'Documentor'),
     'rewrite'       => 1,
     'permissions'   => 'include/permissions.php',
-    //'updateurl'     => '',
+    'updateurl'     => "http://www.xoopsmexico.net/modules/vcontrol/",
 
     # Icons
     'icon16'        => 'images/icon16.png',
@@ -98,8 +98,8 @@ $modversion = array(
 
         array(
             'name' => 'permalinks',
-            'title' => '_MI_RD_URLSMODE',
-            'description' => '_MI_RD_URLSMODED',
+            'title' => __('URLs mode','docs'),
+            'description' => __('This options indicate the way in which RapidDocs will generate the URLs for documents.', 'docs'),
             'formtype' => 'select',
             'valuetype' => 'int',
             'default' => 0,
@@ -108,8 +108,8 @@ $modversion = array(
 
         array(
             'name' => 'subdomain',
-            'title' => '_MI_RD_SUBDOMAIN',
-            'description' => '_MI_RD_SUBDOMAIND',
+            'title' => __('Subdomain on which RapidDocs will be used', 'docs'),
+            'description' => __('You can specify a subdomain if your htaccess file has been configured for it (e.g. http://docs.xoops.org).', 'docs'),
             'formtype' => 'textbox',
             'valuetype' => 'text',
             'default' => ''
@@ -117,36 +117,17 @@ $modversion = array(
 
         array(
             'name' => 'htpath',
-            'title' => '_MI_RD_BASEPATH',
-            'description' => '_MI_RD_BASEPATHD',
+            'title' => __('Base path for URLs', 'docs'),
+            'description' => __('Indicate the base path used to generate URLs (eg. /docs).', 'docs'),
             'formtype' => 'textbox',
             'valuetype' => 'text',
             'default' => '/modules/ahelp'
         ),
 
         array(
-            'name' => 'display_type',
-            'title' => '_MI_RD_DISPLAYMETH',
-            'description' => '_MI_RD_DISPLAYMETHD',
-            'formtype' => 'select',
-            'valuetype' => 'int',
-            'default' => 1,
-            'options' => array(__('As list','docs')=>0,__('As table','docs')=>1)
-        ),
-
-        array(
-            'name' => 'index_cols',
-            'title' => '_MI_RD_COLS',
-            'description' => '_MI_RD_COLSD',
-            'formtype' => 'textbox',
-            'valuetype' => 'int',
-            'default' => 3
-        ),
-
-        array(
             'name' => 'index_num',
-            'title' => '_MI_RD_NUMRES',
-            'description' => '_MI_RD_NUMRESD',
+            'title' => __('Number of documents in the index', 'docs'),
+            'description' => __('This is the limit for documents displayed in index.', 'docs'),
             'formtype' => 'textbox',
             'valuetype' => 'int',
             'default' => 15
@@ -154,8 +135,8 @@ $modversion = array(
 
         array(
             'name' => 'createres',
-            'title' => '_MI_RD_CREATEENABLED',
-            'description' => '',
+            'title' => __('Allow the creation of new documents', 'docs'),
+            'description' => __('This option affects the creation of new documents in front end. Administrators will continue creating documents in back end.'),
             'formtype' => 'yesno',
             'valuetype' => 'int',
             'default' => 1
@@ -163,8 +144,8 @@ $modversion = array(
 
         array(
             'name' => 'create_groups',
-            'title' => '_MI_RD_CREATENEW',
-            'description' => '_MI_RD_CREATENEWD',
+            'title' => __('Groups with authorization to create new documents', 'docs'),
+            'description' => __('Select the groups that you wish to authorize to create new documents.', 'docs'),
             'formtype' => 'group_multi',
             'valuetype' => 'array',
             'default' => 1
@@ -172,7 +153,7 @@ $modversion = array(
 
         array(
             'name' => 'approved',
-            'title' => '_MI_RD_APPROVE',
+            'title' => __('Auto approve documents created for authorized users', 'docs'),
             'description' => '',
             'formtype' => 'yesno',
             'valuetype' => 'int',
@@ -180,18 +161,9 @@ $modversion = array(
         ),
 
         array(
-            'name' => 'attrs',
-            'title' => '_MI_RD_ATTRS',
-            'description' => '_MI_RD_ATTRSD',
-            'formtype' => 'textbox',
-            'valuetype' => 'text',
-            'default' => 'class="figures" style="float: left; margin: 0 10px 5px 0;"'
-        ),
-
-        array(
             'name' => 'standalone',
-            'title' => '_MI_RD_STANDALONE',
-            'description' => '',
+            'title' => __('Activar soporte para despliegue independiente', 'docs'),
+            'description' => __('This option enables the document render without use of the XOOPS theme. Is very useful to integrate with other components as embeded help.', 'docs'),
             'formtype' => 'yesno',
             'valuetype' => 'int',
             'default' => 0
@@ -199,7 +171,7 @@ $modversion = array(
 
         array(
             'name' => 'standalone_css',
-            'title' => '_MI_RD_STANDALONECSS',
+            'title' => __('Hoja de estilos para despliegue independiente', 'docs'),
             'description' => '',
             'formtype' => 'textbox',
             'valuetype' => 'text',

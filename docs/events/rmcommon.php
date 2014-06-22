@@ -331,6 +331,9 @@ class DocsRmcommonPreload{
 
         $text = preg_replace_callback("/\[RD_RESINDEX\]/", 'generate_res_index', $text);
         $text = preg_replace_callback("/\[RD_FEATINDEX\]/", 'generate_res_index', $text);
+
+        // Enlaces internos
+        $text = preg_replace_callback("/\[\[([^\[\]]+)\]\]/", 'docs_make_internal_links', $text);
         
         // Build TOC
         //$text = preg_replace_callback("/\[TOC\]/", 'rd_generate_toc', $text);
