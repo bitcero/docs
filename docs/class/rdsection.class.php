@@ -114,7 +114,12 @@ class RDSection extends RMObject{
         global $standalone;
         $config = RMSettings::module_settings('docs');
         
-        $res = new RDResource($this->getVar('id_res'));
+        $cache = ObjectsCache::get();
+        $res = $cache->cached( 'docs', 'res-' . $this->id_res );
+        if ( !$res ){
+            $res = new RDResource($this->getVar('id_res'));
+            $cache->set_cache( 'docs', 'res-' . $this->id_res, $res );
+        }
         
         if ($res->getVar('single') && defined('RD_LOCATION') && RD_LOCATION=='resource_content'){
             return "#".$this->getVar('nameid');
@@ -123,8 +128,10 @@ class RDSection extends RMObject{
         if ($config->permalinks){
             
             if($this->getVar('parent')>0){
-                $sec = new RDSection($this->getVar('parent'));
-                $perma = $sec->permalink().'#'.($edit ? '<span>'.$this->getVar('nameid').'</span>' : $this->getVar('nameid'));
+
+                $parent = RDFunctions::super_parent( $this->parent );
+                $perma = $parent->permalink().'#'.($edit ? '<span>'.$this->getVar('nameid').'</span>' : $this->getVar('nameid'));
+
             } else {
                 $perma = ($config->subdomain != '' ? $config->subdomain : XOOPS_URL).$config->htpath . '/'.$res->getVar('nameid').'/'.($edit ? '<span>'.$this->getVar('nameid').'</span>' : $this->getVar('nameid')).'/';
                 $perma .= $standalone ? 'standalone/1/' : '';
@@ -134,7 +141,12 @@ class RDSection extends RMObject{
         } else {
             
             if($this->getVar('parent')>0){
-                $sec = new RDSection($this->getVar('parent'));
+
+                $sec = $cache->cached( 'docs', 'sec-' . $this->parent );
+                if ( !$sec ){
+                    $sec = new RDSection($this->getVar('parent'));
+                    $cache->set_cache( 'docs', 'sec-' . $this->parent, $sec );
+                }
                 $perma = $sec->permalink().'#'.$this->getVar('nameid');
             } else {
                 $perma = XOOPS_URL.'/modules/docs/index.php?page=content&amp;id='.$this->id();

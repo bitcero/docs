@@ -180,9 +180,16 @@ class RDFunctions
         
         if ($search!='')
             $sql .= ($res>0 ? " AND " : " WHERE ")." (title LIKE '%$k%' OR text LIKE '%$k%')";
-            
-        if ($res>0) $res = new RDResource($res);
-        
+
+        $cache = ObjectsCache::get();
+        if ( $res > 0 ){
+            $res = $cache->cached( 'docs', 'res-' . $res );
+            if ( !$res ){
+                $res = new RDResource( $res );
+                $cache->set_cache( 'docs', 'res-' . $res->id(), $res );
+            }
+        }
+
         list($num) = $db->fetchRow($db->query($sql));
         $limit = $limit<=0 ? 15 : $limit;
         $count = $num;
@@ -193,11 +200,18 @@ class RDFunctions
         
         $result=$db->query($sql);
         $references = array();
+        $ref= new RDReference();
         while ($rows=$db->fetchArray($result)){
-            $ref= new RDReference();
+
             $ref->assignVars($rows);
 
-            if($res->isNew()) $res=new RDResource($ref->resource());
+            if($res->isNew()){
+                $res = $cache->cached( 'docs', 'res-' . $ref->resource() );
+                if ( !$res ){
+                    $res=new RDResource($ref->resource());
+                    $cache->set_cache( 'docs', 'res-' . $ref->resource(), $res );
+                }
+            }
         
             $references[] = array('id'=>$ref->id(),'title'=>$ref->getVar('title'),'text'=>substr(TextCleaner::getInstance()->clean_disabled_tags($ref->getVar('text')),0,50)."...",
                     'resource'=>$res->getVar('title'));
@@ -235,14 +249,23 @@ class RDFunctions
         //Fin de navegador de páginas    
         $sql = str_replace("COUNT(*)","*", $sql);
         $sql .= " ORDER BY id_fig DESC LIMIT $start,$limit";
+
+        $cache = ObjectsCache::get();
         
         $result=$db->query($sql);
         $figures = array();
+        $ref= new RDFigure();
         while ($rows=$db->fetchArray($result)){
-            $ref= new RDFigure();
+
             $ref->assignVars($rows);
 
-            if($res->isNew()) $res=new RDResource($ref->resource());
+            if($res->isNew()){
+                $res = $cache->cached( 'docs', 'res-' . $ref->resource() );
+                if ( !$res ){
+                    $res=new RDResource($ref->resource());
+                    $cache->set_cache( 'docs', 'res-' . $ref->resource(), $res );
+                }
+            }
         
             $figures[] = array('id'=>$ref->id(),'title'=>$ref->getVar('title'), 'desc'=>$ref->getVar('desc'),'content'=>substr(TextCleaner::getInstance()->clean_disabled_tags($ref->getVar('content')),0,50)."...",
                     'resource'=>$res->getVar('title'));
@@ -307,8 +330,9 @@ class RDFunctions
         
         $result = $db->query($sql);
         $resources = array();
+        $res = new RDResource();
         while($row = $db->fetchArray($result)){
-            $res = new RDResource();
+
             $res->assignVars($row);
             $resources[] = array(
                 'id' => $res->id(),
@@ -349,12 +373,18 @@ class RDFunctions
     * @param int $id
     * @return RDSection object
     */
-    function super_parent($id){
+    static function super_parent($id){
         global $db;
         
         if ($id<=0) return;
-        
-        $sec = new RDSection($id);
+
+        $cache = ObjectsCache::get();
+        $sec = $cache->cached( 'docs', 'sec-' . $id );
+        if ( !$sec ){
+            $sec = new RDSection($id);
+            $cache->set_cache( 'docs', 'sec-' . $id, $sec );
+        }
+
         if($sec->isNew()) return array();
         
         if ($sec->getVar('parent')>0){
@@ -363,7 +393,7 @@ class RDFunctions
             $section = $sec;
         }
         
-        return $sec;
+        return $section;
         
     }
     
