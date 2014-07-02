@@ -299,7 +299,7 @@ class DocsRmcommonPreload{
     * Add options to simple editor
     */
     public function eventRmcommonSimpleEditorPlugins($plugins, $name){
-        global $xoopsModule;
+        /*global $xoopsModule;
         
         if(!$xoopsModule || $xoopsModule->dirname()!='docs') return $plugins;
         //if(!defined('RMCLOCATION') || RMCLOCATION!='homepage') return $plugins;
@@ -308,6 +308,7 @@ class DocsRmcommonPreload{
         RMTemplate::get()->add_script(RMCURL.'/include/js/jquery.fieldselection.js');
         $plugins[] = '<a href="javascript:;" onclick="rd_ep_insert(\'[RD_RESINDEX]\',\''.$name.'\');" title="'.__('All Documents','docs').'"><img src="../images/index16.png" alt="'.__('All Documents','docs').'" /></a>';
         $plugins[] = '<a href="javascript:;" onclick="rd_ep_insert(\'[RD_FEATINDEX]\',\''.$name.'\');" title="'.__('Featured Documents','docs').'"><img src="../images/resfeatured.png" alt="'.__('Featured Documents','docs').'" /></a>';
+        */
         return $plugins;
     }
     /**

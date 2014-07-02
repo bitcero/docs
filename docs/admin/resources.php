@@ -97,7 +97,6 @@ function show_resources( $public = 1 ){
 function rd_show_form($edit=0){
 	global $xoopsModule,$xoopsConfig,$xoopsModuleConfig;
 
-    RDFunctions::toolbar();
 	xoops_cp_location("<a href='./'>".$xoopsModule->name()."</a> &raquo; ".($edit ? __('Editing Document','docs') : __('Create Document','docs')));
 	xoops_cp_header();
 
@@ -129,7 +128,7 @@ function rd_show_form($edit=0){
     $form->addElement(new RMFormTextArea(__('Description', 'docs'),'desc',5,50,$edit ? $res->getVar('description','e') : ''),true);
 	$form->addElement(new RMFormUser(__('Editors','docs'),'editors',1,$edit ? $res->getVar('editors') : '',30));
 
-    $form->addElement( new RMFormImage( __('Featured image', 'docs'), 'image', $edit ? $res->getVar('image', 'e') : '' ) );
+    $form->addElement( new RMFormImage( __('Featured image', 'docs'), 'image', $edit ? $res->getVar('image', 'e') : '', array('accept' => 'thumbnail') ) );
 
 	//Propietario de la publicacion
 	if ($edit){

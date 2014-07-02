@@ -20,12 +20,12 @@
 
         <div class="panel panel-default">
             <div class="panel-heading">
-                <strong><?php _e('Enlaces internos encontrados', 'docs'); ?></strong>
+                <strong><?php _e('Internal Links', 'docs'); ?></strong>
             </div>
             <div class="panel-body report">
                 <?php if( empty( $reported ) ): ?>
                 <span class="text-info">
-                    <?php _e('Internal links was not found in this page.', 'docs'); ?>
+                    <?php _e('Broken internal links was not found in this page.', 'docs'); ?>
                 </span>
                 <?php endif; ?>
                 <?php if( !empty( $reported['docs'] ) ): ?>

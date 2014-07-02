@@ -503,7 +503,7 @@ function docs_review_content(){
 
     RMTemplate::get()->header();
 
-    include RMTemplate::get()->get_template( "docs-review-content.php", 'module', 'docs' );
+    include RMTemplate::get()->get_template( "admin/docs-review-content.php", 'module', 'docs' );
 
     RMTemplate::get()->footer();
 
