@@ -8,6 +8,7 @@
 // License: GPL 2.0
 // --------------------------------------------------------------
 
+define( 'RMCLOCATION', 'index' );
 include 'header.php';
 
 // Get top resources
@@ -26,7 +27,8 @@ while($row = $db->fetchArray($result)){
     
 }
 
-array_multisort($top_data['names'], SORT_STRING, $top_data['reads'], SORT_NUMERIC);
+if ( !empty( $top_data ) )
+    array_multisort($top_data['names'], SORT_STRING, $top_data['reads'], SORT_NUMERIC);
 
 $sql = "SELECT * FROM ".$db->prefix("mod_docs_sections")." ORDER BY `comments` DESC LIMIT 0, 15";
 $result = $db->query($sql);
@@ -42,7 +44,8 @@ while($row = $db->fetchArray($result)){
     
 }
 
-array_multisort($comm_data['names'], SORT_STRING, $comm_data['comments'], SORT_NUMERIC);
+if ( !empty( $comm_data ) )
+    array_multisort($comm_data['names'], SORT_STRING, $comm_data['comments'], SORT_NUMERIC);
 
 // Resume data
 list($num) = $db->fetchRow($db->query("SELECT COUNT(*) FROM ".$db->prefix("mod_docs_resources")));

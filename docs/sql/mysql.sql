@@ -51,6 +51,7 @@ CREATE TABLE `mod_docs_sections` (
   `id_res` int(11) NOT NULL default '0',
   `nameid` varchar(150) NOT NULL,
   `parent` int(10) unsigned NOT NULL default '0',
+  `level` tinyint(1) NOT NULL default '1',
   `uid` int(11) NOT NULL default '0',
   `uname` varchar(40) NOT NULL,
   `created` int(10) NOT NULL default '0',

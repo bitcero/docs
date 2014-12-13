@@ -65,7 +65,6 @@
         <!-- Resume -->
         <div class="cu-box">
             <div class="box-header">
-                <span class="fa fa-caret-up box-handler"></span>
                 <h3><?php _e('RapidDocs Resume','docs'); ?></h3>
             </div>
             <div id="box-content">

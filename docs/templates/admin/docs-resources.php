@@ -39,28 +39,28 @@
     <table class="table" width="100%" cellspacing="1">
         <thead>
         <tr>
-            <th width="20"><input type="checkbox" id="checkall" onclick='$("#frm-resources").toggleCheckboxes(":not(#checkall)");' /></th>
-            <th width="30"><?php _e('ID','docs'); ?></th>
+            <th width="20" class="text-center"><input type="checkbox" id="checkall" onclick='$("#frm-resources").toggleCheckboxes(":not(#checkall)");' /></th>
+            <th width="30" class="text-center"><?php _e('ID','docs'); ?></th>
             <th align="left"><?php _e('Title','docs'); ?></th>
-            <th><?php _e('Owner','docs'); ?></th>
-            <th><?php _e('Created','docs'); ?></th>
-            <th><?php _e('Sections','docs'); ?></th>
-            <th><?php _e('Notes','docs'); ?></th>
-            <th><?php _e('Figures','docs'); ?></th>
-            <th><?php _e('Attributes','docs'); ?></th>
+            <th class="text-center"><?php _e('Owner','docs'); ?></th>
+            <th class="text-center"><?php _e('Created','docs'); ?></th>
+            <th class="text-center"><?php _e('Sections','docs'); ?></th>
+            <th class="text-center"><?php _e('Notes','docs'); ?></th>
+            <th class="text-center"><?php _e('Figures','docs'); ?></th>
+            <th class="text-center"><?php _e('Attributes','docs'); ?></th>
         </tr>
         </thead>
         <tfoot>
         <tr>
             <th width="20"><input type="checkbox" id="checkall2" onclick='$("#frm-resources").toggleCheckboxes(":not(#checkall2)");' /></th>
-            <th width="30"><?php _e('ID','docs'); ?></th>
+            <th width="30" class="text-center"><?php _e('ID','docs'); ?></th>
             <th align="left"><?php _e('Title','docs'); ?></th>
-            <th><?php _e('Owner','docs'); ?></th>
-            <th><?php _e('Created','docs'); ?></th>
-            <th><?php _e('Sections','docs'); ?></th>
-            <th><?php _e('Notes','docs'); ?></th>
-            <th><?php _e('Figures','docs'); ?></th>
-            <th><?php _e('Attributes','docs'); ?></th>
+            <th class="text-center"><?php _e('Owner','docs'); ?></th>
+            <th class="text-center"><?php _e('Created','docs'); ?></th>
+            <th class="text-center"><?php _e('Sections','docs'); ?></th>
+            <th class="text-center"><?php _e('Notes','docs'); ?></th>
+            <th class="text-center"><?php _e('Figures','docs'); ?></th>
+            <th class="text-center"><?php _e('Attributes','docs'); ?></th>
         </tr>
         </tfoot>
         <tbody>
@@ -92,7 +92,7 @@
                     <a href="./sections.php?id=<?php echo $res['id']; ?>"><?php _e('Sections','docs'); ?></a>
                 </span>
                 </td>
-                <td>
+                <td class="text-center">
                     <strong><a href="notes.php?res=<?php echo $res['id']; ?>" title="<?php _e('View Notes','docs'); ?>"><?php echo $res['notes']; ?></a></strong>
                 <span class="cu-item-options">
                     <a href="notes.php?res=<?php echo $res['id']; ?>"><?php _e('View Notes','docs'); ?></a>

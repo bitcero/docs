@@ -4,6 +4,8 @@
     <h1 class="title"><?php echo $res->getVar('title'); ?></h1>
 </div>
 
+<?php include RMTemplate::get()->get_template( 'docs-document-info.php', 'module', 'docs' ); ?>
+
 <!-- Table of Contents -->
 <?php include RMTEmplate::get()->get_template('docs-resource-toc.php', 'module', 'docs'); ?>
 <!-- /Table of Contents -->

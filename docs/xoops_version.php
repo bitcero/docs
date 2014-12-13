@@ -26,6 +26,7 @@ $modversion = array(
     'image'         => 'images/logo.png',
     'dirname'       => 'docs',
     'onInstall'     => 'include/install.php',
+    'onUpdate'      => 'include/install.php',
 
     /**
      * Common Utilities specific information
@@ -122,6 +123,15 @@ $modversion = array(
             'formtype' => 'textbox',
             'valuetype' => 'text',
             'default' => '/modules/ahelp'
+        ),
+
+        array(
+            'name' => 'ajax',
+            'title' => __('Enable AJAX navigation', 'docs'),
+            'description' => __('Activate the AJAX navigation for resource index. By enabling this options, the page load time will reduce drastically, but javascript is required.', 'docs'),
+            'formtype' => 'yesno',
+            'valuetype' => 'int',
+            'default' => 1
         ),
 
         array(

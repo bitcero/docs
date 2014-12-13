@@ -95,7 +95,7 @@ function rd_show_notes(){
 
 	xoops_cp_header();
 	
-    include RMEvents::get()->run_event('docs.admin.template.notes', RMTemplate::get()->get_template('admin/rd_notes.php','module','docs'));
+    include RMEvents::get()->run_event( 'docs.admin.template.notes', RMTemplate::get()->get_template('admin/docs-notes.php','module','docs') );
     
 	xoops_cp_footer();
 

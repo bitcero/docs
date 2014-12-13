@@ -1,4 +1,4 @@
-<h1><?php echo $res->getVar('title'); ?></h1>
+<?php include RMTemplate::get()->get_template( 'docs-document-info.php', 'module', 'docs' ); ?>
 
 <hr>
 
@@ -14,3 +14,10 @@
 	<?php endforeach; ?>
 	</ol>
 </div>
+
+<hr>
+<!-- Comments -->
+<h3><?php _e('Comments','docs'); ?></h3>
+<?php echo $xoopsTpl->fetch(RMCPATH."/templates/rmc-comments-display.html"); ?>
+<?php echo $xoopsTpl->fetch(RMCPATH."/templates/rmc-comments-form.html"); ?>
+<!-- End Comments -->

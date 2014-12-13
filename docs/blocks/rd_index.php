@@ -22,4 +22,5 @@ function rd_block_index($options){
 	$block['section'] = $sec;
 	$block['resource'] = $res->getVar('nameid');
 	return $block;
+
 }

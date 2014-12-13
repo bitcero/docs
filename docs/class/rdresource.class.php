@@ -157,12 +157,10 @@ class RDResource extends RMObject{
         if ($config->permalinks){
     
             $perma = ($config->subdomain != '' ? $config->subdomain : XOOPS_URL). $config->htpath .'/'.$this->getVar('nameid').'/';
-            $perma .= $standalone ? 'standalone/1/' : '';
             
         } else {
             
             $perma = XOOPS_URL.'/modules/docs/?page=resource&amp;id='.$this->id();
-            $perma .= $standalone ? '&amp;standalone=1' : '';
             
         }
         

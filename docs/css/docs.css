@@ -14,7 +14,7 @@
     margin-bottom: 25px;
 }
 .doc-section.is-header > header{
-    border-bottom: 1px solid rgba(0,0,0,0.1);
+
 }
 
 .rd_item_options{
@@ -101,3 +101,18 @@
     margin: 10px 0;
 }
 
+/*          RESOURCE CONTENT          */
+/* ================================== */
+#docs-resource-index{
+    overflow-y: auto;
+}
+#docs-resource-index ul{
+    list-style: none;
+    padding: 0; margin: 0;
+}
+#docs-resource-index ul.docs-index > li > a{
+    display: block;
+    line-height: 40px;
+    height: 40px;
+    width: 100%;
+}

@@ -12,21 +12,21 @@ define('RMCLOCATION', 'homepage');
 include 'header.php';
 
 function rd_show_page(){
+    global $cuSettings;
 
     RMTemplate::get()->assign('xoops_pagetitle', __('Home Page','docs'));
     xoops_cp_header();
 
     include_once RMCPATH.'/class/form.class.php';
     $content = @file_get_contents(XOOPS_CACHE_PATH.'/docs-homepage.html');
-    $content = TextCleaner::getInstance()->to_display($content);
-    $editor = new RMFormEditor('', 'homepage', '100%', '450px', $content);
+    $editor = new RMFormEditor('', 'homepage', '100%', '450px', $cuSettings->editor_type == 'tiny' ? TextCleaner::getInstance()->to_display( $content ) : TextCleaner::getInstance()->specialchars( $content ));
     $rmc_config = RMSettings::cu_settings();
     if ($rmc_config->editor_type == 'tiny'){
         $tiny = TinyEditor::getInstance();
         $tiny->add_config('theme_advanced_buttons1', 'res_index');
     }
     
-    include RMEvents::get()->run_event('docs.get.homepage.template', RMTemplate::get()->get_template('admin/rd_homepage.php', 'module', 'docs'));
+    include RMEvents::get()->run_event('docs.get.homepage.template', RMTemplate::get()->get_template('admin/docs-homepage.php', 'module', 'docs'));
     
     xoops_cp_footer();
 }

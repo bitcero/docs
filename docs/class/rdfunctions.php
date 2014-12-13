@@ -60,12 +60,16 @@ class RDFunctions
     }
     
     /**
-    * @desc Genera el arbol de categorías en un array
-    * @param array Referencia del Array que se rellenará
-    * @param int Id de la Sección padre
-    * @param int Contador de sangría
-    */
-    function getSectionTree(&$array, $parent = 0, $saltos = 0, $resource = 0, $fields='*', $exclude=0){
+     * @desc Genera el arbol de categorías en un array
+     * @param array $array Referencia del Array que se rellenará
+     * @param int $parent Id de la Sección padre
+     * @param int $indent Sangría
+     * @param int $resource Resource identifier
+     * @param string $fields Columns to get from database
+     * @param int $exclude Ide of section to exclude from index
+     * @return bool
+     */
+    static function getSectionTree(&$array, $parent = 0, $indent = 0, $resource = 0, $fields='*', $exclude=0){
         global $db;
         $sql = "SELECT $fields FROM ".$db->prefix("mod_docs_sections")." WHERE ".($resource>0 ? "id_res='$resource' AND" : '')."
                 parent='$parent' ".($exclude>0 ? "AND id_sec<>'$exclude'" : '')." ORDER BY `order`";
@@ -73,9 +77,9 @@ class RDFunctions
         while ($row = $db->fetchArray($result)){
             $ret = array();
             $ret = $row;
-            $ret['saltos'] = $saltos;
+            $ret['saltos'] = $indent;
             $array[] = $ret;
-            self::getSectionTree($array, $row['id_sec'], $saltos + 1, $resource, $fields, $exclude);
+            self::getSectionTree($array, $row['id_sec'], $indent + 1, $resource, $fields, $exclude);
         }
         
         return true;
@@ -95,7 +99,17 @@ class RDFunctions
     * @param bool Indicates if function must be return also the content for section
     * @return true;
     */
-    function sections_tree_index($parent = 0, $jumps = 0, RDResource $res, $var = 'rd_sections_index', $number='', $assign = true, &$array = null, $text = false, $nested = false){
+    static function sections_tree_index(
+        $parent = 0,
+        $jumps = 0,
+        RDResource $res,
+        $var = 'rd_sections_index',
+        $number='',
+        $assign = true,
+        &$array = null,
+        $text = false,
+        $nested = false){
+
         global $xoopsUser;
 
         $db = XoopsDatabaseFactory::getDatabaseConnection();
@@ -298,7 +312,7 @@ class RDFunctions
     * Get the URL for module
     * return string
     */
-    public function url(){
+    static public function url(){
         $config = RMSettings::module_settings('docs');
         if ($config->permalinks){
             
@@ -337,7 +351,7 @@ class RDFunctions
             $resources[] = array(
                 'id' => $res->id(),
                 'title' => $res->getVar('title'),
-                'desc' => $res->getVar('description'),
+                'desc' => $res->getVar('tagline'),
                 'link' => $res->permalink(),
                 'image' => $res->image
             );
@@ -357,14 +371,9 @@ class RDFunctions
     * Generate an 404 error
     */
     function error_404(){
-        header("HTTP/1.0 404 Not Found");
-        if (substr(php_sapi_name(), 0, 3) == 'cgi')
-              header('Status: 404 Not Found', TRUE);
-              else
-              header($_SERVER['SERVER_PROTOCOL'].' 404 Not Found');
 
-        echo "<h1>".__('ERROR 404. Document not Found','docs')."</h1>";
-        die();
+        RMFunctions::error_404( __('Document not found', 'docs'), 'docs' );
+
     }
     
     /**
@@ -521,7 +530,7 @@ class RDFunctions
     public function standalone(){
         global $xoopsTpl, $xoopsModuleConfig;
         
-        RMTemplate::get()->add_xoops_style('standalone.css','docs');
+        RMTemplate::get()->add_style('standalone.css','docs');
         //RMTemplate::get()->add_head('<link rel="stylesheet" type="text/css" media="all" href="'.$xoopsModuleConfig['standalone_css'].'" />');
         $rd_contents = ob_get_clean();
         $xoopsTpl->assign('rd_contents', $rd_contents);

@@ -47,6 +47,19 @@ if (!$allowed && !$res->getVar('quick')){
 RDFunctions::breadcrumb();
 RMBreadCrumb::get()->add_crumb($res->getVar('title'), $res->permalink());
 
+// Comments
+RMFunctions::get_comments('docs', 'res='.$res->id(), 'module', 0);
+RMFunctions::comments_form('docs', 'res='.$res->id(), 'module', RDPATH.'/class/docs-controller.php');
+
+// Owner and editors
+$owner = new RMUser( $res->owner );
+$editors = array();
+foreach( $res->editors as $uid ){
+    if ( $uid == $res->owner ) continue;
+    $editor = new RMUser( $uid );
+    $editors[$uid] =  $editor->name != '' ? $editor->name : $editor->uname;
+}
+
 // Check if we must show all content for Document
 if($res->getVar('single')){
     global $last_author;

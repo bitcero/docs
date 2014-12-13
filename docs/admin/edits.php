@@ -60,7 +60,7 @@ function showEdits(){
     RMTemplate::get()->add_script('admin.js', 'docs');
     RMTemplate::get()->add_style('admin.css', 'docs');
     
-    include RMEvents::get()->run_event("docs.waiting.template", RMTemplate::get()->get_template("admin/rd_waiting.php",'module','docs'));
+    include RMEvents::get()->run_event("docs.waiting.template", RMTemplate::get()->get_template("admin/docs-waiting.php",'module','docs'));
 	
 	xoops_cp_footer();
 }
@@ -112,7 +112,7 @@ function reviewEdit(){
     
     RMTemplate::get()->add_style('admin.css', 'docs');
 	
-    include RMEvents::get()->run_event('docs.template.review.waiting', RMTemplate::get()->get_template('admin/rd_reviewedit.php', 'module', 'docs'));
+    include RMEvents::get()->run_event('docs.template.review.waiting', RMTemplate::get()->get_template('admin/docs-review-edit.php', 'module', 'docs'));
     
 	xoops_cp_footer();
 	

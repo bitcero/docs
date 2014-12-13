@@ -162,8 +162,16 @@ if($params[0]=='explore' || $params[0]=='search'){
 if (count($params)>=2){
     $res = new RDResource($params[0]);
     if(!$res->isNew()){
-        $res = $res->id();
+
         $id = $params[1];
+
+        $hideIndex = RMHttpRequest::get( 'hideIndex', 'integer', 0 );
+        if ( $hideIndex == 1 ) {
+            require 'section.php';
+            exit();
+        }
+
+        $res = $res->id();
         include 'content.php';
         die();
     }

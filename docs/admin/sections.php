@@ -87,7 +87,7 @@ function rd_show_sections(){
     RMTemplate::get()->add_script('jquery.ui.nestedSortable.js','docs', array('footer' => 1));
 	xoops_cp_header();
     
-    include RMEvents::get()->run_event('docs.get.sections.template', RMTemplate::get()->get_template('admin/rd_sections.php', 'module', 'docs'));
+    include RMEvents::get()->run_event('docs.get.sections.template', RMTemplate::get()->get_template('admin/docs-sections.php', 'module', 'docs'));
     
 	xoops_cp_footer();
 
@@ -168,7 +168,7 @@ function rd_show_form($edit=0){
     
     $sections = array();
     RDFunctions::getSectionTree($sections, 0, 0, $id, 'id_sec, title', isset($sec) ? $sec->id() : 0);
-    include RMEvents::get()->run_event('docs.get.secform.template', RMTemplate::get()->get_template('admin/rd_sections_form.php', 'module', 'docs'));
+    include RMEvents::get()->run_event('docs.get.secform.template', RMTemplate::get()->get_template('admin/docs-sections-form.php', 'module', 'docs'));
     
 	xoops_cp_footer();
 }

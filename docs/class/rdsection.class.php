@@ -16,7 +16,6 @@ class RDSection extends RMObject{
     private $metas = array();
 
 	function __construct($id=null, $res=0, $parent = null){
-
 		$this->db =& XoopsDatabaseFactory::getDatabaseConnection();
 		$this->_dbtable = $this->db->prefix("mod_docs_sections");
 		$this->setNew();
@@ -126,7 +125,9 @@ class RDSection extends RMObject{
         }
         
         if ($config->permalinks){
-            
+
+            $perma = ($config->subdomain != '' ? $config->subdomain : XOOPS_URL).$config->htpath . '/'.$res->getVar('nameid').'/'.($edit ? '<span>'.$this->getVar('nameid').'</span>' : $this->getVar('nameid')).'/';
+            /*
             if($this->getVar('parent')>0){
 
                 $parent = RDFunctions::super_parent( $this->parent );
@@ -136,12 +137,13 @@ class RDSection extends RMObject{
                 $perma = ($config->subdomain != '' ? $config->subdomain : XOOPS_URL).$config->htpath . '/'.$res->getVar('nameid').'/'.($edit ? '<span>'.$this->getVar('nameid').'</span>' : $this->getVar('nameid')).'/';
                 $perma .= $standalone ? 'standalone/1/' : '';
             }
-            
+            */
             
         } else {
-            
-            if($this->getVar('parent')>0){
 
+            $perma = XOOPS_URL.'/modules/docs/index.php?page=content&amp;id='.$this->id();
+            /*if($this->getVar('parent')>0){
+                $perma = XOOPS_URL.'/modules/docs/index.php?page=content&amp;id='.$this->id();
                 $sec = $cache->cached( 'docs', 'sec-' . $this->parent );
                 if ( !$sec ){
                     $sec = new RDSection($this->getVar('parent'));
@@ -151,7 +153,7 @@ class RDSection extends RMObject{
             } else {
                 $perma = XOOPS_URL.'/modules/docs/index.php?page=content&amp;id='.$this->id();
                 $perma .= $standalone ? '&amp;standalone=1' : '';
-            }
+            }*/
             
         }
         

@@ -1,12 +1,32 @@
 <?php
-// $Id: content.php 957 2012-05-16 05:35:31Z i.bitcero $
-// --------------------------------------------------------------
-// RapidDocs
-// Documentation system for Xoops.
-// Author: Eduardo Cortés <i.bitcero@gmail.com>
-// Email: i.bitcero@gmail.com
-// License: GPL 2.0
-// --------------------------------------------------------------
+/**
+ * Documentor for XOOPS
+ * Documentation system for XOOPS based on Common Utilities
+ * 
+ * Copyright © 2014 Eduardo Cortés
+ * -----------------------------------------------------------------
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * -----------------------------------------------------------------
+ * @package      Documentor
+ * @author       Eduardo Cortés <yo@eduardocortes.mx>
+ * @copyright    2009 - 2014 Eduardo Cortés
+ * @license      GPL v2
+ * @link         http://eduardocortes.mx
+ * @link         http://xoopsmexico.net
+ */
+
 
 if($id=='')
     RDFunctions::error_404();
@@ -20,10 +40,11 @@ define('RD_LOCATION', 'content');
 */
 function showSection(RDResource &$res, RDSection &$section){
 	global $xoopsUser, $xoopsModuleConfig, $xoopsOption, $xoopsTpl, $xoopsConfig, $standalone;
-	
+
 	include 'header.php';
-    
+
     $xoopsTpl->assign('xoops_pagetitle', $section->getVar('title'));
+
     
     // Resource data
     $resource = array(
@@ -34,18 +55,39 @@ function showSection(RDResource &$res, RDSection &$section){
     );
     
     $res->add_read($res);
-	
-	// Navegación de Secciones
+
+    // Section tree
     $db = XoopsDatabaseFactory::getDatabaseConnection();
+
+    $index = array();
+    RDFunctions::sections_tree_index( 0, 0, $res, '', '', false, $index );
+
+    RMTemplate::get()->add_style('docs.css', 'docs');
+    RMTemplate::get()->add_jquery();
+    RMTemplate::get()->add_script('jquery.dotdotdot.min.js', 'docs', array( 'footer' => 1 ));
+    RMTemplate::get()->add_script('docs.js', 'docs', array( 'footer' => 1 ));
+
+    $standalone = $xoopsModuleConfig['standalone'];
+
+    if($xoopsModuleConfig['standalone']){
+        include RMEvents::get()->run_event('docs.section.template', RMTemplate::get()->get_template('docs-display-section.php', 'module', 'docs'));
+        RDFunctions::standalone();
+    }
+
+
 	$sql = "SELECT * FROM ".$db->prefix("mod_docs_sections")." WHERE id_res='".$res->id()."' AND parent = '0' ORDER BY `order`";
 	$result = $db->query($sql);
     $i = 1;
+    $first_section = 0;
     $number = 1;
     $located = false; // Check if current position has been located
 	while ($row = $db->fetchArray($result)){
 		$sec = new RDSection();
 		$sec->assignVars($row);
-		
+
+        if ( $i == 0 )
+            $first_section = $row['id_sec'];
+
         if($sec->id()==$section->id()){ $number=$i; $located = true; }
         
 		if ($sec->id()==$section->id() && isset($sprev)){
@@ -88,11 +130,7 @@ function showSection(RDResource &$res, RDSection &$section){
 
     // Event
     $sections = RMEvents::get()->run_event('docs.show.section', $sections, $res, $section);
-    
-    RMTemplate::get()->add_style('docs.css', 'docs');
-    RMTemplate::get()->add_jquery();
-    RMTemplate::get()->add_script('docs.js', 'docs');
-    
+
     // URLs
     if ($xoopsModuleConfig['permalinks']){
         /**
@@ -117,18 +155,11 @@ function showSection(RDResource &$res, RDSection &$section){
             $publish_url = RDFunctions::url().'/?action=publish';
     }
     
-    // Comments
-    RMFunctions::get_comments('docs', 'res='.$res->id().'&id='.$section->id(), 'module', 0);
-    RMFunctions::comments_form('docs', 'res='.$res->id().'&id='.$section->id(), 'module', RDPATH.'/class/mywordscontroller.php');
-    
     RDFunctions::breadcrumb();
     RMBreadCrumb::get()->add_crumb($res->getVar('title'), $res->permalink());
     RMBreadCrumb::get()->add_crumb($section->getVar('title'), $section->permalink());
-    
+
     include RMEvents::get()->run_event('docs.section.template', RMTemplate::get()->get_template('docs-display-section.php', 'module', 'docs'));
-    
-    if($standalone)
-        RDFunctions::standalone();
     
     include 'footer.php';
 	
@@ -211,11 +242,11 @@ if ($res->isNew())
     RDFunctions::error_404();
 
 // Check if section is a top parent
-if ($section->getVar('parent')>0){
+/*if ($section->getVar('parent')>0){
     $top = RDfunctions::super_parent($section->getVar('parent'));
     header('location: '.html_entity_decode($top->permalink()).'#'.$section->getVar('nameid'));
     die();
-}
+}*/
     
 if(!$res->getVar('approved')){
     redirect_header(RDURL, 0, __('This content is not available!','docs'));

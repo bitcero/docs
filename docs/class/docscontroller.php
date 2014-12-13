@@ -148,12 +148,12 @@ class DocsController implements iCommentsController
     
     public function get_main_link(){
 		
-		$mc = RMSettings::module_settings('mywords');
+		$mc = RMSettings::module_settings('docs');
 		
 		if ($mc->permalinks > 1){
-			return XOOPS_URL.$mc['basepath'];
+			return XOOPS_URL.$mc->basepath;
 		} else {
-			return XOOPS_URL.'/modules/mywords';
+			return XOOPS_URL.'/modules/docs';
 		}
 		
     }

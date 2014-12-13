@@ -68,19 +68,19 @@ function rd_print_sections($sections,$id, $table=true){
     <thead>
 	<tr class="head" align="center">
 		<th align="left"><?php _e('Title','docs'); ?></th>
-        <th><?php _e('Author','docs'); ?></th>
-        <th><?php _e('Created','docs'); ?></th>
-        <th><?php _e('Updated','docs'); ?></th>
-        <th><img src="../images/comment.png" alt="<?php _e('Comments','docs'); ?>" title="<?php _e('Comments','docs'); ?>" /></th>
+        <th class="text-center"><?php _e('Author','docs'); ?></th>
+        <th class="text-center"><?php _e('Created','docs'); ?></th>
+        <th class="text-center"><?php _e('Updated','docs'); ?></th>
+        <th class="text-center"><img src="../images/comment.png" alt="<?php _e('Comments','docs'); ?>" title="<?php _e('Comments','docs'); ?>" /></th>
 	</tr>
     </thead>
     <tfoot>
     <tr class="head" align="center">
         <th align="left"><?php _e('Title','docs'); ?></th>
-        <th><?php _e('Author','docs'); ?></th>
-        <th><?php _e('Created','docs'); ?></th>
-        <th><?php _e('Updated','docs'); ?></th>
-        <th><img src="../images/comment.png" alt="<?php _e('Comments','docs'); ?>" title="<?php _e('Comments','docs'); ?>" /></th>
+        <th class="text-center"><?php _e('Author','docs'); ?></th>
+        <th class="text-center"><?php _e('Created','docs'); ?></th>
+        <th class="text-center"><?php _e('Updated','docs'); ?></th>
+        <th class="text-center"><img src="../images/comment.png" alt="<?php _e('Comments','docs'); ?>" title="<?php _e('Comments','docs'); ?>" /></th>
     </tr>
     </tfoot>
     <tbody>
@@ -102,8 +102,8 @@ function rd_print_sections($sections,$id, $table=true){
             </span>
         </td>
         <td><?php echo $section['author_name']; ?></td>
-        <td><?php echo $section['created']; ?></td>
-        <td><?php echo $section['modified']; ?></td>
+        <td><?php echo formatTimestamp( $section['created'], 's' ); ?></td>
+        <td><?php echo formatTimestamp( $section['modified'], 'l' ); ?></td>
         <td><?php echo $section['comments']; ?></td>
 	</tr>
 	<?php 

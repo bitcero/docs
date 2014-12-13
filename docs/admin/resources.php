@@ -85,7 +85,7 @@ function show_resources( $public = 1 ){
 
 	xoops_cp_header();
 	
-	include RMTemplate::get()->get_template('admin/rd_resources.php', 'module', 'docs'); 
+	include RMTemplate::get()->get_template('admin/docs-resources.php', 'module', 'docs');
 	
 	xoops_cp_footer();
 
@@ -95,7 +95,7 @@ function show_resources( $public = 1 ){
 * Formulario para crear publicaciones
 **/
 function rd_show_form($edit=0){
-	global $xoopsModule,$xoopsConfig,$xoopsModuleConfig;
+	global $xoopsModule,$xoopsConfig,$xoopsModuleConfig, $cuSettings;
 
 	xoops_cp_location("<a href='./'>".$xoopsModule->name()."</a> &raquo; ".($edit ? __('Editing Document','docs') : __('Create Document','docs')));
 	xoops_cp_header();
@@ -124,11 +124,16 @@ function rd_show_form($edit=0){
 	$form->addElement(new RMFormText(__('Document title', 'docs'),'title',50,150,$edit ? $res->getVar('title') : ''),true);
 	if ($edit) $form->addElement(new RMFormText(__('Document slug', 'docs'),'nameid',50,150,$res->getVar('nameid')));
 
-    //$form->addElement(new RMFormEditor( __('Description', 'docs'),'desc', '100%', '200px', $edit ? $res->getVar('description','e') : ''),true);
-    $form->addElement(new RMFormTextArea(__('Description', 'docs'),'desc',5,50,$edit ? $res->getVar('description','e') : ''),true);
+    $form->addElement(new RMFormTextArea(__('Tagline', 'docs'),'tagline',5,50,$edit ? $res->getVar('tagline','e') : ''), true);
+    $form->addElement(new RMFormEditor( __('Descripcion', 'docs'),'desc', '100%', '400px', $edit ? $res->getVar('description', $cuSettings->editor_type == 'tiny' ? 'e' : '') : ''),true);
+    //$form->addElement(new RMFormTextArea(__('Description', 'docs'),'desc',5,50,$edit ? $res->getVar('description','e') : ''),true);
 	$form->addElement(new RMFormUser(__('Editors','docs'),'editors',1,$edit ? $res->getVar('editors') : '',30));
 
-    $form->addElement( new RMFormImage( __('Featured image', 'docs'), 'image', $edit ? $res->getVar('image', 'e') : '', array('accept' => 'thumbnail') ) );
+    if ( RMFunctions::plugin_installed( 'advform' ) )
+        $form->addElement( new RMFormImageUrl( __('Featured image', 'docs' ), 'image', $res->image ) );
+    else
+        $form->addElement( new RMFormText( __('Featured image', 'docs' ), 'image', 50, 255, $res->image ) );
+    //$form->addElement( new RMFormImage( __('Featured image', 'docs'), 'image', $edit ? $res->getVar('image', 'e') : '', array('accept' => 'thumbnail') ) );
 
 	//Propietario de la publicacion
 	if ($edit){
@@ -243,6 +248,7 @@ function rd_save_resource($edit=0){
 	}
 	
 	$res->setVar('title', $title);
+	$res->setVar('tagline', $tagline);
 	$res->setVar('description', $desc);
 	$res->isNew() ? $res->setVar('created', time()) : $res->setVar('modified', time());
 	$res->setVar('editors', $editors);

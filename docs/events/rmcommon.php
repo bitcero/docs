@@ -357,4 +357,37 @@ class DocsRmcommonPreload{
 
     }
 
+    /**
+     * Save htaccess configuration
+     *
+     * @param string $dirname Module directory
+     * @param array $save Array with options saved
+     * @param array $add New settings added to database
+     * @param array $delete Existing settings deleted from database
+     * @return null
+     */
+    public function eventRmcommonSavedSettings( $dirname, $save, $add, $delete ){
+
+        if ( $dirname != 'docs' )
+            return $dirname;
+
+        // URL rewriting
+        $rule = "RewriteRule ^".trim($save['htpath'],'/')."/?(.*)$ modules/docs/index.php [L]";
+        if ( $save['permalinks'] == 1 ){
+
+            $ht = new RMHtaccess('docs');
+            $htResult = $ht->write($rule);
+            if($htResult!==true){
+                showMessage(__('An error ocurred while trying to write .htaccess file!','docs'), RMMSG_ERROR);
+            }
+
+        } else {
+            $ht = new RMHtaccess( 'docs' );
+            $ht->removeRule();
+            $ht->write();
+        }
+
+        return null;
+    }
+
 }

@@ -10,14 +10,13 @@
 <h2 class="rd_title">Top Documents</h2>
 <?php endif; ?>
 <hr>
-<?php $image = new RMImage();
+<?php
 foreach($resources as $res):
-    $image->load_from_params( $res['image'] );
 ?>
 <div class="panel panel-default document-search-item">
     <div class="panel-body">
         <?php if( $res['image'] != '' ): ?>
-        <img src="<?php echo $image->get_by_size( 150 ); ?>" class="thumbnail pull-left">
+        <img src="<?php echo RMImageResizer::resize( $res['image'], array('width' => 150, 'height' => 150))->url; ?>" class="thumbnail pull-left">
         <?php endif; ?>
         <h4><a href="<?php echo $res['link']; ?>"><?php echo $res['title']; ?></a></h4>
         <p><?php echo $res['desc']; ?></p>

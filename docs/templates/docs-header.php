@@ -1,4 +1,4 @@
-<?php if(!$standalone): ?>
+<?php if( !isset( $standalone ) || !$standalone): ?>
 <div id="rd-header" class="row">
     <div class="col-md-8 col-lg-9">
         <ul class="list-inline">
@@ -24,5 +24,18 @@
         </form>
     </div>
 </div>
-    <hr>
+<?php else: ?>
+
+    <div class="docs-content-header">
+            <a href="#" class="btn pull-left toggle-summary">
+                <span class="fa fa-align-justify"></span>
+            </a>
+            <a href="<?php echo RDURL; ?>" class="btn pull-left" title="<?php echo $xoopsModule->name(); ?>">
+                <span class="fa fa-th"></span>
+            </a>
+            <a href="<?php echo $res->permalink(); ?>" class="btn pull-left" title="<?php _e('Back to document','docs'); ?>">
+                <span class="fa fa-book"></span>
+            </a>
+    </div>
+
 <?php endif; ?>
