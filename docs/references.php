@@ -121,7 +121,7 @@ function references($edit=0){
     $vars = $xoopsTpl->get_template_vars();
     extract($vars);
 
-    RMTemplate::get()->add_script('jquery.checkboxes.js', 'rmcommon', array('directory' => 'include', 'footer' => 1));
+    RMTemplate::get()->add_script('jquery.checkboxes.js', 'rmcommon', array('footer' => 1));
     RMTemplate::get()->add_script('scripts.php?file=ajax.js', 'docs');
     RMTemplate::get()->add_script('references.js', 'docs');
     RMTemplate::get()->add_script('editor-'.$rmc_config->editor_type.'.js', 'docs');

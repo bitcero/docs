@@ -15,6 +15,11 @@ define('INCLUDED_INDEX',1);
 * This file redirects all petions directly to his content
 */
 
+$isStandalone = $xoopsModuleConfig['standalone'];
+
+if ( $isStandalone )
+    header('X-Frame-Options: GOFORIT');
+
 if ($xoopsModuleConfig['permalinks']){
     
     $url = RMUris::current_url();

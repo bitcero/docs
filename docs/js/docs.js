@@ -103,6 +103,14 @@ $(document).ready(function(){
 
     $('body').on('click', "#docs-resource-index .docs-index a, .docs-content-inner a, .docs-content-article .document-navigation a", function(){
 
+        if ( $(this).attr('target') == '_blank' )
+            return;
+
+        if ( $(this).attr('rel') == 'external' ){
+            $(this).attr('target', '_blank');
+            return;
+        }
+
         contentNavigator.navigate( $(this).attr("href"), true );
         return false;
 

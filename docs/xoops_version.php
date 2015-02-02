@@ -32,7 +32,7 @@ $modversion = array(
      * Common Utilities specific information
      */
     'rmnative'      => 1,
-    'rmversion'     => array('major'=>1,'minor'=>0,'revision'=>1,'stage'=>-2, 'name'=>'Documentor'),
+    'rmversion'     => array('major'=>1,'minor'=>0,'revision'=>12,'stage'=>-2, 'name'=>'Documentor'),
     'rewrite'       => 0,
     'permissions'   => 'include/permissions.php',
     'updateurl'     => "http://www.xoopsmexico.net/modules/vcontrol/",

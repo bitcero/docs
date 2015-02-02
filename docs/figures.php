@@ -107,7 +107,7 @@ function Figures(){
     
     //RMTemplate::get()->add_script(RMCURL.'/include/js/jquery.min.js');
     //RMTemplate::get()->add_script(RMCURL.'/include/js/jquery-ui.min.js');
-    RMTemplate::get()->add_script('jquery.checkboxes.js', 'rmcommon', array('directory' => 'include'));
+    RMTemplate::get()->add_script('jquery.checkboxes.js', 'rmcommon');
     RMTemplate::get()->add_script('scripts.php?file=ajax.js', 'docs');
     RMTemplate::get()->add_script('editor-'.$rmc_config->editor_type.'.js', 'docs');
     

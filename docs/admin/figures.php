@@ -83,7 +83,7 @@ function rd_show_figures(){
     RMTemplate::get()->add_style('jquery.css', 'rmcommon');
     RMTemplate::get()->add_script('admin.js', 'docs');
     RMTemplate::get()->assign('xoops_pagetitle', sprintf(__('Figures in %s', 'docs'), $res->getVar('title')));
-    RMTemplate::get()->add_script('jquery.checkboxes.js', 'rmcommon', array('directory' => 'include'));
+    RMTemplate::get()->add_script('jquery.checkboxes.js', 'rmcommon');
     RMTemplate::get()->add_head_script('var rd_select_message = "'.__('You have not selected any figure!','docs').'";
     var rd_message = "'.__('Do you really wish to delete selected figures?','docs').'";');
 

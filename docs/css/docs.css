@@ -101,6 +101,16 @@
     margin: 10px 0;
 }
 
+.docs-document-info .owner{
+    margin-bottom: 0;
+}
+.docs-document-info .contributors{
+    font-size: 1em;
+}
+.docs-document-info .tagline{
+    margin:  50px 0;
+}
+
 /*          RESOURCE CONTENT          */
 /* ================================== */
 #docs-resource-index{

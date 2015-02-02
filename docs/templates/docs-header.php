@@ -30,12 +30,11 @@
             <a href="#" class="btn pull-left toggle-summary">
                 <span class="fa fa-align-justify"></span>
             </a>
-            <a href="<?php echo RDURL; ?>" class="btn pull-left" title="<?php echo $xoopsModule->name(); ?>">
-                <span class="fa fa-th"></span>
-            </a>
+            <?php if ( isset( $res ) ) : ?>
             <a href="<?php echo $res->permalink(); ?>" class="btn pull-left" title="<?php _e('Back to document','docs'); ?>">
                 <span class="fa fa-book"></span>
             </a>
+            <?php endif; ?>
     </div>
 
 <?php endif; ?>

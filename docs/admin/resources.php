@@ -75,7 +75,7 @@ function show_resources( $public = 1 ){
 
     RMTemplate::get()->add_style('admin.css', 'docs');
     RMTemplate::get()->assign('xoops_pagetitle', __('Documents', 'docs'));
-    RMTemplate::get()->add_script('jquery.checkboxes.js', 'rmcommon', array('footer' => 1, 'directory' => 'include'));
+    RMTemplate::get()->add_script('jquery.checkboxes.js', 'rmcommon', array('footer' => 1));
     RMTemplate::get()->add_script('admin.js', 'docs');
     
     RMTemplate::get()->add_head_script('var rd_message = "'.__('Do you really wish to delete selected Documents?','docs').'";
