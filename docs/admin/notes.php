@@ -82,7 +82,7 @@ function rd_show_notes(){
     // Event
     $notes = RMEvents::get()->run_event('docs.loading.notes', $notes, $res);
 	
-    RMTemplate::get()->add_style('admin.css', 'docs');
+    RMTemplate::get()->add_style('admin.min.css', 'docs');
     RMTemplate::get()->add_script('admin.js', 'docs');
     RMTemplate::get()->assign('xoops_pagetitle', sprintf(__('Notes in %s', 'docs'), $res->getVar('title')));
     RMTemplate::get()->add_script('jquery.checkboxes.js', 'rmcommon');

@@ -111,6 +111,11 @@ $(document).ready(function(){
             return;
         }
 
+        if ( -1 >= $(this).attr("href").indexOf(docsUrl) ){
+            $(this).attr('target', '_blank');
+            return;
+        }
+
         contentNavigator.navigate( $(this).attr("href"), true );
         return false;
 
@@ -128,7 +133,8 @@ $(document).ready(function(){
 
     // Dot dot dot
     if ( $("#docs-resource-index").length > 0 ){
-        $("#docs-resource-index .docs-index a").dotdotdot({
+
+        $("#docs-resource-index a").dotdotdot({
             watch: "window",
             wrap: 'letter'
         });
@@ -136,10 +142,24 @@ $(document).ready(function(){
 
     $("body").on('click', '.toggle-summary', function() {
 
-        if ( $("body").hasClass("without-index") )
-            $("body").removeClass("without-index");
-        else
-            $("body").addClass("without-index");
+        $("html").toggleClass("with-index");
+
+        return false;
+
+    });
+
+    $("body").on('click', '.toggle-align', function(){
+
+        var align = 'align-' + $(this).data('align');
+        if($("html").hasClass(align))
+            return;
+
+        $("html").removeClass('align-left align-center align-justify').addClass(align);
+
+        $.cookie('docu_align', $(this).data('align'),{
+            expires: 30,
+            path: '/'
+        });
 
         return false;
 

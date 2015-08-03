@@ -13,7 +13,7 @@ include ('header.php');
 
 RDFunctions::breadcrumb();
 
-RMTemplate::get()->add_style('docs.css','docs');
+RMTemplate::get()->add_style('docs.min.css','docs');
 
 $content = @file_get_contents(XOOPS_CACHE_PATH.'/docs-homepage.html');
 $content = TextCleaner::getInstance()->to_display($content);

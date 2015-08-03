@@ -27,14 +27,29 @@
 <?php else: ?>
 
     <div class="docs-content-header">
-            <a href="#" class="btn pull-left toggle-summary">
-                <span class="fa fa-align-justify"></span>
-            </a>
-            <?php if ( isset( $res ) ) : ?>
+
+        <?php if(!$no_content): ?>
+        <a href="#" class="btn pull-left toggle-summary">
+            <span class="fa fa-bars"></span>
+        </a>
+        <a href="#" class="btn pull-left toggle-align" data-align="left">
+            <span class="fa fa-align-left"></span>
+        </a>
+        <a href="#" class="btn pull-left toggle-align" data-align="center">
+            <span class="fa fa-align-center"></span>
+        </a>
+        <a href="#" class="btn pull-left toggle-align" data-align="justify">
+            <span class="fa fa-align-justify"></span>
+        </a>
+        <?php endif; ?>
+        <?php if ( isset( $res ) ) : ?>
             <a href="<?php echo $res->permalink(); ?>" class="btn pull-left" title="<?php _e('Back to document','docs'); ?>">
                 <span class="fa fa-book"></span>
             </a>
-            <?php endif; ?>
+            <a href="<?php echo $res->permalink(); ?>" class="btn pull-right book-title">
+                <?php echo $res->title; ?>
+            </a>
+        <?php endif; ?>
     </div>
 
 <?php endif; ?>

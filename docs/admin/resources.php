@@ -73,7 +73,7 @@ function show_resources( $public = 1 ){
 	}
 
 
-    RMTemplate::get()->add_style('admin.css', 'docs');
+    RMTemplate::get()->add_style('admin.min.css', 'docs');
     RMTemplate::get()->assign('xoops_pagetitle', __('Documents', 'docs'));
     RMTemplate::get()->add_script('jquery.checkboxes.js', 'rmcommon', array('footer' => 1));
     RMTemplate::get()->add_script('admin.js', 'docs');
@@ -124,8 +124,24 @@ function rd_show_form($edit=0){
 	$form->addElement(new RMFormText(__('Document title', 'docs'),'title',50,150,$edit ? $res->getVar('title') : ''),true);
 	if ($edit) $form->addElement(new RMFormText(__('Document slug', 'docs'),'nameid',50,150,$res->getVar('nameid')));
 
-    $form->addElement(new RMFormTextArea(__('Tagline', 'docs'),'tagline',5,50,$edit ? $res->getVar('tagline','e') : ''), true);
-    $form->addElement(new RMFormEditor( __('Descripcion', 'docs'),'desc', '100%', '400px', $edit ? $res->getVar('description', $cuSettings->editor_type == 'tiny' ? 'e' : '') : ''),true);
+    $form->addElement(new RMFormEditor( __('Description', 'docs'),'desc', '100%', '400px', $edit ? $res->getVar('description', $cuSettings->editor_type == 'tiny' ? 'e' : '') : ''),true);
+
+	$select = new RMFormSelect(__('License', 'docs'), 'license', 0, $edit ? array($res->getVar('license')) : null);
+	$select->addOption('', __('No license', 'docs'));
+	$licenses = RDFunctions::get_licenses();
+	foreach( $licenses  as $license ){
+		$license = trim($license);
+		if ( '---books' == $license ){
+			$select->addGroup(__('Licenses for Books', 'docs'), 'books');
+		} elseif( '---others' == $license ){
+			$select->addGroup(__('Other Licenses', 'docs'), 'others');
+		} else {
+			$select->addOption( $license, $license );
+		}
+	}
+	$form->addElement($select);
+	unset($license, $licenses);
+
     //$form->addElement(new RMFormTextArea(__('Description', 'docs'),'desc',5,50,$edit ? $res->getVar('description','e') : ''),true);
 	$form->addElement(new RMFormUser(__('Editors','docs'),'editors',1,$edit ? $res->getVar('editors') : '',30));
 
@@ -248,7 +264,6 @@ function rd_save_resource($edit=0){
 	}
 	
 	$res->setVar('title', $title);
-	$res->setVar('tagline', $tagline);
 	$res->setVar('description', $desc);
 	$res->isNew() ? $res->setVar('created', time()) : $res->setVar('modified', time());
 	$res->setVar('editors', $editors);
@@ -262,6 +277,7 @@ function rd_save_resource($edit=0){
 	$res->setVar('featured', $featured);
 	$res->setVar('approved', $approvedres);
     $res->setVar('single', $single);
+    $res->setVar('license', $license);
 	if ($res->isNew()){
 		$res->setVar('owner', $xoopsUser->uid());
 		$res->setVar('owname', $xoopsUser->uname());

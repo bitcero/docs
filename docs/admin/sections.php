@@ -81,8 +81,7 @@ function rd_show_sections(){
     $sections = RMEvents::get()->run_event('docs.loading.sections', $sections);
 
     RMTemplate::get()->assign('xoops_pagetitle', __('Sections Management','docs'));
-    RMTemplate::get()->add_style('admin.css', 'docs');
-    RMTemplate::get()->add_style('sections.css', 'docs');
+    RMTemplate::get()->add_style('admin.min.css', 'docs');
     RMTemplate::get()->add_script('sections.js','docs');
     RMTemplate::get()->add_script('jquery.ui.nestedSortable.js','docs', array('footer' => 1));
 	xoops_cp_header();
@@ -154,7 +153,7 @@ function rd_show_form($edit=0){
     $editor = new RMFormEditor('','content','100%','300px',$edit ? $rmc_config->editor_type == 'tiny' ? $sec->getVar('content') : $sec->getVar('content', 'e') : '','', 0);
     $usrfield = new RMFormUser('','uid',false,$edit ? array($sec->getVar('uid')) : $xoopsUser->getVar('uid'));
     
-    RMTemplate::get()->add_style('admin.css', 'docs');
+    RMTemplate::get()->add_style('admin.min.css', 'docs');
     RMTemplate::get()->add_script('scripts.php?file=metas.js', 'docs');
     RMTemplate::get()->add_script('jquery.validate.min.js', 'rmcommon', array('footer' => 1));
     RMTemplate::get()->add_head_script('var docsurl = "'.XOOPS_URL.'/modules/docs";');
@@ -499,7 +498,7 @@ function docs_review_content(){
     $bc->add_crumb( $document->title, 'resources.php', 'fa fa-book' );
     $bc->add_crumb( $page->title, 'sections.php?id=' . $doc_id, 'fa fa-list' );
     $bc->add_crumb( __('Content review', 'docs'), '', 'fa fa-eye' );
-    RMTemplate::get()->add_style( 'admin.css', 'docs' );
+    RMTemplate::get()->add_style( 'admin.min.css', 'docs' );
 
     RMTemplate::get()->header();
 

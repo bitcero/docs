@@ -58,7 +58,7 @@ function formPublish(){
 
 	$form->display();
     
-    RMTemplate::get()->add_style('forms.css', 'docs');
+    RMTemplate::get()->add_style('docs.min.css', 'docs');
     
 	include ('footer.php');
 

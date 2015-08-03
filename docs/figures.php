@@ -182,8 +182,7 @@ function formFigures($edit=0){
     $vars = $xoopsTpl->get_template_vars();
     extract($vars);
     
-    RMTemplate::get()->add_style('refs.css','docs');
-    RMTemplate::get()->add_style('figures.css','docs');
+    RMTemplate::get()->add_style('docs.min.css','docs');
     RMTemplate::get()->add_style('jquery.css','rmcommon');
     
     $editor = new RMFormEditor('','content','100%','200px',$edit ? $fig->getVar('content','e') : '');

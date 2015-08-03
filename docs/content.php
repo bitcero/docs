@@ -62,16 +62,17 @@ function showSection(RDResource &$res, RDSection &$section){
     $index = array();
     RDFunctions::sections_tree_index( 0, 0, $res, '', '', false, $index );
 
-    RMTemplate::get()->add_style('docs.css', 'docs');
+    $standalone = $xoopsModuleConfig['standalone'];
+
     RMTemplate::get()->add_jquery();
     RMTemplate::get()->add_script('jquery.dotdotdot.min.js', 'docs', array( 'footer' => 1 ));
-    RMTemplate::get()->add_script('docs.js', 'docs', array( 'footer' => 1 ));
-
-    $standalone = $xoopsModuleConfig['standalone'];
+    RMTemplate::get()->add_script('docs.min.js', 'docs', array( 'footer' => 1 ));
 
     if($xoopsModuleConfig['standalone']){
         include RMEvents::get()->run_event('docs.section.template', RMTemplate::get()->get_template('docs-display-section.php', 'module', 'docs'));
         RDFunctions::standalone();
+    } else {
+        RMTemplate::get()->add_style('docs.min.css', 'docs');
     }
 
 

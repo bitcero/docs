@@ -17,6 +17,19 @@ class RDFunctions
 		RMTemplate::get()->add_tool(__('Notes','docs'), './notes.php', '../images/notes.png', 'notes');
 		RMTemplate::get()->add_tool(__('Figures','docs'), './figures.php', '../images/figures.png', 'figures');
 	}
+
+    public static function get_licenses(){
+        $file = XOOPS_ROOT_PATH . '/modules/docs/include/licenses.php';
+
+        if( !file_exists($file) ){
+            return false;
+        }
+
+        $content = file_get_contents( $file );
+        $content = explode("\n", $content);
+        return $content;
+
+    }
     
     /**
     * @desc Envía correo de aprobación de publicación
@@ -530,10 +543,20 @@ class RDFunctions
     public function standalone(){
         global $xoopsTpl, $xoopsModuleConfig;
         
-        RMTemplate::get()->add_style('standalone.css','docs');
+        RMTemplate::get()->add_style('standalone.min.css','docs');
+        RMTemplate::get()->add_script('jquery.ck.js','rmcommon');
         //RMTemplate::get()->add_head('<link rel="stylesheet" type="text/css" media="all" href="'.$xoopsModuleConfig['standalone_css'].'" />');
         $rd_contents = ob_get_clean();
         $xoopsTpl->assign('rd_contents', $rd_contents);
+
+        // Text alignment
+        $align = isset($_COOKIE['docu_align']) ? $_COOKIE['docu_align'] : 'left';
+        if (!in_array($align, array('left','center','justify'))){
+            $align = 'left';
+        }
+        $xoopsTpl->assign('body_align', 'align-' . $align);
+        $xoopsTpl->assign('standalone_theme', 'theme-' . $xoopsModuleConfig['theme']);
+
         unset($rd_contents);
         $xoopsTpl->display(RMTemplate::get()->get_template('docs-display-standalone.html', 'module', 'docs'));
         die();

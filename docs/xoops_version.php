@@ -32,6 +32,7 @@ $modversion = array(
      * Common Utilities specific information
      */
     'rmnative'      => 1,
+    'url'           => 'https://github.com/bitcero/docs',
     'rmversion'     => array('major'=>1,'minor'=>0,'revision'=>12,'stage'=>-2, 'name'=>'Documentor'),
     'rewrite'       => 0,
     'permissions'   => 'include/permissions.php',
@@ -53,12 +54,12 @@ $modversion = array(
     # Social
     'social'        => array(
         array('title' => __('Twitter', 'mywords'),'type' => 'twitter','url' => 'http://www.twitter.com/bitcero/'),
-        array('title' => __('Facebook', 'mywords'),'type' => 'facebook-square','url' => 'http://www.facebook.com/eduardo.cortes.hervis/'),
+        array('title' => __('Facebook', 'mywords'),'type' => 'facebook','url' => 'http://www.facebook.com/eduardo.cortes.hervis/'),
         array('title' => __('Instagram', 'mywords'),'type' => 'instagram','url' => 'http://www.instagram.com/eduardocortesh/'),
         array('title' => __('Flickr', 'mywords'),'type' => 'flickr','url' => 'http://www.flickr.com/photos/bitcero/'),
-        array('title' => __('LinkedIn', 'mywords'),'type' => 'linkedin-square','url' => 'http://www.linkedin.com/in/bitcero/'),
+        array('title' => __('LinkedIn', 'mywords'),'type' => 'linkedin','url' => 'http://www.linkedin.com/in/bitcero/'),
         array('title' => __('GithHub', 'mywords'),'type' => 'github','url' => 'http://www.github.com/bitcero/'),
-        array('title' => __('My Blog', 'mywords'),'type' => 'quote-left','url' => 'http://eduardocortes.mx')
+        array('title' => __('My Blog', 'mywords'),'type' => 'blog','url' => 'http://eduardocortes.mx')
     ),
 
     # Backend
@@ -185,7 +186,26 @@ $modversion = array(
             'description' => '',
             'formtype' => 'textbox',
             'valuetype' => 'text',
-            'default' => XOOPS_URL.'/modules/docs/css/standalone.css'
+            'default' => XOOPS_URL.'/modules/docs/css/standalone.min.css'
+        ),
+
+        array(
+            'name' => 'theme',
+            'title' => __('Standalone theme', 'docs'),
+            'description' => __('Allows to select the appearance for module when standalone display is enabled', 'docs'),
+            'formtype' => 'select',
+            'valuetype' => 'text',
+            'default' => 'default',
+            'options' => array(
+                __('Default', 'docs')           => 'default',
+                __('Maverik', 'docs')           => 'maverik',
+                __('Maverik Inverted', 'docs')  => 'maverik-inverted',
+                __('Azure', 'docs')             => 'azure',
+                __('Azure Inverted', 'docs')    => 'azure-inverted',
+                __('Sweet', 'docs')             => 'sweet',
+                __('Evergreen', 'docs')         => 'ever-green',
+                __('Midnight', 'docs')          => 'midnight'
+            )
         )
 
     ),

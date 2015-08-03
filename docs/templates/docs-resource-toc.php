@@ -1,15 +1,20 @@
-<section id="document-description">
-    <?php echo $res->getVar('description'); ?>
-</section>
-<hr>
 <section id="document-toc">
     <?php if(!empty($toc)): ?>
-        <strong>Contenido</strong>
-        <ul class="list-unstyled" id="document-index-toc">
+        <strong><?php _e('Table of Contents', 'docs'); ?></strong>
+        <ol class="list-unstyled" id="document-index-toc">
             <?php foreach($toc as $sec): ?>
-                <li style="padding-left: <?php echo $sec['jump']*10; ?>px;"><a href="<?php echo $sec['link']; ?>"><?php echo $sec['title']; ?></a></li>
+                <li style="padding-left: <?php echo ($sec['jump'] * 15); ?>px;">
+                    <?php echo $sec['number']; ?>.
+                    <a href="<?php echo $sec['link']; ?>">
+                        <?php if($sec['jump'] == 0): ?>
+                            <strong><?php echo $sec['title']; ?></strong>
+                        <?php else: ?>
+                            <?php echo $sec['title']; ?>
+                        <?php endif; ?>
+                    </a>
+                </li>
             <?php endforeach; ?>
-        </ul>
+        </ol>
     <?php endif; ?>
 </section>
 <hr>

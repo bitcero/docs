@@ -92,11 +92,10 @@ while($row = $db->fetchArray($result)){
 
 xoops_cp_header();
 
-RMTemplate::get()->add_style('admin.css','docs');
-RMTemplate::get()->add_style('dashboard.css','docs');
+RMTemplate::get()->add_style('admin.min.css','docs');
 RMTemplate::get()->add_script('jquery.gcharts.js', 'rmcommon');
 RMTemplate::get()->add_head('<script type="text/javascript">var xoops_url="'.XOOPS_URL.'";</script>');
-RMTemplate::get()->add_script('../include/js/dashboard.js');
+
 include RMTemplate::get()->get_template('admin/docs-dashboard.php', 'module', 'docs');
 
 xoops_cp_footer();

@@ -52,7 +52,7 @@ function show_resources($by, $order='DESC'){
     RDFunctions::breadcrumb();
     RMBreadCrumb::get()->add_crumb(__('Browsing recent Documents','docs'));
     
-    RMTemplate::get()->add_style('docs.css', 'docs');
+    RMTemplate::get()->add_style('docs.min.css', 'docs');
     
     include 'header.php';
     $xoopsTpl->assign('xoops_pagetitle', $by=='created' ? __('Recent Documents','docs') : __('Top Documents','docs'));
@@ -107,7 +107,7 @@ function search_resources(){
     RDFunctions::breadcrumb();
     RMBreadCrumb::get()->add_crumb(__('Browsing recent Documents','docs'));
     
-    RMTemplate::get()->add_style('docs.css', 'docs');
+    RMTemplate::get()->add_style('docs.min.css', 'docs');
     
     include 'header.php';
     $xoopsTpl->assign('xoops_pagetitle', sprintf(__('Search results for "%s"','docs'), $keyword));

@@ -1,0 +1,167 @@
+/**
+* Dashboard
+*/
+
+#rd-top-resources{
+    text-align: center;
+}
+
+.rmc_pages_navigation_container{
+    float: right;
+}
+
+// Sections form
+#rd-form-container{
+    .section_options{
+        td{
+            vertical-align: top;
+        }
+        label{
+            display: block;
+            padding: 4px 0;
+        }
+    }
+
+    #section-url{
+        padding: 8px 0px;
+
+        span{
+            background: #FFFFC0;
+        }
+    }
+
+    .info{
+        padding: 5px;
+        text-align: center;
+        margin: 5px 0;
+        background: #FFED97;
+        border: 1px solid #fed22f;
+    }
+
+}
+
+.docs-widget-form label{
+    display: block;
+    cursor: pointer;
+    padding: 5px;
+}
+
+#rd-wd-references,
+#rd-wd-figures{
+    overflow: hidden;
+    position: relative;
+
+    ul{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        position: relative;
+
+        li{
+            padding: 2px 2px;
+            border-bottom: 1px dotted #CCC;
+
+            a{
+                display: block;
+                background: url(../images/notes.png) no-repeat left;
+                padding: 2px 2px 2px 20px;
+            }
+        }
+    }
+
+    .loader{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -32px;
+        margin-left: -16px;
+        display: none;
+    }
+}
+
+
+
+#rd-wd-figures{
+    ul li a{
+        display: block;
+        background: url(../images/figures.png) no-repeat left;
+        padding: 2px 2px 2px 20px;
+    }
+}
+
+.rd_hidden{
+    display: none;
+}
+
+#rd_res_search{
+    input{
+        width: 150px;
+        display: inline-block;
+    }
+}
+
+#rd-figures-editor{
+    display: none;
+    width: 600px;
+    height: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -300px;
+    margin-left: -300px;
+    background: #FFF;
+    border: 2px solid #CCC;
+    padding: 10px;
+}
+
+/** REVIEW **/
+.rd_review_con{
+    overflow: hidden;
+    line-height: 150%;
+
+    .rd_original{
+        width: 48%;
+        float: left;
+        border-right: 3px solid #CCC;
+        padding: 0 10px 10px 0;
+        margin: 0 10px 0 0;
+    }
+
+    .rd_new{
+        width: 48%;
+        float: left;
+    }
+
+    label{
+        display: block;
+        padding: 4px 0;
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+
+    .title{
+        display: block;
+        padding: 4px 0;
+    }
+
+    .content{
+        overflow: auto;
+        max-height: 450px;
+        border: 1px dotted #CCC;
+        padding: 0px 5px;
+    }
+
+}
+
+/* PAGINATION */
+.pagination{
+    margin: 0!important;
+}
+
+.detected-links .link{
+    background: #FFFF00;
+}
+.report code{
+    color: #000;
+    background: none;
+}

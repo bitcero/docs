@@ -56,7 +56,7 @@ function showSection(){
     RDFunctions::breadcrumb();
     RMBreadCrumb::get()->add_crumb(sprintf(__('Manage Document "%s"', 'docs'), $res->getVar('title')));
     
-    RMTemplate::get()->add_style('docs.css','docs');
+    RMTemplate::get()->add_style('docs.min.css','docs');
     
     array_walk($sections, 'rd_insert_edit');
 	
@@ -128,7 +128,6 @@ function formSection($edit=0){
 	$editor = new RMFormEditor('','content','100%','300px',$edit ? $section->getVar('content', $rmc_config['editor_type']=='tiny' ? 's' : 'e') : '', '', false);
     if ($rmc_config['editor_type']=='tiny'){
         $tiny = TinyEditor::getInstance();
-        $tiny->configuration['content_css'] .= ','.XOOPS_URL.'/modules/docs/css/figures.css';
         $tiny->add_config('theme_advanced_buttons1', 'rd_refs');
         $tiny->add_config('theme_advanced_buttons1', 'rd_figures');
         $tiny->add_config('theme_advanced_buttons1', 'rd_toc');
@@ -148,7 +147,7 @@ function formSection($edit=0){
         RMBreadCrumb::get()->add_crumb(__('Create new section', 'docs'));
     
     RMTemplate::get()->add_jquery(true);
-    RMTemplate::get()->add_style('forms.css', 'docs');
+    RMTemplate::get()->add_style('docs.min.css', 'docs');
     RMTemplate::get()->add_script('scripts.php?file=metas.js', 'docs');
     include RMEvents::get()->run_event('docs.template.formsections.front', RMTemplate::get()->get_template('docs-section-form.php','module','docs'));
 

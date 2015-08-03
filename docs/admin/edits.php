@@ -58,7 +58,7 @@ function showEdits(){
     
     RMTemplate::get()->add_script('jquery.checkboxes.js', 'rmcommon');
     RMTemplate::get()->add_script('admin.js', 'docs');
-    RMTemplate::get()->add_style('admin.css', 'docs');
+    RMTemplate::get()->add_style('admin.min.css', 'docs');
     
     include RMEvents::get()->run_event("docs.waiting.template", RMTemplate::get()->get_template("admin/docs-waiting.php",'module','docs'));
 	
@@ -110,7 +110,7 @@ function reviewEdit(){
 	
 	xoops_cp_header();
     
-    RMTemplate::get()->add_style('admin.css', 'docs');
+    RMTemplate::get()->add_style('admin.min.css', 'docs');
 	
     include RMEvents::get()->run_event('docs.template.review.waiting', RMTemplate::get()->get_template('admin/docs-review-edit.php', 'module', 'docs'));
     

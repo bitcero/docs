@@ -83,7 +83,7 @@ if($res->getVar('single')){
     }
     
     RMTemplate::get()->add_jquery();
-    RMTemplate::get()->add_script('docs.js', 'docs');
+    RMTemplate::get()->add_script('docs.min.js', 'docs');
     
     // Comments
     RMFunctions::get_comments('docs', 'res='.$res->id(), 'module', 0);
@@ -115,39 +115,38 @@ if($res->getVar('single')){
     
     include RMTemplate::get()->get_template('docs-display-full-resource.php','module','docs');
     
-} elseif ($res->getVar('quick')){
-    // Show Quick Index to User
-    
-	$content=false;
-	//Obtiene índice
-    $db = XoopsDatabaseFactory::getDatabaseConnection();
-	$sql="SELECT * FROM ".$db->prefix('mod_docs_sections')." WHERE id_res='".$res->id()."' AND parent=0 ORDER BY `order`";
-	$result=$db->queryF($sql);
-    
-    // Quick index array
-    $qindex_sections = array();
-    
-	while ($rows=$db->fetchArray($result)){
-		$sec=new RDSection();
-		$sec->assignVars($rows);
-		
-		$qindex_sections[] = array(
-            'id'=> $id,
-            'title'=> $sec->getVar('title'),
-		    'desc'=> TextCleaner::getInstance()->clean_disabled_tags(TextCleaner::truncate($sec->getVar('content'), 255)),
-		    'link'=> $sec->permalink()
-        );
-	}	
-    
-    include RMTemplate::get()->get_template('docs-quick-index.php','module','docs');
-	
-	
 } else {
 	
 	if (!$allowed){
 		RDFunctions::error_404();
 	}
-	
+
+    if ($res->getVar('quick')){
+        // Show Quick Index to User
+
+        //Obtiene índice
+        $db = XoopsDatabaseFactory::getDatabaseConnection();
+        $sql="SELECT * FROM ".$db->prefix('mod_docs_sections')." WHERE id_res='".$res->id()."' AND parent=0 ORDER BY `order`";
+        $result=$db->queryF($sql);
+
+        // Quick index array
+        $quick_index = array();
+
+        while ($rows=$db->fetchArray($result)){
+            $sec=new RDSection();
+            $sec->assignVars($rows);
+
+            $quick_index[] = array(
+                'id'=> $id,
+                'title'=> $sec->getVar('title'),
+                'desc'=> TextCleaner::getInstance()->clean_disabled_tags(TextCleaner::truncate($sec->getVar('content'), 100)),
+                'link'=> $sec->permalink()
+            );
+        }
+
+
+    }
+
     $toc = array();
     RDFunctions::sections_tree_index(0, 0, $res, '', '', false, $toc);
 
@@ -159,9 +158,9 @@ if($res->getVar('single')){
 	
 }
 
-RMTemplate::get()->add_style('docs.css', 'docs');
+RMTemplate::get()->add_style('docs.min.css', 'docs');
 RMTemplate::get()->add_jquery();
-RMTemplate::get()->add_script('docs.js', 'docs');
+RMTemplate::get()->add_script('docs.min.js', 'docs');
 
 if($standalone)
     RDFunctions::standalone();

@@ -1,12 +1,17 @@
 <div class="docs-document">
+    <?php if($standalone): ?>
     <div id="docs-resource-index">
-
         <ul class="list-unstyled docs-index">
         <?php $num = 1; foreach( $index as $section ): ?>
 
             <li style="padding-left: <?php echo $section['jump'] * 15; ?>px;" data-section="<?php echo $section['id']; ?>">
                 <a href="<?php echo $section['link']; ?>" data-level="<?php echo $section['number']; ?>">
-                    <strong><?php echo $section['number']; ?>.</strong> <?php echo $section['title']; ?>
+                    <strong><?php echo $section['number']; ?>.</strong>
+                    <?php if($section['jump']==0): ?>
+                        <strong><?php echo $section['title']; ?></strong>
+                    <?php else: ?>
+                        <?php echo $section['title']; ?>
+                    <?php endif; ?>
                 </a>
             </li>
 
@@ -14,6 +19,7 @@
         </ul>
 
     </div>
+    <?php endif; ?>
 
     <div id="docs-resource-content">
 

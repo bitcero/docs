@@ -8,7 +8,7 @@
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" media="all" href="<?php echo XOOPS_URL; ?>/modules/docs/css/print.css" />
-    <link rel="stylesheet" type="text/css" media="all" href="<?php echo XOOPS_URL; ?>/modules/docs/css/docs.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="<?php echo XOOPS_URL; ?>/modules/docs/css/docs.min.css" />
 </head>
 <body onload="window.print();">
 <?php include RMTemplate::get()->get_template('docs-resource-toc.php','module','docs'); ?>

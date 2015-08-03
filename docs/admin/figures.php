@@ -79,7 +79,7 @@ function rd_show_figures(){
     // Event
     $figures = RMEvents::get()->run_event('docs.loading.figures', $figures, $res);
     
-    RMTemplate::get()->add_style('admin.css', 'docs');
+    RMTemplate::get()->add_style('admin.min.css', 'docs');
     RMTemplate::get()->add_style('jquery.css', 'rmcommon');
     RMTemplate::get()->add_script('admin.js', 'docs');
     RMTemplate::get()->assign('xoops_pagetitle', sprintf(__('Figures in %s', 'docs'), $res->getVar('title')));

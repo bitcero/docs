@@ -139,10 +139,10 @@ $super = RDFunctions::super_parent( $section->id() );
 
 if ( $section->parent == 0 ) {
     $level = 2;
-    $number = get_parent_position( $section->id(), $parents ) . '.0';
+    $number = get_parent_position( $section->id(), $parents ) . '.';
 }else {
     $level = get_level($section->parent, 3);
-    $number = form_number($section, '');
+    $number = form_number($section, '') . '.';
 }
 
 $standalone = $xoopsModuleConfig['standalone'];
