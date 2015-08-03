@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Documentor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-03 16:26-0500\n"
-"PO-Revision-Date: 2015-08-03 16:26-0500\n"
+"POT-Creation-Date: 2015-08-03 17:21-0500\n"
+"PO-Revision-Date: 2015-08-03 17:21-0500\n"
 "Last-Translator: Eduardo Cortés <me@eduardocortes.mx>\n"
 "Language-Team: Red Mexico <i.bitcero@gmail.com>\n"
 "Language: en\n"
@@ -128,8 +128,11 @@ msgstr ""
 msgid "Do you really wish to delete selected figures?"
 msgstr ""
 
-#: admin/figures.php:92 admin/figures.php:138
-msgid "Figuras"
+#: admin/figures.php:92 admin/figures.php:138 admin/menu.php:59
+#: class/rdfunctions.php:18 events/rmcommon.php:77
+#: templates/admin/docs-resources.php:49 templates/admin/docs-resources.php:62
+#: templates/docs-figures.php:6
+msgid "Figures"
 msgstr ""
 
 #: admin/figures.php:113
@@ -290,12 +293,6 @@ msgstr ""
 #: admin/menu.php:53 class/rdfunctions.php:17
 #: templates/admin/docs-resources.php:48 templates/admin/docs-resources.php:61
 msgid "Notes"
-msgstr ""
-
-#: admin/menu.php:59 class/rdfunctions.php:18 events/rmcommon.php:77
-#: templates/admin/docs-resources.php:49 templates/admin/docs-resources.php:62
-#: templates/docs-figures.php:6
-msgid "Figures"
 msgstr ""
 
 #: admin/menu.php:64
@@ -686,11 +683,7 @@ msgstr ""
 msgid "Specified page does not exists!"
 msgstr ""
 
-#: admin/sections.php:496
-msgid "Revisión de contenido"
-msgstr ""
-
-#: admin/sections.php:500
+#: admin/sections.php:496 admin/sections.php:500
 msgid "Content review"
 msgstr ""
 
@@ -1954,7 +1947,7 @@ msgid "Auto approve documents created for authorized users"
 msgstr ""
 
 #: xoops_version.php:176
-msgid "Activar soporte para despliegue independiente"
+msgid "Activate standalone support"
 msgstr ""
 
 #: xoops_version.php:177

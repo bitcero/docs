@@ -173,7 +173,7 @@ $modversion = array(
 
         array(
             'name' => 'standalone',
-            'title' => __('Activar soporte para despliegue independiente', 'docs'),
+            'title' => __('Activate standalone support', 'docs'),
             'description' => __('This option enables the document render without use of the XOOPS theme. Is very useful to integrate with other components as embeded help.', 'docs'),
             'formtype' => 'yesno',
             'valuetype' => 'int',

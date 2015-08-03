@@ -493,7 +493,7 @@ function docs_review_content(){
 
     }
 
-    RMTemplate::get()->assign( 'xoops_pagetitle', __('Revisión de contenido', 'docs' ) );
+    RMTemplate::get()->assign( 'xoops_pagetitle', __('Content review', 'docs' ) );
     $bc = RMBreadCrumb::get();
     $bc->add_crumb( $document->title, 'resources.php', 'fa fa-book' );
     $bc->add_crumb( $page->title, 'sections.php?id=' . $doc_id, 'fa fa-list' );

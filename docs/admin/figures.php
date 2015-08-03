@@ -89,7 +89,7 @@ function rd_show_figures(){
 
     $bc = RMBreadCrumb::get();
     $bc->add_crumb( $res->getVar('title'), 'resources.php', 'fa fa-book' );
-    $bc->add_crumb( __('Figuras', 'docs'), '', 'fa fa-bar-chart-o');
+    $bc->add_crumb( __('Figures', 'docs'), '', 'fa fa-bar-chart-o');
 
     xoops_cp_header();
     
@@ -135,7 +135,7 @@ function rd_figures_form($edit=0){
 
     $bc = RMBreadCrumb::get();
     $bc->add_crumb( $res->getVar('title'), 'resources.php', 'fa fa-book' );
-    $bc->add_crumb( __('Figuras', 'docs'), 'figures.php?res=' . $res->id(), 'fa fa-bar-chart-o');
+    $bc->add_crumb( __('Figures', 'docs'), 'figures.php?res=' . $res->id(), 'fa fa-bar-chart-o');
     $bc->add_crumb( $edit ? __('Edit a figure', 'docs') : __('Create a figure', 'docs'), '', $edit ? 'fa fa-edit' : 'fa fa-plus' );
     xoops_cp_header();
 	
