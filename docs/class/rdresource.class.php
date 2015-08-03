@@ -156,7 +156,7 @@ class RDResource extends RMObject{
         $config = RMSettings::module_settings('docs');
         if ($config->permalinks){
     
-            $perma = ($config->subdomain != '' ? $config->subdomain : XOOPS_URL). $config->htpath .'/'.$this->getVar('nameid').'/';
+            $perma = ($config->subdomain != '' ? $config->subdomain : XOOPS_URL). $config->htpath .'/'.$this->owname.'/'.$this->getVar('nameid').'/';
 			$perma .= $standalone ? 'standalone/1' : '';
             
         } else {

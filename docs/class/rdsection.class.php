@@ -126,7 +126,7 @@ class RDSection extends RMObject{
         
         if ($config->permalinks){
 
-            $perma = ($config->subdomain != '' ? $config->subdomain : XOOPS_URL).$config->htpath . '/'.$res->getVar('nameid').'/'.($edit ? '<span>'.$this->getVar('nameid').'</span>' : $this->getVar('nameid')).'/';
+            $perma = ($config->subdomain != '' ? $config->subdomain : XOOPS_URL).$config->htpath . '/'.$res->owname . '/' . $res->getVar('nameid').'/'.($edit ? '<span>'.$this->getVar('nameid').'</span>' : $this->getVar('nameid')).'/';
             /*
             if($this->getVar('parent')>0){
 

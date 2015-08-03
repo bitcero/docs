@@ -379,13 +379,14 @@ class RDFunctions
         return $ret;
         
     }
-    
-    /**
-    * Generate an 404 error
-    */
-    function error_404(){
 
-        RMFunctions::error_404( __('Document not found', 'docs'), 'docs' );
+    /**
+     * Send an error 404
+     * @param string $msg
+     */
+    static function error_404( $msg = '' ){
+
+        RMFunctions::error_404( $msg == '' ? __('Document not found', 'docs') : $msg, 'docs' );
 
     }
     

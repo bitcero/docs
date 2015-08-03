@@ -226,7 +226,7 @@ function rd_save_resource($edit=0){
 		}	
 
 		//Comprueba que el título de publicación no exista
-		$sql="SELECT COUNT(*) FROM ".$db->prefix('mod_docs_resources')." WHERE title='$title' AND id_res<>'".$id."'";
+		$sql="SELECT COUNT(*) FROM ".$db->prefix('mod_docs_resources')." WHERE owner = $owner AND title='$title' AND id_res != $id";
 		list($num)=$db->fetchRow($db->queryF($sql));
 		if ($num>0){
 			redirectMsg('resources.php?'.$q,__('A Document with same title exists already!','docs'),1);	
@@ -236,7 +236,7 @@ function rd_save_resource($edit=0){
 		
 	}else{
 		//Comprueba que el título de publicación no exista
-		$sql="SELECT COUNT(*) FROM ".$db->prefix('mod_docs_resources')." WHERE title='$title' ";
+		$sql="SELECT COUNT(*) FROM ".$db->prefix('mod_docs_resources')." WHERE owner = ".$xoopsUser->uid()." AND title='$title' ";
 		list($num)=$db->fetchRow($db->queryF($sql));
 		if ($num>0){
 			redirectMsg('resources.php?'.$q,__('A Document with same title exists already!','docs'),1);    

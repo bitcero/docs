@@ -1,1941 +1,2021 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: RapidDocs\n"
+"Project-Id-Version: Documentor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-16 14:15-0600\n"
-"PO-Revision-Date: 2012-12-16 14:15-0600\n"
-"Last-Translator: Eduardo Cortés <i.bitcero@gmail.com>\n"
+"POT-Creation-Date: 2015-08-03 16:26-0500\n"
+"PO-Revision-Date: 2015-08-03 16:26-0500\n"
+"Last-Translator: Eduardo Cortés <me@eduardocortes.mx>\n"
 "Language-Team: Red Mexico <i.bitcero@gmail.com>\n"
-"Language: en_GB\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: _e;__\n"
-"X-Poedit-Basepath: .\n"
+"X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 1.5.4\n"
-"X-Poedit-SearchPath-0: C:\\wamp\\www\\xm\\modules\\docs\n"
+"X-Generator: Poedit 1.8.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
 
-#: C:\wamp\www\xm\modules\docs/content.php:221
-msgid "This content is not available!"
+#: admin/edits.php:49
+msgid "%M% %d%, %Y%"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/content.php:226
-msgid "You are not allowed to read this content!"
+#: admin/edits.php:55
+msgid "Waiting for approval"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/edit.php:14
-#: C:\wamp\www\xm\modules\docs/edit.php:48
-#: C:\wamp\www\xm\modules\docs/edit.php:105
-#: C:\wamp\www\xm\modules\docs/edit.php:171
-#: C:\wamp\www\xm\modules\docs/edit.php:178
-msgid "Operation not allowed!"
+#: admin/edits.php:77
+msgid "You have not specified any section!"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/edit.php:40
-#: C:\wamp\www\xm\modules\docs/edit.php:97
-#: C:\wamp\www\xm\modules\docs/edit.php:216
-#: C:\wamp\www\xm\modules\docs/admin/sections.php:339
+#: admin/edits.php:83 admin/edits.php:235
+msgid "Specified content does not exists!"
+msgstr ""
+
+#: admin/edits.php:89
+msgid "The section indicated by current element does not exists!"
+msgstr ""
+
+#: admin/edits.php:109 admin/edits.php:276 templates/admin/docs-waiting.php:5
+msgid "Waiting Content"
+msgstr ""
+
+#: admin/edits.php:109 admin/edits.php:276
+#, php-format
+msgid "Editing %s"
+msgstr ""
+
+#: admin/edits.php:229
+msgid "You have not specified any waiting section!"
+msgstr ""
+
+#: admin/edits.php:241
+msgid "This waiting content does not have any section assigned!"
+msgstr ""
+
+#: admin/edits.php:247 admin/edits.php:279
+msgid "Editing Waiting Content"
+msgstr ""
+
+#: admin/edits.php:248
+msgid "Belong to"
+msgstr ""
+
+#: admin/edits.php:249 admin/figures.php:144 admin/notes.php:148
+#: templates/admin/docs-figures.php:57 templates/admin/docs-figures.php:65
+#: templates/admin/docs-notes.php:51 templates/admin/docs-notes.php:59
+#: templates/admin/docs-resources.php:44 templates/admin/docs-resources.php:57
+#: templates/admin/docs-sections.php:70 templates/admin/docs-sections.php:79
+#: templates/docs-references.php:67
+#: templates/docs-sections-control-panel.php:14
+msgid "Title"
+msgstr ""
+
+#: admin/edits.php:250 templates/specials/docs-section-toc.php:2
+msgid "Contenido"
+msgstr ""
+
+#: admin/edits.php:253
+msgid "Parent Section"
+msgstr ""
+
+#: admin/edits.php:254
+msgid "Select section..."
+msgstr ""
+
+#: admin/edits.php:263 templates/docs-section-form.php:34
+msgid "Display order"
+msgstr ""
+
+#: admin/edits.php:265 templates/admin/docs-resources.php:45
+#: templates/admin/docs-resources.php:58
+msgid "Owner"
+msgstr ""
+
+#: admin/edits.php:268
+msgid "Save Now"
+msgstr ""
+
+#: admin/edits.php:269 admin/figures.php:158 admin/notes.php:153
+#: admin/resources.php:173 templates/admin/docs-sections-form.php:99
+#: templates/admin/docs-sections.php:117 templates/admin/docs-sections.php:126
+#: templates/docs-figures.php:207 templates/docs-figures.php:261
+#: templates/docs-section-form.php:83 templates/docs-section-form.php:115
+msgid "Cancel"
+msgstr ""
+
+#: admin/figures.php:24
+msgid "First select a Document to view the figures."
+msgstr ""
+
+#: admin/figures.php:29 admin/figures.php:118 admin/notes.php:121
+#: admin/resources.php:116 admin/resources.php:224 admin/sections.php:115
+#: admin/sections.php:197 figures.php:221 references.php:185
+msgid "Specified Document does not exists!"
+msgstr ""
+
+#: admin/figures.php:85 templates/admin/docs-figures.php:3
+#, php-format
+msgid "Figures in %s"
+msgstr ""
+
+#: admin/figures.php:87 admin/figures.php:247
+msgid "You have not selected any figure!"
+msgstr ""
+
+#: admin/figures.php:88 templates/docs-figures.php:124
+msgid "Do you really wish to delete selected figures?"
+msgstr ""
+
+#: admin/figures.php:92 admin/figures.php:138
+msgid "Figuras"
+msgstr ""
+
+#: admin/figures.php:113
+msgid "First select a Document to manage the figures."
+msgstr ""
+
+#: admin/figures.php:124
+msgid "You have not specified a figure to edit!"
+msgstr ""
+
+#: admin/figures.php:130 admin/figures.php:199 figures.php:243
+msgid "Specified figure does not exists!"
+msgstr ""
+
+#: admin/figures.php:139
+msgid "Edit a figure"
+msgstr ""
+
+#: admin/figures.php:139
+msgid "Create a figure"
+msgstr ""
+
+#: admin/figures.php:142
+msgid "Editing Figure"
+msgstr ""
+
+#: admin/figures.php:142 figures.php:129 templates/docs-figures.php:140
+#: templates/docs-figures.php:208 templates/docs-figures.php:262
+msgid "Create Figure"
+msgstr ""
+
+#: admin/figures.php:145 admin/resources.php:127 publish.php:55
+#: templates/admin/docs-figures.php:58 templates/admin/docs-figures.php:66
+#: templates/docs-figures.php:99
+msgid "Description"
+msgstr ""
+
+#: admin/figures.php:146 admin/notes.php:149 templates/admin/docs-notes.php:52
+#: templates/admin/docs-notes.php:60
+msgid "Content"
+msgstr ""
+
+#: admin/figures.php:148 templates/docs-figures.php:181
+#: templates/docs-figures.php:235
+msgid "Alignment"
+msgstr ""
+
+#: admin/figures.php:149 templates/docs-figures.php:183
+#: templates/docs-figures.php:237
+msgid "Left"
+msgstr ""
+
+#: admin/figures.php:150 templates/docs-figures.php:184
+#: templates/docs-figures.php:238
+msgid "Center"
+msgstr ""
+
+#: admin/figures.php:151 templates/docs-figures.php:185
+#: templates/docs-figures.php:239
+msgid "Right"
+msgstr ""
+
+#: admin/figures.php:153 templates/docs-figures.php:191
+#: templates/docs-figures.php:245
+msgid "Width"
+msgstr ""
+
+#: admin/figures.php:157 admin/notes.php:152 publish.php:92
+#: templates/docs-figures.php:208 templates/docs-figures.php:262
+#: templates/docs-section-form.php:114
+msgid "Save Changes"
+msgstr ""
+
+#: admin/figures.php:157
+msgid "Save Figure"
+msgstr ""
+
+#: admin/figures.php:185 admin/figures.php:253 admin/notes.php:183
+#: admin/resources.php:208 admin/resources.php:330 admin/resources.php:372
+#: admin/resources.php:423 admin/resources.php:493 admin/sections.php:186
+#: admin/sections.php:388 edit.php:339 figures.php:208 figures.php:286
+#: publish.php:129 references.php:172 references.php:248
+msgid "Session token expired!"
+msgstr ""
+
+#: admin/figures.php:192
+msgid "Figure id not specified!"
+msgstr ""
+
+#: admin/figures.php:213
+msgid "Already exists a figure with same title"
+msgstr ""
+
+#: admin/figures.php:223
+msgid "Figure saved successfully!"
+msgstr ""
+
+#: admin/figures.php:226
+msgid "Figure could not be saved!"
+msgstr ""
+
+#: admin/figures.php:262
+msgid "Figures could not be deleted!"
+msgstr ""
+
+#: admin/figures.php:264 figures.php:301
+msgid "Figures deleted successfully!"
+msgstr ""
+
+#: admin/hpage.php:17 admin/menu.php:26 class/rdfunctions.php:503
+msgid "Home Page"
+msgstr ""
+
+#: admin/hpage.php:39
+msgid "Page saved successfully!"
+msgstr ""
+
+#: admin/hpage.php:41
+msgid "Page could not be saved!"
+msgstr ""
+
+#: admin/menu.php:20 class/rdfunctions.php:14
+#: templates/admin/docs-dashboard.php:1
+msgid "Dashboard"
+msgstr ""
+
+#: admin/menu.php:32 admin/resources.php:77 admin/resources.php:84
+#: admin/sections.php:162 class/rdfunctions.php:15 xoops_version.php:218
+msgid "Documents"
+msgstr ""
+
+#: admin/menu.php:37 events/rmcommon.php:146 events/rmcommon.php:250
+msgid "All Documents"
+msgstr ""
+
+#: admin/menu.php:38 admin/resources.php:122
+msgid "New Document"
+msgstr ""
+
+#: admin/menu.php:39 templates/admin/docs-dashboard.php:125
+msgid "Drafts"
+msgstr ""
+
+#: admin/menu.php:43 admin/sections.php:163 class/rdfunctions.php:16
+#: templates/admin/docs-resources.php:47 templates/admin/docs-resources.php:60
+#: templates/admin/docs-resources.php:92
+msgid "Sections"
+msgstr ""
+
+#: admin/menu.php:48
+msgid "All sections"
+msgstr ""
+
+#: admin/menu.php:49
+msgid "New section"
+msgstr ""
+
+#: admin/menu.php:53 class/rdfunctions.php:17
+#: templates/admin/docs-resources.php:48 templates/admin/docs-resources.php:61
+msgid "Notes"
+msgstr ""
+
+#: admin/menu.php:59 class/rdfunctions.php:18 events/rmcommon.php:77
+#: templates/admin/docs-resources.php:49 templates/admin/docs-resources.php:62
+#: templates/docs-figures.php:6
+msgid "Figures"
+msgstr ""
+
+#: admin/menu.php:64
+msgid "All figures"
+msgstr ""
+
+#: admin/menu.php:65
+msgid "New figure"
+msgstr ""
+
+#: admin/menu.php:69
+msgid "Waiting"
+msgstr ""
+
+#: admin/notes.php:25
+msgid "Select a Document to view notes from this"
+msgstr ""
+
+#: admin/notes.php:31 admin/sections.php:59
+msgid "The specified Document does not exists!"
+msgstr ""
+
+#: admin/notes.php:87 templates/admin/docs-notes.php:17
+#, php-format
+msgid "Notes in %s"
+msgstr ""
+
+#: admin/notes.php:89
+msgid "You have not selected any note!"
+msgstr ""
+
+#: admin/notes.php:90
+msgid "Do you really wish to delete selected notes?"
+msgstr ""
+
+#: admin/notes.php:94 admin/notes.php:139
+msgid "Notes & references"
+msgstr ""
+
+#: admin/notes.php:115
+msgid "Document not specified"
+msgstr ""
+
+#: admin/notes.php:126
+msgid "Note not specified"
+msgstr ""
+
+#: admin/notes.php:133 admin/notes.php:205 include/ajax-functions.php:84
+#: references.php:114 references.php:197
+msgid "Specified note does not exists!"
+msgstr ""
+
+#: admin/notes.php:140 admin/notes.php:141
+msgid "Editing Note"
+msgstr ""
+
+#: admin/notes.php:146
+msgid "Edit Note"
+msgstr ""
+
+#: admin/notes.php:190
+msgid "The specified document does not exists!"
+msgstr ""
+
+#: admin/notes.php:198
+msgid "Note id not specified!"
+msgstr ""
+
+#: admin/notes.php:220
+msgid "Already exists a note with same title"
+msgstr ""
+
+#: admin/notes.php:228
+msgid "Note saved successfully!"
+msgstr ""
+
+#: admin/notes.php:231
+msgid "Note could not be saved!"
+msgstr ""
+
+#: admin/notes.php:252
+msgid "No note selected!"
+msgstr ""
+
+#: admin/notes.php:258
+msgid "Session token expired"
+msgstr ""
+
+#: admin/notes.php:267
+msgid "Notes could not be deleted!"
+msgstr ""
+
+#: admin/notes.php:269 references.php:263
+msgid "Notes deleted successfully!"
+msgstr ""
+
+#: admin/resources.php:81
+msgid "Do you really wish to delete selected Documents?"
+msgstr ""
+
+#: admin/resources.php:82
+msgid "You must select an element before to do this action!"
+msgstr ""
+
+#: admin/resources.php:100
+msgid "Editing Document"
+msgstr ""
+
+#: admin/resources.php:100 admin/resources.php:172 publish.php:50
+#: publish.php:52 templates/docs-display-full-resource.php:30
+#: templates/docs-display-section.php:82
+msgid "Create Document"
+msgstr ""
+
+#: admin/resources.php:109
+msgid "You must provide an ID from some Document to edit!"
+msgstr ""
+
+#: admin/resources.php:122
+#, php-format
+msgid "Edit Document: %s"
+msgstr ""
+
+#: admin/resources.php:124 publish.php:54
+msgid "Document title"
+msgstr ""
+
+#: admin/resources.php:125
+msgid "Document slug"
+msgstr ""
+
+#: admin/resources.php:129 publish.php:64
+msgid "License"
+msgstr ""
+
+#: admin/resources.php:130 publish.php:65
+msgid "No license"
+msgstr ""
+
+#: admin/resources.php:135 publish.php:70
+msgid "Licenses for Books"
+msgstr ""
+
+#: admin/resources.php:137 publish.php:72
+msgid "Other Licenses"
+msgstr ""
+
+#: admin/resources.php:146 publish.php:81
+msgid "Editors"
+msgstr ""
+
+#: admin/resources.php:149 admin/resources.php:151 publish.php:59
+#: publish.php:61
+msgid "Featured image"
+msgstr ""
+
+#: admin/resources.php:156
+msgid "Document owner"
+msgstr ""
+
+#: admin/resources.php:158
+msgid "Approve content and changes by editors"
+msgstr ""
+
+#: admin/resources.php:159
+msgid "Groups that can see this Document"
+msgstr ""
+
+#: admin/resources.php:160 templates/admin/docs-resources.php:21
+#: templates/admin/docs-resources.php:127
+msgid "Set as public"
+msgstr ""
+
+#: admin/resources.php:161 publish.php:85
+msgid "Quick index"
+msgstr ""
+
+#: admin/resources.php:165 publish.php:86
+msgid "Show index to restricted users"
+msgstr ""
+
+#: admin/resources.php:166 templates/admin/docs-resources.php:84
+#: templates/admin/docs-resources.php:108
+msgid "Featured"
+msgstr ""
+
+#: admin/resources.php:167
+msgid "Approve inmediatly"
+msgstr ""
+
+#: admin/resources.php:168 publish.php:87
+msgid "Show content in a single page"
+msgstr ""
+
+#: admin/resources.php:169
+msgid ""
+"When you enable this option the Document content will show in a single page."
+msgstr ""
+
+#: admin/resources.php:172
+msgid "Update Document"
+msgstr ""
+
+#: admin/resources.php:217
+msgid "You must provide a valid Document ID"
+msgstr ""
+
+#: admin/resources.php:232 admin/resources.php:242
+msgid "A Document with same title exists already!"
+msgstr ""
+
+#: admin/resources.php:291
+msgid "Document could not be saved!"
+msgstr ""
+
+#: admin/resources.php:310
+msgid "Document saved successfully!"
+msgstr ""
+
+#: admin/resources.php:325
+msgid "Select at least one document to delete!"
+msgstr ""
+
+#: admin/resources.php:338
+#, php-format
+msgid "\"%s\" is not a valid Document ID"
+msgstr ""
+
+#: admin/resources.php:344
+#, php-format
+msgid "Document with ID \"%s\" does not exists"
+msgstr ""
+
+#: admin/resources.php:349
+#, php-format
+msgid "Document \"%s\" could not be deleted!"
+msgstr ""
+
+#: admin/resources.php:355
+msgid "Errors ocurred while deleting documents"
+msgstr ""
+
+#: admin/resources.php:357
+msgid "Documents deleted susccessfully!"
+msgstr ""
+
+#: admin/resources.php:378 admin/resources.php:429
+msgid "You must select at least a single Document!"
+msgstr ""
+
+#: admin/resources.php:387 admin/resources.php:438
+#, php-format
+msgid "Provided Document ID \"%s\" is not valid!"
+msgstr ""
+
+#: admin/resources.php:394 admin/resources.php:445 admin/resources.php:515
+#, php-format
+msgid "Document with ID \"%s\" does not exists!"
+msgstr ""
+
+#: admin/resources.php:400 admin/resources.php:451
+#, php-format
+msgid "Document \"%s\" could not be updated!"
+msgstr ""
+
+#: admin/resources.php:405 admin/resources.php:456 admin/resources.php:533
+msgid "Errors ocurred while trying to update resources."
+msgstr ""
+
+#: admin/resources.php:408 admin/resources.php:459 admin/resources.php:535
+msgid "Documents updated successfully!"
+msgstr ""
+
+#: admin/resources.php:475 edit.php:314 edit.php:316 edit.php:318
+#: figures.php:268
+msgid "Database updated successfully!"
+msgstr ""
+
+#: admin/resources.php:477
+msgid "Database coould not be updated!"
+msgstr ""
+
+#: admin/resources.php:499
+msgid "Select at least a Document!"
+msgstr ""
+
+#: admin/resources.php:508
+#, php-format
+msgid "Document ID \"%s\" is not valid!"
+msgstr ""
+
+#: admin/resources.php:523
+#, php-format
+msgid "Resoource \"%s\" could not be saved!"
+msgstr ""
+
+#: admin/resources.php:526
+msgid "Notification email could not be sent!"
+msgstr ""
+
+#: admin/sections.php:53
+msgid "Select a Document to see the sections inside this"
+msgstr ""
+
+#: admin/sections.php:83 templates/admin/docs-sections.php:40
+msgid "Sections Management"
+msgstr ""
+
+#: admin/sections.php:107
+msgid "You must select a Document in order to create a new section"
+msgstr ""
+
+#: admin/sections.php:126
+msgid "Specify a section to edit"
+msgstr ""
+
+#: admin/sections.php:133
+msgid "Specified section does not exists"
+msgstr ""
+
+#: admin/sections.php:164 admin/sections.php:165
+#: templates/admin/docs-review-edit.php:14
+#: templates/admin/docs-sections-form.php:10
+msgid "Edit Section"
+msgstr ""
+
+#: admin/sections.php:164 templates/admin/docs-sections.php:56
+msgid "New Section"
+msgstr ""
+
+#: admin/sections.php:165 templates/admin/docs-sections-form.php:10
+msgid "Create Section"
+msgstr ""
+
+#: admin/sections.php:191
+msgid "A Document was not specified!"
+msgstr ""
+
+#: admin/sections.php:207
+msgid "No section has been specified"
+msgstr ""
+
+#: admin/sections.php:214
+msgid "Section does not exists!"
+msgstr ""
+
+#: admin/sections.php:222 admin/sections.php:233 edit.php:223
+msgid "Already exists another section with same title!"
+msgstr ""
+
+#: admin/sections.php:289 figures.php:266
+msgid "Database could not be updated!"
+msgstr ""
+
+#: admin/sections.php:292
+msgid "Sections has been saved but some errors ocurred"
+msgstr ""
+
+#: admin/sections.php:325
+msgid "You have not specify a Document id"
+msgstr ""
+
+#: admin/sections.php:337
+msgid "You have not specified a section ID to delete!"
+msgstr ""
+
+#: admin/sections.php:343 edit.php:40 edit.php:97 edit.php:215
 msgid "Specified section does not exists!"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/edit.php:57
+#: admin/sections.php:348
+msgid "Errors ocurred while trying to delete sections!"
+msgstr ""
+
+#: admin/sections.php:351
+msgid "Sections deleted successfully!"
+msgstr ""
+
+#: admin/sections.php:393
+msgid "Data not valid!"
+msgstr ""
+
+#: admin/sections.php:410
+msgid "Sections positions saved!"
+msgstr ""
+
+#: admin/sections.php:429 admin/sections.php:523
+msgid "Specified page does not exists!"
+msgstr ""
+
+#: admin/sections.php:496
+msgid "Revisión de contenido"
+msgstr ""
+
+#: admin/sections.php:500
+msgid "Content review"
+msgstr ""
+
+#: admin/sections.php:617
+msgid "Documents and pages created successfully"
+msgstr ""
+
+#: blocks/rd_resources.php:54
+#, php-format
+msgid "Created by %s"
+msgstr ""
+
+#: blocks/rd_resources.php:55
+#, php-format
+msgid "Viewed %s times"
+msgstr ""
+
+#: blocks/rd_resources.php:71
+msgid "Block type:"
+msgstr ""
+
+#: blocks/rd_resources.php:74 search.php:58 templates/docs-header.php:9
+msgid "Recent Documents"
+msgstr ""
+
+#: blocks/rd_resources.php:75 search.php:58
+#: templates/admin/docs-dashboard.php:155 templates/docs-header.php:12
+msgid "Top Documents"
+msgstr ""
+
+#: blocks/rd_resources.php:80
+msgid "Number of documents:"
+msgstr ""
+
+#: blocks/rd_resources.php:84
+msgid "Show description"
+msgstr ""
+
+#: blocks/rd_resources.php:91
+msgid "Description length:"
+msgstr ""
+
+#: blocks/rd_resources.php:91
+msgid "If you wish to show all description, then specify the length as \"0\"."
+msgstr ""
+
+#: class/docscontroller.php:61 class/docscontroller.php:75
+#: class/docscontroller.php:91 class/docscontroller.php:109
+msgid "Unknow element"
+msgstr ""
+
+#: class/rdfunctions.php:52
+#, php-format
+msgid "Publication <%s> approved!"
+msgstr ""
+
+#: class/rdfunctions.php:389
+msgid "Document not found"
+msgstr ""
+
+#: content.php:253
+msgid "This content is not available!"
+msgstr ""
+
+#: content.php:258
+msgid "You are not allowed to read this content!"
+msgstr ""
+
+#: edit.php:14 edit.php:48 edit.php:105 edit.php:170 edit.php:177
+msgid "Operation not allowed!"
+msgstr ""
+
+#: edit.php:57
 #, php-format
 msgid "Manage Document \"%s\""
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/edit.php:63
+#: edit.php:63
 #, php-format
 msgid "Pages in %s"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/edit.php:146
+#: edit.php:145
 #, php-format
 msgid "Editing \"%s\""
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/edit.php:148
+#: edit.php:147
 msgid "Create new section"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/edit.php:185
+#: edit.php:184
 msgid "This Document has not been approved yet!"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/edit.php:200
+#: edit.php:199
 msgid "You can not edit this content!"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/edit.php:209
+#: edit.php:208
 msgid "Specified section is not valid!"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/edit.php:224
-#: C:\wamp\www\xm\modules\docs/admin/sections.php:222
-#: C:\wamp\www\xm\modules\docs/admin/sections.php:233
-msgid "Already exists another section with same title!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/edit.php:307
+#: edit.php:306
 msgid "Section could not be saved!"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/edit.php:315
-#: C:\wamp\www\xm\modules\docs/edit.php:317
-#: C:\wamp\www\xm\modules\docs/edit.php:319
-#: C:\wamp\www\xm\modules\docs/figures.php:263
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:444
-#: C:\wamp\www\xm\modules\docs/admin/sections.php:301
-#: C:\wamp\www\xm\modules\docs/admin/sections.php:303
-msgid "Database updated successfully!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/edit.php:340
-#: C:\wamp\www\xm\modules\docs/figures.php:217
-#: C:\wamp\www\xm\modules\docs/figures.php:281
-#: C:\wamp\www\xm\modules\docs/publish.php:87
-#: C:\wamp\www\xm\modules\docs/references.php:177
-#: C:\wamp\www\xm\modules\docs/references.php:252
-#: C:\wamp\www\xm\modules\docs/admin/figures.php:175
-#: C:\wamp\www\xm\modules\docs/admin/figures.php:235
-#: C:\wamp\www\xm\modules\docs/admin/notes.php:174
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:179
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:299
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:341
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:392
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:462
-#: C:\wamp\www\xm\modules\docs/admin/sections.php:186
-#: C:\wamp\www\xm\modules\docs/admin/sections.php:384
-msgid "Session token expired!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/edit.php:345
+#: edit.php:344
 msgid "Sorry, the data provided contains some errors!"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/edit.php:361
+#: edit.php:360
 #, php-format
 msgid "Order could not be saved for section %s"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/edit.php:367
+#: edit.php:366
 msgid "Errors ocurred while trying to update orders"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/edit.php:369
+#: edit.php:368
 msgid "Sections updated successfully!"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/figures.php:28
-#: C:\wamp\www\xm\modules\docs/figures.php:34
-#: C:\wamp\www\xm\modules\docs/references.php:28
-#: C:\wamp\www\xm\modules\docs/references.php:34
+#: events/rmcommon.php:64 templates/docs-references.php:6
+msgid "Notes & References"
+msgstr ""
+
+#: events/rmcommon.php:90
+msgid "Insert notes & references"
+msgstr ""
+
+#: events/rmcommon.php:97
+msgid "Insert figures"
+msgstr ""
+
+#: events/rmcommon.php:103
+msgid "Insert Table Of Contents"
+msgstr ""
+
+#: events/rmcommon.php:115 events/rmcommon.php:116 events/rmcommon.php:140
+msgid "Documents Index"
+msgstr ""
+
+#: events/rmcommon.php:121
+msgid "Insert Documents Index"
+msgstr ""
+
+#: events/rmcommon.php:153 events/rmcommon.php:251
+msgid "Featured Documents"
+msgstr ""
+
+#: events/rmcommon.php:381
+msgid "An error ocurred while trying to write .htaccess file!"
+msgstr ""
+
+#: figures.php:28 figures.php:34 references.php:28 references.php:34
 msgid "You are not allowed to view this page"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/figures.php:128
-#: C:\wamp\www\xm\modules\docs/references.php:141
-#: C:\wamp\www\xm\modules\docs/templates/rd_figures.php:113
-#: C:\wamp\www\xm\modules\docs/templates/rd_references.php:109
+#: figures.php:123 references.php:136 templates/docs-figures.php:136
+#: templates/docs-references.php:116
 msgid "Select Document"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/figures.php:131
+#: figures.php:126
 msgid "Select another Document to show the figures that belong to this."
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/figures.php:134
-#: C:\wamp\www\xm\modules\docs/admin/figures.php:107
-#: C:\wamp\www\xm\modules\docs/admin/figures.php:137
-#: C:\wamp\www\xm\modules\docs/templates/rd_figures.php:116
-#: C:\wamp\www\xm\modules\docs/templates/rd_figures.php:138
-msgid "Create Figure"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/figures.php:137
+#: figures.php:132
 msgid "Create a new figure"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/figures.php:165
+#: figures.php:160
 msgid "A Document has not been specified!"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/figures.php:172
+#: figures.php:167
 msgid "No figure has been specified"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/figures.php:179
+#: figures.php:174
 msgid "Sepecified figure does not exists"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/figures.php:223
+#: figures.php:214
 msgid "No Document has been selected!"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/figures.php:230
-#: C:\wamp\www\xm\modules\docs/references.php:190
-#: C:\wamp\www\xm\modules\docs/admin/figures.php:29
-#: C:\wamp\www\xm\modules\docs/admin/figures.php:119
-#: C:\wamp\www\xm\modules\docs/admin/notes.php:121
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:112
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:195
-#: C:\wamp\www\xm\modules\docs/admin/sections.php:118
-#: C:\wamp\www\xm\modules\docs/admin/sections.php:197
-msgid "Specified Document does not exists!"
+#: figures.php:228
+msgid "Title and content are required fields. Please fill them and try again."
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/figures.php:238
+#: figures.php:236
 msgid "No figure has been selected!"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/figures.php:245
-#: C:\wamp\www\xm\modules\docs/admin/figures.php:131
-#: C:\wamp\www\xm\modules\docs/admin/figures.php:189
-msgid "Specified figure does not exists!"
+#: figures.php:253
+msgid "Please provide an image for this figure."
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/figures.php:261
-#: C:\wamp\www\xm\modules\docs/admin/sections.php:289
-msgid "Database could not be updated!"
+#: figures.php:255
+msgid "Please provide the content for this figure."
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/figures.php:286
+#: figures.php:291
 msgid "Select a figure to delete!"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/figures.php:294
+#: figures.php:299
 msgid "Errores ocurred while trying to delete figures."
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/figures.php:296
-#: C:\wamp\www\xm\modules\docs/admin/figures.php:246
-msgid "Figures deleted successfully!"
+#: include/admin-widgets.php:24
+msgid "Section Options"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/publish.php:23
+#: include/admin-widgets.php:33
+msgid "Save and return"
+msgstr ""
+
+#: include/admin-widgets.php:38
+msgid "Save Section"
+msgstr ""
+
+#: include/admin-widgets.php:39
+msgid "Discard Section"
+msgstr ""
+
+#: include/admin-widgets.php:55
+msgid "Notes &amp; References"
+msgstr ""
+
+#: include/admin-widgets.php:68
+msgid "There are not references for this Document yet!"
+msgstr ""
+
+#: include/admin-widgets.php:90
+msgid "Document Figures"
+msgstr ""
+
+#: include/admin-widgets.php:103
+msgid "There are not figures for this Document yet!"
+msgstr ""
+
+#: include/admin-widgets.php:127
+msgid "New Note"
+msgstr ""
+
+#: include/admin-widgets.php:132 templates/docs-figures.php:165
+#: templates/docs-figures.php:217 templates/docs-references.php:119
+msgid "Title:"
+msgstr ""
+
+#: include/admin-widgets.php:136 templates/docs-references.php:121
+msgid "Content:"
+msgstr ""
+
+#: include/admin-widgets.php:140 references.php:142
+#: templates/docs-references.php:117
+msgid "Create Note"
+msgstr ""
+
+#: include/ajax-functions.php:78 references.php:192
+msgid "Note id not provided!"
+msgstr ""
+
+#: index.php:185
+msgid "The document that you've trying to reach does not exists!"
+msgstr ""
+
+#: publish.php:27
 msgid "The creation of new Documents has been disabled by administrator."
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/publish.php:30
+#: publish.php:33
 msgid "You can not create Documents."
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/publish.php:34
-#: C:\wamp\www\xm\modules\docs/publish.php:36
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:96
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:143
-#: C:\wamp\www\xm\modules\docs/templates/rd_resall.php:18
-#: C:\wamp\www\xm\modules\docs/templates/rd_section.php:37
-msgid "Create Document"
+#: publish.php:45
+msgid "You don't have permission to edit this document"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/publish.php:38
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:120
-msgid "Document title"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/publish.php:39
-#: C:\wamp\www\xm\modules\docs/admin/figures.php:140
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:122
-#: C:\wamp\www\xm\modules\docs/templates/rd_figures.php:86
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_figures.php:30
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_figures.php:38
-msgid "Description"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/publish.php:42
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:123
-msgid "Editors"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/publish.php:45
+#: publish.php:84
 msgid "Groups that can read Document"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/publish.php:46
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:132
-msgid "Quick index"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/publish.php:47
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:136
-msgid "Show index to restricted users"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/publish.php:48
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:139
-msgid "Show content in a single page"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/publish.php:50
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:93
+#: publish.php:89 templates/admin/docs-resources.php:109
 msgid "Approved"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/publish.php:50
+#: publish.php:89
 msgid "Inmediatly"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/publish.php:50
+#: publish.php:89
 msgid "Wait for approval"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/publish.php:53
+#: publish.php:92
 msgid "Publish Document"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/publish.php:96
+#: publish.php:139
+msgid "Document not valid!"
+msgstr ""
+
+#: publish.php:147
+msgid "Document not found!"
+msgstr ""
+
+#: publish.php:155
+msgid "You do not have authorization to edit this document"
+msgstr ""
+
+#: publish.php:165 publish.php:178
 msgid "Already exists a Document with same name!"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/publish.php:133
+#: publish.php:220
 msgid "Document could not be created!"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/publish.php:139
+#: publish.php:226
 msgid "New Document created at RapidDocs is waiting for approval"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/publish.php:146
+#: publish.php:233
 msgid ""
 "Your Document has been created, however the email to administrator could no "
 "be sent."
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/publish.php:149
+#: publish.php:236
 msgid ""
 "Your Document has been created and is pending for approval. We will sent an "
 "email when you can access to it and add content."
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/publish.php:160
+#: publish.php:247
 msgid "Document created successfully!"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/references.php:109
+#: references.php:109
 msgid "A note has not been specified!"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/references.php:114
-#: C:\wamp\www\xm\modules\docs/references.php:202
-#: C:\wamp\www\xm\modules\docs/admin/notes.php:133
-#: C:\wamp\www\xm\modules\docs/admin/notes.php:188
-#: C:\wamp\www\xm\modules\docs/include/ajax-functions.php:84
-msgid "Specified note does not exists!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/references.php:144
+#: references.php:139
 msgid "Select another Document to show the notes that belong to this."
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/references.php:147
-#: C:\wamp\www\xm\modules\docs/include/admin_widgets.php:135
-#: C:\wamp\www\xm\modules\docs/templates/rd_references.php:110
-msgid "Create Note"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/references.php:150
+#: references.php:145
 msgid "Create a new note."
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/references.php:183
+#: references.php:178
 msgid "Document ID not provided!"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/references.php:197
-#: C:\wamp\www\xm\modules\docs/include/ajax-functions.php:78
-msgid "Note id not provided!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/references.php:210
-#: C:\wamp\www\xm\modules\docs/references.php:220
+#: references.php:205 references.php:215
 msgid "Another note with same title already exists"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/references.php:231
+#: references.php:226
 msgid "Note saved successfully"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/references.php:234
+#: references.php:229
 msgid "Errors ocurred while trying to save note"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/references.php:257
+#: references.php:253
 msgid "Select a note to delete!"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/references.php:265
+#: references.php:261
 msgid "Errores ocurred while trying to delete notes."
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/references.php:267
-#: C:\wamp\www\xm\modules\docs/admin/notes.php:252
-msgid "Notes deleted successfully!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/resource.php:31
+#: resource.php:31
 msgid "Sorry, this Document does not exists!"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/resource.php:38
-#: C:\wamp\www\xm\modules\docs/resource.php:43
+#: resource.php:38 resource.php:43
 msgid "Sorry, you are not authorized to view this Document"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/search.php:52
-#: C:\wamp\www\xm\modules\docs/search.php:106
+#: search.php:53 search.php:108
 msgid "Browsing recent Documents"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/search.php:57
-#: C:\wamp\www\xm\modules\docs/blocks/rd_resources.php:74
-#: C:\wamp\www\xm\modules\docs/templates/rd_header.php:4
-msgid "Recent Documents"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/search.php:57
-#: C:\wamp\www\xm\modules\docs/blocks/rd_resources.php:75
-#: C:\wamp\www\xm\modules\docs/templates/rd_header.php:5
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_index.php:112
-msgid "Top Documents"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/search.php:111
+#: search.php:113
 #, php-format
 msgid "Search results for \"%s\""
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/xoops_version.php:15
-#: C:\wamp\www\xm\modules\docs/xoops_version.php:17
-msgid "RapidDocs"
+#: section.php:121
+msgid "No ID"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/xoops_version.php:16
-msgid "Create documentation in Xoops, quicky and an advanced way."
+#: section.php:127
+msgid "Content not found"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/xoops_version.php:38
-msgid "LinkedIn"
+#: templates/admin/docs-dashboard.php:9
+msgid "Documents by popularity"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/xoops_version.php:39
-msgid "Twitter"
+#: templates/admin/docs-dashboard.php:30
+msgid "Sections by comments"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/xoops_version.php:40
-msgid "Facebook"
+#: templates/admin/docs-dashboard.php:68
+msgid "RapidDocs Resume"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/xoops_version.php:73
-msgid "PHP Default"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/xoops_version.php:73
-msgid "Name based"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/xoops_version.php:102
-msgid "As list"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/xoops_version.php:102
-msgid "As table"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/xoops_version.php:181
-#: C:\wamp\www\xm\modules\docs/admin/menu.php:32
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:70
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:79
-#: C:\wamp\www\xm\modules\docs/class/rdfunctions.php:15
-msgid "Documents"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/xoops_version.php:182
-msgid "List of Documents"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/xoops_version.php:191
-msgid "Document TOC"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/xoops_version.php:192
-msgid "Table of content for a specific Document"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/edits.php:49
-msgid "%M% %d%, %Y%"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/edits.php:54
-#: C:\wamp\www\xm\modules\docs/admin/edits.php:108
-#: C:\wamp\www\xm\modules\docs/admin/edits.php:275
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_waiting.php:5
-msgid "Waiting Content"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/edits.php:76
-msgid "You have not specified any section!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/edits.php:82
-#: C:\wamp\www\xm\modules\docs/admin/edits.php:234
-msgid "Specified content does not exists!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/edits.php:88
-msgid "The section indicated by current element does not exists!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/edits.php:108
-#: C:\wamp\www\xm\modules\docs/admin/edits.php:275
+#: templates/admin/docs-dashboard.php:75
 #, php-format
-msgid "Editing %s"
+msgid "%s Documents"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/admin/edits.php:228
-msgid "You have not specified any waiting section!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/edits.php:240
-msgid "This waiting content does not have any section assigned!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/edits.php:246
-#: C:\wamp\www\xm\modules\docs/admin/edits.php:278
-msgid "Editing Waiting Content"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/edits.php:247
-msgid "Belong to"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/edits.php:248
-#: C:\wamp\www\xm\modules\docs/admin/figures.php:139
-#: C:\wamp\www\xm\modules\docs/admin/notes.php:140
-#: C:\wamp\www\xm\modules\docs/templates/rd_references.php:64
-#: C:\wamp\www\xm\modules\docs/templates/rd_sec.php:9
-#: C:\wamp\www\xm\modules\docs/templates/rd_viewsec.php:12
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_figures.php:29
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_figures.php:37
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_notes.php:29
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_notes.php:37
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:35
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:48
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections.php:53
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections.php:62
-msgid "Title"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/edits.php:249
-#: C:\wamp\www\xm\modules\docs/templates/specials/rd_toc.php:3
-msgid "Contenido"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/edits.php:252
-msgid "Parent Section"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/edits.php:253
-msgid "Select section..."
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/edits.php:262
-#: C:\wamp\www\xm\modules\docs/templates/rd_sec.php:19
-msgid "Display order"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/edits.php:264
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:36
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:49
-msgid "Owner"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/edits.php:267
-msgid "Save Now"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/edits.php:268
-#: C:\wamp\www\xm\modules\docs/admin/figures.php:148
-#: C:\wamp\www\xm\modules\docs/admin/notes.php:145
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:144
-#: C:\wamp\www\xm\modules\docs/templates/rd_figures.php:137
-#: C:\wamp\www\xm\modules\docs/templates/rd_sec.php:59
-#: C:\wamp\www\xm\modules\docs/templates/rd_sec.php:87
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections.php:100
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections.php:109
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections_form.php:93
-msgid "Cancel"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/figures.php:24
-msgid "First select a Document to view the figures."
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/figures.php:85
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_figures.php:8
+#: templates/admin/docs-dashboard.php:78
 #, php-format
-msgid "Figures in %s"
+msgid "%s Sections"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/admin/figures.php:88
-#: C:\wamp\www\xm\modules\docs/admin/figures.php:229
-msgid "You have not selected any figure!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/figures.php:89
-#: C:\wamp\www\xm\modules\docs/templates/rd_figures.php:102
-msgid "Do you really wish to delete selected figures?"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/figures.php:91
-#: C:\wamp\www\xm\modules\docs/admin/menu.php:62
-#: C:\wamp\www\xm\modules\docs/class/rdfunctions.php:18
-#: C:\wamp\www\xm\modules\docs/events/rmcommon.php:77
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:40
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:53
-msgid "Figures"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/figures.php:107
-#: C:\wamp\www\xm\modules\docs/templates/rd_figures.php:116
-msgid "Edit Figure"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/figures.php:114
-msgid "First select a Document to manage the figures."
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/figures.php:125
-msgid "You have not specified a figure to edit!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/figures.php:137
-msgid "Editing Figure"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/figures.php:141
-#: C:\wamp\www\xm\modules\docs/admin/notes.php:141
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_notes.php:30
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_notes.php:38
-msgid "Content"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/figures.php:143
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:41
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:54
-msgid "Attributes"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/figures.php:147
-#: C:\wamp\www\xm\modules\docs/admin/notes.php:144
-#: C:\wamp\www\xm\modules\docs/templates/rd_figures.php:138
-#: C:\wamp\www\xm\modules\docs/templates/rd_sec.php:86
-msgid "Save Changes"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/figures.php:147
-msgid "Save Figure"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/figures.php:182
-msgid "Figure id not specified!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/figures.php:205
-msgid "Figure saved successfully!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/figures.php:208
-msgid "Figure could not be saved!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/figures.php:244
-msgid "Figures could not be deleted!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/hpage.php:16
-#: C:\wamp\www\xm\modules\docs/admin/menu.php:26
-#: C:\wamp\www\xm\modules\docs/class/rdfunctions.php:449
-msgid "Home Page"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/hpage.php:39
-msgid "Page saved successfully!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/hpage.php:41
-msgid "Page could not be saved!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/menu.php:20
-#: C:\wamp\www\xm\modules\docs/class/rdfunctions.php:14
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_index.php:1
-msgid "Dashboard"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/menu.php:37
-#: C:\wamp\www\xm\modules\docs/events/rmcommon.php:146
-#: C:\wamp\www\xm\modules\docs/events/rmcommon.php:250
-#: C:\wamp\www\xm\modules\docs/events/rmcommon.php:309
-msgid "All Documents"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/menu.php:38
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:118
-msgid "New Document"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/menu.php:39
-msgid "Drafts"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/menu.php:43
-#: C:\wamp\www\xm\modules\docs/class/rdfunctions.php:16
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:38
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:51
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:76
-msgid "Sections"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/menu.php:48
-msgid "All sections"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/menu.php:49
-msgid "New section"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/menu.php:53
-#: C:\wamp\www\xm\modules\docs/class/rdfunctions.php:17
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:39
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:52
-msgid "Notes"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/menu.php:58
-msgid "All notes"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/menu.php:67
-msgid "All figures"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/menu.php:68
-msgid "New figure"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/menu.php:72
-msgid "Waiting"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/notes.php:24
-msgid "Select a Document to view notes from this"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/notes.php:30
-#: C:\wamp\www\xm\modules\docs/admin/sections.php:59
-msgid "The specified Document does not exists!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/notes.php:86
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_notes.php:8
+#: templates/admin/docs-dashboard.php:83
 #, php-format
-msgid "Notes in %s"
+msgid "%s Figures"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/admin/notes.php:89
-msgid "You have not selected any note!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/notes.php:90
-msgid "Do you really wish to delete selected notes?"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/notes.php:92
-msgid "References"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/notes.php:107
-#: C:\wamp\www\xm\modules\docs/admin/notes.php:108
-msgid "Editing Note"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/notes.php:115
-msgid "Document not specified"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/notes.php:126
-msgid "Note not specified"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/notes.php:138
-msgid "Edit Note"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/notes.php:181
-msgid "Note id not specified!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/notes.php:202
-msgid "Already exists a note with same title"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/notes.php:211
-msgid "Note saved successfully!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/notes.php:214
-msgid "Note could not be saved!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/notes.php:235
-msgid "No note selected!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/notes.php:241
-msgid "Session token expired"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/notes.php:250
-msgid "Notes could not be deleted!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:75
-msgid "Do you really wish to delete selected Documents?"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:76
-msgid "You must select an element before to do this action!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:96
-msgid "Editing Document"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:105
-msgid "You must provide an ID from some Document to edit!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:118
+#: templates/admin/docs-dashboard.php:86
 #, php-format
-msgid "Edit Document: %s"
+msgid "%s Notes & References"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:121
-msgid "Document slug"
+#: templates/admin/docs-dashboard.php:99
+msgid "Documents waiting for approval"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:127
-msgid "Document owner"
+#: templates/admin/docs-dashboard.php:105
+msgid "There are not content waiting for approval"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:129
-msgid "Approve content and changes by editors"
+#: templates/admin/docs-dashboard.php:130
+msgid "There are not drafts"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:130
-msgid "Groups that can see this Document"
+#: templates/admin/docs-dashboard.php:158
+msgid "There are not documents to show here."
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:131
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:20
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:107
-msgid "Set as public"
+#: templates/admin/docs-dashboard.php:166
+msgid "Documentor News"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:137
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:68
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:92
-msgid "Featured"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:138
-msgid "Approve inmediatly"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:140
-msgid ""
-"When you enable this option the Document content will show in a single page."
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:143
-msgid "Update Document"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:188
-msgid "You must provide a valid Document ID"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:203
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:213
-msgid "A Document with same title exists already!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:260
-msgid "Document could not be saved!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:279
-msgid "Document saved successfully!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:294
-msgid "Select at least one document to delete!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:307
-#, php-format
-msgid "\"%s\" is not a valid Document ID"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:313
-#, php-format
-msgid "Document with ID \"%s\" does not exists"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:318
-#, php-format
-msgid "Document \"%s\" could not be deleted!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:324
-msgid "Errors ocurred while deleting documents"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:326
-msgid "Documents deleted susccessfully!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:347
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:398
-msgid "You must select at least a single Document!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:356
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:407
-#, php-format
-msgid "Provided Document ID \"%s\" is not valid!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:363
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:414
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:484
-#, php-format
-msgid "Document with ID \"%s\" does not exists!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:369
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:420
-#, php-format
-msgid "Document \"%s\" could not be updated!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:374
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:425
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:502
-msgid "Errors ocurred while trying to update resources."
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:377
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:428
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:504
-msgid "Documents updated successfully!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:446
-msgid "Database coould not be updated!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:468
-msgid "Select at least a Document!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:477
-#, php-format
-msgid "Document ID \"%s\" is not valid!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:492
-#, php-format
-msgid "Resoource \"%s\" could not be saved!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/resources.php:495
-msgid "Notification email could not be sent!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/sections.php:53
-msgid "Select a Document to see the sections inside this"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/sections.php:84
-#: C:\wamp\www\xm\modules\docs/admin/sections.php:85
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections.php:39
-msgid "Sections Management"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/sections.php:110
-msgid "You must select a Document in order to create a new section"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/sections.php:129
-msgid "Specify a section to edit"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/sections.php:136
-msgid "Specified section does not exists"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/sections.php:164
-#: C:\wamp\www\xm\modules\docs/admin/sections.php:165
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_reviewedit.php:14
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections_form.php:10
-msgid "Edit Section"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/sections.php:164
-#: C:\wamp\www\xm\modules\docs/admin/sections.php:165
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections_form.php:10
-msgid "Create Section"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/sections.php:191
-msgid "A Document was not specified!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/sections.php:207
-msgid "No section has been specified"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/sections.php:214
-msgid "Section does not exists!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/sections.php:292
-msgid "Sections has been saved but some errors ocurred"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/sections.php:321
-msgid "You have not specify a Document id"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/sections.php:333
-msgid "You have not specified a section ID to delete!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/sections.php:344
-msgid "Errors ocurred while trying to delete sections!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/sections.php:347
-msgid "Sections deleted successfully!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/sections.php:389
-msgid "Data not valid!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/admin/sections.php:406
-msgid "Sections positions saved!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/blocks/rd_resources.php:54
-#, php-format
-msgid "Created by %s"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/blocks/rd_resources.php:55
-#, php-format
-msgid "Viewed %s times"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/blocks/rd_resources.php:71
-msgid "Block type:"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/blocks/rd_resources.php:80
-msgid "Number of documents:"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/blocks/rd_resources.php:84
-msgid "Show description"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/blocks/rd_resources.php:91
-msgid "Description length:"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/blocks/rd_resources.php:91
-msgid "If you wish to show all description, then specify the length as \"0\"."
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/class/docscontroller.php:61
-#: C:\wamp\www\xm\modules\docs/class/docscontroller.php:75
-#: C:\wamp\www\xm\modules\docs/class/docscontroller.php:91
-#: C:\wamp\www\xm\modules\docs/class/docscontroller.php:109
-msgid "Unknow element"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/class/rdfunctions.php:39
-#, php-format
-msgid "Publication <%s> approved!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/class/rdfunctions.php:341
-msgid "ERROR 404. Document not Found"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/events/rmcommon.php:64
-#: C:\wamp\www\xm\modules\docs/templates/rd_references.php:6
-msgid "Notes & References"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/events/rmcommon.php:90
-msgid "Insert notes & references"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/events/rmcommon.php:97
-msgid "Insert figures"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/events/rmcommon.php:103
-msgid "Insert Table Of Contents"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/events/rmcommon.php:115
-#: C:\wamp\www\xm\modules\docs/events/rmcommon.php:116
-#: C:\wamp\www\xm\modules\docs/events/rmcommon.php:140
-msgid "Documents Index"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/events/rmcommon.php:121
-msgid "Insert Documents Index"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/events/rmcommon.php:153
-#: C:\wamp\www\xm\modules\docs/events/rmcommon.php:251
-#: C:\wamp\www\xm\modules\docs/events/rmcommon.php:310
-msgid "Featured Documents"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/include/admin_widgets.php:24
-msgid "Section Options"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/include/admin_widgets.php:32
-msgid "Save and return"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/include/admin_widgets.php:34
-msgid "Save Section"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/include/admin_widgets.php:35
-msgid "Discard Section"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/include/admin_widgets.php:49
-msgid "Notes &amp; References"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/include/admin_widgets.php:62
-msgid "There are not exists references for this Document yet!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/include/admin_widgets.php:84
-msgid "Document Figures"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/include/admin_widgets.php:97
-msgid "There are not exists figures for this Document yet!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/include/admin_widgets.php:121
-msgid "New Note"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/include/admin_widgets.php:126
-#: C:\wamp\www\xm\modules\docs/templates/rd_figures.php:120
-#: C:\wamp\www\xm\modules\docs/templates/rd_references.php:112
-msgid "Title:"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/include/admin_widgets.php:128
-#: C:\wamp\www\xm\modules\docs/templates/rd_references.php:114
-msgid "Content:"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/language/english/modinfo.php:13
-msgid "Display method for documents index"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/language/english/modinfo.php:14
-msgid ""
-"Choose the method that you wish to use when display the documents index. "
-"This option affects to All, Recent and Featured index of documents."
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/language/english/modinfo.php:15
-msgid "Subdomain on which RapidDocs will be used"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/language/english/modinfo.php:16
-msgid ""
-"You can specify a subdomain if your htaccess file has been configured for it "
-"(e.g. http://docs.xoops.org)."
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/language/english/modinfo.php:17
-msgid "URLs mode:"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/language/english/modinfo.php:18
-msgid ""
-"This options indicate the way in which RapidDocs will generate the URLs for "
-"documents."
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/language/english/modinfo.php:19
-msgid "Base path for URLs"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/language/english/modinfo.php:20
-msgid "Indicate the base path used to generate URLs (eg. /docs)."
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/language/english/modinfo.php:21
-msgid "Number of columns for index"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/language/english/modinfo.php:22
-msgid "This option is used only when selected display method is \"as list\""
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/language/english/modinfo.php:23
-msgid "Number of documents in the index"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/language/english/modinfo.php:24
-msgid "This is the limit for documents displayed in index"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/language/english/modinfo.php:25
-msgid "Groups with authorization to create new documents"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/language/english/modinfo.php:26
-msgid "Select the groups that you wish to authorize to create new documents."
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/language/english/modinfo.php:27
-msgid "Allow the creation of new documents"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/language/english/modinfo.php:28
-msgid "Auto approve documents created for authorized users"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_figures.php:6
-#: C:\wamp\www\xm\modules\docs/templates/rd_notes_and_refs.php:2
-msgid "Notes and References"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_figures.php:52
-msgid "Search:"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_figures.php:54
-#: C:\wamp\www\xm\modules\docs/templates/rd_references.php:31
-msgid "Go"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_figures.php:64
-#: C:\wamp\www\xm\modules\docs/templates/rd_figures.php:87
-#: C:\wamp\www\xm\modules\docs/templates/rd_references.php:42
-#: C:\wamp\www\xm\modules\docs/templates/rd_references.php:65
-#: C:\wamp\www\xm\modules\docs/templates/rd_viewsec.php:14
-msgid "Options"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_figures.php:81
-msgid "Existing Figures"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_figures.php:85
-msgid "Id"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_figures.php:95
-#: C:\wamp\www\xm\modules\docs/templates/rd_references.php:89
-msgid "Insert"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_figures.php:96
-#: C:\wamp\www\xm\modules\docs/templates/rd_item.php:4
-#: C:\wamp\www\xm\modules\docs/templates/rd_references.php:90
-#: C:\wamp\www\xm\modules\docs/templates/rd_viewsec.php:22
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_figures.php:54
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_notes.php:54
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:66
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_reviewedit.php:27
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections.php:10
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections.php:81
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_waiting.php:57
-msgid "Edit"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_figures.php:102
-#: C:\wamp\www\xm\modules\docs/templates/rd_references.php:95
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_figures.php:15
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_figures.php:55
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_figures.php:67
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_notes.php:16
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_notes.php:55
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_notes.php:67
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:24
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:67
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:111
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections.php:11
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections.php:82
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_waiting.php:16
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_waiting.php:58
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_waiting.php:72
-msgid "Delete"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_figures.php:103
-msgid "Close Window"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_figures.php:113
-#: C:\wamp\www\xm\modules\docs/templates/rd_references.php:109
-#: C:\wamp\www\xm\modules\docs/templates/rd_references.php:123
-msgid "Wait a second..."
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_figures.php:119
-msgid "Document:"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_figures.php:122
-msgid "Description:"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_figures.php:124
-msgid "Description is a required attribute!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_figures.php:126
-msgid "You must input the content for this figure!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_figures.php:127
-msgid "Atributes:"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_figures.php:129
-msgid ""
-"Here you can specify another atributes to include with the figure. You can "
-"specify a css class name, or an id for figure."
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_header.php:9
-#: C:\wamp\www\xm\modules\docs/templates/rd_references.php:29
-msgid "Search"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_item.php:3
-msgid "Top"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_quickindex.php:2
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:95
-msgid "Quick Index"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_references.php:59
-msgid "Existing notes and references"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_references.php:63
-#: C:\wamp\www\xm\modules\docs/templates/rd_viewsec.php:11
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_figures.php:28
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_figures.php:36
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_notes.php:28
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_notes.php:36
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:34
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:47
-msgid "ID"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_references.php:70
-msgid "Notes was not found."
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_references.php:73
-msgid "Select Document first"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_references.php:76
-msgid "Create new note"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_references.php:95
-msgid "Do you really wish to delet selected notes?"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_references.php:96
-msgid "Close"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_resall.php:15
-#: C:\wamp\www\xm\modules\docs/templates/rd_section.php:32
-msgid "Create PDF Book"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_resall.php:16
-#: C:\wamp\www\xm\modules\docs/templates/rd_section.php:34
-msgid "Print Book"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_resall.php:22
-#: C:\wamp\www\xm\modules\docs/templates/rd_section.php:41
-#, php-format
-msgid "Published at %s."
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_resall.php:23
-#: C:\wamp\www\xm\modules\docs/templates/rd_section.php:42
-#, php-format
-msgid "Modified by last time at %s."
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_resall.php:24
-#: C:\wamp\www\xm\modules\docs/templates/rd_section.php:43
-#, php-format
-msgid "Edited by %s."
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_resall.php:25
-#: C:\wamp\www\xm\modules\docs/templates/rd_section.php:44
-#, php-format
-msgid "Read %s times."
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_resall.php:34
-#: C:\wamp\www\xm\modules\docs/templates/rd_section.php:55
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections.php:57
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections.php:66
-msgid "Comments"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_resindextoc.php:5
-#: C:\wamp\www\xm\modules\docs/templates/rd_section.php:16
-#: C:\wamp\www\xm\modules\docs/templates/rd_section.php:22
-#: C:\wamp\www\xm\modules\docs/templates/rd_section.php:26
-msgid "Table of Contents"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_search.php:4
-#, php-format
-msgid "Results for \"%s\""
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_search.php:16
-#, php-format
-msgid "%s by %s."
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_search.php:16
-msgid "Created on %M% %d%, %Y%."
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_search.php:17
-#, php-format
-msgid "Viewed %s times."
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_sec.php:3
-msgid "Edit Page"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_sec.php:3
-msgid "New Page"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_sec.php:7
-msgid "Document"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_sec.php:12
-msgid "Parent"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_sec.php:14
-msgid "Select parent..."
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_sec.php:23
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections_form.php:57
-msgid "Custom Fields"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_sec.php:27
-#: C:\wamp\www\xm\modules\docs/templates/rd_sec.php:44
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections_form.php:61
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections_form.php:78
-msgid "Name"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_sec.php:28
-#: C:\wamp\www\xm\modules\docs/templates/rd_sec.php:45
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections_form.php:62
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections_form.php:79
-msgid "Value"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_sec.php:41
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections_form.php:75
-msgid "Add new field:"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_sec.php:52
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections_form.php:86
-msgid "- Select -"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_sec.php:58
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections_form.php:92
-msgid "Enter New"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_sec.php:65
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections_form.php:99
-msgid "Please provide a value for this meta field"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_sec.php:71
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections_form.php:105
-msgid "Add custom field"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_sec.php:75
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections_form.php:109
-msgid ""
-"Custom fields can be used to add extra metadata to a post that you can use "
-"in your theme."
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_sec.php:82
-msgid "Save and return to content"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_sec.php:83
-msgid "Save and return to form"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_sec.php:84
-msgid "Save and return to list"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_sec.php:86
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_homepage.php:11
-msgid "Save Page"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_section.php:33
-msgid "Generate PDF"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_section.php:35
-msgid "Print Section"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_viewsec.php:5
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections.php:45
-msgid "New Section"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_viewsec.php:8
-msgid "Existing Sections"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_viewsec.php:13
-msgid "Order"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/rd_viewsec.php:28
-msgid "Save Orders"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_figures.php:3
-msgid "Search Figures:"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_figures.php:14
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_figures.php:66
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_notes.php:15
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_notes.php:66
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:17
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:104
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_waiting.php:14
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_waiting.php:70
+#: templates/admin/docs-figures.php:27 templates/admin/docs-figures.php:97
+#: templates/admin/docs-notes.php:26 templates/admin/docs-notes.php:93
+#: templates/admin/docs-resources.php:18 templates/admin/docs-resources.php:124
+#: templates/admin/docs-waiting.php:15 templates/admin/docs-waiting.php:80
 msgid "Bulk actions..."
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_figures.php:17
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_figures.php:69
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_notes.php:18
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_notes.php:69
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:26
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:113
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_waiting.php:18
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_waiting.php:74
+#: templates/admin/docs-figures.php:28 templates/admin/docs-figures.php:83
+#: templates/admin/docs-figures.php:98 templates/admin/docs-notes.php:27
+#: templates/admin/docs-notes.php:77 templates/admin/docs-notes.php:94
+#: templates/admin/docs-resources.php:25 templates/admin/docs-resources.php:83
+#: templates/admin/docs-resources.php:131 templates/admin/docs-sections.php:11
+#: templates/admin/docs-sections.php:99 templates/admin/docs-waiting.php:17
+#: templates/admin/docs-waiting.php:65 templates/admin/docs-waiting.php:82
+#: templates/docs-figures.php:124 templates/docs-references.php:102
+msgid "Delete"
+msgstr ""
+
+#: templates/admin/docs-figures.php:30 templates/admin/docs-figures.php:100
+#: templates/admin/docs-notes.php:29 templates/admin/docs-notes.php:96
+#: templates/admin/docs-resources.php:27 templates/admin/docs-resources.php:133
+#: templates/admin/docs-waiting.php:19 templates/admin/docs-waiting.php:84
 msgid "Apply"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_figures.php:19
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_notes.php:20
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections.php:43
+#: templates/admin/docs-figures.php:36 templates/admin/docs-notes.php:34
+#: templates/admin/docs-sections.php:50
 msgid "Choose another Document"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_figures.php:20
+#: templates/admin/docs-figures.php:39
 msgid "All Figures"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_figures.php:21
+#: templates/admin/docs-figures.php:42
 msgid "New Figure"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_figures.php:44
+#: templates/admin/docs-figures.php:56 templates/admin/docs-figures.php:64
+#: templates/admin/docs-notes.php:50 templates/admin/docs-notes.php:58
+#: templates/admin/docs-resources.php:43 templates/admin/docs-resources.php:56
+#: templates/docs-references.php:66
+#: templates/docs-sections-control-panel.php:15
+msgid "ID"
+msgstr ""
+
+#: templates/admin/docs-figures.php:72
 msgid "There are not figures created for this Document."
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_homepage.php:1
+#: templates/admin/docs-figures.php:82 templates/admin/docs-notes.php:76
+#: templates/admin/docs-resources.php:82
+#: templates/admin/docs-review-edit.php:27 templates/admin/docs-sections.php:10
+#: templates/admin/docs-sections.php:98 templates/admin/docs-waiting.php:64
+#: templates/docs-figures.php:111 templates/docs-item-section.php:10
+#: templates/docs-references.php:97
+#: templates/docs-sections-control-panel.php:27
+msgid "Edit"
+msgstr ""
+
+#: templates/admin/docs-homepage.php:1
 msgid "Home Page Editor"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_homepage.php:3
+#: templates/admin/docs-homepage.php:3
 msgid "You can edit and customize the home page for RapidDocs."
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_homepage.php:5
+#: templates/admin/docs-homepage.php:5
 msgid ""
 "Add your own content and include Documents to integrate the home page with "
 "your site."
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_index.php:9
-msgid "Documents by popularity"
+#: templates/admin/docs-homepage.php:11 templates/docs-section-form.php:114
+msgid "Save Page"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_index.php:30
-msgid "Sections by comments"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_index.php:65
-msgid "RapidDocs Resume"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_index.php:67
-#, php-format
-msgid "%s Documents"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_index.php:68
-#, php-format
-msgid "%s Sections"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_index.php:70
-#, php-format
-msgid "%s Figures"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_index.php:71
-#, php-format
-msgid "%s Notes & References"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_index.php:78
-msgid "Documents waiting for approval"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_index.php:92
-msgid "No Published Documents"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_index.php:114
-msgid "There are not documents to show here."
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_index.php:120
-msgid "RapidDocs News"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_notes.php:3
-msgid "Search Notes:"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_notes.php:21
+#: templates/admin/docs-notes.php:37
 msgid "All Notes"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_notes.php:44
+#: templates/admin/docs-notes.php:66
 msgid "There are not notes created for this Document."
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:3
+#: templates/admin/docs-resources.php:3
 msgid "Search Documents:"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:8
+#: templates/admin/docs-resources.php:8
 #, php-format
 msgid "Documents: results for \"%s\""
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:10
+#: templates/admin/docs-resources.php:10
 msgid "Available Documents"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:18
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:105
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_reviewedit.php:26
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_waiting.php:15
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_waiting.php:56
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_waiting.php:71
+#: templates/admin/docs-resources.php:19 templates/admin/docs-resources.php:125
+#: templates/admin/docs-review-edit.php:26 templates/admin/docs-waiting.php:16
+#: templates/admin/docs-waiting.php:63 templates/admin/docs-waiting.php:81
 msgid "Approve"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:19
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:106
+#: templates/admin/docs-resources.php:20 templates/admin/docs-resources.php:126
 msgid "Draft"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:21
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:108
+#: templates/admin/docs-resources.php:22 templates/admin/docs-resources.php:128
 msgid "Set as private"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:22
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:109
+#: templates/admin/docs-resources.php:23 templates/admin/docs-resources.php:129
 msgid "Enable quick index"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:23
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:110
+#: templates/admin/docs-resources.php:24 templates/admin/docs-resources.php:130
 msgid "Disable quick index"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:28
+#: templates/admin/docs-resources.php:29
 msgid "Show All"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:37
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:50
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections.php:55
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections.php:64
+#: templates/admin/docs-resources.php:46 templates/admin/docs-resources.php:59
+#: templates/admin/docs-sections.php:72 templates/admin/docs-sections.php:81
 msgid "Created"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:68
+#: templates/admin/docs-resources.php:50 templates/admin/docs-resources.php:63
+msgid "Attributes"
+msgstr ""
+
+#: templates/admin/docs-resources.php:70
+msgid "There are not documents created yet!"
+msgstr ""
+
+#: templates/admin/docs-resources.php:84
 msgid "Not featured"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:74
+#: templates/admin/docs-resources.php:90
 msgid "View Sections"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:80
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:82
+#: templates/admin/docs-resources.php:96 templates/admin/docs-resources.php:98
 msgid "View Notes"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:86
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:88
+#: templates/admin/docs-resources.php:102
+#: templates/admin/docs-resources.php:104
 msgid "View Figures"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_resources.php:94
+#: templates/admin/docs-resources.php:110
 msgid "Published"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_reviewedit.php:1
+#: templates/admin/docs-resources.php:111 templates/docs-quick-index.php:5
+#: templates/docs-resource-index.php:12 templates/docs-resource-index.php:47
+msgid "Quick Index"
+msgstr ""
+
+#: templates/admin/docs-review-content.php:1
+msgid "Revisión de Contenido"
+msgstr ""
+
+#: templates/admin/docs-review-content.php:23
+msgid "Internal Links"
+msgstr ""
+
+#: templates/admin/docs-review-content.php:28
+msgid "Broken internal links was not found in this page."
+msgstr ""
+
+#: templates/admin/docs-review-content.php:32
+msgid "Missing documents"
+msgstr ""
+
+#: templates/admin/docs-review-content.php:34
+msgid "Internal links to following missing documents were detected:"
+msgstr ""
+
+#: templates/admin/docs-review-content.php:45
+msgid "Missing pages"
+msgstr ""
+
+#: templates/admin/docs-review-content.php:47
+msgid "Internal links to following missing pages were detected:"
+msgstr ""
+
+#: templates/admin/docs-review-content.php:58
+msgid "What do you want to do?"
+msgstr ""
+
+#: templates/admin/docs-review-content.php:59
+msgid "Create documents and pages"
+msgstr ""
+
+#: templates/admin/docs-review-edit.php:1
 msgid "Reviewing Modifications"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_reviewedit.php:5
+#: templates/admin/docs-review-edit.php:5
 msgid "Original Data"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_reviewedit.php:7
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_reviewedit.php:20
+#: templates/admin/docs-review-edit.php:7
+#: templates/admin/docs-review-edit.php:20
 msgid "Section Title:"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_reviewedit.php:9
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_reviewedit.php:22
+#: templates/admin/docs-review-edit.php:9
+#: templates/admin/docs-review-edit.php:22
 msgid "Section Content:"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_reviewedit.php:13
+#: templates/admin/docs-review-edit.php:13
 msgid "View Section"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_reviewedit.php:18
+#: templates/admin/docs-review-edit.php:18
 msgid "New Data"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_reviewedit.php:28
+#: templates/admin/docs-review-edit.php:28
 msgid "Discard"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections.php:11
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections.php:82
+#: templates/admin/docs-sections-form.php:5
+msgid "You must provide a title for this section!"
+msgstr ""
+
+#: templates/admin/docs-sections-form.php:19
+msgid "Remember to save this section in order to activate all options."
+msgstr ""
+
+#: templates/admin/docs-sections-form.php:27
+msgid "Section Author:"
+msgstr ""
+
+#: templates/admin/docs-sections-form.php:35
+msgid "Sections Options"
+msgstr ""
+
+#: templates/admin/docs-sections-form.php:38
+msgid "Parent section:"
+msgstr ""
+
+#: templates/admin/docs-sections-form.php:40
+msgid "Select..."
+msgstr ""
+
+#: templates/admin/docs-sections-form.php:47
+msgid "Display order:"
+msgstr ""
+
+#: templates/admin/docs-sections-form.php:59 templates/docs-section-form.php:43
+msgid "Custom Fields"
+msgstr ""
+
+#: templates/admin/docs-sections-form.php:64
+#: templates/admin/docs-sections-form.php:84 templates/docs-section-form.php:46
+#: templates/docs-section-form.php:68
+msgid "Name"
+msgstr ""
+
+#: templates/admin/docs-sections-form.php:65
+#: templates/admin/docs-sections-form.php:85 templates/docs-section-form.php:47
+#: templates/docs-section-form.php:69
+msgid "Value"
+msgstr ""
+
+#: templates/admin/docs-sections-form.php:73 templates/docs-section-form.php:55
+msgid "Remove"
+msgstr ""
+
+#: templates/admin/docs-sections-form.php:81 templates/docs-section-form.php:65
+msgid "Add new field:"
+msgstr ""
+
+#: templates/admin/docs-sections-form.php:92 templates/docs-section-form.php:76
+msgid "- Select -"
+msgstr ""
+
+#: templates/admin/docs-sections-form.php:98 templates/docs-section-form.php:82
+msgid "Enter New"
+msgstr ""
+
+#: templates/admin/docs-sections-form.php:105
+#: templates/docs-section-form.php:89
+msgid "Please provide a value for this meta field"
+msgstr ""
+
+#: templates/admin/docs-sections-form.php:111
+#: templates/docs-section-form.php:95
+msgid "Add custom field"
+msgstr ""
+
+#: templates/admin/docs-sections-form.php:117
+#: templates/docs-section-form.php:99
+msgid ""
+"Custom fields can be used to add extra metadata to a post that you can use "
+"in your theme."
+msgstr ""
+
+#: templates/admin/docs-sections.php:11 templates/admin/docs-sections.php:99
 #, php-format
 msgid "Do you really wish to delete %s?"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections.php:12
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections.php:83
+#: templates/admin/docs-sections.php:12 templates/admin/docs-sections.php:100
 msgid "Add Section"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections.php:39
+#: templates/admin/docs-sections.php:40
 #, php-format
 msgid "Sections in %s"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections.php:44
+#: templates/admin/docs-sections.php:53
 msgid "List Sections"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections.php:46
+#: templates/admin/docs-sections.php:59
 msgid "Sort Sections"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections.php:54
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections.php:63
+#: templates/admin/docs-sections.php:71 templates/admin/docs-sections.php:80
 msgid "Author"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections.php:56
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections.php:65
+#: templates/admin/docs-sections.php:73 templates/admin/docs-sections.php:82
 msgid "Updated"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections.php:72
+#: templates/admin/docs-sections.php:74 templates/admin/docs-sections.php:83
+#: templates/docs-display-full-resource.php:52
+#: templates/docs-quick-index.php:21 templates/docs-resource-index.php:33
+#: templates/docs-resource-index.php:70
+msgid "Comments"
+msgstr ""
+
+#: templates/admin/docs-sections.php:89
 msgid "There are not sections created in this document!"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections.php:99
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections.php:108
+#: templates/admin/docs-sections.php:116 templates/admin/docs-sections.php:125
 msgid "Save Positions"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections.php:115
+#: templates/admin/docs-sections.php:132
 msgid "Saving"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections.php:115
+#: templates/admin/docs-sections.php:132
 msgid "..."
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections_form.php:5
-msgid "You must provide a title for this section!"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections_form.php:19
-msgid "Remember to save this section in order to activate all options."
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections_form.php:27
-msgid "Section Author:"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections_form.php:35
-msgid "Sections Options"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections_form.php:38
-msgid "Parent section:"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections_form.php:40
-msgid "Select..."
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_sections_form.php:47
-msgid "Display order:"
-msgstr ""
-
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_waiting.php:2
+#: templates/admin/docs-waiting.php:2
 msgid "Select at least one element before to do this action!"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_waiting.php:3
+#: templates/admin/docs-waiting.php:3
 msgid "Do you really wish to delete selected items?"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_waiting.php:7
+#: templates/admin/docs-waiting.php:7
 msgid ""
 "Next are the edited sections waiting for approve and revision. Please, be "
 "carefull with content to prevent spam or another inconvenniences."
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_waiting.php:25
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_waiting.php:34
+#: templates/admin/docs-waiting.php:32 templates/admin/docs-waiting.php:41
 msgid "Section"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_waiting.php:26
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_waiting.php:35
+#: templates/admin/docs-waiting.php:33 templates/admin/docs-waiting.php:42
 msgid "New Title"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_waiting.php:27
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_waiting.php:36
+#: templates/admin/docs-waiting.php:34 templates/admin/docs-waiting.php:43
 msgid "Modified"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_waiting.php:28
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_waiting.php:37
+#: templates/admin/docs-waiting.php:35 templates/admin/docs-waiting.php:44
 msgid "Edited by"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_waiting.php:43
+#: templates/admin/docs-waiting.php:50
 msgid "There are not waiting contents at this time"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/admin/rd_waiting.php:55
+#: templates/admin/docs-waiting.php:62
 msgid "Review"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/mail/resource_approved.php:4
+#: templates/docs-display-full-resource.php:27
+#: templates/docs-display-section.php:77
+msgid "Create PDF Book"
+msgstr ""
+
+#: templates/docs-display-full-resource.php:28
+#: templates/docs-display-section.php:79
+msgid "Print Book"
+msgstr ""
+
+#: templates/docs-display-full-resource.php:36
+#, php-format
+msgid "Published at %s."
+msgstr ""
+
+#: templates/docs-display-full-resource.php:36
+#: templates/docs-display-full-resource.php:37
+#: templates/docs-display-section.php:87
+msgid "%T% %d%, %Y%"
+msgstr ""
+
+#: templates/docs-display-full-resource.php:37
+#: templates/docs-display-section.php:87
+#, php-format
+msgid "Modified by last time at %s."
+msgstr ""
+
+#: templates/docs-display-full-resource.php:38
+#: templates/docs-display-section.php:88
+#, php-format
+msgid "Edited by %s."
+msgstr ""
+
+#: templates/docs-display-full-resource.php:39
+#: templates/docs-display-section.php:89
+#, php-format
+msgid "Read %s times."
+msgstr ""
+
+#: templates/docs-display-section.php:51
+msgid "Anterior"
+msgstr ""
+
+#: templates/docs-display-section.php:53 templates/docs-display-section.php:60
+#: templates/docs-display-section.php:67 templates/docs-resource-toc.php:3
+msgid "Table of Contents"
+msgstr ""
+
+#: templates/docs-display-section.php:58
+msgid "Siguiente"
+msgstr ""
+
+#: templates/docs-display-section.php:78
+msgid "Generate PDF"
+msgstr ""
+
+#: templates/docs-display-section.php:80
+msgid "Print Section"
+msgstr ""
+
+#: templates/docs-document-info.php:13
+#, php-format
+msgid "by %s"
+msgstr ""
+
+#: templates/docs-document-info.php:17
+msgid "Contributors:"
+msgstr ""
+
+#: templates/docs-document-info.php:19
+msgid "and"
+msgstr ""
+
+#: templates/docs-document-info.php:30
+msgid "Read Document"
+msgstr ""
+
+#: templates/docs-document-info.php:34
+msgid "Edit Document"
+msgstr ""
+
+#: templates/docs-document-info.php:39
+msgid "Created:"
+msgstr ""
+
+#: templates/docs-document-info.php:43
+msgid "Updated:"
+msgstr ""
+
+#: templates/docs-document-info.php:47
+msgid "Chapters:"
+msgstr ""
+
+#: templates/docs-document-info.php:51
+msgid "License:"
+msgstr ""
+
+#: templates/docs-figures.php:76 templates/docs-figures.php:100
+#: templates/docs-references.php:44 templates/docs-references.php:68
+#: templates/docs-sections-control-panel.php:17
+msgid "Options"
+msgstr ""
+
+#: templates/docs-figures.php:94
+msgid "Existing Figures"
+msgstr ""
+
+#: templates/docs-figures.php:98
+msgid "Id"
+msgstr ""
+
+#: templates/docs-figures.php:110 templates/docs-references.php:96
+msgid "Insert"
+msgstr ""
+
+#: templates/docs-figures.php:125
+msgid "Close Window"
+msgstr ""
+
+#: templates/docs-figures.php:136 templates/docs-references.php:116
+#: templates/docs-references.php:130
+msgid "Wait a second..."
+msgstr ""
+
+#: templates/docs-figures.php:140
+msgid "Edit Figure"
+msgstr ""
+
+#: templates/docs-figures.php:144
+msgid "With Content"
+msgstr ""
+
+#: templates/docs-figures.php:147
+msgid "Only Image"
+msgstr ""
+
+#: templates/docs-figures.php:155
+msgid "Document:"
+msgstr ""
+
+#: templates/docs-figures.php:170 templates/docs-figures.php:222
+msgid "Description:"
+msgstr ""
+
+#: templates/docs-figures.php:172 templates/docs-figures.php:224
+msgid "Description is a required attribute!"
+msgstr ""
+
+#: templates/docs-figures.php:176
+msgid "You must input the content for this figure!"
+msgstr ""
+
+#: templates/docs-figures.php:228
+msgid "Image:"
+msgstr ""
+
+#: templates/docs-header.php:21
+msgid "Search"
+msgstr ""
+
+#: templates/docs-header.php:46
+msgid "Back to document"
+msgstr ""
+
+#: templates/docs-item-section.php:9
+msgid "Top"
+msgstr ""
+
+#: templates/docs-notes-references.php:7
+msgid "Notes and References"
+msgstr ""
+
+#: templates/docs-references.php:62
+msgid "Existing notes and references"
+msgstr ""
+
+#: templates/docs-references.php:75
+msgid "No notes was not found."
+msgstr ""
+
+#: templates/docs-references.php:78
+msgid "Select Document first"
+msgstr ""
+
+#: templates/docs-references.php:81
+msgid "Create new note"
+msgstr ""
+
+#: templates/docs-references.php:102
+msgid "Do you really wish to delet selected notes?"
+msgstr ""
+
+#: templates/docs-references.php:103
+msgid "Close"
+msgstr ""
+
+#: templates/docs-search.php:6
+#, php-format
+msgid "Results for \"%s\""
+msgstr ""
+
+#: templates/docs-search.php:24
+#, php-format
+msgid "%s by %s."
+msgstr ""
+
+#: templates/docs-search.php:24
+msgid "Created on %M% %d%, %Y%."
+msgstr ""
+
+#: templates/docs-search.php:25
+#, php-format
+msgid "Viewed %s times."
+msgstr ""
+
+#: templates/docs-section-form.php:3
+msgid "Edit Page"
+msgstr ""
+
+#: templates/docs-section-form.php:3
+#: templates/docs-sections-control-panel.php:5
+msgid "New Page"
+msgstr ""
+
+#: templates/docs-section-form.php:9
+msgid "Document"
+msgstr ""
+
+#: templates/docs-section-form.php:15
+msgid "Page title"
+msgstr ""
+
+#: templates/docs-section-form.php:25
+msgid "Parent"
+msgstr ""
+
+#: templates/docs-section-form.php:27
+msgid "Select parent..."
+msgstr ""
+
+#: templates/docs-section-form.php:81 templates/docs-section-form.php:85
+msgid "Custom field name..."
+msgstr ""
+
+#: templates/docs-section-form.php:90
+msgid "Custom field value..."
+msgstr ""
+
+#: templates/docs-section-form.php:108
+msgid "Save and return to content"
+msgstr ""
+
+#: templates/docs-section-form.php:109
+msgid "Save and return to form"
+msgstr ""
+
+#: templates/docs-section-form.php:110
+msgid "Save and return to list"
+msgstr ""
+
+#: templates/docs-sections-control-panel.php:8
+msgid "Existing Pages"
+msgstr ""
+
+#: templates/docs-sections-control-panel.php:16
+msgid "Order"
+msgstr ""
+
+#: templates/docs-sections-control-panel.php:35
+msgid "Save Orders"
+msgstr ""
+
+#: templates/mail/resource_approved.php:4
 #, php-format
 msgid "This is an automatic email message sent from %s site."
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/mail/resource_approved.php:7
+#: templates/mail/resource_approved.php:7
 #, php-format
 msgid ""
 "Your Document \"%s\" has been approved and now is visible for other users. "
 "To visit this Document, please follow next link."
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/mail/resource_approved.php:14
+#: templates/mail/resource_approved.php:14
 msgid "Please do not respond to this message. This is an automatic message."
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/mail/resource_for_approval.php:4
+#: templates/mail/resource_for_approval.php:4
 msgid "A new Document has been created and is waiting for your approval."
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/mail/resource_for_approval.php:7
+#: templates/mail/resource_for_approval.php:7
 msgid "To view more details please visit the next link:"
 msgstr ""
 
-#: C:\wamp\www\xm\modules\docs/templates/mail/resource_for_approval.php:13
+#: templates/mail/resource_for_approval.php:13
 msgid "This message has been automatically created by RapidDocs."
+msgstr ""
+
+#: xoops_version.php:21
+msgid "Create documentation in Xoops, quicky and an advanced way."
+msgstr ""
+
+#: xoops_version.php:56
+msgid "Twitter"
+msgstr ""
+
+#: xoops_version.php:57
+msgid "Facebook"
+msgstr ""
+
+#: xoops_version.php:58
+msgid "Instagram"
+msgstr ""
+
+#: xoops_version.php:59
+msgid "Flickr"
+msgstr ""
+
+#: xoops_version.php:60
+msgid "LinkedIn"
+msgstr ""
+
+#: xoops_version.php:61
+msgid "GithHub"
+msgstr ""
+
+#: xoops_version.php:62
+msgid "My Blog"
+msgstr ""
+
+#: xoops_version.php:103
+msgid "URLs mode"
+msgstr ""
+
+#: xoops_version.php:104
+msgid ""
+"This options indicate the way in which RapidDocs will generate the URLs for "
+"documents."
+msgstr ""
+
+#: xoops_version.php:108
+msgid "PHP Default"
+msgstr ""
+
+#: xoops_version.php:108
+msgid "Name based"
+msgstr ""
+
+#: xoops_version.php:113
+msgid "Subdomain on which RapidDocs will be used"
+msgstr ""
+
+#: xoops_version.php:114
+msgid ""
+"You can specify a subdomain if your htaccess file has been configured for it "
+"(e.g. http://docs.xoops.org)."
+msgstr ""
+
+#: xoops_version.php:122
+msgid "Base path for URLs"
+msgstr ""
+
+#: xoops_version.php:123
+msgid "Indicate the base path used to generate URLs (eg. /docs)."
+msgstr ""
+
+#: xoops_version.php:131
+msgid "Enable AJAX navigation"
+msgstr ""
+
+#: xoops_version.php:132
+msgid ""
+"Activate the AJAX navigation for resource index. By enabling this options, "
+"the page load time will reduce drastically, but javascript is required."
+msgstr ""
+
+#: xoops_version.php:140
+msgid "Number of documents in the index"
+msgstr ""
+
+#: xoops_version.php:141
+msgid "This is the limit for documents displayed in index."
+msgstr ""
+
+#: xoops_version.php:149
+msgid "Allow the creation of new documents"
+msgstr ""
+
+#: xoops_version.php:150
+msgid ""
+"This option affects the creation of new documents in front end. "
+"Administrators will continue creating documents in back end."
+msgstr ""
+
+#: xoops_version.php:158
+msgid "Groups with authorization to create new documents"
+msgstr ""
+
+#: xoops_version.php:159
+msgid "Select the groups that you wish to authorize to create new documents."
+msgstr ""
+
+#: xoops_version.php:167
+msgid "Auto approve documents created for authorized users"
+msgstr ""
+
+#: xoops_version.php:176
+msgid "Activar soporte para despliegue independiente"
+msgstr ""
+
+#: xoops_version.php:177
+msgid ""
+"This option enables the document render without use of the XOOPS theme. Is "
+"very useful to integrate with other components as embeded help."
+msgstr ""
+
+#: xoops_version.php:185
+msgid "Hoja de estilos para despliegue independiente"
+msgstr ""
+
+#: xoops_version.php:194
+msgid "Standalone theme"
+msgstr ""
+
+#: xoops_version.php:195
+msgid ""
+"Allows to select the appearance for module when standalone display is enabled"
+msgstr ""
+
+#: xoops_version.php:200
+msgid "Default"
+msgstr ""
+
+#: xoops_version.php:201
+msgid "Maverik"
+msgstr ""
+
+#: xoops_version.php:202
+msgid "Maverik Inverted"
+msgstr ""
+
+#: xoops_version.php:203
+msgid "Azure"
+msgstr ""
+
+#: xoops_version.php:204
+msgid "Azure Inverted"
+msgstr ""
+
+#: xoops_version.php:205
+msgid "Sweet"
+msgstr ""
+
+#: xoops_version.php:206
+msgid "Evergreen"
+msgstr ""
+
+#: xoops_version.php:207
+msgid "Midnight"
+msgstr ""
+
+#: xoops_version.php:219
+msgid "List of Documents"
+msgstr ""
+
+#: xoops_version.php:228
+msgid "Document TOC"
+msgstr ""
+
+#: xoops_version.php:229
+msgid "Table of content for a specific Document"
 msgstr ""

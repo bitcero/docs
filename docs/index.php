@@ -133,6 +133,14 @@ if($params[0]=='publish'){
     die();
 }
 
+// Book edition
+if('edit-book'==$params[0]){
+    $action = 'publish';
+    $id = $params[1];
+    include 'publish.php';
+    die();
+}
+
 // New form
 if($params[0]=='new'){
     $res = $params[1];
@@ -163,12 +171,33 @@ if($params[0]=='explore' || $params[0]=='search'){
     
 }
 
+/**
+ * The user has requested a specific book,
+ * then we need to check that the owner exists
+ */
+$uname = $params[0];
+$user = new RMUser($uname);
+
+if( $user->isNew() ){
+    /**
+     * If the user does not exists, then we send the 404 error
+     */
+    RDFunctions::error_404( __('The document that you\'ve trying to reach does not exists!', 'docs' ) );
+}
+
 // Section
-if (count($params)>=2){
-    $res = new RDResource($params[0]);
+if (count($params)>=3){
+
+    /**
+     * $params[0] = Owner user name
+     * $params[1] = Document slug
+     * $params[2] = Section slug
+     */
+
+    $res = new RDResource($params[1]);
     if(!$res->isNew()){
 
-        $id = $params[1];
+        $id = $params[2];
 
         $hideIndex = RMHttpRequest::get( 'hideIndex', 'integer', 0 );
         if ( $hideIndex == 1 ) {
@@ -185,5 +214,5 @@ if (count($params)>=2){
 // Once all verifications has been passed then the resource
 // param is present, then we will show it
 
-$id = $params[0];
+$id = $params[1];
 require 'resource.php';

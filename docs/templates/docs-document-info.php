@@ -30,6 +30,10 @@
             <a href="<?php echo $toc[0]['link']; ?>" class="btn btn-primary btn-lg"><?php _e('Read Document', 'docs'); ?></a>
         <?php endif; ?>
 
+        <?php if( $xoopsUser && $xoopsUser->uid() == $res->owner ): ?>
+            <a href="<?php echo RDURL; ?>/edit-book/<?php echo $res->id(); ?>/" class="btn btn-primary btn-lg" title="<?php _e('Edit Document', 'docs'); ?>"><span class="fa fa-gear"></span></a>
+        <?php endif; ?>
+
         <div class="meta">
             <div class="column">
                 <label><?php _e('Created:', 'docs'); ?></label>
