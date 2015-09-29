@@ -14,6 +14,10 @@ $(document).ready(function(){
     <?php if($edit): ?>
     <div id="section-url">
         <strong>Permalink:</strong> <?php echo $sec->permalink(1); ?>
+        <a href="<?php echo $sec->permalink(); ?>" target="_blank" class="btn btn-success btn-xs pull-right">
+            <?php _e('View content', 'docs'); ?>
+            <span class="fa fa-external-link"></span>
+        </a>
     </div>
     <?php else: ?>
     <div class="info"><?php _e('Remember to save this section in order to activate all options.','docs'); ?></div>

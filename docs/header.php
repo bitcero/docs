@@ -17,4 +17,5 @@ define('RDURL', RDFunctions::url());
 define('RDPATH', XOOPS_ROOT_PATH.'/modules/docs');
 $xoopsTpl->assign('rdurl', RDURL);
 
-RMTemplate::get()->add_head_script('var docsUrl = "' . RDURL . '";');
+RMTemplate::get()->add_inline_script('var docsUrl = "' . RDURL . '";');
+

@@ -156,7 +156,11 @@ function rd_show_form($edit=0){
     RMTemplate::get()->add_style('admin.min.css', 'docs');
     RMTemplate::get()->add_script('scripts.php?file=metas.js', 'docs');
     RMTemplate::get()->add_script('jquery.validate.min.js', 'rmcommon', array('footer' => 1));
+    RMTemplate::get()->add_script('docs.min.js', 'docs', array('footer' => 1));
     RMTemplate::get()->add_head_script('var docsurl = "'.XOOPS_URL.'/modules/docs";');
+
+    $lang = include(XOOPS_ROOT_PATH . '/modules/docs/include/js-lang.php');
+    RMTemplate::get()->add_head_script($lang);
 
     $bc = RMBreadCrumb::get();
     $bc->add_crumb( __('Documents', 'docs'), 'resources.php', 'fa fa-book' );
@@ -663,6 +667,37 @@ switch ($action){
          * Create the missing document and pages
          */
         docs_create_reviewed_content();
+        break;
+
+    case 'link-resources':
+        /**
+         * Show the form to insert links to resources
+         */
+        $ajax = new Rmcommon_Ajax();
+        $ajax->prepare_ajax_response();
+        $ajax->ajax_response(
+            __('Insert Link', 'docs'),
+            RMMSG_INFO, 1,
+            array(
+                'content' => RDFunctions::insertLinkDialog(),
+                'width' => 'medium')
+        );
+        break;
+
+    case 'insert-notes':
+        $ajax = new Rmcommon_Ajax();
+        $ajax->prepare_ajax_response();
+        $ajax->ajax_response(
+            __('Insert Note', 'docs'),
+            RMMSG_INFO, 1,
+            array(
+                'content' => RDFunctions::insertNotesDialog(),
+                'width' => 'medium')
+        );
+        break;
+
+    case 'save-note':
+        RDFunctions::saveNote();
         break;
 
 	default: 

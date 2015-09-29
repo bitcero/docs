@@ -78,10 +78,10 @@ $(document).ready(function(){
         
     });
     
-    $("#section-url span").click(function(){
-        if($("#section-url span input").length>0) return;
+    $("#section-url > span").click(function(){
+        if($("#section-url > span input").length>0) return;
         $("#nameid").remove();
-        $("#section-url span").html('<input type="text" name="nameid" value="'+$(this).html()+'" size="20" />');
+        $("#section-url > span").html('<input type="text" name="nameid" value="'+$(this).html()+'" size="20" />');
     });
     
 });

@@ -54,7 +54,7 @@ function rd_build_note($atts){
     $rep = array('<p>','</p>');
     $tpl->append('references', array('id'=>$ref->id(),'text'=>str_replace($rep, '', $ref->getVar('text'))));
     
-    $ret = "<a name='top$note_number'></a><sup><a class='note-link' href='#note-$note_number' title='".$ref->getVar('title')."'>";
+    $ret = "<sup id=\"top" . $note_number . "\"><a class='note-link' href='#note-$note_number' title='".$ref->getVar('title')."'>";
     $ret .= "$note_number</a></sup>";
     
     $note_number++;

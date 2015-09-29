@@ -76,7 +76,7 @@ function show_resources( $public = 1 ){
     RMTemplate::get()->add_style('admin.min.css', 'docs');
     RMTemplate::get()->assign('xoops_pagetitle', __('Documents', 'docs'));
     RMTemplate::get()->add_script('jquery.checkboxes.js', 'rmcommon', array('footer' => 1));
-    RMTemplate::get()->add_script('admin.js', 'docs');
+    RMTemplate::get()->add_script('admin.min.js', 'docs');
     
     RMTemplate::get()->add_head_script('var rd_message = "'.__('Do you really wish to delete selected Documents?','docs').'";
     var rd_select_message = "'.__('You must select an element before to do this action!','docs').'";');
@@ -97,7 +97,13 @@ function show_resources( $public = 1 ){
 function rd_show_form($edit=0){
 	global $xoopsModule,$xoopsConfig,$xoopsModuleConfig, $cuSettings;
 
-	xoops_cp_location("<a href='./'>".$xoopsModule->name()."</a> &raquo; ".($edit ? __('Editing Document','docs') : __('Create Document','docs')));
+	$bc = RMBreadCrumb::get();
+	$bc->add_crumb(__('Documents', 'docs'), 'resources.php');
+	$bc->add_crumb( $edit ? __('Edit Document', 'docs') : __('New Document', 'docs'));
+
+	RMTemplate::get()->add_style('admin.min.css', 'docs');
+	RMTemplate::get()->add_script('docs.min.js', 'docs', array('footer' => 1));
+
 	xoops_cp_header();
 
 	$id= rmc_server_var($_GET,'id', 0);
@@ -146,9 +152,9 @@ function rd_show_form($edit=0){
 	$form->addElement(new RMFormUser(__('Editors','docs'),'editors',1,$edit ? $res->getVar('editors') : '',30));
 
     if ( RMFunctions::plugin_installed( 'advform' ) )
-        $form->addElement( new RMFormImageUrl( __('Featured image', 'docs' ), 'image', $res->image ) );
+        $form->addElement( new RMFormImageUrl( __('Featured image', 'docs' ), 'image', $edit ? $res->image : '' ) );
     else
-        $form->addElement( new RMFormText( __('Featured image', 'docs' ), 'image', 50, 255, $res->image ) );
+        $form->addElement( new RMFormText( __('Featured image', 'docs' ), 'image', 50, 255, $edit ? $res->image : '' ) );
     //$form->addElement( new RMFormImage( __('Featured image', 'docs'), 'image', $edit ? $res->getVar('image', 'e') : '', array('accept' => 'thumbnail') ) );
 
 	//Propietario de la publicacion

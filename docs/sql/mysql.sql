@@ -30,9 +30,8 @@ CREATE TABLE `mod_docs_meta` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `mod_docs_references` (
-`id_ref` int(10) unsigned NOT NULL,
+  `id_ref` int(10) unsigned NOT NULL,
   `id_res` int(10) unsigned NOT NULL DEFAULT '0',
-  `title` varchar(150) NOT NULL,
   `text` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

@@ -138,7 +138,7 @@ class RDResource extends RMObject{
         
 		$editors = $this->getVar('editors');
 				
-		return in_array($uid,$editors);
+		return in_array($uid,$editors) ;
 
 	}
 

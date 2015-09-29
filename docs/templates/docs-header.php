@@ -46,10 +46,13 @@
             <a href="<?php echo $res->permalink(); ?>" class="btn pull-left" title="<?php _e('Back to document','docs'); ?>">
                 <span class="fa fa-book"></span>
             </a>
-            <a href="<?php echo $res->permalink(); ?>" class="btn pull-right book-title">
-                <?php echo $res->title; ?>
+            <a href="<?php echo $res->permalink(); ?>" target="_blank" class="btn pull-right book-title">
+                <span class="fa fa-external-link"></span>
             </a>
         <?php endif; ?>
+    </div>
+    <div class="docs-content-header-title">
+        <?php echo $res->title; ?>
     </div>
 
 <?php endif; ?>

@@ -16,6 +16,7 @@
 </div>
 
 <hr>
+
 <!-- Comments -->
 <h3><?php _e('Comments','docs'); ?></h3>
 <?php echo $xoopsTpl->fetch(RMCPATH."/templates/rmc-comments-display.html"); ?>

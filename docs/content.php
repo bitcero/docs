@@ -160,7 +160,7 @@ function showSection(RDResource &$res, RDSection &$section){
     RMBreadCrumb::get()->add_crumb($res->getVar('title'), $res->permalink());
     RMBreadCrumb::get()->add_crumb($section->getVar('title'), $section->permalink());
 
-    include RMEvents::get()->run_event('docs.section.template', RMTemplate::get()->get_template('docs-display-section.php', 'module', 'docs'));
+    include RMEvents::get()->run_event('docs.section.template', RMTemplate::get()->path('docs-display-section.php', 'module', 'docs'));
     
     include 'footer.php';
 	
