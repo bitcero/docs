@@ -66,6 +66,7 @@ class DocsRmcommonPreload{
         $rmCodes->add( 'TOC', 'rd_generate_toc' );
         $rmCodes->add( 'note', 'rd_build_note' );
         $rmCodes->add( 'figure', 'rd_build_figure' );
+        $rmCodes->add( 'table_responsive', 'rd_build_table' );
 
     }
 

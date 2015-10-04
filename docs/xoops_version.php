@@ -115,10 +115,17 @@ $modversion = array(
         'mod_docs_meta'
     ),
 
+    # Configuration categories
+    'categories' => array(
+        'general' => __('General', 'docs'),
+        'advanced' => __('Advanced', 'docs')
+    ),
+
     # Configuration options
     'config' => array(
 
         array(
+            'category' => 'general',
             'name' => 'permalinks',
             'title' => __('URLs mode','docs'),
             'description' => __('This options indicate the way in which RapidDocs will generate the URLs for documents.', 'docs'),
@@ -129,6 +136,7 @@ $modversion = array(
         ),
 
         array(
+            'category' => 'general',
             'name' => 'subdomain',
             'title' => __('Subdomain on which RapidDocs will be used', 'docs'),
             'description' => __('You can specify a subdomain if your htaccess file has been configured for it (e.g. http://docs.xoops.org).', 'docs'),
@@ -138,6 +146,7 @@ $modversion = array(
         ),
 
         array(
+            'category' => 'general',
             'name' => 'htpath',
             'title' => __('Base path for URLs', 'docs'),
             'description' => __('Indicate the base path used to generate URLs (eg. /docs).', 'docs'),
@@ -147,6 +156,7 @@ $modversion = array(
         ),
 
         array(
+            'category' => 'general',
             'name' => 'ajax',
             'title' => __('Enable AJAX navigation', 'docs'),
             'description' => __('Activate the AJAX navigation for resource index. By enabling this options, the page load time will reduce drastically, but javascript is required.', 'docs'),
@@ -156,6 +166,7 @@ $modversion = array(
         ),
 
         array(
+            'category' => 'general',
             'name' => 'index_num',
             'title' => __('Number of documents in the index', 'docs'),
             'description' => __('This is the limit for documents displayed in index.', 'docs'),
@@ -165,6 +176,7 @@ $modversion = array(
         ),
 
         array(
+            'category' => 'general',
             'name' => 'createres',
             'title' => __('Allow the creation of new documents', 'docs'),
             'description' => __('This option affects the creation of new documents in front end. Administrators will continue creating documents in back end.'),
@@ -174,6 +186,7 @@ $modversion = array(
         ),
 
         array(
+            'category' => 'general',
             'name' => 'create_groups',
             'title' => __('Groups with authorization to create new documents', 'docs'),
             'description' => __('Select the groups that you wish to authorize to create new documents.', 'docs'),
@@ -183,6 +196,7 @@ $modversion = array(
         ),
 
         array(
+            'category' => 'general',
             'name' => 'approved',
             'title' => __('Auto approve documents created for authorized users', 'docs'),
             'description' => '',
@@ -192,6 +206,7 @@ $modversion = array(
         ),
 
         array(
+            'category' => 'general',
             'name' => 'standalone',
             'title' => __('Activate standalone support', 'docs'),
             'description' => __('This option enables the document render without use of the XOOPS theme. Is very useful to integrate with other components as embeded help.', 'docs'),
@@ -201,6 +216,7 @@ $modversion = array(
         ),
 
         array(
+            'category' => 'general',
             'name' => 'standalone_css',
             'title' => __('Hoja de estilos para despliegue independiente', 'docs'),
             'description' => '',
@@ -210,6 +226,7 @@ $modversion = array(
         ),
 
         array(
+            'category' => 'general',
             'name' => 'theme',
             'title' => __('Standalone theme', 'docs'),
             'description' => __('Allows to select the appearance for module when standalone display is enabled', 'docs'),
@@ -226,6 +243,16 @@ $modversion = array(
                 __('Evergreen', 'docs')         => 'ever-green',
                 __('Midnight', 'docs')          => 'midnight'
             )
+        ),
+
+        array(
+            'category'  => 'advanced',
+            'name' => 'custom_css',
+            'title' => __('Custom CSS', 'docs'),
+            'description' => __('This CSS code will be inserted in the module pages. You can add your own styles.', 'docs'),
+            'formtype'  => 'textarea',
+            'valuetype' => 'text',
+            'default'   => ''
         )
 
     ),

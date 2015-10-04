@@ -48,17 +48,36 @@ function rd_build_note($atts){
     static $note_number = 1;
     $ref = new RDReference($id);
     if ($ref->isNew()) return;
-    
+
     $tpl = RMTemplate::get();
-    
+
     $rep = array('<p>','</p>');
     $tpl->append('references', array('id'=>$ref->id(),'text'=>str_replace($rep, '', $ref->getVar('text'))));
-    
+
     $ret = "<sup id=\"top" . $note_number . "\"><a class='note-link' href='#note-$note_number' title='".$ref->getVar('title')."'>";
     $ret .= "$note_number</a></sup>";
-    
+
     $note_number++;
-    
+
+    return $ret;
+}
+
+/**
+ * Builds a responsive table
+ * @param $atts
+ * @param $content
+ * @return string|void
+ */
+function rd_build_table($atts, $content){
+    global $xoopsModuleConfig;
+
+    $cc = RMCustomCode::get();
+    extract($cc->atts(array(
+        'class'    => 'table-responsive'
+    ), $atts));
+
+    $ret = "<div class=\"$class\">" . $content . "</div>";
+
     return $ret;
 }
 

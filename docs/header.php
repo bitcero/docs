@@ -19,3 +19,4 @@ $xoopsTpl->assign('rdurl', RDURL);
 
 RMTemplate::get()->add_inline_script('var docsUrl = "' . RDURL . '";');
 
+$xoopsTpl->assign('docs_custom_css', $mc['custom_css']);

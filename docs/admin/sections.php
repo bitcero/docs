@@ -150,7 +150,7 @@ function rd_show_form($edit=0){
         $tiny->add_config('theme_advanced_buttons1', 'rd_toc');
     }
     
-    $editor = new RMFormEditor('','content','100%','300px',$edit ? $rmc_config->editor_type == 'tiny' ? $sec->getVar('content') : $sec->getVar('content', 'e') : '','', 0);
+    $editor = new RMFormEditor('','content','100%','400px',$edit ? $rmc_config->editor_type == 'tiny' ? $sec->getVar('content') : $sec->getVar('content', 'e') : '','', 0);
     $usrfield = new RMFormUser('','uid',false,$edit ? array($sec->getVar('uid')) : $xoopsUser->getVar('uid'));
     
     RMTemplate::get()->add_style('admin.min.css', 'docs');
