@@ -62,10 +62,10 @@
 
     <div class="size-1" data-dashboard="item">
 
-        <!-- Resume -->
+        <!-- Summary -->
         <div class="cu-box box-primary">
             <div class="box-header">
-                <h3 class="box-title"><?php _e('Documentor Resume','docs'); ?></h3>
+                <h3 class="box-title"><?php _e('Documentor Summary','docs'); ?></h3>
             </div>
             <div id="box-content">
 

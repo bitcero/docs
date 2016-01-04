@@ -1,4 +1,4 @@
-<h1 class="cu-section-title"><?php _e('Revisión de Contenido', 'docs'); ?></h1>
+<h1 class="cu-section-title"><?php _e('Content Review', 'docs'); ?></h1>
 
 <div class="row">
 

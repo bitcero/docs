@@ -155,7 +155,7 @@ $modversion = array(
             'category' => 'general',
             'name' => 'ajax',
             'title' => __('Enable AJAX navigation', 'docs'),
-            'description' => __('Activate the AJAX navigation for resource index. By enabling this options, the page load time will reduce drastically, but javascript is required.', 'docs'),
+            'description' => __('Activate the AJAX navigation for resource index. By enabling this option the page load time will reduce drastically, but javascript is required.', 'docs'),
             'formtype' => 'yesno',
             'valuetype' => 'int',
             'default' => 1
@@ -214,7 +214,7 @@ $modversion = array(
         array(
             'category' => 'general',
             'name' => 'standalone_css',
-            'title' => __('Hoja de estilos para despliegue independiente', 'docs'),
+            'title' => __('Standalone mode stylesheet', 'docs'),
             'description' => '',
             'formtype' => 'textbox',
             'valuetype' => 'text',

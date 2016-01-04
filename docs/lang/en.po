@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Documentor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-03 17:21-0500\n"
-"PO-Revision-Date: 2015-08-03 17:21-0500\n"
+"POT-Creation-Date: 2016-01-04 15:47-0600\n"
+"PO-Revision-Date: 2016-01-04 15:48-0600\n"
 "Last-Translator: Eduardo Cortés <me@eduardocortes.mx>\n"
 "Language-Team: Red Mexico <i.bitcero@gmail.com>\n"
 "Language: en\n"
@@ -13,7 +13,7 @@ msgstr ""
 "X-Poedit-KeywordsList: _e;__\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 1.8.6\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: .\n"
 
@@ -63,10 +63,9 @@ msgid "Belong to"
 msgstr ""
 
 #: admin/edits.php:249 admin/figures.php:144 admin/notes.php:148
-#: templates/admin/docs-figures.php:57 templates/admin/docs-figures.php:65
-#: templates/admin/docs-notes.php:51 templates/admin/docs-notes.php:59
-#: templates/admin/docs-resources.php:44 templates/admin/docs-resources.php:57
-#: templates/admin/docs-sections.php:70 templates/admin/docs-sections.php:79
+#: templates/admin/docs-figures.php:61 templates/admin/docs-figures.php:69
+#: templates/admin/docs-notes.php:55 templates/admin/docs-resources.php:49
+#: templates/admin/docs-resources.php:62 templates/admin/docs-sections.php:76
 #: templates/docs-references.php:67
 #: templates/docs-sections-control-panel.php:14
 msgid "Title"
@@ -88,8 +87,8 @@ msgstr ""
 msgid "Display order"
 msgstr ""
 
-#: admin/edits.php:265 templates/admin/docs-resources.php:45
-#: templates/admin/docs-resources.php:58
+#: admin/edits.php:265 templates/admin/docs-resources.php:50
+#: templates/admin/docs-resources.php:63 templates/ajax/docs-link-dialog.php:5
 msgid "Owner"
 msgstr ""
 
@@ -98,10 +97,11 @@ msgid "Save Now"
 msgstr ""
 
 #: admin/edits.php:269 admin/figures.php:158 admin/notes.php:153
-#: admin/resources.php:173 templates/admin/docs-sections-form.php:99
+#: admin/resources.php:194 templates/admin/docs-sections-form.php:106
 #: templates/admin/docs-sections.php:117 templates/admin/docs-sections.php:126
-#: templates/docs-figures.php:207 templates/docs-figures.php:261
-#: templates/docs-section-form.php:83 templates/docs-section-form.php:115
+#: templates/ajax/docs-notes-dialog.php:70 templates/docs-figures.php:207
+#: templates/docs-figures.php:261 templates/docs-section-form.php:83
+#: templates/docs-section-form.php:115
 msgid "Cancel"
 msgstr ""
 
@@ -110,8 +110,8 @@ msgid "First select a Document to view the figures."
 msgstr ""
 
 #: admin/figures.php:29 admin/figures.php:118 admin/notes.php:121
-#: admin/resources.php:116 admin/resources.php:224 admin/sections.php:115
-#: admin/sections.php:197 figures.php:221 references.php:185
+#: admin/resources.php:123 admin/resources.php:245 admin/sections.php:119
+#: admin/sections.php:205 figures.php:221 references.php:185
 msgid "Specified Document does not exists!"
 msgstr ""
 
@@ -129,8 +129,7 @@ msgid "Do you really wish to delete selected figures?"
 msgstr ""
 
 #: admin/figures.php:92 admin/figures.php:138 admin/menu.php:59
-#: class/rdfunctions.php:18 events/rmcommon.php:77
-#: templates/admin/docs-resources.php:49 templates/admin/docs-resources.php:62
+#: templates/admin/docs-resources.php:54 templates/admin/docs-resources.php:67
 #: templates/docs-figures.php:6
 msgid "Figures"
 msgstr ""
@@ -164,14 +163,13 @@ msgstr ""
 msgid "Create Figure"
 msgstr ""
 
-#: admin/figures.php:145 admin/resources.php:127 publish.php:55
-#: templates/admin/docs-figures.php:58 templates/admin/docs-figures.php:66
+#: admin/figures.php:145 admin/resources.php:148 publish.php:55
+#: templates/admin/docs-figures.php:62 templates/admin/docs-figures.php:70
 #: templates/docs-figures.php:99
 msgid "Description"
 msgstr ""
 
-#: admin/figures.php:146 admin/notes.php:149 templates/admin/docs-notes.php:52
-#: templates/admin/docs-notes.php:60
+#: admin/figures.php:146 admin/notes.php:149 templates/admin/docs-notes.php:56
 msgid "Content"
 msgstr ""
 
@@ -211,9 +209,9 @@ msgid "Save Figure"
 msgstr ""
 
 #: admin/figures.php:185 admin/figures.php:253 admin/notes.php:183
-#: admin/resources.php:208 admin/resources.php:330 admin/resources.php:372
-#: admin/resources.php:423 admin/resources.php:493 admin/sections.php:186
-#: admin/sections.php:388 edit.php:339 figures.php:208 figures.php:286
+#: admin/resources.php:229 admin/resources.php:351 admin/resources.php:393
+#: admin/resources.php:444 admin/resources.php:514 admin/sections.php:194
+#: admin/sections.php:396 edit.php:339 figures.php:208 figures.php:286
 #: publish.php:129 references.php:172 references.php:248
 msgid "Session token expired!"
 msgstr ""
@@ -242,7 +240,7 @@ msgstr ""
 msgid "Figures deleted successfully!"
 msgstr ""
 
-#: admin/hpage.php:17 admin/menu.php:26 class/rdfunctions.php:503
+#: admin/hpage.php:17 admin/menu.php:26 class/rdfunctions.php:541
 msgid "Home Page"
 msgstr ""
 
@@ -254,31 +252,30 @@ msgstr ""
 msgid "Page could not be saved!"
 msgstr ""
 
-#: admin/menu.php:20 class/rdfunctions.php:14
-#: templates/admin/docs-dashboard.php:1
+#: admin/menu.php:20 templates/admin/docs-dashboard.php:1
 msgid "Dashboard"
 msgstr ""
 
-#: admin/menu.php:32 admin/resources.php:77 admin/resources.php:84
-#: admin/sections.php:162 class/rdfunctions.php:15 xoops_version.php:218
+#: admin/menu.php:32 admin/resources.php:77 admin/resources.php:102
+#: admin/sections.php:81 admin/sections.php:170 xoops_version.php:261
 msgid "Documents"
 msgstr ""
 
-#: admin/menu.php:37 events/rmcommon.php:146 events/rmcommon.php:250
+#: admin/menu.php:37
 msgid "All Documents"
 msgstr ""
 
-#: admin/menu.php:38 admin/resources.php:122
-msgid "New Document"
-msgstr ""
-
-#: admin/menu.php:39 templates/admin/docs-dashboard.php:125
+#: admin/menu.php:38 templates/admin/docs-dashboard.php:130
 msgid "Drafts"
 msgstr ""
 
-#: admin/menu.php:43 admin/sections.php:163 class/rdfunctions.php:16
-#: templates/admin/docs-resources.php:47 templates/admin/docs-resources.php:60
-#: templates/admin/docs-resources.php:92
+#: admin/menu.php:39 admin/resources.php:103 admin/resources.php:129
+msgid "New Document"
+msgstr ""
+
+#: admin/menu.php:43 admin/sections.php:82 admin/sections.php:171
+#: templates/admin/docs-resources.php:52 templates/admin/docs-resources.php:65
+#: templates/admin/docs-resources.php:97
 msgid "Sections"
 msgstr ""
 
@@ -290,8 +287,8 @@ msgstr ""
 msgid "New section"
 msgstr ""
 
-#: admin/menu.php:53 class/rdfunctions.php:17
-#: templates/admin/docs-resources.php:48 templates/admin/docs-resources.php:61
+#: admin/menu.php:53 templates/admin/docs-resources.php:53
+#: templates/admin/docs-resources.php:66
 msgid "Notes"
 msgstr ""
 
@@ -397,199 +394,203 @@ msgstr ""
 msgid "You must select an element before to do this action!"
 msgstr ""
 
-#: admin/resources.php:100
-msgid "Editing Document"
+#: admin/resources.php:85
+msgid "Resources"
 msgstr ""
 
-#: admin/resources.php:100 admin/resources.php:172 publish.php:50
-#: publish.php:52 templates/docs-display-full-resource.php:30
-#: templates/docs-display-section.php:82
-msgid "Create Document"
+#: admin/resources.php:103 templates/docs-document-info.php:34
+msgid "Edit Document"
 msgstr ""
 
-#: admin/resources.php:109
+#: admin/resources.php:116
 msgid "You must provide an ID from some Document to edit!"
 msgstr ""
 
-#: admin/resources.php:122
+#: admin/resources.php:129
 #, php-format
 msgid "Edit Document: %s"
 msgstr ""
 
-#: admin/resources.php:124 publish.php:54
+#: admin/resources.php:132 publish.php:54
 msgid "Document title"
 msgstr ""
 
-#: admin/resources.php:125
+#: admin/resources.php:140
 msgid "Document slug"
 msgstr ""
 
-#: admin/resources.php:129 publish.php:64
+#: admin/resources.php:150 publish.php:64
 msgid "License"
 msgstr ""
 
-#: admin/resources.php:130 publish.php:65
+#: admin/resources.php:151 publish.php:65
 msgid "No license"
 msgstr ""
 
-#: admin/resources.php:135 publish.php:70
+#: admin/resources.php:156 publish.php:70
 msgid "Licenses for Books"
 msgstr ""
 
-#: admin/resources.php:137 publish.php:72
+#: admin/resources.php:158 publish.php:72
 msgid "Other Licenses"
 msgstr ""
 
-#: admin/resources.php:146 publish.php:81
+#: admin/resources.php:167 publish.php:81
 msgid "Editors"
 msgstr ""
 
-#: admin/resources.php:149 admin/resources.php:151 publish.php:59
+#: admin/resources.php:170 admin/resources.php:172 publish.php:59
 #: publish.php:61
 msgid "Featured image"
 msgstr ""
 
-#: admin/resources.php:156
+#: admin/resources.php:177
 msgid "Document owner"
 msgstr ""
 
-#: admin/resources.php:158
+#: admin/resources.php:179
 msgid "Approve content and changes by editors"
 msgstr ""
 
-#: admin/resources.php:159
+#: admin/resources.php:180
 msgid "Groups that can see this Document"
 msgstr ""
 
-#: admin/resources.php:160 templates/admin/docs-resources.php:21
-#: templates/admin/docs-resources.php:127
+#: admin/resources.php:181 templates/admin/docs-resources.php:21
+#: templates/admin/docs-resources.php:134
 msgid "Set as public"
 msgstr ""
 
-#: admin/resources.php:161 publish.php:85
+#: admin/resources.php:182 publish.php:85
 msgid "Quick index"
 msgstr ""
 
-#: admin/resources.php:165 publish.php:86
+#: admin/resources.php:186 publish.php:86
 msgid "Show index to restricted users"
 msgstr ""
 
-#: admin/resources.php:166 templates/admin/docs-resources.php:84
-#: templates/admin/docs-resources.php:108
+#: admin/resources.php:187 templates/admin/docs-resources.php:89
+#: templates/admin/docs-resources.php:113
 msgid "Featured"
 msgstr ""
 
-#: admin/resources.php:167
+#: admin/resources.php:188
 msgid "Approve inmediatly"
 msgstr ""
 
-#: admin/resources.php:168 publish.php:87
+#: admin/resources.php:189 publish.php:87
 msgid "Show content in a single page"
 msgstr ""
 
-#: admin/resources.php:169
+#: admin/resources.php:190
 msgid ""
 "When you enable this option the Document content will show in a single page."
 msgstr ""
 
-#: admin/resources.php:172
+#: admin/resources.php:193
 msgid "Update Document"
 msgstr ""
 
-#: admin/resources.php:217
+#: admin/resources.php:193 publish.php:50 publish.php:52
+#: templates/docs-display-full-resource.php:30
+#: templates/docs-display-section.php:82
+msgid "Create Document"
+msgstr ""
+
+#: admin/resources.php:238
 msgid "You must provide a valid Document ID"
 msgstr ""
 
-#: admin/resources.php:232 admin/resources.php:242
+#: admin/resources.php:253 admin/resources.php:263
 msgid "A Document with same title exists already!"
 msgstr ""
 
-#: admin/resources.php:291
+#: admin/resources.php:312
 msgid "Document could not be saved!"
 msgstr ""
 
-#: admin/resources.php:310
+#: admin/resources.php:331
 msgid "Document saved successfully!"
 msgstr ""
 
-#: admin/resources.php:325
+#: admin/resources.php:346
 msgid "Select at least one document to delete!"
 msgstr ""
 
-#: admin/resources.php:338
+#: admin/resources.php:359
 #, php-format
 msgid "\"%s\" is not a valid Document ID"
 msgstr ""
 
-#: admin/resources.php:344
+#: admin/resources.php:365
 #, php-format
 msgid "Document with ID \"%s\" does not exists"
 msgstr ""
 
-#: admin/resources.php:349
+#: admin/resources.php:370
 #, php-format
 msgid "Document \"%s\" could not be deleted!"
 msgstr ""
 
-#: admin/resources.php:355
+#: admin/resources.php:376
 msgid "Errors ocurred while deleting documents"
 msgstr ""
 
-#: admin/resources.php:357
+#: admin/resources.php:378
 msgid "Documents deleted susccessfully!"
 msgstr ""
 
-#: admin/resources.php:378 admin/resources.php:429
+#: admin/resources.php:399 admin/resources.php:450
 msgid "You must select at least a single Document!"
 msgstr ""
 
-#: admin/resources.php:387 admin/resources.php:438
+#: admin/resources.php:408 admin/resources.php:459
 #, php-format
 msgid "Provided Document ID \"%s\" is not valid!"
 msgstr ""
 
-#: admin/resources.php:394 admin/resources.php:445 admin/resources.php:515
+#: admin/resources.php:415 admin/resources.php:466 admin/resources.php:536
 #, php-format
 msgid "Document with ID \"%s\" does not exists!"
 msgstr ""
 
-#: admin/resources.php:400 admin/resources.php:451
+#: admin/resources.php:421 admin/resources.php:472
 #, php-format
 msgid "Document \"%s\" could not be updated!"
 msgstr ""
 
-#: admin/resources.php:405 admin/resources.php:456 admin/resources.php:533
+#: admin/resources.php:426 admin/resources.php:477 admin/resources.php:554
 msgid "Errors ocurred while trying to update resources."
 msgstr ""
 
-#: admin/resources.php:408 admin/resources.php:459 admin/resources.php:535
+#: admin/resources.php:429 admin/resources.php:480 admin/resources.php:556
 msgid "Documents updated successfully!"
 msgstr ""
 
-#: admin/resources.php:475 edit.php:314 edit.php:316 edit.php:318
+#: admin/resources.php:496 edit.php:314 edit.php:316 edit.php:318
 #: figures.php:268
 msgid "Database updated successfully!"
 msgstr ""
 
-#: admin/resources.php:477
+#: admin/resources.php:498
 msgid "Database coould not be updated!"
 msgstr ""
 
-#: admin/resources.php:499
+#: admin/resources.php:520
 msgid "Select at least a Document!"
 msgstr ""
 
-#: admin/resources.php:508
+#: admin/resources.php:529
 #, php-format
 msgid "Document ID \"%s\" is not valid!"
 msgstr ""
 
-#: admin/resources.php:523
+#: admin/resources.php:544
 #, php-format
 msgid "Resoource \"%s\" could not be saved!"
 msgstr ""
 
-#: admin/resources.php:526
+#: admin/resources.php:547
 msgid "Notification email could not be sent!"
 msgstr ""
 
@@ -597,98 +598,106 @@ msgstr ""
 msgid "Select a Document to see the sections inside this"
 msgstr ""
 
-#: admin/sections.php:83 templates/admin/docs-sections.php:40
+#: admin/sections.php:87 templates/admin/docs-sections.php:40
 msgid "Sections Management"
 msgstr ""
 
-#: admin/sections.php:107
+#: admin/sections.php:111
 msgid "You must select a Document in order to create a new section"
 msgstr ""
 
-#: admin/sections.php:126
+#: admin/sections.php:130
 msgid "Specify a section to edit"
 msgstr ""
 
-#: admin/sections.php:133
+#: admin/sections.php:137
 msgid "Specified section does not exists"
 msgstr ""
 
-#: admin/sections.php:164 admin/sections.php:165
+#: admin/sections.php:172 admin/sections.php:173
 #: templates/admin/docs-review-edit.php:14
 #: templates/admin/docs-sections-form.php:10
 msgid "Edit Section"
 msgstr ""
 
-#: admin/sections.php:164 templates/admin/docs-sections.php:56
+#: admin/sections.php:172 templates/admin/docs-sections.php:56
 msgid "New Section"
 msgstr ""
 
-#: admin/sections.php:165 templates/admin/docs-sections-form.php:10
+#: admin/sections.php:173 templates/admin/docs-sections-form.php:10
 msgid "Create Section"
 msgstr ""
 
-#: admin/sections.php:191
+#: admin/sections.php:199
 msgid "A Document was not specified!"
 msgstr ""
 
-#: admin/sections.php:207
+#: admin/sections.php:215
 msgid "No section has been specified"
 msgstr ""
 
-#: admin/sections.php:214
+#: admin/sections.php:222
 msgid "Section does not exists!"
 msgstr ""
 
-#: admin/sections.php:222 admin/sections.php:233 edit.php:223
+#: admin/sections.php:230 admin/sections.php:241 edit.php:223
 msgid "Already exists another section with same title!"
 msgstr ""
 
-#: admin/sections.php:289 figures.php:266
+#: admin/sections.php:297 figures.php:266
 msgid "Database could not be updated!"
 msgstr ""
 
-#: admin/sections.php:292
+#: admin/sections.php:300
 msgid "Sections has been saved but some errors ocurred"
 msgstr ""
 
-#: admin/sections.php:325
+#: admin/sections.php:333
 msgid "You have not specify a Document id"
 msgstr ""
 
-#: admin/sections.php:337
+#: admin/sections.php:345
 msgid "You have not specified a section ID to delete!"
 msgstr ""
 
-#: admin/sections.php:343 edit.php:40 edit.php:97 edit.php:215
+#: admin/sections.php:351 edit.php:40 edit.php:97 edit.php:215
 msgid "Specified section does not exists!"
 msgstr ""
 
-#: admin/sections.php:348
+#: admin/sections.php:356
 msgid "Errors ocurred while trying to delete sections!"
 msgstr ""
 
-#: admin/sections.php:351
+#: admin/sections.php:359
 msgid "Sections deleted successfully!"
 msgstr ""
 
-#: admin/sections.php:393
+#: admin/sections.php:401
 msgid "Data not valid!"
 msgstr ""
 
-#: admin/sections.php:410
+#: admin/sections.php:418
 msgid "Sections positions saved!"
 msgstr ""
 
-#: admin/sections.php:429 admin/sections.php:523
+#: admin/sections.php:437 admin/sections.php:531
 msgid "Specified page does not exists!"
 msgstr ""
 
-#: admin/sections.php:496 admin/sections.php:500
+#: admin/sections.php:504 admin/sections.php:508
 msgid "Content review"
 msgstr ""
 
-#: admin/sections.php:617
+#: admin/sections.php:625
 msgid "Documents and pages created successfully"
+msgstr ""
+
+#: admin/sections.php:683
+msgid "Insert Link"
+msgstr ""
+
+#: admin/sections.php:695 templates/specials/docs-plugin-content.php:21
+msgid "Insert Note"
 msgstr ""
 
 #: blocks/rd_resources.php:54
@@ -710,7 +719,7 @@ msgid "Recent Documents"
 msgstr ""
 
 #: blocks/rd_resources.php:75 search.php:58
-#: templates/admin/docs-dashboard.php:155 templates/docs-header.php:12
+#: templates/admin/docs-dashboard.php:156 templates/docs-header.php:12
 msgid "Top Documents"
 msgstr ""
 
@@ -735,20 +744,60 @@ msgstr ""
 msgid "Unknow element"
 msgstr ""
 
-#: class/rdfunctions.php:52
+#: class/rdfunctions.php:65
 #, php-format
 msgid "Publication <%s> approved!"
 msgstr ""
 
-#: class/rdfunctions.php:389
+#: class/rdfunctions.php:421
 msgid "Document not found"
 msgstr ""
 
-#: content.php:253
+#: class/rdfunctions.php:665
+msgid "You don't have authorization for this action!"
+msgstr ""
+
+#: class/rdfunctions.php:679
+msgid "You must specify a valid book identifier"
+msgstr ""
+
+#: class/rdfunctions.php:687
+msgid "The specified book does not exists!"
+msgstr ""
+
+#: class/rdfunctions.php:694
+msgid "You don't have access to references for this book"
+msgstr ""
+
+#: class/rdfunctions.php:730
+msgid "You must be logged in order to create notes"
+msgstr ""
+
+#: class/rdfunctions.php:737
+msgid "Book not specified"
+msgstr ""
+
+#: class/rdfunctions.php:745
+msgid "Specified book does not exists"
+msgstr ""
+
+#: class/rdfunctions.php:752
+msgid "You don't have rights to add notes to this book"
+msgstr ""
+
+#: class/rdfunctions.php:764
+msgid "The note has been created"
+msgstr ""
+
+#: class/rdfunctions.php:773
+msgid "An error occurs while trying to save note:"
+msgstr ""
+
+#: content.php:255
 msgid "This content is not available!"
 msgstr ""
 
-#: content.php:258
+#: content.php:260
 msgid "You are not allowed to read this content!"
 msgstr ""
 
@@ -808,35 +857,7 @@ msgstr ""
 msgid "Sections updated successfully!"
 msgstr ""
 
-#: events/rmcommon.php:64 templates/docs-references.php:6
-msgid "Notes & References"
-msgstr ""
-
-#: events/rmcommon.php:90
-msgid "Insert notes & references"
-msgstr ""
-
-#: events/rmcommon.php:97
-msgid "Insert figures"
-msgstr ""
-
-#: events/rmcommon.php:103
-msgid "Insert Table Of Contents"
-msgstr ""
-
-#: events/rmcommon.php:115 events/rmcommon.php:116 events/rmcommon.php:140
-msgid "Documents Index"
-msgstr ""
-
-#: events/rmcommon.php:121
-msgid "Insert Documents Index"
-msgstr ""
-
-#: events/rmcommon.php:153 events/rmcommon.php:251
-msgid "Featured Documents"
-msgstr ""
-
-#: events/rmcommon.php:381
+#: events/rmcommon.php:95
 msgid "An error ocurred while trying to write .htaccess file!"
 msgstr ""
 
@@ -906,49 +927,43 @@ msgid "Save and return"
 msgstr ""
 
 #: include/admin-widgets.php:38
-msgid "Save Section"
+msgid "Save"
 msgstr ""
 
-#: include/admin-widgets.php:39
-msgid "Discard Section"
-msgstr ""
-
-#: include/admin-widgets.php:55
-msgid "Notes &amp; References"
-msgstr ""
-
-#: include/admin-widgets.php:68
-msgid "There are not references for this Document yet!"
-msgstr ""
-
-#: include/admin-widgets.php:90
-msgid "Document Figures"
-msgstr ""
-
-#: include/admin-widgets.php:103
-msgid "There are not figures for this Document yet!"
-msgstr ""
-
-#: include/admin-widgets.php:127
-msgid "New Note"
-msgstr ""
-
-#: include/admin-widgets.php:132 templates/docs-figures.php:165
-#: templates/docs-figures.php:217 templates/docs-references.php:119
-msgid "Title:"
-msgstr ""
-
-#: include/admin-widgets.php:136 templates/docs-references.php:121
-msgid "Content:"
-msgstr ""
-
-#: include/admin-widgets.php:140 references.php:142
-#: templates/docs-references.php:117
-msgid "Create Note"
+#: include/admin-widgets.php:39 templates/admin/docs-review-edit.php:28
+msgid "Discard"
 msgstr ""
 
 #: include/ajax-functions.php:78 references.php:192
 msgid "Note id not provided!"
+msgstr ""
+
+#: include/js-lang.php:38
+msgid ""
+"I\\'ve found an error in section data. Please perform a new books search to "
+"correct this error."
+msgstr ""
+
+#: include/js-lang.php:39
+msgid "You must provide the username to search book!"
+msgstr ""
+
+#: include/js-lang.php:40
+msgid ""
+"An error occurs while trying to perform this operation: No editor has been "
+"specified."
+msgstr ""
+
+#: include/js-lang.php:41
+msgid "Sorry, an error occurs while trying to insert the link to this section!"
+msgstr ""
+
+#: include/js-lang.php:42
+msgid "This note is not valid!"
+msgstr ""
+
+#: include/js-lang.php:43
+msgid "Note is empty!"
 msgstr ""
 
 #: index.php:185
@@ -963,7 +978,7 @@ msgstr ""
 msgid "You can not create Documents."
 msgstr ""
 
-#: publish.php:45
+#: publish.php:45 publish.php:155
 msgid "You don't have permission to edit this document"
 msgstr ""
 
@@ -971,7 +986,7 @@ msgstr ""
 msgid "Groups that can read Document"
 msgstr ""
 
-#: publish.php:89 templates/admin/docs-resources.php:109
+#: publish.php:89 templates/admin/docs-resources.php:114
 msgid "Approved"
 msgstr ""
 
@@ -993,10 +1008,6 @@ msgstr ""
 
 #: publish.php:147
 msgid "Document not found!"
-msgstr ""
-
-#: publish.php:155
-msgid "You do not have authorization to edit this document"
 msgstr ""
 
 #: publish.php:165 publish.php:178
@@ -1033,6 +1044,11 @@ msgstr ""
 
 #: references.php:139
 msgid "Select another Document to show the notes that belong to this."
+msgstr ""
+
+#: references.php:142 templates/ajax/docs-notes-dialog.php:22
+#: templates/docs-references.php:117
+msgid "Create Note"
 msgstr ""
 
 #: references.php:145
@@ -1097,7 +1113,7 @@ msgid "Sections by comments"
 msgstr ""
 
 #: templates/admin/docs-dashboard.php:68
-msgid "RapidDocs Resume"
+msgid "Documentor Summary"
 msgstr ""
 
 #: templates/admin/docs-dashboard.php:75
@@ -1120,48 +1136,48 @@ msgstr ""
 msgid "%s Notes & References"
 msgstr ""
 
-#: templates/admin/docs-dashboard.php:99
+#: templates/admin/docs-dashboard.php:102
 msgid "Documents waiting for approval"
 msgstr ""
 
-#: templates/admin/docs-dashboard.php:105
+#: templates/admin/docs-dashboard.php:108
 msgid "There are not content waiting for approval"
 msgstr ""
 
-#: templates/admin/docs-dashboard.php:130
+#: templates/admin/docs-dashboard.php:135
 msgid "There are not drafts"
 msgstr ""
 
-#: templates/admin/docs-dashboard.php:158
+#: templates/admin/docs-dashboard.php:159
 msgid "There are not documents to show here."
 msgstr ""
 
-#: templates/admin/docs-dashboard.php:166
+#: templates/admin/docs-dashboard.php:169
 msgid "Documentor News"
 msgstr ""
 
-#: templates/admin/docs-figures.php:27 templates/admin/docs-figures.php:97
-#: templates/admin/docs-notes.php:26 templates/admin/docs-notes.php:93
-#: templates/admin/docs-resources.php:18 templates/admin/docs-resources.php:124
-#: templates/admin/docs-waiting.php:15 templates/admin/docs-waiting.php:80
+#: templates/admin/docs-figures.php:27 templates/admin/docs-figures.php:102
+#: templates/admin/docs-notes.php:26 templates/admin/docs-notes.php:89
+#: templates/admin/docs-resources.php:18 templates/admin/docs-resources.php:131
+#: templates/admin/docs-waiting.php:15 templates/admin/docs-waiting.php:85
 msgid "Bulk actions..."
 msgstr ""
 
-#: templates/admin/docs-figures.php:28 templates/admin/docs-figures.php:83
-#: templates/admin/docs-figures.php:98 templates/admin/docs-notes.php:27
-#: templates/admin/docs-notes.php:77 templates/admin/docs-notes.php:94
-#: templates/admin/docs-resources.php:25 templates/admin/docs-resources.php:83
-#: templates/admin/docs-resources.php:131 templates/admin/docs-sections.php:11
-#: templates/admin/docs-sections.php:99 templates/admin/docs-waiting.php:17
-#: templates/admin/docs-waiting.php:65 templates/admin/docs-waiting.php:82
+#: templates/admin/docs-figures.php:28 templates/admin/docs-figures.php:87
+#: templates/admin/docs-figures.php:103 templates/admin/docs-notes.php:27
+#: templates/admin/docs-notes.php:73 templates/admin/docs-notes.php:90
+#: templates/admin/docs-resources.php:25 templates/admin/docs-resources.php:88
+#: templates/admin/docs-resources.php:138 templates/admin/docs-sections.php:11
+#: templates/admin/docs-sections.php:96 templates/admin/docs-waiting.php:17
+#: templates/admin/docs-waiting.php:69 templates/admin/docs-waiting.php:87
 #: templates/docs-figures.php:124 templates/docs-references.php:102
 msgid "Delete"
 msgstr ""
 
-#: templates/admin/docs-figures.php:30 templates/admin/docs-figures.php:100
-#: templates/admin/docs-notes.php:29 templates/admin/docs-notes.php:96
-#: templates/admin/docs-resources.php:27 templates/admin/docs-resources.php:133
-#: templates/admin/docs-waiting.php:19 templates/admin/docs-waiting.php:84
+#: templates/admin/docs-figures.php:30 templates/admin/docs-figures.php:105
+#: templates/admin/docs-notes.php:29 templates/admin/docs-notes.php:92
+#: templates/admin/docs-resources.php:27 templates/admin/docs-resources.php:140
+#: templates/admin/docs-waiting.php:19 templates/admin/docs-waiting.php:89
 msgid "Apply"
 msgstr ""
 
@@ -1178,23 +1194,26 @@ msgstr ""
 msgid "New Figure"
 msgstr ""
 
-#: templates/admin/docs-figures.php:56 templates/admin/docs-figures.php:64
-#: templates/admin/docs-notes.php:50 templates/admin/docs-notes.php:58
-#: templates/admin/docs-resources.php:43 templates/admin/docs-resources.php:56
-#: templates/docs-references.php:66
+#: templates/admin/docs-figures.php:53 templates/docs-figures.php:94
+msgid "Existing Figures"
+msgstr ""
+
+#: templates/admin/docs-figures.php:60 templates/admin/docs-figures.php:68
+#: templates/admin/docs-notes.php:54 templates/admin/docs-resources.php:48
+#: templates/admin/docs-resources.php:61 templates/docs-references.php:66
 #: templates/docs-sections-control-panel.php:15
 msgid "ID"
 msgstr ""
 
-#: templates/admin/docs-figures.php:72
+#: templates/admin/docs-figures.php:76
 msgid "There are not figures created for this Document."
 msgstr ""
 
-#: templates/admin/docs-figures.php:82 templates/admin/docs-notes.php:76
-#: templates/admin/docs-resources.php:82
+#: templates/admin/docs-figures.php:86 templates/admin/docs-notes.php:72
+#: templates/admin/docs-resources.php:87
 #: templates/admin/docs-review-edit.php:27 templates/admin/docs-sections.php:10
-#: templates/admin/docs-sections.php:98 templates/admin/docs-waiting.php:64
-#: templates/docs-figures.php:111 templates/docs-item-section.php:10
+#: templates/admin/docs-sections.php:95 templates/admin/docs-waiting.php:68
+#: templates/docs-figures.php:111 templates/docs-item-section.php:11
 #: templates/docs-references.php:97
 #: templates/docs-sections-control-panel.php:27
 msgid "Edit"
@@ -1222,7 +1241,11 @@ msgstr ""
 msgid "All Notes"
 msgstr ""
 
-#: templates/admin/docs-notes.php:66
+#: templates/admin/docs-notes.php:47
+msgid "Existing Notes"
+msgstr ""
+
+#: templates/admin/docs-notes.php:62
 msgid "There are not notes created for this Document."
 msgstr ""
 
@@ -1239,25 +1262,25 @@ msgstr ""
 msgid "Available Documents"
 msgstr ""
 
-#: templates/admin/docs-resources.php:19 templates/admin/docs-resources.php:125
+#: templates/admin/docs-resources.php:19 templates/admin/docs-resources.php:132
 #: templates/admin/docs-review-edit.php:26 templates/admin/docs-waiting.php:16
-#: templates/admin/docs-waiting.php:63 templates/admin/docs-waiting.php:81
+#: templates/admin/docs-waiting.php:67 templates/admin/docs-waiting.php:86
 msgid "Approve"
 msgstr ""
 
-#: templates/admin/docs-resources.php:20 templates/admin/docs-resources.php:126
+#: templates/admin/docs-resources.php:20 templates/admin/docs-resources.php:133
 msgid "Draft"
 msgstr ""
 
-#: templates/admin/docs-resources.php:22 templates/admin/docs-resources.php:128
+#: templates/admin/docs-resources.php:22 templates/admin/docs-resources.php:135
 msgid "Set as private"
 msgstr ""
 
-#: templates/admin/docs-resources.php:23 templates/admin/docs-resources.php:129
+#: templates/admin/docs-resources.php:23 templates/admin/docs-resources.php:136
 msgid "Enable quick index"
 msgstr ""
 
-#: templates/admin/docs-resources.php:24 templates/admin/docs-resources.php:130
+#: templates/admin/docs-resources.php:24 templates/admin/docs-resources.php:137
 msgid "Disable quick index"
 msgstr ""
 
@@ -1265,78 +1288,83 @@ msgstr ""
 msgid "Show All"
 msgstr ""
 
-#: templates/admin/docs-resources.php:46 templates/admin/docs-resources.php:59
-#: templates/admin/docs-sections.php:72 templates/admin/docs-sections.php:81
+#: templates/admin/docs-resources.php:39
+msgid "Existing Resources"
+msgstr ""
+
+#: templates/admin/docs-resources.php:51 templates/admin/docs-resources.php:64
+#: templates/admin/docs-sections.php:78
 msgid "Created"
 msgstr ""
 
-#: templates/admin/docs-resources.php:50 templates/admin/docs-resources.php:63
+#: templates/admin/docs-resources.php:55 templates/admin/docs-resources.php:68
 msgid "Attributes"
 msgstr ""
 
-#: templates/admin/docs-resources.php:70
+#: templates/admin/docs-resources.php:75
 msgid "There are not documents created yet!"
 msgstr ""
 
-#: templates/admin/docs-resources.php:84
+#: templates/admin/docs-resources.php:89
 msgid "Not featured"
 msgstr ""
 
-#: templates/admin/docs-resources.php:90
+#: templates/admin/docs-resources.php:95
 msgid "View Sections"
 msgstr ""
 
-#: templates/admin/docs-resources.php:96 templates/admin/docs-resources.php:98
+#: templates/admin/docs-resources.php:101
+#: templates/admin/docs-resources.php:103
 msgid "View Notes"
 msgstr ""
 
-#: templates/admin/docs-resources.php:102
-#: templates/admin/docs-resources.php:104
+#: templates/admin/docs-resources.php:107
+#: templates/admin/docs-resources.php:109
 msgid "View Figures"
 msgstr ""
 
-#: templates/admin/docs-resources.php:110
+#: templates/admin/docs-resources.php:115
 msgid "Published"
 msgstr ""
 
-#: templates/admin/docs-resources.php:111 templates/docs-quick-index.php:5
+#: templates/admin/docs-resources.php:116 templates/docs-quick-index.php:5
 #: templates/docs-resource-index.php:12 templates/docs-resource-index.php:47
 msgid "Quick Index"
 msgstr ""
 
 #: templates/admin/docs-review-content.php:1
-msgid "Revisión de Contenido"
+msgid "Content Review"
 msgstr ""
 
-#: templates/admin/docs-review-content.php:23
+#: templates/admin/docs-review-content.php:25
 msgid "Internal Links"
 msgstr ""
 
-#: templates/admin/docs-review-content.php:28
+#: templates/admin/docs-review-content.php:30
 msgid "Broken internal links was not found in this page."
 msgstr ""
 
-#: templates/admin/docs-review-content.php:32
+#: templates/admin/docs-review-content.php:34
 msgid "Missing documents"
 msgstr ""
 
-#: templates/admin/docs-review-content.php:34
+#: templates/admin/docs-review-content.php:36
 msgid "Internal links to following missing documents were detected:"
 msgstr ""
 
-#: templates/admin/docs-review-content.php:45
+#: templates/admin/docs-review-content.php:47
 msgid "Missing pages"
 msgstr ""
 
-#: templates/admin/docs-review-content.php:47
+#: templates/admin/docs-review-content.php:49
 msgid "Internal links to following missing pages were detected:"
 msgstr ""
 
-#: templates/admin/docs-review-content.php:58
+#: templates/admin/docs-review-content.php:60
 msgid "What do you want to do?"
 msgstr ""
 
-#: templates/admin/docs-review-content.php:59
+#: templates/admin/docs-review-content.php:61
 msgid "Create documents and pages"
 msgstr ""
 
@@ -1366,93 +1394,94 @@ msgstr ""
 msgid "New Data"
 msgstr ""
 
-#: templates/admin/docs-review-edit.php:28
-msgid "Discard"
-msgstr ""
-
 #: templates/admin/docs-sections-form.php:5
 msgid "You must provide a title for this section!"
 msgstr ""
 
-#: templates/admin/docs-sections-form.php:19
+#: templates/admin/docs-sections-form.php:18
+msgid "View content"
+msgstr ""
+
+#: templates/admin/docs-sections-form.php:23
 msgid "Remember to save this section in order to activate all options."
 msgstr ""
 
-#: templates/admin/docs-sections-form.php:27
+#: templates/admin/docs-sections-form.php:33
 msgid "Section Author:"
 msgstr ""
 
-#: templates/admin/docs-sections-form.php:35
+#: templates/admin/docs-sections-form.php:41
 msgid "Sections Options"
 msgstr ""
 
-#: templates/admin/docs-sections-form.php:38
+#: templates/admin/docs-sections-form.php:44
 msgid "Parent section:"
 msgstr ""
 
-#: templates/admin/docs-sections-form.php:40
+#: templates/admin/docs-sections-form.php:46
 msgid "Select..."
 msgstr ""
 
-#: templates/admin/docs-sections-form.php:47
+#: templates/admin/docs-sections-form.php:53
 msgid "Display order:"
 msgstr ""
 
-#: templates/admin/docs-sections-form.php:59 templates/docs-section-form.php:43
+#: templates/admin/docs-sections-form.php:66 templates/docs-section-form.php:43
 msgid "Custom Fields"
 msgstr ""
 
-#: templates/admin/docs-sections-form.php:64
-#: templates/admin/docs-sections-form.php:84 templates/docs-section-form.php:46
+#: templates/admin/docs-sections-form.php:71
+#: templates/admin/docs-sections-form.php:91 templates/docs-section-form.php:46
 #: templates/docs-section-form.php:68
 msgid "Name"
 msgstr ""
 
-#: templates/admin/docs-sections-form.php:65
-#: templates/admin/docs-sections-form.php:85 templates/docs-section-form.php:47
+#: templates/admin/docs-sections-form.php:72
+#: templates/admin/docs-sections-form.php:92 templates/docs-section-form.php:47
 #: templates/docs-section-form.php:69
 msgid "Value"
 msgstr ""
 
-#: templates/admin/docs-sections-form.php:73 templates/docs-section-form.php:55
+#: templates/admin/docs-sections-form.php:80 templates/docs-section-form.php:55
 msgid "Remove"
 msgstr ""
 
-#: templates/admin/docs-sections-form.php:81 templates/docs-section-form.php:65
+#: templates/admin/docs-sections-form.php:88 templates/docs-section-form.php:65
 msgid "Add new field:"
 msgstr ""
 
-#: templates/admin/docs-sections-form.php:92 templates/docs-section-form.php:76
+#: templates/admin/docs-sections-form.php:99 templates/docs-section-form.php:76
 msgid "- Select -"
 msgstr ""
 
-#: templates/admin/docs-sections-form.php:98 templates/docs-section-form.php:82
+#: templates/admin/docs-sections-form.php:105
+#: templates/docs-section-form.php:82
 msgid "Enter New"
 msgstr ""
 
-#: templates/admin/docs-sections-form.php:105
+#: templates/admin/docs-sections-form.php:112
 #: templates/docs-section-form.php:89
 msgid "Please provide a value for this meta field"
 msgstr ""
 
-#: templates/admin/docs-sections-form.php:111
+#: templates/admin/docs-sections-form.php:118
 #: templates/docs-section-form.php:95
 msgid "Add custom field"
 msgstr ""
 
-#: templates/admin/docs-sections-form.php:117
+#: templates/admin/docs-sections-form.php:124
 #: templates/docs-section-form.php:99
 msgid ""
 "Custom fields can be used to add extra metadata to a post that you can use "
 "in your theme."
 msgstr ""
 
-#: templates/admin/docs-sections.php:11 templates/admin/docs-sections.php:99
+#: templates/admin/docs-sections.php:11 templates/admin/docs-sections.php:96
 #, php-format
 msgid "Do you really wish to delete %s?"
 msgstr ""
 
-#: templates/admin/docs-sections.php:12 templates/admin/docs-sections.php:100
+#: templates/admin/docs-sections.php:12 templates/admin/docs-sections.php:97
 msgid "Add Section"
 msgstr ""
 
@@ -1469,22 +1498,26 @@ msgstr ""
 msgid "Sort Sections"
 msgstr ""
 
-#: templates/admin/docs-sections.php:71 templates/admin/docs-sections.php:80
+#: templates/admin/docs-sections.php:69
+msgid "Existing Sections"
+msgstr ""
+
+#: templates/admin/docs-sections.php:77
 msgid "Author"
 msgstr ""
 
-#: templates/admin/docs-sections.php:73 templates/admin/docs-sections.php:82
+#: templates/admin/docs-sections.php:79
 msgid "Updated"
 msgstr ""
 
-#: templates/admin/docs-sections.php:74 templates/admin/docs-sections.php:83
+#: templates/admin/docs-sections.php:80
 #: templates/docs-display-full-resource.php:52
 #: templates/docs-quick-index.php:21 templates/docs-resource-index.php:33
 #: templates/docs-resource-index.php:70
 msgid "Comments"
 msgstr ""
 
-#: templates/admin/docs-sections.php:89
+#: templates/admin/docs-sections.php:86
 msgid "There are not sections created in this document!"
 msgstr ""
 
@@ -1514,28 +1547,69 @@ msgid ""
 "carefull with content to prevent spam or another inconvenniences."
 msgstr ""
 
-#: templates/admin/docs-waiting.php:32 templates/admin/docs-waiting.php:41
+#: templates/admin/docs-waiting.php:29
+msgid "Content Waiting"
+msgstr ""
+
+#: templates/admin/docs-waiting.php:36 templates/admin/docs-waiting.php:45
 msgid "Section"
 msgstr ""
 
-#: templates/admin/docs-waiting.php:33 templates/admin/docs-waiting.php:42
+#: templates/admin/docs-waiting.php:37 templates/admin/docs-waiting.php:46
 msgid "New Title"
 msgstr ""
 
-#: templates/admin/docs-waiting.php:34 templates/admin/docs-waiting.php:43
+#: templates/admin/docs-waiting.php:38 templates/admin/docs-waiting.php:47
 msgid "Modified"
 msgstr ""
 
-#: templates/admin/docs-waiting.php:35 templates/admin/docs-waiting.php:44
+#: templates/admin/docs-waiting.php:39 templates/admin/docs-waiting.php:48
 msgid "Edited by"
 msgstr ""
 
-#: templates/admin/docs-waiting.php:50
+#: templates/admin/docs-waiting.php:54
 msgid "There are not waiting contents at this time"
 msgstr ""
 
-#: templates/admin/docs-waiting.php:62
+#: templates/admin/docs-waiting.php:66
 msgid "Review"
+msgstr ""
+
+#: templates/ajax/docs-link-dialog.php:15
+msgid "This user does not have any book currently. Please try another user."
+msgstr ""
+
+#: templates/ajax/docs-link-dialog.php:33
+msgid "Sections in Book"
+msgstr ""
+
+#: templates/ajax/docs-link-dialog.php:38
+msgid "There are not sections in this book"
+msgstr ""
+
+#: templates/ajax/docs-link-dialog.php:40
+msgid "You have not selected a book to show sections in it"
+msgstr ""
+
+#: templates/ajax/docs-notes-dialog.php:9
+msgid "Search for notes..."
+msgstr ""
+
+#: templates/ajax/docs-notes-dialog.php:36
+msgid "There are not notes or references for this book."
+msgstr ""
+
+#: templates/ajax/docs-notes-dialog.php:51 templates/docs-figures.php:110
+#: templates/docs-references.php:96
+msgid "Insert"
+msgstr ""
+
+#: templates/ajax/docs-notes-dialog.php:65
+msgid "Note content"
+msgstr ""
+
+#: templates/ajax/docs-notes-dialog.php:69
+msgid "Create & Insert"
 msgstr ""
 
 #: templates/docs-display-full-resource.php:27
@@ -1578,7 +1652,7 @@ msgid "Read %s times."
 msgstr ""
 
 #: templates/docs-display-section.php:51
-msgid "Anterior"
+msgid "Previous"
 msgstr ""
 
 #: templates/docs-display-section.php:53 templates/docs-display-section.php:60
@@ -1587,7 +1661,7 @@ msgid "Table of Contents"
 msgstr ""
 
 #: templates/docs-display-section.php:58
-msgid "Siguiente"
+msgid "Next"
 msgstr ""
 
 #: templates/docs-display-section.php:78
@@ -1615,10 +1689,6 @@ msgstr ""
 msgid "Read Document"
 msgstr ""
 
-#: templates/docs-document-info.php:34
-msgid "Edit Document"
-msgstr ""
-
 #: templates/docs-document-info.php:39
 msgid "Created:"
 msgstr ""
@@ -1641,16 +1711,8 @@ msgstr ""
 msgid "Options"
 msgstr ""
 
-#: templates/docs-figures.php:94
-msgid "Existing Figures"
-msgstr ""
-
 #: templates/docs-figures.php:98
 msgid "Id"
-msgstr ""
-
-#: templates/docs-figures.php:110 templates/docs-references.php:96
-msgid "Insert"
 msgstr ""
 
 #: templates/docs-figures.php:125
@@ -1678,6 +1740,11 @@ msgstr ""
 msgid "Document:"
 msgstr ""
 
+#: templates/docs-figures.php:165 templates/docs-figures.php:217
+#: templates/docs-references.php:119
+msgid "Title:"
+msgstr ""
+
 #: templates/docs-figures.php:170 templates/docs-figures.php:222
 msgid "Description:"
 msgstr ""
@@ -1702,12 +1769,16 @@ msgstr ""
 msgid "Back to document"
 msgstr ""
 
-#: templates/docs-item-section.php:9
+#: templates/docs-item-section.php:10
 msgid "Top"
 msgstr ""
 
 #: templates/docs-notes-references.php:7
 msgid "Notes and References"
+msgstr ""
+
+#: templates/docs-references.php:6
+msgid "Notes & References"
 msgstr ""
 
 #: templates/docs-references.php:62
@@ -1732,6 +1803,10 @@ msgstr ""
 
 #: templates/docs-references.php:103
 msgid "Close"
+msgstr ""
+
+#: templates/docs-references.php:121
+msgid "Content:"
 msgstr ""
 
 #: templates/docs-search.php:6
@@ -1838,177 +1913,199 @@ msgstr ""
 msgid "This message has been automatically created by RapidDocs."
 msgstr ""
 
-#: xoops_version.php:21
+#: templates/specials/docs-plugin-content.php:11
+msgid "Link existing content"
+msgstr ""
+
+#: xoops_version.php:40
 msgid "Create documentation in Xoops, quicky and an advanced way."
 msgstr ""
 
-#: xoops_version.php:56
+#: xoops_version.php:72
 msgid "Twitter"
 msgstr ""
 
-#: xoops_version.php:57
+#: xoops_version.php:73
 msgid "Facebook"
 msgstr ""
 
-#: xoops_version.php:58
+#: xoops_version.php:74
 msgid "Instagram"
 msgstr ""
 
-#: xoops_version.php:59
+#: xoops_version.php:75
 msgid "Flickr"
 msgstr ""
 
-#: xoops_version.php:60
+#: xoops_version.php:76
 msgid "LinkedIn"
 msgstr ""
 
-#: xoops_version.php:61
+#: xoops_version.php:77
 msgid "GithHub"
 msgstr ""
 
-#: xoops_version.php:62
+#: xoops_version.php:78
 msgid "My Blog"
 msgstr ""
 
-#: xoops_version.php:103
+#: xoops_version.php:116
+msgid "General"
+msgstr ""
+
+#: xoops_version.php:117
+msgid "Advanced"
+msgstr ""
+
+#: xoops_version.php:126
 msgid "URLs mode"
 msgstr ""
 
-#: xoops_version.php:104
+#: xoops_version.php:127
 msgid ""
 "This options indicate the way in which RapidDocs will generate the URLs for "
 "documents."
 msgstr ""
 
-#: xoops_version.php:108
+#: xoops_version.php:131
 msgid "PHP Default"
 msgstr ""
 
-#: xoops_version.php:108
+#: xoops_version.php:131
 msgid "Name based"
 msgstr ""
 
-#: xoops_version.php:113
+#: xoops_version.php:137
 msgid "Subdomain on which RapidDocs will be used"
 msgstr ""
 
-#: xoops_version.php:114
+#: xoops_version.php:138
 msgid ""
 "You can specify a subdomain if your htaccess file has been configured for it "
 "(e.g. http://docs.xoops.org)."
 msgstr ""
 
-#: xoops_version.php:122
+#: xoops_version.php:147
 msgid "Base path for URLs"
 msgstr ""
 
-#: xoops_version.php:123
+#: xoops_version.php:148
 msgid "Indicate the base path used to generate URLs (eg. /docs)."
 msgstr ""
 
-#: xoops_version.php:131
+#: xoops_version.php:157
 msgid "Enable AJAX navigation"
 msgstr ""
 
-#: xoops_version.php:132
+#: xoops_version.php:158
 msgid ""
-"Activate the AJAX navigation for resource index. By enabling this options, "
-"the page load time will reduce drastically, but javascript is required."
+"Activate the AJAX navigation for resource index. By enabling this option the "
+"page load time will reduce drastically, but javascript is required."
 msgstr ""
 
-#: xoops_version.php:140
+#: xoops_version.php:167
 msgid "Number of documents in the index"
 msgstr ""
 
-#: xoops_version.php:141
+#: xoops_version.php:168
 msgid "This is the limit for documents displayed in index."
 msgstr ""
 
-#: xoops_version.php:149
+#: xoops_version.php:177
 msgid "Allow the creation of new documents"
 msgstr ""
 
-#: xoops_version.php:150
+#: xoops_version.php:178
 msgid ""
 "This option affects the creation of new documents in front end. "
 "Administrators will continue creating documents in back end."
 msgstr ""
 
-#: xoops_version.php:158
+#: xoops_version.php:187
 msgid "Groups with authorization to create new documents"
 msgstr ""
 
-#: xoops_version.php:159
+#: xoops_version.php:188
 msgid "Select the groups that you wish to authorize to create new documents."
 msgstr ""
 
-#: xoops_version.php:167
+#: xoops_version.php:197
 msgid "Auto approve documents created for authorized users"
 msgstr ""
 
-#: xoops_version.php:176
+#: xoops_version.php:207
 msgid "Activate standalone support"
 msgstr ""
 
-#: xoops_version.php:177
+#: xoops_version.php:208
 msgid ""
 "This option enables the document render without use of the XOOPS theme. Is "
 "very useful to integrate with other components as embeded help."
 msgstr ""
 
-#: xoops_version.php:185
-msgid "Hoja de estilos para despliegue independiente"
+#: xoops_version.php:217
+msgid "Standalone mode stylesheet"
 msgstr ""
 
-#: xoops_version.php:194
+#: xoops_version.php:227
 msgid "Standalone theme"
 msgstr ""
 
-#: xoops_version.php:195
+#: xoops_version.php:228
 msgid ""
 "Allows to select the appearance for module when standalone display is enabled"
 msgstr ""
 
-#: xoops_version.php:200
+#: xoops_version.php:233
 msgid "Default"
 msgstr ""
 
-#: xoops_version.php:201
+#: xoops_version.php:234
 msgid "Maverik"
 msgstr ""
 
-#: xoops_version.php:202
+#: xoops_version.php:235
 msgid "Maverik Inverted"
 msgstr ""
 
-#: xoops_version.php:203
+#: xoops_version.php:236
 msgid "Azure"
 msgstr ""
 
-#: xoops_version.php:204
+#: xoops_version.php:237
 msgid "Azure Inverted"
 msgstr ""
 
-#: xoops_version.php:205
+#: xoops_version.php:238
 msgid "Sweet"
 msgstr ""
 
-#: xoops_version.php:206
+#: xoops_version.php:239
 msgid "Evergreen"
 msgstr ""
 
-#: xoops_version.php:207
+#: xoops_version.php:240
 msgid "Midnight"
 msgstr ""
 
-#: xoops_version.php:219
+#: xoops_version.php:247
+msgid "Custom CSS"
+msgstr ""
+
+#: xoops_version.php:248
+msgid ""
+"This CSS code will be inserted in the module pages. You can add your own "
+"styles."
+msgstr ""
+
+#: xoops_version.php:262
 msgid "List of Documents"
 msgstr ""
 
-#: xoops_version.php:228
+#: xoops_version.php:271
 msgid "Document TOC"
 msgstr ""
 
-#: xoops_version.php:229
+#: xoops_version.php:272
 msgid "Table of content for a specific Document"
 msgstr ""

@@ -2,7 +2,7 @@
     <div class="input-group">
         <input type="text" class="form-control" name="dialog_uname" id="dialog-uname"
                value="@<?php echo '' != $user ? $user : $xoopsUser->uname(); ?>"
-               title="<?php _e('Propietario de los libros', 'docs'); ?>">
+               title="<?php _e('Owner', 'docs'); ?>">
             <span class="input-group-btn">
                 <button type="button" class="btn btn-default" id="dialog-search">
                     <span class="fa fa-search"></span>

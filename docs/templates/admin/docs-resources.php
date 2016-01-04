@@ -36,7 +36,7 @@
 
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h3 class="panel-title"><?php _e('Existing Resource', 'docs'); ?></h3>
+        <h3 class="panel-title"><?php _e('Existing Resources', 'docs'); ?></h3>
     </div>
     <div class="panel-body">
         <div class="table-responsive">

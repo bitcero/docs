@@ -152,7 +152,7 @@ function savePublish( $edit = 0 ){
 		// Check that the document belongs to user
 		if( $res->owner != $xoopsUser->uid() ){
 			RMUris::redirect_with_message(
-				__('You do not have authorization to edit this document', 'docs'),
+				__('You don\'t have permission to edit this document', 'docs'),
 				RDURL, RMMSG_ERROR
 			);
 		}

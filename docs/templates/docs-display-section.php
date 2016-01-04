@@ -48,14 +48,14 @@
                     <ul class="pager">
                         <li class="previous">
                             <?php if(isset($prev_section)): ?>
-                                <a href="<?php echo $prev_section['link']; ?>" title="<?php echo $prev_section['title']; ?>">&laquo; <?php _e('Anterior', 'docs') ?></a>
+                                <a href="<?php echo $prev_section['link']; ?>" title="<?php echo $prev_section['title']; ?>">&laquo; <?php _e('Previous', 'docs') ?></a>
                             <?php else: ?>
                                 <a href="<?php echo $resource['link']; ?>"><?php _e('Table of Contents','docs'); ?></a>
                             <?php endif; ?>
                         </li>
                         <li class="next">
                             <?php if(isset($next_section)): ?>
-                                <a href="<?php echo $next_section['link']; ?>" title="<?php echo $next_section['title']; ?>"><?php _e('Siguiente', 'docs'); ?> &raquo;</a>
+                                <a href="<?php echo $next_section['link']; ?>" title="<?php echo $next_section['title']; ?>"><?php _e('Next', 'docs'); ?> &raquo;</a>
                             <?php else: ?>
                                 <a href="<?php echo $resource['link']; ?>"><?php _e('Table of Contents','docs'); ?></a>
                             <?php endif; ?>
