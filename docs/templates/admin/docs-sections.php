@@ -3,7 +3,7 @@ function rd_print_sections($sections,$id, $table=true){
     if($table): ?>
 <?php foreach($sections as $section): ?>
 	<tr align="center" valign="top" class="<?php echo tpl_cycle("even,odd"); ?>" id="sec-<?php echo $section['parent']; ?>-<?php echo $section['id']; ?>">
-		<td align="left">
+		<td align="left"<?php echo $section['jump'] > 0 ? ' style="padding-left: ' . ($section['jump'] * 10 + 8) . 'px"' : ''; ?>>
             <strong><?php echo $section['number']; ?>.
             <a href="?action=edit&amp;sec=<?php echo $section['id']; ?>&amp;id=<?php echo $id; ?>"><?php echo $section['title']; ?></a></strong>
             <span class="cu-item-options">
@@ -14,8 +14,8 @@ function rd_print_sections($sections,$id, $table=true){
             </span>
         </td>
         <td><?php echo $section['author_name']; ?></td>
-        <td><?php echo $section['created']; ?></td>
-        <td><?php echo $section['modified']; ?></td>
+        <td><?php echo formatTimestamp( $section['created'], 's' ); ?></td>
+        <td><?php echo formatTimestamp( $section['modified'], 's' ); ?></td>
         <td><?php echo $section['comments']; ?></td>
 	</tr>
 	<?php 
@@ -63,55 +63,55 @@ function rd_print_sections($sections,$id, $table=true){
         </li>
     </ul>
 </div>
-<div id="table-sections">
-<table class="outer" width="100%" cellspacing="0">
-    <thead>
-	<tr class="head" align="center">
-		<th align="left"><?php _e('Title','docs'); ?></th>
-        <th class="text-center"><?php _e('Author','docs'); ?></th>
-        <th class="text-center"><?php _e('Created','docs'); ?></th>
-        <th class="text-center"><?php _e('Updated','docs'); ?></th>
-        <th class="text-center"><img src="../images/comment.png" alt="<?php _e('Comments','docs'); ?>" title="<?php _e('Comments','docs'); ?>" /></th>
-	</tr>
-    </thead>
-    <tfoot>
-    <tr class="head" align="center">
-        <th align="left"><?php _e('Title','docs'); ?></th>
-        <th class="text-center"><?php _e('Author','docs'); ?></th>
-        <th class="text-center"><?php _e('Created','docs'); ?></th>
-        <th class="text-center"><?php _e('Updated','docs'); ?></th>
-        <th class="text-center"><img src="../images/comment.png" alt="<?php _e('Comments','docs'); ?>" title="<?php _e('Comments','docs'); ?>" /></th>
-    </tr>
-    </tfoot>
-    <tbody>
-        <?php if(empty($sections)): ?>
-        <tr align="center" class="even">
-            <td colspan="6"><?php _e('There are not sections created in this document!','docs'); ?></td>
-        </tr>
-        <?php endif; ?>
-	<?php foreach($sections as $section): ?>
-	<tr align="center" valign="top" class="<?php echo tpl_cycle("even,odd"); ?>" id="sec-<?php echo $section['parent']; ?>-<?php echo $section['id']; ?>">
-		<td align="left">
-            <strong><?php echo $section['number']; ?>.
-            <a href="?action=edit&amp;sec=<?php echo $section['id']; ?>&amp;id=<?php echo $id; ?>"><?php echo $section['title']; ?></a></strong>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title"><?php _e('Existing Sections', 'docs'); ?></h3>
+    </div>
+    <div class="">
+        <div id="table-sections" class="table-responsive">
+            <table class="outer" width="100%" cellspacing="0">
+                <thead>
+                <tr class="head" align="center">
+                    <th align="left"><?php _e('Title','docs'); ?></th>
+                    <th class="text-center"><?php _e('Author','docs'); ?></th>
+                    <th class="text-center"><?php _e('Created','docs'); ?></th>
+                    <th class="text-center"><?php _e('Updated','docs'); ?></th>
+                    <th class="text-center"><?php echo $cuIcons->getIcon('svg-rmcommon-comments', ['title' => __('Comments','docs')]); ?></th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php if(empty($sections)): ?>
+                    <tr align="center" class="even">
+                        <td colspan="6"><?php _e('There are not sections created in this document!','docs'); ?></td>
+                    </tr>
+                <?php endif; ?>
+                <?php foreach($sections as $section): ?>
+                    <tr align="center" valign="top" class="<?php echo tpl_cycle("even,odd"); ?>" id="sec-<?php echo $section['parent']; ?>-<?php echo $section['id']; ?>">
+                        <td align="left">
+                            <strong><?php echo $section['number']; ?>.
+                                <a href="?action=edit&amp;sec=<?php echo $section['id']; ?>&amp;id=<?php echo $id; ?>"><?php echo $section['title']; ?></a></strong>
             <span class="cu-item-options">
                 <a href="./sections.php?action=edit&amp;sec=<?php echo $section['id']; ?>&amp;id=<?php echo $id; ?>"><?php _e('Edit','docs'); ?></a> |
                 <a href="./sections.php?action=delete&amp;sec=<?php echo $section['id']; ?>&amp;id=<?php echo $id; ?>" onclick="return confirm('<?php echo sprintf(__("Do you really wish to delete %s?",'docs'), $section['title']); ?>');"><?php _e('Delete','docs'); ?></a> |
                 <a href="?action=new&amp;id=<?php echo $id; ?>&amp;parent=<?php echo $section['id']; ?>"><?php _e('Add Section','docs'); ?></a> |
                 <a href="<?php echo $section['link']; ?>">View</a>
             </span>
-        </td>
-        <td><?php echo $section['author_name']; ?></td>
-        <td><?php echo formatTimestamp( $section['created'], 's' ); ?></td>
-        <td><?php echo formatTimestamp( $section['modified'], 'l' ); ?></td>
-        <td><?php echo $section['comments']; ?></td>
-	</tr>
-	<?php 
-     rd_print_sections($section['sections'], $id);
-        endforeach; ?>
-    </tbody>
-</table>
+                        </td>
+                        <td><?php echo $section['author_name']; ?></td>
+                        <td><?php echo formatTimestamp( $section['created'], 's' ); ?></td>
+                        <td><?php echo formatTimestamp( $section['modified'], 'l' ); ?></td>
+                        <td><?php echo $section['comments']; ?></td>
+                    </tr>
+                    <?php
+                    rd_print_sections($section['sections'], $id);
+                endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
+
 <div id="sections-sortable">
     <a href="#" class="save-sortable"><?php _e('Save Positions','docs'); ?></a>
     <a href="#" class="cancel-sortable"><?php _e('Cancel','docs'); ?></a>

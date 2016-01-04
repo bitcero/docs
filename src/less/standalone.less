@@ -9,6 +9,7 @@ License:  GPL 2
 */
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic);
 @import url(http://fonts.googleapis.com/css?family=Droid+Serif:700,400);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Mono:400,400italic,700,700italic);
 
 @import 'includes/variables';
 
@@ -129,6 +130,9 @@ article ul {
   line-height: 1.5;
   margin-bottom: 1.4em
 }
+article li{
+  line-height: 1.5;
+}
 .docs-document {
   position: relative;
   width: 100%;
@@ -148,31 +152,47 @@ article ul {
   transition: ease-in-out all 250ms;
   -webkit-transform: translate(-280px);
   -ms-transform: translate(-280px);
-  transform: translate(-280px)
+  transform: translate(-280px);
+
+  ul {
+
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+
+    &.docs-index{
+      > li > a{
+        display: block;
+        line-height: 2.5;
+        width: 100%;
+
+        @media(min-width: 990px){
+          line-height: 1.6;
+        }
+
+      }
+    }
+
+    a {
+      color: #333;
+      text-decoration: none;
+      padding: 5px 15px;
+      display: block
+    }
+
+    .docs-index li a {
+      padding: 0 15px
+    }
+
+    li:hover {
+      background-color: rgba(0, 0, 0, 0.05)
+    }
+
+  }
+
 }
-#docs-resource-index ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  font-size: 14px
-}
-#docs-resource-index ul.docs-index>li>a {
-  display: block;
-  line-height: 2.5;
-  width: 100%
-}
-#docs-resource-index a {
-  color: #333;
-  text-decoration: none;
-  padding: 5px 15px;
-  display: block
-}
-#docs-resource-index .docs-index li a {
-  padding: 0 15px
-}
-#docs-resource-index li:hover {
-  background-color: rgba(0, 0, 0, 0.05)
-}
+
 #docs-resource-content {
   position: absolute;
   top: 0;
@@ -206,7 +226,11 @@ article ul {
 .docs-content-article .docs-content-wrapper .docs-content-inner {
   max-width: 800px;
   margin: 0 auto;
-  padding: 20px 20px 40px 20px
+  padding: 20px 20px 40px 20px;
+
+  img{
+    max-width: 100%;
+  }
 }
 .docs-content-article .docs-content-wrapper .docs-content-inner section header+p:first-letter {
   font-family: 'Droid Serif';
@@ -288,7 +312,8 @@ article ul {
   float: none;
   bottom: 0;
   margin: 0;
-  width: 50%
+  width: 50%;
+  text-decoration: none;
 }
 .document-navigation a.previous {
   left: 0;
@@ -411,6 +436,15 @@ NOTES AND REFERENCES
   }
 }
 
+/* Monospaced Block */
+.docs-monospaced{
+  display: block;
+  padding: 15px;
+  font-size: 1.1em;
+  font-family: 'Roboto Mono', monospace;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
 
 /*
 THEME MAVERICK
@@ -513,6 +547,9 @@ html.theme-maverik{
 
   }
 
+  .docs-monospaced{
+    color: @orange;
+  }
 
 }
 
@@ -533,6 +570,11 @@ html.theme-maverik-inverted{
     }
 
   }
+
+  .docs-monospaced{
+    color: @orange;
+  }
+
 
 }
 
@@ -616,6 +658,11 @@ html.theme-azure{
     }
   }
 
+  .docs-monospaced{
+    color: @azure;
+  }
+
+
 }
 
 html.theme-azure a {
@@ -696,6 +743,11 @@ html.theme-azure-inverted{
       color: #FFF;
       text-decoration: none;
     }
+
+    .docs-monospaced{
+      color: @azure;
+    }
+
 
   }
 
@@ -781,6 +833,11 @@ html.theme-sweet{
 
   }
 
+  .docs-monospaced{
+    color: @purple;
+  }
+
+
 }
 html.theme-sweet a {
   color: #9358ac
@@ -862,6 +919,11 @@ html.theme-ever-green{
     }
 
   }
+
+  .docs-monospaced{
+    color: green;
+  }
+
 }
 html.theme-ever-green body {
   background: #ebeef0

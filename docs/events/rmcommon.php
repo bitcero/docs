@@ -23,7 +23,7 @@ class DocsRmcommonPreload{
         
         if(defined('RMCSUBLOCATION') && RMCSUBLOCATION=='notes_list'){
             include_once '../include/admin-widgets.php';
-            $widgets[] = rd_widget_newnote();
+            //$widgets[] = rd_widget_newnote();
         }
         
         return $widgets;
@@ -67,6 +67,7 @@ class DocsRmcommonPreload{
         $rmCodes->add( 'note', 'rd_build_note' );
         $rmCodes->add( 'figure', 'rd_build_figure' );
         $rmCodes->add( 'table_responsive', 'rd_build_table' );
+        $rmCodes->add( 'monospaced', 'docs_monospaced_block' );
 
     }
 

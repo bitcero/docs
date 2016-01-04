@@ -49,31 +49,6 @@ function assignSectionTree($parent = 0, $jumps = 0, AHResource $res, $var = 'ind
 	return true;
 }
 
-/**
-* @desc Obtiene el primer parent de la sección especificada
-* @param int Id de la sección
-*/
-
-
-function ahBuildReference($id){
-	global $xoopsModuleConfig, $tpl;
-	
-	$ref = new AHReference($id);
-	if ($ref->isNew()) return;
-
-	$ret = "<a name='top$id'></a><a href='javascript:;' ".(!$xoopsModuleConfig['refs_method'] ? "title='".$ref->title()."' " : " ");
-	if ($xoopsModuleConfig['refs_method']){
-		$ret .= "onclick=\"doReference(event,'$id');\"";
-	} else {
-		$ret .= "onclick=\"showReference($id,'$xoopsModuleConfig[refs_color]');\"";
-		$tpl->append('references', array('id'=>$ref->id(),'text'=>$ref->reference()));
-		$tpl->assign('have_refs', 1);
-	}
-	$ret .= "><img src='".XOOPS_URL."/modules/ahelp/images/reflink.png' align='textop' ".(!$xoopsModuleConfig['refs_method'] ? "alt='".$ref->title()."'" : "")." /></a>";
-	
-	return $ret;
-}
-
 function ahBuildFigure($id){
     
     $fig = new AHFigure($id);

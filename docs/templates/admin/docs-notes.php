@@ -42,48 +42,44 @@
         </div>
     </div>
 
-    <div class="table-responsive">
-        <table class="table table-striped">
-            <thead>
-            <tr class="head" align="center">
-                <th width="20"><input type="checkbox" id="checkall" onclick='$("#frm-notes").toggleCheckboxes(":not(#checkall)");' /></th>
-                <th width="20"><?php _e('ID','docs'); ?></th>
-                <th align="left"><?php _e('Title','docs'); ?></th>
-                <th align="left"><?php _e('Content','docs'); ?></th>
-            </tr>
-            </thead>
-            <tfoot>
-            <tr class="head" align="center">
-                <th width="20"><input type="checkbox" id="checkall" onclick='$("#frm-notes").toggleCheckboxes(":not(#checkall)");' /></th>
-                <th width="20"><?php _e('ID','docs'); ?></th>
-                <th align="left"><?php _e('Title','docs'); ?></th>
-                <th align="left"><?php _e('Content','docs'); ?></th>
-            </tr>
-            </tfoot>
-            <tbody>
-            <?php if(empty($notes)): ?>
-                <tr class="even" align="center">
-                    <td colspan="4"><?php _e('There are not notes created for this Document.','docs'); ?></td>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title"><?php _e('Existing Notes', 'docs'); ?></h3>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                <tr class="head" align="center">
+                    <th width="20"><input type="checkbox" id="checkall" onclick='$("#frm-notes").toggleCheckboxes(":not(#checkall)");' /></th>
+                    <th width="20"><?php _e('ID','docs'); ?></th>
+                    <th align="left"><?php _e('Title','docs'); ?></th>
+                    <th align="left"><?php _e('Content','docs'); ?></th>
                 </tr>
-            <?php endif; ?>
-            <?php foreach($notes as $note): ?>
-                <tr class="<?php echo tpl_cycle('even,odd'); ?>" valign="top">
-                    <td align="center"><input type="checkbox" name="ids[]" value="<?php echo $note['id']; ?>" id="item-<?php echo $note['id']; ?>" /></td>
-                    <td align="center"><?php echo $note['id']; ?></td>
-                    <td><a id="note<?php echo $note['id']; ?>"></a>
-                        <strong><?php echo $note['title']; ?></strong>
+                </thead>
+                <tbody>
+                <?php if(empty($notes)): ?>
+                    <tr class="even" align="center">
+                        <td colspan="4" class="text-blue"><?php _e('There are not notes created for this Document.','docs'); ?></td>
+                    </tr>
+                <?php endif; ?>
+                <?php foreach($notes as $note): ?>
+                    <tr class="<?php echo tpl_cycle('even,odd'); ?>" valign="top">
+                        <td align="center"><input type="checkbox" name="ids[]" value="<?php echo $note['id']; ?>" id="item-<?php echo $note['id']; ?>" /></td>
+                        <td align="center"><?php echo $note['id']; ?></td>
+                        <td><a id="note<?php echo $note['id']; ?>"></a>
+                            <strong><?php echo $note['title']; ?></strong>
                 <span class="cu-item-options">
                     <a href="?action=edit&amp;res=<?php echo $id_res; ?>&amp;id=<?php echo $note['id']; ?>"><?php _e('Edit','docs'); ?></a> |
                     <a href="javascript:;" onclick="rd_check_delete(<?php echo $note['id']; ?>, 'frm-notes');"><?php _e('Delete','docs'); ?></a>
                 </span>
-                    </td>
-                    <td><?php echo $note['text']; ?></td>
-                </tr>
-            <?php endforeach; ?>
-            </tbody>
-        </table>
+                        </td>
+                        <td><?php echo $note['text']; ?></td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
     </div>
-
 
     <div class="cu-bulk-actions">
 

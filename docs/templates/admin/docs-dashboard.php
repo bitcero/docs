@@ -58,14 +58,14 @@
 </script>
 <?php endif; ?>
 
-<div class="row" data-news="load" data-boxes="load" data-module="docs" data-target="#docs-news">
+<div class="row" data-news="load" data-boxes="load" data-module="docs" data-target="#docs-news" data-container="dashboard" data-box="docs-dashboard">
 
-    <div class="col-md-5" data-box="docs-box-left">
+    <div class="size-1" data-dashboard="item">
 
         <!-- Resume -->
-        <div class="cu-box">
+        <div class="cu-box box-primary">
             <div class="box-header">
-                <h3><?php _e('RapidDocs Resume','docs'); ?></h3>
+                <h3 class="box-title"><?php _e('Documentor Resume','docs'); ?></h3>
             </div>
             <div id="box-content">
 
@@ -92,16 +92,19 @@
         </div>
         <!-- End Resume -->
 
+    </div>
+
+    <div class="size-1" data-dashboard="item">
         <!-- Waiting -->
         <div class="cu-box">
             <div class="box-header">
                 <span class="fa fa-caret-up box-handler"></span>
-                <h3><?php _e('Documents waiting for approval','docs'); ?></h3>
+                <h3 class="box-title"><?php _e('Documents waiting for approval','docs'); ?></h3>
             </div>
             <div class="box-content">
 
                 <?php if ( empty( $noapproved) ): ?>
-                <span class="text-info">
+                    <span class="text-info">
                     <?php _e('There are not content waiting for approval', 'docs'); ?>
                 </span>
                 <?php endif; ?>
@@ -117,12 +120,14 @@
 
         </div>
         <!-- End Wating -->
+    </div>
 
+    <div class="size-1" data-dashboard="item">
         <!-- Drafts -->
         <div class="cu-box">
             <div class="box-header">
                 <span class="fa fa-caret-up box-handler"></span>
-                <h3><?php _e('Drafts','docs'); ?></h3>
+                <h3 class="box-title"><?php _e('Drafts','docs'); ?></h3>
             </div>
             <div class="box-content">
                 <?php if ( empty( $nopublished) ): ?>
@@ -141,37 +146,32 @@
             </div>
         </div>
         <!-- End Drafts -->
-
-        <?php echo RMEvents::get()->run_event('docs.dashboard.left.blocks'); ?>
-
     </div>
 
-    <div class="col-md-7" data-box="docs-box-right">
-
+    <div class="size-2" data-dashboard="item">
         <!-- Top Documents -->
-        <div class="cu-box">
+        <div class="cu-box box-blue-grey">
             <div class="box-header">
                 <span class="fa fa-caret-up box-handler"></span>
-                <h3><?php _e('Top Documents','docs'); ?></h3>
+                <h3 class="box-title"><?php _e('Top Documents','docs'); ?></h3>
             </div>
             <div class="box-content">
                 <div id="rd-top-resources"><?php if(empty($top_data)): ?><?php _e('There are not documents to show here.','docs'); ?><?php else: ?>&nbsp;<?php endif; ?></div>
             </div>
         </div>
         <!-- End Top Documents -->
+    </div>
 
+    <div class="size-1" data-dashboard="item">
         <div class="cu-box">
             <div class="box-header">
                 <span class="fa fa-caret-up box-handler"></span>
-                <h3><?php _e('Documentor News', 'docs'); ?></h3>
+                <h3 class="box-title"><?php _e('Documentor News', 'docs'); ?></h3>
             </div>
             <div class="box-content" id="docs-news">
 
             </div>
         </div>
-
-        <?php echo RMEvents::get()->run_event('docs.dashboard.right.blocks'); ?>
-
     </div>
 
 </div>

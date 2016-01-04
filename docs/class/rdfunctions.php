@@ -10,14 +10,6 @@
 
 class RDFunctions
 {
-    public function toolbar()
-    {
-        RMTemplate::get()->add_tool(__('Dashboard', 'docs'), './index.php', '../images/dashboard.png', 'dashboard');
-        RMTemplate::get()->add_tool(__('Documents', 'docs'), './resources.php', '../images/book.png', 'resources');
-        RMTemplate::get()->add_tool(__('Sections', 'docs'), './sections.php', '../images/section.png', 'sections');
-        RMTemplate::get()->add_tool(__('Notes', 'docs'), './notes.php', '../images/notes.png', 'notes');
-        RMTemplate::get()->add_tool(__('Figures', 'docs'), './figures.php', '../images/figures.png', 'figures');
-    }
 
     /**
      * Get the HTMl code for editor plugin
@@ -27,7 +19,7 @@ class RDFunctions
         global $xoopsModule;
 
         if (defined('RMCSUBLOCATION') && 'newresource' == RMCSUBLOCATION) {
-            $id_res = RMHttpRequest::get('id');
+            $id_res = RMHttpRequest::get('id', 'integer', 0);
         }
 
         ob_start();
@@ -593,6 +585,7 @@ class RDFunctions
         global $xoopsTpl, $xoopsModuleConfig;
 
         RMTemplate::get()->add_style('standalone.min.css', 'docs');
+        RMTemplate::get()->add_style('font-awesome.min.css', 'rmcommon');
         RMTemplate::get()->add_script('jquery.ck.js', 'rmcommon');
         //RMTemplate::get()->add_head('<link rel="stylesheet" type="text/css" media="all" href="'.$xoopsModuleConfig['standalone_css'].'" />');
         $rd_contents = ob_get_clean();

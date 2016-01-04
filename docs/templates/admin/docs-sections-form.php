@@ -24,43 +24,46 @@ $(document).ready(function(){
     <?php endif; ?>
     <?php echo $editor->render(); ?>
     <br />
-    <table width="100%" cellspacing="0" class="table table-bordered">
-        <tr>
-            <td>
-            <div>
-                <div class="th"><?php _e('Section Author:','docs'); ?></div>
-                <div class="even" style="text-align: center;">
-                    <?php echo $usrfield->render(); ?>
-                </div>
-            </div>
-            </td>
-            <td>
-                <table class="table">
-                    <tr><th align="left" colspan="3"><?php _e('Sections Options','docs'); ?></th></tr>
-                    <tr class="even section_options">
-                        <td>
-                            <label for="sec-parent"><?php _e('Parent section:','docs'); ?></label>
-                            <select name="parent" id="sec-parent" class="form-control">
-                                <option value=""><?php _e('Select...','docs'); ?></option>
-                                <?php foreach($sections as $k): ?>
-                                <option value="<?php echo $k['id_sec']; ?>"<?php if(isset($sec) && $sec->getVar('parent')==$k['id_sec']): ?> selected="selected"<?php elseif(isset($parent) && $parent==$k['id_sec']): ?> selected="selected"<?php endif; ?>><?php echo str_repeat('&#8212;', $k['saltos']).' '.$k['title']; ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                        </td>
-                        <td>
-                             <label for="sec-order"><?php _e('Display order:','docs'); ?></label>
-                             <input class="form-control" type="text" size="5" id="sec-order" name="order" value="<?php echo isset($sec) ? $sec->getVar('order') : $order++; ?>" />
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
-    <br />
+
+    <div class="panel panel-default">
+        <table width="100%" cellspacing="0" class="table table-bordered">
+            <tr>
+                <td>
+                    <div>
+                        <div class="th"><?php _e('Section Author:','docs'); ?></div>
+                        <div class="even" style="text-align: center;">
+                            <?php echo $usrfield->render(); ?>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <table class="table">
+                        <tr><th align="left" colspan="3"><?php _e('Sections Options','docs'); ?></th></tr>
+                        <tr class="even section_options">
+                            <td>
+                                <label for="sec-parent"><?php _e('Parent section:','docs'); ?></label>
+                                <select name="parent" id="sec-parent" class="form-control">
+                                    <option value=""><?php _e('Select...','docs'); ?></option>
+                                    <?php foreach($sections as $k): ?>
+                                        <option value="<?php echo $k['id_sec']; ?>"<?php if(isset($sec) && $sec->getVar('parent')==$k['id_sec']): ?> selected="selected"<?php elseif(isset($parent) && $parent==$k['id_sec']): ?> selected="selected"<?php endif; ?>><?php echo str_repeat('&#8212;', $k['saltos']).' '.$k['title']; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </td>
+                            <td>
+                                <label for="sec-order"><?php _e('Display order:','docs'); ?></label>
+                                <input class="form-control" type="text" size="5" id="sec-order" name="order" value="<?php echo isset($sec) ? $sec->getVar('order') : $order++; ?>" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+
     <div class="cu-box">
         <div class="box-header">
             <span class="fa fa-caret-up box-handler"></span>
-            <h3><?php _e('Custom Fields','docs'); ?></h3>
+            <h3 class="box-title"><?php _e('Custom Fields','docs'); ?></h3>
         </div>
         <div class="box-content">
             <table id="metas-container" class="table<?php echo !$edit || (!isset($sec) && !$sec->metas()) ? ' rd_hidden' : ''; ?>" cellspacing="0" width="100%" />

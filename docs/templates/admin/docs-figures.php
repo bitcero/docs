@@ -48,46 +48,51 @@
 
     </div>
 
-    <div class="table-responsive">
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th width="20"><input type="checkbox" id="checkall" onclick='$("#frm-figures").toggleCheckboxes(":not(#checkall)");' /></th>
-                <th width="20"><?php _e('ID','docs'); ?></th>
-                <th><?php _e('Title','docs'); ?></th>
-                <th><?php _e('Description','docs'); ?></th>
-            </tr>
-            </thead>
-            <tfoot>
-            <tr align="center">
-                <th width="20"><input type="checkbox" id="checkall" onclick='$("#frm-figures").toggleCheckboxes(":not(#checkall)");' /></th>
-                <th width="20"><?php _e('ID','docs'); ?></th>
-                <th><?php _e('Title','docs'); ?></th>
-                <th><?php _e('Description','docs'); ?></th>
-            </tr>
-            </tfoot>
-            <tbody>
-            <?php if(empty($figures)): ?>
-                <tr class="text-center">
-                    <td colspan="4"><?php _e('There are not figures created for this Document.','docs'); ?></td>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title"><?php _e('Existing Figures', 'docs'); ?></h3>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th width="20"><input type="checkbox" id="checkall" onclick='$("#frm-figures").toggleCheckboxes(":not(#checkall)");' /></th>
+                    <th width="20"><?php _e('ID','docs'); ?></th>
+                    <th><?php _e('Title','docs'); ?></th>
+                    <th><?php _e('Description','docs'); ?></th>
                 </tr>
-            <?php endif; ?>
-            <?php foreach($figures as $fig): ?>
-                <tr valign="top">
-                    <td class="text-center"><input type="checkbox" name="ids[]" value="<?php echo $fig['id']; ?>" id="item-<?php echo $fig['id']; ?>" /></td>
-                    <td class="text-center"><?php echo $fig['id']; ?></td>
-                    <td><a id="figure<?php echo $fig['id']; ?>"></a>
-                        <strong><?php echo $fig['title']; ?></strong>
+                </thead>
+                <tfoot>
+                <tr align="center">
+                    <th width="20"><input type="checkbox" id="checkall" onclick='$("#frm-figures").toggleCheckboxes(":not(#checkall)");' /></th>
+                    <th width="20"><?php _e('ID','docs'); ?></th>
+                    <th><?php _e('Title','docs'); ?></th>
+                    <th><?php _e('Description','docs'); ?></th>
+                </tr>
+                </tfoot>
+                <tbody>
+                <?php if(empty($figures)): ?>
+                    <tr class="text-center">
+                        <td colspan="4"><?php _e('There are not figures created for this Document.','docs'); ?></td>
+                    </tr>
+                <?php endif; ?>
+                <?php foreach($figures as $fig): ?>
+                    <tr valign="top">
+                        <td class="text-center"><input type="checkbox" name="ids[]" value="<?php echo $fig['id']; ?>" id="item-<?php echo $fig['id']; ?>" /></td>
+                        <td class="text-center"><?php echo $fig['id']; ?></td>
+                        <td><a id="figure<?php echo $fig['id']; ?>"></a>
+                            <strong><?php echo $fig['title']; ?></strong>
                 <span class="cu-item-options">
                     <a href="?action=edit&amp;res=<?php echo $id_res; ?>&amp;id=<?php echo $fig['id']; ?>"><?php _e('Edit','docs'); ?></a> |
                     <a href="javascript:;" onclick="rd_check_delete(<?php echo $fig['id']; ?>, 'frm-figures');"><?php _e('Delete','docs'); ?></a>
                 </span>
-                    </td>
-                    <td><?php echo $fig['text']; ?></td>
-                </tr>
-            <?php endforeach; ?>
-            </tbody>
-        </table>
+                        </td>
+                        <td><?php echo $fig['text']; ?></td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <div class="cu-bulk-actions">

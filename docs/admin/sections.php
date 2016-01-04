@@ -46,7 +46,7 @@ function child(&$sections, $id,$parent,$indent){
 }
 
 function rd_show_sections(){
-	global $xoopsModule, $xoopsSecurity;
+	global $xoopsModule, $xoopsSecurity, $cuIcons;
 
 	$id= RMHttpRequest::get( 'id', 'integer', 0);
     if($id<=0){
@@ -76,6 +76,10 @@ function rd_show_sections(){
     //Secciones
     $sections = array();
     RDFunctions::sections_tree_index(0,0,$res,'','',false,$sections,false,true);
+
+    $bc = RMBreadCrumb::get();
+    $bc->add_crumb( __('Documents', 'docs'), 'resources.php', 'fa fa-book' );
+    $bc->add_crumb(__('Sections', 'docs'));
     
     // Event
     $sections = RMEvents::get()->run_event('docs.loading.sections', $sections);

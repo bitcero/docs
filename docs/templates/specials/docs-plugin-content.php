@@ -21,12 +21,6 @@
                     <?php _e('Insert Note', 'docs'); ?>
                 </a>
             </li>
-            <li>
-                <a href="#">
-                    <span class="icon icon-stats-bars"></span>
-                    <?php _e('Insert Figure', 'docs'); ?>
-                </a>
-            </li>
         <?php endif; ?>
     </ul>
 </div>

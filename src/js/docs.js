@@ -27,12 +27,45 @@
  */
 
 var contentNavigator = {
-    navigate: function (t, e) {
-        return "" != t ? ($.get(t, {
-            hideIndex: 1
-        }, function (o) {
-            return "error" == o.type ? ($("#docs-resource-content").html('<div class="text-center"><span class="label label-danger">' + o.message + "</span></div>"), !1) : (e && window.history.pushState({}, "", t), $("html title").html(o.title), $("#docs-resource-content").html(o.content), contentNavigator.navigation(o.id), void $("#docs-resource-index a").trigger("update"))
-        }, "json"), !1) : void 0
+    navigate: function (url, pushState) {
+
+        if ( url == '' )
+            return;
+
+        $.get( url, {hideIndex:1}, function( response ){
+
+            if ( response.type == 'error' ){
+
+                $("#docs-resource-content").html('<div class="text-center"><span class="label label-danger">' + response.message + '</span></div>');
+                return false;
+
+            }
+
+            if (pushState) {
+                window.history.pushState({}, '', url);
+            }
+
+            $("html title").html(response.title);
+
+            $("#docs-resource-content").html( response.content );
+
+            // Added for Prism
+            if( undefined != Prism ){
+                $("pre > code").each(function(){
+
+                    Prism.highlightElement($(this)[0], true);
+
+                });
+            }
+
+            contentNavigator.navigation( response.id );
+
+            $("#docs-resource-index a").trigger('update');
+
+        }, 'json');
+
+        return false;
+
     },
     navigation: function (t) {
         var e, o, n = $("#docs-resource-index ul li"),
@@ -120,6 +153,7 @@ var contentNavigator = {
         }
     }
 };
+
 $(document).ready(function () {
     window.onpopstate = function (t) {
         contentNavigator.navigate(window.location.href, !1)
@@ -152,9 +186,6 @@ $(document).ready(function () {
     }), contentNavigator.navigate(window.location.href, !1), $(".note-link").click(function () {
         var t = $(this).attr("href").replace("#note-", "");
         $("#note-" + t).effect("highlight", {}, 5e3)
-    }), $("#docs-resource-index").length > 0 && $("#docs-resource-index a").dotdotdot({
-        watch: "window",
-        wrap: "letter"
     }), $("body").on("click", ".toggle-summary", function () {
         return $("html").toggleClass("with-index"), !1
     }), $("body").on("click", ".toggle-align", function () {
@@ -175,7 +206,7 @@ $(document).ready(function () {
             type: $("#link-dialog .sections-list").data("type")
         };
         $.post("sections.php", e, function (t) {
-            cuHandler.retrieveAjax(t) && $("#link-dialog .cudialogs-body").html(t.content)
+            cuHandler.retrieveAjax(t) && $("#link-dialog .modal-body").html(t.content)
         }, "json")
     }), $("body").on("click", "#link-dialog .books-list a", function () {
         var t = $(this).data("id"),
@@ -191,8 +222,9 @@ $(document).ready(function () {
             type: $("#link-dialog .sections-list").data("type")
         };
         o.find(".icon-book").removeClass("icon icon-book").addClass("fa fa-spinner fa-pulse"), $.post("sections.php", i, function (t) {
-            cuHandler.retrieveAjax(t) && $("#link-dialog .cudialogs-body").html(t.content)
-        }, "json")
+            cuHandler.retrieveAjax(t) && $("#link-dialog .modal-body").html(t.content);
+        }, "json");
+        return false;
     }), $("body").on("click", "#link-dialog .sections-list a", function () {
         var link = $(this).data("link"),
             title = $(this).data("title");
@@ -268,7 +300,7 @@ $(document).ready(function () {
                 action: "insert-notes"
             };
         return $(this).html('<span class="fa fa-spinner fa-spin"></span>'), $.post("sections.php", n, function (t) {
-            return cuHandler.retrieveAjax(t) ? ($("#notes-dialog .cudialogs-body").html(t.content), !1) : void 0
+            return cuHandler.retrieveAjax(t) ? ($("#notes-dialog .modal-body").html(t.content), !1) : void 0
         }, "json"), !1
     }), $("body").on("click", "#notes-dialog .search-box .btn", function () {
         var t = $("#notes-dialog .search-box > input").val();
@@ -285,7 +317,13 @@ $(document).ready(function () {
                 action: "insert-notes"
             };
         return $(this).html('<span class="fa fa-spinner fa-spin"></span>'), $.post("sections.php", n, function (t) {
-            return cuHandler.retrieveAjax(t) ? ($("#notes-dialog .cudialogs-body").html(t.content), !1) : void 0
+            return cuHandler.retrieveAjax(t) ? ($("#notes-dialog .modal-body").html(t.content), !1) : void 0
         }, "json"), !1
-    })
+    });
+
+    if ($("#docs-resource-index").length){
+
+        $("#docs-resource-index").perfectScrollbar();
+
+    }
 });

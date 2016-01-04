@@ -35,8 +35,8 @@ function rd_widget_options(){
         </div>
 
         <div class="form-group">
-            <input type="submit" value="<?php _e('Save Section','docs'); ?>" onclick="$('#frm-section').submit();" />
-            <input type="button" value="<?php _e('Discard Section','docs'); ?>" onclick="window.location.href = 'sections.php?id=<?php echo $res->id(); ?>';" />
+            <input type="submit" class="btn btn-primary" value="<?php _e('Save','docs'); ?>" onclick="$('#frm-section').submit();" />
+            <input type="button" class="btn btn-default" value="<?php _e('Discard','docs'); ?>" onclick="window.location.href = 'sections.php?id=<?php echo $res->id(); ?>';" />
         </div>
 
     </form>

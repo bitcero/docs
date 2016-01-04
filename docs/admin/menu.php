@@ -19,30 +19,30 @@ if(RMCLOCATION=='sections'){
 //Inicio
 $adminmenu[0]['title'] = __('Dashboard','docs');
 $adminmenu[0]['link'] = "admin/index.php";
-$adminmenu[0]['icon'] = "../images/dashboard.png";
+$adminmenu[0]['icon'] = "svg-rmcommon-dashboard";
 $adminmenu[0]['location'] = "dashboard";
 
 // Home page
 $adminmenu[1]['title'] = __('Home Page','docs');
 $adminmenu[1]['link'] = "admin/hpage.php";
-$adminmenu[1]['icon'] = "../images/homepage.png";
+$adminmenu[1]['icon'] = "svg-rmcommon-home text-green";
 $adminmenu[1]['location'] = "homepage";
 
 //Publicaciones
 $adminmenu[2]['title'] = __('Documents','docs');
 $adminmenu[2]['link'] = "admin/resources.php";
-$adminmenu[2]['icon'] = "../images/book.png";
+$adminmenu[2]['icon'] = "svg-rmcommon-book text-teal";
 $adminmenu[2]['location'] = "resources";
 $adminmenu[2]['options'] = array(
 	array('title'=>__('All Documents','docs'), 'link'=>'admin/resources.php', 'selected'=>'resources', 'icon' => 'fa fa-files-o'),
-	array('title'=>__('New Document','docs'), 'link'=>'admin/resources.php?action=new', 'selected'=>'newresource', 'icon' => 'fa fa-plus'),
-	array('title'=>__('Drafts','docs'), 'link'=>'admin/resources.php?action=drafts', 'selected'=>'drafts', 'icon' => 'fa fa-eraser')
+    array('title'=>__('Drafts','docs'), 'link'=>'admin/resources.php?action=drafts', 'selected'=>'drafts', 'icon' => 'fa fa-eraser'),
+	array('title'=>__('New Document','docs'), 'link'=>'admin/resources.php?action=new', 'selected'=>'newresource', 'icon' => 'fa fa-plus')
 );
 
 //Secciones
 $adminmenu[3]['title'] = __('Sections','docs');
 $adminmenu[3]['link'] = "admin/sections.php?id=".$res;
-$adminmenu[3]['icon'] = "../images/section.png";
+$adminmenu[3]['icon'] = "svg-rmcommon-docs text-orange";
 $adminmenu[3]['location'] = "sections";
 $adminmenu[3]['options'] = array(
     array('title'=>__('All sections','docs'), 'link'=>'admin/sections.php?id='.$res, 'selected'=>'sections', 'icon' => 'fa fa-puzzle-piece'),
@@ -52,13 +52,13 @@ $adminmenu[3]['options'] = array(
 //Referencias
 $adminmenu[4]['title'] = __('Notes','docs');
 $adminmenu[4]['link'] = "admin/notes.php?res=".$res;
-$adminmenu[4]['icon'] = "../images/notes.png";
+$adminmenu[4]['icon'] = "svg-rmcommon-note text-orange";
 $adminmenu[4]['location'] = "notes";
 
 //Figuras
 $adminmenu[5]['title'] = __('Figures','docs');
 $adminmenu[5]['link'] = "admin/figures.php?res=".$res;
-$adminmenu[5]['icon'] = "../images/figures.png";
+$adminmenu[5]['icon'] = "svg-rmcommon-frame text-deep-orange";
 $adminmenu[5]['location'] = "figures";
 $adminmenu[5]['options'] = array(
     array('title'=>__('All figures','docs'), 'link'=>'admin/figures.php?res='.$res, 'selected'=>'figures'),
@@ -68,6 +68,6 @@ $adminmenu[5]['options'] = array(
 //Ediciones
 $adminmenu[6]['title'] = __('Waiting','docs');
 $adminmenu[6]['link'] = "./admin/edits.php";
-$adminmenu[6]['icon'] = "../images/waiting.png";
+$adminmenu[6]['icon'] = "svg-rmcommon-sand-clock text-blue-grey";
 $adminmenu[6]['location'] = "waiting";
 

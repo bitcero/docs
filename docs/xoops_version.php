@@ -52,16 +52,12 @@ $modversion = array(
      */
     'rmnative'      => 1,
     'url'           => 'https://github.com/bitcero/docs',
-    'rmversion'     => array('major'=>1,'minor'=>0,'revision'=>21,'stage'=>-2, 'name'=>'Documentor'),
+    'rmversion'     => array('major'=>1,'minor'=>0,'revision'=>25,'stage'=>-2, 'name'=>'Documentor'),
     'rewrite'       => 0,
     'permissions'   => 'include/permissions.php',
     'updateurl'     => "http://www.xoopsmexico.net/modules/vcontrol/",
 
     # Icons
-    'icon16'        => 'images/icon16.png',
-    'icon24'        => 'images/icon24.png',
-    'icon32'        => 'images/icon32.png',
-    'icon48'        => 'images/icon48.png',
     'icon'          => 'fa fa-book text-teal',
 
     # Credits

@@ -6,7 +6,8 @@
             <section id="section-<?php echo $section->id(); ?>" class="doc-section is-header">
                 <header>
                     <a name="<?php echo $section->nameid; ?>"></a>
-                    <h<?php echo $level <= 6 ? $level : 6; ?> class="section-title"><?php echo $number; ?> <?php echo $section->title; ?></h<?php echo $level <= 6 ? $level : 6; ?>>
+                    <?php /*h<?php echo $level <= 6 ? $level : 6; ?> class="section-title"><?php echo $number; ?> <?php echo $section->title; ?></h<?php echo $level <= 6 ? $level : 6; ?>*/?>
+                    <h1 class="section-title"><?php echo $number; ?> <?php echo $section->title; ?></h1>
                 </header>
 
                 <?php echo $section->content; ?>

@@ -19,8 +19,7 @@
             <?php foreach ($books as $book): ?>
                 <li>
                     <a href="#" data-id="<?php echo $book['id']; ?>" data-owner="<?php echo $user; ?>">
-                        <span class="<?php echo $res && $res->id() == $book['id'] ? 'icon icon-circle-right' : 'icon icon-book'; ?> pull-right"></span>
-                        <span class="fa fa-caret-right"></span>
+                        <span class="<?php echo $res && $res->id() == $book['id'] ? 'icon icon-circle-right' : 'icon icon-book'; ?>"></span>
                         <?php echo $book['title']; ?>
                     </a>
                 </li>

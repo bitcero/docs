@@ -1,0 +1,133 @@
+.the-books{
+
+  padding: 15px;
+  background-color: @gray-lighter;
+  margin: -15px -15px 15px -15px;
+  max-height: 200px;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  .books-list{
+    margin-top: 15px;
+
+    > ul{
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      > li{
+        border-bottom:1px solid rgba(0,0,0,0.1);
+
+        a{
+          padding: 7px 0;
+          display: block;
+          font-size: 0.85em;
+          text-transform: uppercase;
+
+          .icon{
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+  }
+
+  @media(min-width: @screen-sm-min){
+    height: 350px;
+    max-height: 350px;
+    width: 270px;
+    float: left;
+    margin: -15px 0 -15px -15px;
+  }
+
+}
+
+.sections-list{
+
+  .the-title{
+    font-weight:700;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    display: block;
+    padding: 0 0 5px 0;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+  }
+
+  .the-list{
+    ul{
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li{
+        > a{
+          display: block;
+          padding: 5px 0;
+          color: @text-color;
+
+          > .icon{
+            color: @brand-primary;
+          }
+
+          &:hover{
+            color: @brand-primary;
+
+            > .icon{
+              color: @color-pink;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media(min-width: @screen-sm-min){
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 350px;
+    max-height: 350px;
+    margin-left: 255px;
+    margin-top: -15px;
+    margin-bottom: -15px;
+    padding: 15px;
+  }
+
+}
+
+.dialog-commands{
+  margin: -15px -15px 0 -15px;
+  background-color: @gray-lighter;
+  padding: 15px 15px 0;
+}
+
+.notes-list{
+
+  margin: 0 -15px 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  table{
+    margin: 0;
+  }
+
+  @media(min-width: @screen-sm-min){
+    max-height: 350px;
+  }
+
+}
+
+.notes-creator{
+  background-color: @gray-lighter;
+  padding: 15px;
+  margin: 0 -15px -15px;
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+#link-dialog{
+  .modal-body{
+    @media(min-width: @screen-sm-min){
+      padding-right: 0;
+    }
+  }
+}

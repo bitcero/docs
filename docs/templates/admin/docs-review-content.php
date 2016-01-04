@@ -5,8 +5,10 @@
     <div class="col-md-8">
 
         <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><?php echo $page->title; ?></h3>
+            </div>
             <div class="panel-body detected-links">
-                <h3><?php echo $page->title; ?></h3>
                 <?php echo preg_replace_callback( "/\[\[([^\[\]]+)\]\]/", function($m){
                     return '<strong class="link">' . $m[0] . '</strong>';
                 }, $page->content ); ?>

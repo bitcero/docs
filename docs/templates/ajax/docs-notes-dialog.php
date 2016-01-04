@@ -4,20 +4,24 @@
      data-id="<?php echo $res->id(); ?>">
     <div class="row">
         <div class="col-sm-6">
-            <div class="input-group search-box">
-                <input type="text" class="form-control" value="<?php echo $search; ?>" placeholder="<?php _e('Search for notes...', 'docs'); ?>">
+            <div class="form-group">
+                <div class="input-group search-box">
+                    <input type="text" class="form-control" value="<?php echo $search; ?>" placeholder="<?php _e('Search for notes...', 'docs'); ?>">
                 <span class="input-group-btn">
                     <button class="btn btn-default" type="button">
                         <span class="fa fa-search"></span>
                     </button>
                 </span>
+                </div>
             </div>
         </div>
         <div class="col-sm-6">
-            <a href="#" class="btn btn-default show-creator">
-                <span class="icon icon-plus text-success"></span>
-                <?php _e('Create Note', 'docs'); ?>
-            </a>
+            <div class="form-group">
+                <a href="#" class="btn btn-default show-creator">
+                    <span class="icon icon-plus text-success"></span>
+                    <?php _e('Create Note', 'docs'); ?>
+                </a>
+            </div>
         </div>
     </div>
 </div>
@@ -41,7 +45,7 @@
                     <td>
                         <?php echo $note['text']; ?>
                     </td>
-                    <td>
+                    <td class="text-right">
                         <a href="#" class="btn btn-default btn-sm insert-note" data-id="<?php echo $note['id']; ?>">
                             <span class="icon icon-share"></span>
                             <?php _e('Insert', 'docs'); ?>

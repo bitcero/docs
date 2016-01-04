@@ -81,7 +81,8 @@ function show_resources( $public = 1 ){
     RMTemplate::get()->add_head_script('var rd_message = "'.__('Do you really wish to delete selected Documents?','docs').'";
     var rd_select_message = "'.__('You must select an element before to do this action!','docs').'";');
     
-	xoops_cp_location("<a href='./'>".$xoopsModule->name()."</a> &raquo; ".__('Documents','docs'));
+	$bc = RMBreadCrumb::get();
+    $bc->add_crumb(__('Resources', 'docs'));
 
 	xoops_cp_header();
 	
@@ -127,10 +128,24 @@ function rd_show_form($edit=0){
 
 	$form = new RMForm($edit ? sprintf(__('Edit Document: %s','docs'), $res->getVar('title')) : __('New Document','docs'),'frmres','resources.php');
 	
-	$form->addElement(new RMFormText(__('Document title', 'docs'),'title',50,150,$edit ? $res->getVar('title') : ''),true);
-	if ($edit) $form->addElement(new RMFormText(__('Document slug', 'docs'),'nameid',50,150,$res->getVar('nameid')));
+	$form->addElement(new RMFormText(array(
+        'caption' => __('Document title', 'docs'),
+        'name' => 'title',
+        'id' => 'title',
+        'value' => $edit ? $res->title : '',
+        'class' => 'form-control'
+    )),true);
+	if ($edit){
+        $form->addElement(new RMFormText(array(
+            'caption' => __('Document slug', 'docs'),
+            'name' => 'nameid',
+            'id' => 'nameid',
+            'value' => $res->getVar('nameid'),
+            'class' => 'form-control'
+        )));
+    }
 
-    $form->addElement(new RMFormEditor( __('Description', 'docs'),'desc', '100%', '400px', $edit ? $res->getVar('description', $cuSettings->editor_type == 'tiny' ? 'e' : '') : ''),true);
+    $form->addElement(new RMFormEditor( __('Description', 'docs'),'description', '100%', '400px', $edit ? $res->getVar('description', $cuSettings->editor_type == 'tiny' ? 'e' : '') : ''),true);
 
 	$select = new RMFormSelect(__('License', 'docs'), 'license', 0, $edit ? array($res->getVar('license')) : null);
 	$select->addOption('', __('No license', 'docs'));
@@ -270,7 +285,7 @@ function rd_save_resource($edit=0){
 	}
 	
 	$res->setVar('title', $title);
-	$res->setVar('description', $desc);
+	$res->setVar('description', $description);
 	$res->isNew() ? $res->setVar('created', time()) : $res->setVar('modified', time());
 	$res->setVar('editors', $editors);
 	$res->setVar('image', $image);
