@@ -7,8 +7,8 @@ URL:      http://redmexico.com.mx
 URL:      http://rmcommon.com
 License:  GPL 2
 */
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic);
-@import url(http://fonts.googleapis.com/css?family=Droid+Serif:700,400);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic);
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif:700,400);
 @import url(https://fonts.googleapis.com/css?family=Roboto+Mono:400,400italic,700,700italic);
 
 @import 'includes/variables';
@@ -33,6 +33,8 @@ h6 {
   font-family: 'Droid Serif';
   font-weight: 700
 }
+
+
 
 table{
 
@@ -147,12 +149,23 @@ article li{
   width: 280px;
   background: #fafafa;
   border-right: 1px solid rgba(0, 0, 0, 0.08);
-  padding: 20px 0 40px 0;
+  padding: 0 0 40px 0;
   -webkit-transition: ease-in-out all 250ms;
   transition: ease-in-out all 250ms;
   -webkit-transform: translate(-280px);
   -ms-transform: translate(-280px);
   transform: translate(-280px);
+
+  > .quick-search{
+    padding: 9px 20px 10px;
+  }
+
+  > .no-results{
+    padding: 15px;
+    background-color: #FF3333;
+    color: #FFF;
+    display: none;
+  }
 
   ul {
 
@@ -232,19 +245,7 @@ article li{
     max-width: 100%;
   }
 }
-.docs-content-article .docs-content-wrapper .docs-content-inner section header+p:first-letter {
-  font-family: 'Droid Serif';
-  font-size: 2em;
-  font-weight: 700;
-  float: left;
-  line-height: 1;
-  margin: 8px 5px 0 0;
-  background: #454545;
-  color: #fff;
-  display: block;
-  line-height: 1.2;
-  padding: 0 8px
-}
+
 .docs-content-header {
   font-family: "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   overflow: visible;
@@ -1076,3 +1077,5 @@ html.theme-midnight.align-center a[data-align='center'] {
 html.theme-midnight.align-justify a[data-align='justify'] {
   color: #81c04d
 }
+
+@import "includes/theme-thedocs";

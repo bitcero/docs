@@ -1,0 +1,145 @@
+/**
+THEME: THEDOCS
+Based on ReadTheDocs
+Author: Eduardo Cortés
+**/
+@import url(https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic);
+
+html.theme-the-docs{
+
+  #docs-resource-index {
+    background: #282C34;
+    color: #555555;
+    font-family: 'Lato', sans-serif;
+    font-size: 14.5px;
+    border-right: 0;
+
+    a {
+      color: #B3B3B3;
+
+      &:hover{
+        background-color: rgba(255,255,255,0.05);
+      }
+    }
+
+    > .quick-search{
+      padding: 9px 20px 10px;
+      background-color: #2980B9;
+      margin-bottom: 0;
+
+      > input{
+        width: 100%;
+        border-radius: 40px;
+        border: 0;
+        padding: 5px 15px;
+        outline: none;
+      }
+    }
+
+    > .no-results{
+      background-color: #FF5730;
+      border-top: 1px solid #FFF;
+      border-bottom: 1px solid #FFF;
+    }
+
+    > .docs-index{
+
+      > .expanded{
+        background-color: #FFF;
+
+        > a{
+          color: darken(#FFF, 80%);
+          border-bottom: 1px solid darken(#FFF, 10%);
+        }
+
+      }
+
+      ul{
+        background-color: darken(#FFF, 5%);
+        display: none;
+
+        > li{
+
+          &:hover{
+            background-color: transparent;
+          }
+
+          > a{
+            color: darken(#fff, 60%);
+
+            &:hover{
+              color: #2980B9;
+            }
+          }
+
+          &.current{
+            > a{
+              background-color: #2980B9;
+              color: #FFF;
+            }
+          }
+        }
+
+        ul{
+          background-color: rgba(0,0,0,0.04);
+
+          a{
+            padding-left: 20px;
+          }
+
+          ul a{
+            padding-left: 25px;
+
+            ul a{
+              padding-left: 30px;
+
+              ul a{
+                padding-left: 35px;
+              }
+            }
+          }
+        }
+      }
+
+    }
+
+  }
+
+  .docs-content-header {
+    background: #2980B9;
+    color: darken(#fff, 15%);
+
+    .btn {
+      color: darken(#fff, 15%);
+
+      &.btn:hover {
+        color: #FFF;
+      }
+
+    }
+
+  }
+
+  .docs-content-header-title {
+    background-color: #FFF;
+    color: #2980B9;
+    font-size: 1.2em;
+    padding: 10px 25px;
+    font-family: 'Droid Serif';
+  }
+
+  &.with-index .toggle-summary{
+    background-color: transparent;
+    color: #FFF;
+  }
+
+  .docs-content-wrapper{
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+
+    p{
+      margin-bottom: 1.1em;
+    }
+  }
+
+}

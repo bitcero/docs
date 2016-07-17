@@ -88,12 +88,12 @@ class RDFunctions
     /**
      * @desc Genera el arbol de categorías en un array
      *
-     * @param array  $array    Referencia del Array que se rellenará
-     * @param int    $parent   Id de la Sección padre
-     * @param int    $indent   Sangría
-     * @param int    $resource Resource identifier
-     * @param string $fields   Columns to get from database
-     * @param int    $exclude  Ide of section to exclude from index
+     * @param array $array Referencia del Array que se rellenará
+     * @param int $parent Id de la Sección padre
+     * @param int $indent Sangría
+     * @param int $resource Resource identifier
+     * @param string $fields Columns to get from database
+     * @param int $exclude Ide of section to exclude from index
      *
      * @return bool
      */
@@ -174,7 +174,8 @@ class RDFunctions
                 'edit' => !$xoopsUser ? 0 : ($xoopsUser->isAdmin() ? true : $res->isEditor($xoopsUser->uid())),
                 'resource' => $sec->getVar('id_res'),
                 'metas' => $sec->metas(),
-                'parent' => $sec->getVar('parent')
+                'parent' => $sec->getVar('parent'),
+                'empty' => '' == $sec->content
             );
 
             if ($text) {
@@ -598,6 +599,9 @@ class RDFunctions
         }
         $xoopsTpl->assign('body_align', 'align-' . $align);
         $xoopsTpl->assign('standalone_theme', 'theme-' . $xoopsModuleConfig['theme']);
+        if(isset($_COOKIE['docsindex']) && 1 == $_COOKIE['docsindex']){
+            $xoopsTpl->assign('indexClass', 'with-index');
+        }
 
         unset($rd_contents);
         $xoopsTpl->display(RMTemplate::get()->get_template('docs-display-standalone.html', 'module', 'docs'));

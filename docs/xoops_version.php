@@ -237,7 +237,8 @@ $modversion = array(
                 __('Azure Inverted', 'docs')    => 'azure-inverted',
                 __('Sweet', 'docs')             => 'sweet',
                 __('Evergreen', 'docs')         => 'ever-green',
-                __('Midnight', 'docs')          => 'midnight'
+                __('Midnight', 'docs')          => 'midnight',
+                __('The Docs', 'docs')          => 'the-docs'
             )
         ),
 
@@ -249,6 +250,16 @@ $modversion = array(
             'formtype'  => 'textarea',
             'valuetype' => 'text',
             'default'   => ''
+        ),
+
+        array(
+            'category'  => 'advanced',
+            'name' => 'prism',
+            'title' => __('Enable PRISM integration', 'docs'),
+            'description' => __('Enable it to add syntax highlighting to documents content.', 'docs'),
+            'formtype'  => 'yesno',
+            'valuetype' => 'int',
+            'default'   => 0
         )
 
     ),

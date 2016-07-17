@@ -27,7 +27,6 @@
  * @link         http://xoopsmexico.net
  */
 
-
 if($id=='')
     RDFunctions::error_404();
 
@@ -39,9 +38,14 @@ define('RD_LOCATION', 'content');
 * @desc Muestra el contenido completo de una sección
 */
 function showSection(RDResource &$res, RDSection &$section){
-	global $xoopsUser, $xoopsModuleConfig, $xoopsOption, $xoopsTpl, $xoopsConfig, $standalone;
+	global $xoopsUser, $xoopsModuleConfig, $xoopsOption, $xoopsTpl, $xoopsConfig, $standalone, $common;
 
 	include 'header.php';
+
+    if($xoopsModuleConfig['prism']){
+        $common->template()->add_style('prism.min.css', 'docs', ['id' => 'prism-css']);
+        $common->template()->add_script('prism.min.js', 'docs', ['id' => 'prism-js', 'footer' => 1]);
+    }
 
     $xoopsTpl->assign('xoops_pagetitle', $section->getVar('title'));
 
@@ -59,19 +63,20 @@ function showSection(RDResource &$res, RDSection &$section){
     // Section tree
     $db = XoopsDatabaseFactory::getDatabaseConnection();
 
-    $index = array();
-    RDFunctions::sections_tree_index( 0, 0, $res, '', '', false, $index );
-
     $standalone = $xoopsModuleConfig['standalone'];
 
-    RMTemplate::get()->add_jquery();
+    $index = array();
+    RDFunctions::sections_tree_index( 0, 0, $res, '', '', false, $index, false, $standalone ? true : false);
+
     //RMTemplate::get()->add_script('jquery.dotdotdot.min.js', 'docs', array( 'footer' => 1 ));
     RMTemplate::get()->add_script('perfect-scrollbar.jquery.js', 'docs', array( 'footer' => 1 ));
+    RMTemplate::get()->add_script('jquery.ck.js', 'rmcommon', array( 'footer' => 1 ));
     RMTemplate::get()->add_script('docs.min.js', 'docs', array( 'footer' => 1 ));
 
     if($xoopsModuleConfig['standalone']){
-        RMTemplate::get()->add_style('perfect-scrollbar.min.css', 'docs');
-        include RMEvents::get()->run_event('docs.section.template', RMTemplate::get()->get_template('docs-display-section.php', 'module', 'docs'));
+        RMTemplate::getInstance()->add_jquery(false, true);
+        RMTemplate::getInstance()->add_style('perfect-scrollbar.min.css', 'docs');
+        include RMEvents::get()->trigger('docs.section.template', RMTemplate::get()->get_template('docs-display-section.php', 'module', 'docs'));
         RDFunctions::standalone();
     } else {
         RMTemplate::get()->add_style('docs.min.css', 'docs');
@@ -132,7 +137,7 @@ function showSection(RDResource &$res, RDSection &$section){
     }
 
     // Event
-    $sections = RMEvents::get()->run_event('docs.show.section', $sections, $res, $section);
+    $sections = RMEvents::get()->trigger('docs.show.section', $sections, $res, $section);
 
     // URLs
     if ($xoopsModuleConfig['permalinks']){
@@ -163,7 +168,7 @@ function showSection(RDResource &$res, RDSection &$section){
     RMBreadCrumb::get()->add_crumb($section->getVar('title'), $section->permalink());
 
     include RMEvents::get()->run_event('docs.section.template', RMTemplate::get()->path('docs-display-section.php', 'module', 'docs'));
-    
+
     include 'footer.php';
 	
 	

@@ -1,0 +1,15 @@
+/**
+THEME: THEDOCS
+Based on ReadTheDocs
+Author: Eduardo Cortés
+**/
+html.the-docs #docs-resource-index {
+  background: #ef553a;
+  color: #fff;
+}
+html.the-docs #docs-resource-index a {
+  color: #ffffff;
+}
+html.the-docs #docs-resource-index li:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}

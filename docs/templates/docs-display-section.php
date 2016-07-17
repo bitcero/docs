@@ -1,21 +1,43 @@
 <div class="docs-document">
     <?php if($standalone): ?>
     <div id="docs-resource-index">
-        <ul class="list-unstyled docs-index">
-        <?php $num = 1; foreach( $index as $section ): ?>
 
-            <li style="padding-left: <?php echo $section['jump'] * 15; ?>px;" data-section="<?php echo $section['id']; ?>">
-                <a href="<?php echo $section['link']; ?>" data-level="<?php echo $section['number']; ?>">
-                    <strong><?php echo $section['number']; ?>.</strong>
+        <!-- Document Quick Search -->
+        <div class="quick-search">
+            <input type="text" name="quick-search" placeholder="<?php _e('hit Enter to search', 'docs'); ?>">
+        </div>
+        <!--// End foc quick search -->
+
+        <!-- No results message -->
+        <div class="no-results">
+            <?php _e('There are not any topic thats match your search filter. Please try again.', 'docs'); ?>
+        </div>
+
+        <ul class="list-unstyled docs-index">
+        <?php foreach( $index as $section ): ?>
+
+            <li data-section="<?php echo $section['id']; ?>" data-parent="root">
+                <a<?php if($section['jump']>0): ?> style="padding-left: <?php echo (($section['jump'] * 10) + 15); ?>px;"<?php endif; ?>
+                    href="<?php echo $section['link']; ?>"
+                    data-level="<?php echo $section['number']; ?>">
                     <?php if($section['jump']==0): ?>
                         <strong><?php echo $section['title']; ?></strong>
                     <?php else: ?>
                         <?php echo $section['title']; ?>
                     <?php endif; ?>
                 </a>
+
+                <?php if(array_key_exists('sections', $section)){
+
+                    $common->template()->assign('sections', $section['sections']);
+                    $common->template()->assign('common', $common);
+                    $common->template()->display('docs-subsections.php', 'module', 'docs');
+
+                } ?>
+
             </li>
 
-        <?php $num++; endforeach; ?>
+        <?php endforeach; ?>
         </ul>
 
     </div>
