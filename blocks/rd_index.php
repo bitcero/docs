@@ -12,7 +12,7 @@ function rd_block_index($options){
 	global $xoopsModule, $xoopsModuleConfig, $res, $sec;
 	
 	if (!$xoopsModule || $xoopsModule->dirname()!='docs') return;
-	if (!defined('RD_LOCATION') || (RD_LOCATION!='content' && RD_LOCATION!='resource_content')) return;
+	if (!defined('RD_LOCATION') || (RD_LOCATION!='content' && RD_LOCATION!='resource_content' && RD_LOCATION != 'resource')) return;
 	
 	// get the sections
 	$sections = array();

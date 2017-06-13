@@ -25,7 +25,7 @@ class RDResource extends RMObject{
 	
 	function __construct($id=null){
 
-		$this->db =& XoopsDatabaseFactory::getDatabaseConnection();
+		$this->db = XoopsDatabaseFactory::getDatabaseConnection();
 		$this->_dbtable = $this->db->prefix("mod_docs_resources");
 		$this->setNew();
 		$this->initVarsFromTable();

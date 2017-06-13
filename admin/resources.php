@@ -166,7 +166,7 @@ function rd_show_form($edit=0){
     //$form->addElement(new RMFormTextArea(__('Description', 'docs'),'desc',5,50,$edit ? $res->getVar('description','e') : ''),true);
 	$form->addElement(new RMFormUser(__('Editors','docs'),'editors',1,$edit ? $res->getVar('editors') : '',30));
 
-    if ( RMFunctions::plugin_installed( 'advform' ) )
+    if ( Common\Core\Helpers\Plugins::getInstance()->isInstalled('advform') || Common\Core\Helpers\Plugins::getInstance()->isInstalled('advform-pro') )
         $form->addElement( new RMFormImageUrl( __('Featured image', 'docs' ), 'image', $edit ? $res->image : '' ) );
     else
         $form->addElement( new RMFormText( __('Featured image', 'docs' ), 'image', 50, 255, $edit ? $res->image : '' ) );

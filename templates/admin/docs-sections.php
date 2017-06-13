@@ -68,9 +68,9 @@ function rd_print_sections($sections,$id, $table=true){
     <div class="panel-heading">
         <h3 class="panel-title"><?php _e('Existing Sections', 'docs'); ?></h3>
     </div>
-    <div class="">
+    <div>
         <div id="table-sections" class="table-responsive">
-            <table class="outer" width="100%" cellspacing="0">
+            <table class="table" width="100%" cellspacing="0">
                 <thead>
                 <tr class="head" align="center">
                     <th align="left"><?php _e('Title','docs'); ?></th>

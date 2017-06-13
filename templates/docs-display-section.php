@@ -126,4 +126,3 @@
         <!--{xo-logger-output}-->
     </div>
 </div>
-

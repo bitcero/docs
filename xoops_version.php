@@ -52,7 +52,7 @@ $modversion = array(
      */
     'rmnative'      => 1,
     'url'           => 'https://github.com/bitcero/docs',
-    'rmversion'     => array('major'=>1,'minor'=>0,'revision'=>25,'stage'=>-2, 'name'=>'Documentor'),
+    'rmversion'     => array('major'=>1,'minor'=>0,'revision'=>26,'stage'=>-2, 'name'=>'Documentor'),
     'rewrite'       => 0,
     'permissions'   => 'include/permissions.php',
     'updateurl'     => "http://www.xoopsmexico.net/modules/vcontrol/",

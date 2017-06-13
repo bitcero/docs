@@ -1,9 +1,9 @@
-.rd_block_list li .description{
+.docs-block-list li .description{
     font-size: 0.9em;
     display: block;
     line-height: 150%;
 }
-.rd_block_list li .info{
+.docs-block-list li .info{
     font-size: 0.9em;
     display: block;
     padding: 2px 0;

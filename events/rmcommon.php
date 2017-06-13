@@ -10,7 +10,7 @@
 
 class DocsRmcommonPreload{
     
-    public function eventRmcommonLoadRightWidgets($widgets){
+    static function eventRmcommonLoadRightWidgets($widgets){
         global $xoopsModule;
         
         if (!isset($xoopsModule) || ($xoopsModule->getVar('dirname')!='system' && $xoopsModule->getVar('dirname')!='docs'))
@@ -32,7 +32,7 @@ class DocsRmcommonPreload{
     /**
     * Add new code converter to decode [TOC], [RDRESOURCE] and [RDFEATURED]
     */
-    public function eventRmcommonTextTodisplay($text, $source){
+    static function eventRmcommonTextTodisplay($text, $source){
         global $xoopsModule;
         
         if(!$xoopsModule || $xoopsModule->dirname()!='docs' || defined('RD_NO_FIGURES'))
@@ -58,7 +58,7 @@ class DocsRmcommonPreload{
     /**
      * Add custom codes support
      */
-    public function eventRmcommonIncludeCommonLanguage(){
+    static function eventRmcommonIncludeCommonLanguage(){
         global $rmCodes;
 
         include_once XOOPS_ROOT_PATH.'/modules/docs/include/tc_replacements.php';
@@ -80,7 +80,7 @@ class DocsRmcommonPreload{
      * @param array $delete Existing settings deleted from database
      * @return null
      */
-    public function eventRmcommonSavedSettings( $dirname, $save, $add, $delete ){
+    static function eventRmcommonSavedSettings( $dirname, $save, $add, $delete ){
 
         if ( $dirname != 'docs' )
             return $dirname;
@@ -104,7 +104,7 @@ class DocsRmcommonPreload{
         return null;
     }
 
-    public function eventRmcommonEditorTopPlugins( $plugins, $type, $id ){
+    static function eventRmcommonEditorTopPlugins( $plugins, $type, $id ){
         global $xoopsModule;
 
         if(!$xoopsModule || 'docs' != $xoopsModule->getVar('dirname')){

@@ -372,17 +372,24 @@ class RDFunctions
     }
 
     /**
-     * Get resources index according to given options
+     * Get list of resources according to given parameters
+     * @param string $type
+     * @param int $limit
+     * @param bool $render
+     * @return array|string
      */
-    public function resources_index($type = 'all', $limit = 15)
+    static function resources_index($type = 'all', $limit = 15, $render = true)
     {
 
         $db = XoopsDatabaseFactory::getDatabaseConnection();
         $sql = "SELECT * FROM " . $db->prefix("mod_docs_resources");
-        if ($type == 'featured')
-            $sql .= " WHERE public=1 AND approved=1 AND featured=1 ORDER BY created DESC";
-        elseif ($type == 'all')
+        if ($type == 'featured') {
+            $sql .= " WHERE public=1 AND approved=1 AND featured=1 ORDER BY RAND()";
+        } elseif ($type == 'all') {
             $sql .= " WHERE public=1 AND approved=1 ORDER BY created DESC";
+        } elseif ($type == 'popular'){
+            $sql .= " WHERE public=1 AND approved=1 ORDER BY `reads` DESC";
+        }
 
         $sql .= " LIMIT 0,$limit";
 
@@ -395,10 +402,17 @@ class RDFunctions
             $resources[] = array(
                 'id' => $res->id(),
                 'title' => $res->getVar('title'),
-                'desc' => $res->getVar('tagline'),
+                'desc' => $res->getVar('description'),
                 'link' => $res->permalink(),
-                'image' => $res->image
+                'image' => $res->image,
+                'created' => $res->created,
+                'reads' => $res->reads,
+                'owner' => $res->owname
             );
+        }
+
+        if(!$render){
+            return $resources;
         }
 
         ob_start();

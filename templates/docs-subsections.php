@@ -4,7 +4,7 @@
 
         <li data-section="<?php echo $section['id']; ?>">
             <a
-                href="<?php if($section['empty']): ?>#<?php else: ?><?php echo $section['link']; ?><?php endif; ?>"
+                href="<?php echo $section['link']; ?>"
                 data-level="<?php echo $section['number']; ?>">
                 <?php if($section['jump']==0): ?>
                     <strong><?php echo $section['title']; ?></strong>

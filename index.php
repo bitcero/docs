@@ -38,7 +38,7 @@ if ($xoopsModuleConfig['permalinks']){
         $path = trim($path, '/');
     }
     
-    $params = explode("/", $path);
+    $params = explode("/", str_replace('?' . $_SERVER['QUERY_STRING'], '', $path));
     
     
 } else {

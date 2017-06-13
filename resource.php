@@ -21,8 +21,11 @@ if ($res->isNew()){
 	RDFunctions::error_404();
 }
 
-if($res->getVar('single'))
+if($res->getVar('single')){
     define('RD_LOCATION','resource_content');
+} else {
+    define('RD_LOCATION','resource');
+}
 
 include ('header.php');
 
@@ -65,7 +68,7 @@ if($res->getVar('single')){
     global $last_author;
     if(!$allowed)
         RDfunctions::error_404();
-        
+
     // Show all content
     $toc = array();
     RDFunctions::sections_tree_index(0, 0, $res, '', '', false, $toc, true);
@@ -81,16 +84,33 @@ if($res->getVar('single')){
             );
         }
     }
-    
+
     RMTemplate::get()->add_jquery();
     RMTemplate::get()->add_script('docs.min.js', 'docs');
-    
+
     // Comments
-    RMFunctions::get_comments('docs', 'res='.$res->id(), 'module', 0);
-    RMFunctions::comments_form('docs', 'res='.$res->id(), 'module', RDPATH.'/class/docscontroller.php');
-    
+    // Comments
+    $comments = $common->comments()->load([
+        'object' => 'docs',
+        'type' => 'module',
+        'identifier' => 'res=' . $res->id(),
+        'assign' => false,
+        'url' => XOOPS_URL . 'modules/docs/resource.php'
+    ]);
+
+    $xoopsTpl->assign('comments', $comments);
+
+    // Comments form
+    $xoopsTpl->assign('comments_form', $common->comments()->form([
+        'url' => XOOPS_URL . 'modules/docs/resource.php',
+        'object' => 'docs',
+        'type' => 'module',
+        'identifier' => 'res=' . $res->id(),
+        'file' => XOOPS_ROOT_PATH . '/modules/docs/class/docscontroller.php'
+    ]));
+
     $res->add_read();
-    
+
     // URLs
     if ($xoopsModuleConfig['permalinks']){
         $config = array();
@@ -112,13 +132,14 @@ if($res->getVar('single')){
         if (RDFunctions::new_resource_allowed($xoopsUser ? $xoopsUser->getGroups() : XOOPS_GROUP_ANONYMOUS))
             $publish_url = RDFunctions::url().'/?action=publish';
     }
-    
+
     include RMTemplate::get()->get_template('docs-display-full-resource.php','module','docs');
-    
+
 } else {
-	
+
 	if (!$allowed){
-		RDFunctions::error_404();
+		redirect_header(XOOPS_URL . '/user.php', __('You must be logged in order to view this content', 'docs'));
+		//RDFunctions::error_404();
 	}
 
     if ($res->getVar('quick')){
@@ -151,11 +172,27 @@ if($res->getVar('single')){
     RDFunctions::sections_tree_index(0, 0, $res, '', '', false, $toc);
 
     // Comments
-    RMFunctions::get_comments('docs', 'res='.$res->id(), 'module', 0);
-    RMFunctions::comments_form('docs', 'res='.$res->id(), 'module', RDPATH.'/class/docscontroller.php');
-    
-    include RMTemplate::get()->get_template('docs-resource-index.php','module','docs');
-	
+    $comments = $common->comments()->load([
+        'object' => 'docs',
+        'type' => 'module',
+        'identifier' => 'res=' . $res->id(),
+        'assign' => false,
+        'url' => XOOPS_URL . 'modules/docs/resource.php'
+    ]);
+
+    $xoopsTpl->assign('comments', $comments);
+
+    // Comments form
+    $xoopsTpl->assign('comments_form', $common->comments()->form([
+        'url' => XOOPS_URL . 'modules/docs/resource.php',
+        'object' => 'docs',
+        'type' => 'module',
+        'identifier' => 'res=' . $res->id(),
+        'file' => XOOPS_ROOT_PATH . '/modules/docs/class/docscontroller.php'
+    ]));
+
+    include RMTemplate::getInstance()->path('docs-resource-index.php','module','docs');
+
 }
 
 RMTemplate::get()->add_style('docs.min.css', 'docs');

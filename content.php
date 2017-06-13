@@ -76,7 +76,7 @@ function showSection(RDResource &$res, RDSection &$section){
     if($xoopsModuleConfig['standalone']){
         RMTemplate::getInstance()->add_jquery(false, true);
         RMTemplate::getInstance()->add_style('perfect-scrollbar.min.css', 'docs');
-        include RMEvents::get()->trigger('docs.section.template', RMTemplate::get()->get_template('docs-display-section.php', 'module', 'docs'));
+        include RMEvents::get()->trigger('docs.section.template', $common->template()->path('docs-display-section.php', 'module', 'docs'));
         RDFunctions::standalone();
     } else {
         RMTemplate::get()->add_style('docs.min.css', 'docs');
@@ -268,7 +268,7 @@ if (!$res->isAllowed($xoopsUser ? $xoopsUser->groups() : XOOPS_GROUP_ANONYMOUS))
 
 
 // Select correct operation
-$action = rmc_server_var($_GET, 'action', '');
+$action = $common->httpRequest()->get('action', 'string', '');
 
 switch($action){
     case 'printbook':
