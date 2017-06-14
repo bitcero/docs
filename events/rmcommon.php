@@ -19,11 +19,7 @@ class DocsRmcommonPreload{
         if (defined("RMCSUBLOCATION") && RMCSUBLOCATION=='newresource'){
             include_once '../include/admin-widgets.php';
             $widgets[] = rd_widget_options();
-        }
-        
-        if(defined('RMCSUBLOCATION') && RMCSUBLOCATION=='notes_list'){
-            include_once '../include/admin-widgets.php';
-            //$widgets[] = rd_widget_newnote();
+            $widgets[] = doc_widget_index();
         }
         
         return $widgets;

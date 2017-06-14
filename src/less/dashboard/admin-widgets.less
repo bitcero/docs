@@ -1,0 +1,32 @@
+.doc-widget-index{
+
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: 300px;
+  margin: -10px;
+
+  > ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    > li{
+      padding: 3px 5px;
+
+      &.active{
+        background-color: @he-header-bg-color;
+        color: lighten(@he-header-menu-color, 25%);
+        border-radius: @border-radius-base;
+
+        a{
+          color: lighten(@he-header-menu-color, 25%);
+
+          &:hover{
+            color: #FFF;
+          }
+        }
+      }
+    }
+  }
+
+}

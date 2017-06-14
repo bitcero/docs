@@ -186,7 +186,7 @@ function rd_show_form($edit=0){
 * @desc Almacena información de las secciones
 **/
 function rd_save_sections($edit=0){
-	global $xoopsUser, $xoopsSecurity;
+	global $xoopsUser, $xoopsSecurity, $common;
 
 	$single = '';
 
@@ -297,7 +297,7 @@ function rd_save_sections($edit=0){
 
     RMEvents::get()->run_event('docs.saving.section',$sec);
 
-	if (!$sec->save()){
+	if (false == $sec->save()){
 		if ($sec->isNew()){
 			redirectMsg('./sections.php?action=new&id='.$id, __('Database could not be updated!','docs') . "<br />" . $sec->errors(),1);
 			die();
@@ -307,6 +307,7 @@ function rd_save_sections($edit=0){
 		}
 
 	}else{
+
         $res->setVar('modified', time());
         $res->save();
         RMEvents::get()->run_event('docs.section.saved',$sec);
@@ -315,9 +316,16 @@ function rd_save_sections($edit=0){
         //die();
 
 		if ($return){
-			redirectMsg('./sections.php?action=edit&sec='.$sec->id().'&id='.$id, __('Database updated successfully!','docs'),0);
+		    $common->uris()::redirect_with_message(
+		        __('Database updated successfully!', 'docs'),
+                'sections.php?action=edit&sec='.$sec->id().'&id='.$id, RMMSG_SUCCESS
+            );
+			//redirectMsg('./sections.php?action=edit&sec='.$sec->id().'&id='.$id, __('Database updated successfully!','docs'),0);
 		} else {
-			redirectMsg('./sections.php?id='.$id, __('Database updated successfully!','docs'),0);
+            $common->uris()::redirect_with_message(
+                __('Database updated successfully!', 'docs'),
+                './sections.php?id='.$id, RMMSG_SUCCESS
+            );
 		}
 	}
 

@@ -58,3 +58,46 @@ function rd_widget_options(){
     $ret['content'] = ob_get_clean();
     return $ret;
 }
+
+
+function doc_widget_index()
+{
+    global $common, $res;
+
+    $ret = [];
+    $ret['title'] = __('Sections Index', 'docs');
+
+    $id =$common->httpRequest()->get('sec', 'integer', 0);
+    if($id > 0){
+        $sec = new RDSection($id);
+    }
+
+    $index = [];
+    RDFunctions::sections_tree_index(0, 0, $res, '', '', false, $index);
+
+    ob_start(); ?>
+
+    <div class="doc-widget-index">
+        <small class="help-block">
+            <?php _e('Click on any section listed below in order to edit it.', 'docs'); ?>
+        </small>
+        <ul>
+            <?php foreach($index as $section): ?>
+                <li<?php echo $section['id'] == $id ? ' class="active"' : ''; ?>>
+                    <a href="sections.php?action=edit&sec=<?php echo $section['id']; ?>&id=<?php echo $res->id(); ?>">
+                        <?php echo $section['number']; ?>.
+                        <?php if($section['jump'] == 0): ?>
+                            <strong><?php echo $section['title']; ?></strong>
+                        <?php else: ?>
+                            <?php echo $section['title']; ?>
+                        <?php endif; ?>
+                    </a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+
+    <?php
+    $ret['content'] = ob_get_clean();
+    return $ret;
+}
