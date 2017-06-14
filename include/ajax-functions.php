@@ -64,7 +64,7 @@ function resources_list(){
         );
     }
 
-    include RMTemplate::get()->get_template('ajax/rd_sections_list.php', 'module', 'docs');
+    include RMTemplate::getInstance()->path('ajax/rd_sections_list.php', 'module', 'docs');
     
 }
 

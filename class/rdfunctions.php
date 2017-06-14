@@ -624,6 +624,25 @@ class RDFunctions
 
     }
 
+    static function indexRelink($sections, $link = ''){
+
+        foreach($sections as $i => $section){
+            if($section['single']){
+                $link = $section['link'];
+                $id = $section['id'];
+            }
+
+            if($link != '' && $id != $section['id']){
+                $sections[$i]['link'] = $link . '#section-' . $section['id'];
+            }
+
+            $sections[$i]['sections'] = static::indexRelink($sections[$i]['sections'], $link);
+        }
+
+        return $sections;
+
+    }
+
     /**
      * Construct and return the dialog to insert links in editors
      */
@@ -661,6 +680,7 @@ class RDFunctions
 
             if (!$res->isNew()) {
                 self::sections_tree_index(0, 0, $res, '', '', false, $sections);
+                $sections = static::indexRelink($sections);
             }
         }
 
