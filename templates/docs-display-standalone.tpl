@@ -26,5 +26,6 @@
     </head>
     <body class="standalone">
             <{$rd_contents}>
+            <!-- RMTemplateFooter -->
     </body>
 </html>

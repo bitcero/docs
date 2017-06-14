@@ -188,6 +188,8 @@ function rd_show_form($edit=0){
 function rd_save_sections($edit=0){
 	global $xoopsUser, $xoopsSecurity;
 
+	$single = '';
+
 	foreach ($_POST as $k=>$v){
 		$$k=$v;
 	}
@@ -237,7 +239,7 @@ function rd_save_sections($edit=0){
 	}else{
 
 		//Comprueba que el título de la sección no exista
-		$sql="SELECT COUNT(*) FROM ".$db->prefix('mod_docs_sections')." WHERE title='$title' AND id_res='$id'";
+		$sql="SELECT COUNT(*) FROM ".$db->prefix('mod_docs_sections')." WHERE title='$title' AND id_res='$id' AND parent = $parent";
 		list($num)=$db->fetchRow($db->queryF($sql));
 		if ($num>0){
 			redirectMsg('./sections.php?op=new&id='.$id, __('Already exists another section with same title!','docs'),1);
@@ -256,6 +258,7 @@ function rd_save_sections($edit=0){
 	$sec->setVar('id_res', $id);
 	$sec->setVar('nameid', $nameid);
 	$sec->setVar('parent', $parent);
+	$sec->setVar('single', 'on' == $single ? 1 : 0);
 
 	if (!isset($uid)){
 		$sec->setVar('uid', $xoopsUser->uid());

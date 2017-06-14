@@ -16,7 +16,7 @@ class RDSection extends RMObject{
     private $metas = array();
 
 	function __construct($id=null, $res=0, $parent = null){
-		$this->db =& XoopsDatabaseFactory::getDatabaseConnection();
+		$this->db = XoopsDatabaseFactory::getDatabaseConnection();
 		$this->_dbtable = $this->db->prefix("mod_docs_sections");
 		$this->setNew();
 		$this->initVarsFromTable();

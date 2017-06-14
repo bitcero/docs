@@ -99,11 +99,11 @@ class RDFunctions
      */
     static function getSectionTree(&$array, $parent = 0, $indent = 0, $resource = 0, $fields = '*', $exclude = 0)
     {
-        global $db;
-        $sql = "SELECT $fields FROM " . $db->prefix("mod_docs_sections") . " WHERE " . ($resource > 0 ? "id_res='$resource' AND" : '') . "
+        global $xoopsDB;
+        $sql = "SELECT $fields FROM " . $xoopsDB->prefix("mod_docs_sections") . " WHERE " . ($resource > 0 ? "id_res='$resource' AND" : '') . "
                 parent='$parent' " . ($exclude > 0 ? "AND id_sec<>'$exclude'" : '') . " ORDER BY `order`";
-        $result = $db->query($sql);
-        while ($row = $db->fetchArray($result)) {
+        $result = $xoopsDB->query($sql);
+        while ($row = $xoopsDB->fetchArray($result)) {
             $ret = array();
             $ret = $row;
             $ret['saltos'] = $indent;
@@ -175,7 +175,8 @@ class RDFunctions
                 'resource' => $sec->getVar('id_res'),
                 'metas' => $sec->metas(),
                 'parent' => $sec->getVar('parent'),
-                'empty' => '' == $sec->content
+                'empty' => '' == $sec->content,
+                'single' => $sec->single,
             );
 
             if ($text) {
@@ -595,13 +596,13 @@ class RDFunctions
     /**
      * For standalone documents
      */
-    public function standalone()
+    static function standalone()
     {
         global $xoopsTpl, $xoopsModuleConfig;
 
         RMTemplate::get()->add_style('standalone.min.css', 'docs');
         RMTemplate::get()->add_style('font-awesome.min.css', 'rmcommon');
-        RMTemplate::get()->add_script('jquery.ck.js', 'rmcommon');
+        RMTemplate::get()->add_script('jquery.ck.js', 'rmcommon', ['footer' => 1]);
         //RMTemplate::get()->add_head('<link rel="stylesheet" type="text/css" media="all" href="'.$xoopsModuleConfig['standalone_css'].'" />');
         $rd_contents = ob_get_clean();
         $xoopsTpl->assign('rd_contents', $rd_contents);
@@ -618,7 +619,7 @@ class RDFunctions
         }
 
         unset($rd_contents);
-        $xoopsTpl->display(RMTemplate::get()->get_template('docs-display-standalone.html', 'module', 'docs'));
+        $xoopsTpl->display(RMTemplate::getInstance()->path('docs-display-standalone.tpl', 'module', 'docs'));
         die();
 
     }

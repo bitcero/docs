@@ -74,7 +74,8 @@ CREATE TABLE `mod_docs_sections` (
   `uname` varchar(40) NOT NULL,
   `created` int(10) NOT NULL DEFAULT '0',
   `modified` int(10) NOT NULL DEFAULT '0',
-  `comments` smallint(6) NOT NULL DEFAULT '0'
+  `comments` smallint(6) NOT NULL DEFAULT '0',
+  `single` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `mod_docs_votedata` (

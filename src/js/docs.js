@@ -30,7 +30,7 @@ var contentNavigator = {
     navigate: function (url, pushState) {
 
         if ( url == '' || url == '#' )
-            return;
+            return false;
 
         $.get( url, {hideIndex:1}, function( response ){
 
@@ -229,24 +229,45 @@ $(document).ready(function () {
     };
 
     $("body").on("click", "#docs-resource-index .docs-index a, .docs-content-inner a, .docs-content-article .document-navigation a", function () {
+
         if ("_blank" != $(this).attr("target")) {
+
             if ("external" == $(this).attr("rel")) return void $(this).attr("target", "_blank");
 
             if($(this).attr("href").substring(0, 1) == '#'){
 
                 var id = $(this).attr("href");
 
-                if($(id)){
+                /*if($(id)){
                     $('#docs-resource-content > .docs-content-article').animate({
                         scrollTop: $(id).offset().top
                     }, 150);
-                }
+                }*/
 
                 $(".note-touched").removeClass('note-touched');
 
                 if(id.substring(0, 5) == '#note'){
                     $(id).addClass('note-touched');
                 }
+
+                return false;
+            }
+
+            // Prevent navigation when local
+            var href = document.createElement("a");
+            href.href = $(this).attr('href');
+            var url = document.createElement("a");
+            url.href = window.location.href;
+            var toSearch = url.origin + url.pathname + url.search;
+            var left = $(this).attr('href').replace(toSearch, '');
+
+            if(left != '' && left == href.hash){
+
+                //window.history.pushState({}, '', $(this).attr('href'));
+
+                $("#docs-resource-content .docs-content-article").animate({
+                    scrollTop: $("#docs-resource-content .docs-content-article").scrollTop() + $(href.hash).offset().top
+                }, 1000);
 
                 return false;
             }

@@ -4,7 +4,7 @@
 
         <!-- Document Quick Search -->
         <div class="quick-search">
-            <input type="text" name="quick-search" placeholder="<?php _e('hit Enter to search', 'docs'); ?>">
+            <input type="text" name="quick-search" placeholder="<?php _e('hit &quot;Enter&quot; to search', 'docs'); ?>">
         </div>
         <!--// End foc quick search -->
 
@@ -50,7 +50,7 @@
             &nbsp;
 
         <?php else: ?>
-            <?php include RMTemplate::get()->get_template('docs-header.php', 'module', 'docs'); ?>
+            <?php include RMTemplate::getInstance()->path('docs-header.php', 'module', 'docs'); ?>
             <div class="page-header">
                 <h1><?php echo $res->getVar('title'); ?></h1>
             </div>
@@ -58,7 +58,7 @@
             <!-- Document Content -->
             <article>
                 <?php foreach($sections as $sec): ?>
-                    <?php include RMTemplate::get()->get_template('docs-item-section.php','module','docs'); ?>
+                    <?php include RMTemplate::getInstance()->path('docs-item-section.php','module','docs'); ?>
                 <?php endforeach; ?>
 
                 <div class="clearfix"></div>

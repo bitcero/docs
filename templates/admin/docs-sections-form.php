@@ -131,6 +131,7 @@ $(document).ready(function(){
 <?php echo $xoopsSecurity->getTokenHTML(); ?>
 <input type="hidden" name="id" value="<?php echo $id; ?>" />
 <input type="hidden" name="return" id="secreturn" value="1" />
+<input type="hidden" name="single" id="secretsingle" value="1" />
 <input type="hidden" name="nameid" id="nameid" value="<?php echo $edit ? $sec->getVar('nameid') : ''; ?>" />
 <input type="hidden" name="action" value="<?php echo $edit ? 'saveedit' : 'save'; ?>" />
 <?php if($edit): ?><input type="hidden" name="id_sec" value="<?php echo $id_sec; ?>" /><?php endif; ?>

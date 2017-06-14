@@ -12,6 +12,20 @@
 
                 <?php echo $section->content; ?>
             </section>
+            
+            <?php if($subSections): ?>
+                <?php foreach($subSections as $sub): ?>
+                    <section id="section-<?php echo $sub['id_sec']; ?>" class="doc-section is-header">
+                        <header>
+                            <a name="<?php echo $sub['nameid']; ?>"></a>
+                            <?php /*h<?php echo $level <= 6 ? $level : 6; ?> class="section-title"><?php echo $number; ?> <?php echo $sub->title; ?></h<?php echo $level <= 6 ? $level : 6; ?>*/?>
+                            <h<?php echo $sub['level']; ?> class="section-title"><?php echo $sub['title']; ?></h<?php echo $sub['level']; ?>>
+                        </header>
+
+                        <?php echo $sub['content']; ?>
+                    </section>
+                <?php endforeach; ?>
+            <?php endif; ?>
 
             <div class="clearfix"></div>
 

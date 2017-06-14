@@ -157,5 +157,18 @@ class DocsController implements iCommentsController
 		}
 		
     }
-    
+
+    /**
+     * @return mixed
+     */
+    static function getInstance()
+    {
+        static $instance;
+
+        if (!isset($instance)) {
+            $instance = new DocsController();
+        }
+
+        return $instance;
+    }
 }

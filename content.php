@@ -34,6 +34,25 @@ $browser = $_SERVER['HTTP_USER_AGENT'];
 $pos = stripos($browser, 'Mozilla/5');
 define('RD_LOCATION', 'content');
 
+function docsRelink($sections, $link = ''){
+
+    foreach($sections as $i => $section){
+        if($section['single']){
+            $link = $section['link'];
+            $id = $section['id'];
+        }
+
+        if($link != '' && $id != $section['id']){
+            $sections[$i]['link'] = $link . '#section-' . $section['id'];
+        }
+
+        $sections[$i]['sections'] = docsRelink($sections[$i]['sections'], $link);
+    }
+
+    return $sections;
+
+}
+
 /**
 * @desc Muestra el contenido completo de una sección
 */
@@ -67,11 +86,12 @@ function showSection(RDResource &$res, RDSection &$section){
 
     $index = array();
     RDFunctions::sections_tree_index( 0, 0, $res, '', '', false, $index, false, $standalone ? true : false);
+    $index = docsRelink($index);
 
     //RMTemplate::get()->add_script('jquery.dotdotdot.min.js', 'docs', array( 'footer' => 1 ));
-    RMTemplate::get()->add_script('perfect-scrollbar.jquery.js', 'docs', array( 'footer' => 1 ));
-    RMTemplate::get()->add_script('jquery.ck.js', 'rmcommon', array( 'footer' => 1 ));
-    RMTemplate::get()->add_script('docs.min.js', 'docs', array( 'footer' => 1 ));
+    RMTemplate::getInstance()->add_script('perfect-scrollbar.jquery.js', 'docs', array( 'footer' => 1 ));
+    RMTemplate::getInstance()->add_script('jquery.ck.js', 'rmcommon', ['footer' => 1]);
+    RMTemplate::getInstance()->add_script('docs.min.js', 'docs', ['footer' => 1]);
 
     if($xoopsModuleConfig['standalone']){
         RMTemplate::getInstance()->add_jquery(false, true);
@@ -79,7 +99,7 @@ function showSection(RDResource &$res, RDSection &$section){
         include RMEvents::get()->trigger('docs.section.template', $common->template()->path('docs-display-section.php', 'module', 'docs'));
         RDFunctions::standalone();
     } else {
-        RMTemplate::get()->add_style('docs.min.css', 'docs');
+        RMTemplate::getInstance()->add_style('docs.min.css', 'docs');
     }
 
 

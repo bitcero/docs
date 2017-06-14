@@ -70,7 +70,7 @@ function get_position( $section ){
     $i = 1;
     while( $row = $xoopsDB->fetchArray( $result ) ){
 
-        if ( $row['id_sec'] == $section->id() )
+        if ( $row['id_sec'] == $section->id_sec )
             return $i;
 
         $i++;
@@ -112,7 +112,7 @@ function form_number( $section, $number ){
 }
 
 $ajax = new RDAjaxResponse();
-$ajax->prepare_ajax_response();
+$ajax->prepare();
 
 define( 'RDURL', RDFunctions::url() );
 
@@ -145,13 +145,25 @@ if ( $section->parent == 0 ) {
     $number = form_number($section, '') . '.';
 }
 
+// Check if section must showed as single content
+if($section->single){
+    $subSections = [];
+    RDFunctions::getSectionTree($subSections, $section->id(), 1, $res->id());
+
+    foreach($subSections as $i => $subSection){
+        $subSections[$i]['content'] = TextCleaner::getInstance()->to_display($subSection['content']);
+        $subSections[$i]['number'] = form_number((object) $subSection, '');
+        $subSections[$i]['level'] = $subSection['saltos']+1;
+    }
+}
+
 $standalone = $xoopsModuleConfig['standalone'];
 
 ob_start();
 include RMTemplate::get()->get_template( 'docs-ajax-section.php', 'module', 'docs' );
 $content = ob_get_clean();
 
-$ajax->ajax_response(
+$ajax->response(
     'ok', 0, 0, array(
         'content'   => $content,
         'title'     => $section->title,
