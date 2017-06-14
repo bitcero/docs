@@ -30,7 +30,7 @@
                             <h<?php echo $sub['level']; ?> class="section-title">
                                 <?php echo $sub['title']; ?>
                                 <?php if($isEditor): ?>
-                                    <a rel="edit" href="<?php echo XOOPS_URL; ?>/modules/docs/admin/sections.php?action=edit&amp;sec=<?php echo $section->id_sec; ?>&amp;id=<?php echo $res->id(); ?>">
+                                    <a rel="edit" href="<?php echo XOOPS_URL; ?>/modules/docs/admin/sections.php?action=edit&amp;sec=<?php echo $sub['id_sec']; ?>&amp;id=<?php echo $res->id(); ?>">
                                         <small>[ <?php _e('Edit', 'docs'); ?>] </small>
                                     </a>
                                 <?php endif; ?>
