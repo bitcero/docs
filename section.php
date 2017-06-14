@@ -157,6 +157,8 @@ if($section->single){
     }
 }
 
+$isEditor = $res->isEditor() || ($xoopsUser && $xoopsUser->isAdmin());
+
 $standalone = $xoopsModuleConfig['standalone'];
 
 ob_start();

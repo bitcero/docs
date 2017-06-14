@@ -134,8 +134,21 @@ class RDResource extends RMObject{
 	* @desc Determina si un usuario es editor de un recurso
 	* @param int $uid Id de usuario
 	**/	
-	public function isEditor($uid){
-        
+	public function isEditor($uid = null){
+        global $xoopsUser;
+
+        if(null != $uid && 0 == $uid){
+            return false;
+        }
+
+        if(null == $uid && !$xoopsUser){
+            return false;
+        }
+
+        if(null == $uid){
+            $uid = $xoopsUser->getVar('uid');
+        }
+
 		$editors = $this->getVar('editors');
 				
 		return in_array($uid,$editors) ;

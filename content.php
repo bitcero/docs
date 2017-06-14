@@ -74,7 +74,8 @@ function showSection(RDResource &$res, RDSection &$section){
         'id' => $res->id(),
         'title' => $res->getVar('title'),
         'link' => $res->permalink(),
-        'reads' => $res->getVar('reads')
+        'reads' => $res->getVar('reads'),
+        'isEditor' => $res->isEditor($xoopsUser ? $xoopsUser->getVar('uid') : 0)
     );
     
     $res->add_read($res);
@@ -182,6 +183,9 @@ function showSection(RDResource &$res, RDSection &$section){
         if (RDFunctions::new_resource_allowed($xoopsUser ? $xoopsUser->getGroups() : XOOPS_GROUP_ANONYMOUS))
             $publish_url = RDFunctions::url().'/?action=publish';
     }
+
+    // Asignamos como editor
+    $isEditor = $res->isEditor() || ($xoopsUser && $xoopsUser->isAdmin());
     
     RDFunctions::breadcrumb();
     RMBreadCrumb::get()->add_crumb($res->getVar('title'), $res->permalink());

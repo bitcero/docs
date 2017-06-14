@@ -7,19 +7,34 @@
                 <header>
                     <a name="<?php echo $section->nameid; ?>"></a>
                     <?php /*h<?php echo $level <= 6 ? $level : 6; ?> class="section-title"><?php echo $number; ?> <?php echo $section->title; ?></h<?php echo $level <= 6 ? $level : 6; ?>*/?>
-                    <h1 class="section-title"><?php echo $number; ?> <?php echo $section->title; ?></h1>
+                    <h1 class="section-title">
+                        <?php echo $number; ?>
+                        <?php echo $section->title; ?>
+                        <?php if($isEditor): ?>
+                        <a rel="edit" href="<?php echo XOOPS_URL; ?>/modules/docs/admin/sections.php?action=edit&amp;sec=<?php echo $section->id_sec; ?>&amp;id=<?php echo $res->id(); ?>">
+                            <small>[ <?php _e('Edit', 'docs'); ?> ]</small>
+                        </a>
+                        <?php endif; ?>
+                    </h1>
                 </header>
 
                 <?php echo $section->content; ?>
             </section>
-            
+
             <?php if($subSections): ?>
                 <?php foreach($subSections as $sub): ?>
                     <section id="section-<?php echo $sub['id_sec']; ?>" class="doc-section is-header">
                         <header>
                             <a name="<?php echo $sub['nameid']; ?>"></a>
                             <?php /*h<?php echo $level <= 6 ? $level : 6; ?> class="section-title"><?php echo $number; ?> <?php echo $sub->title; ?></h<?php echo $level <= 6 ? $level : 6; ?>*/?>
-                            <h<?php echo $sub['level']; ?> class="section-title"><?php echo $sub['title']; ?></h<?php echo $sub['level']; ?>>
+                            <h<?php echo $sub['level']; ?> class="section-title">
+                                <?php echo $sub['title']; ?>
+                                <?php if($isEditor): ?>
+                                    <a rel="edit" href="<?php echo XOOPS_URL; ?>/modules/docs/admin/sections.php?action=edit&amp;sec=<?php echo $section->id_sec; ?>&amp;id=<?php echo $res->id(); ?>">
+                                        <small>[ <?php _e('Edit', 'docs'); ?>] </small>
+                                    </a>
+                                <?php endif; ?>
+                            </h<?php echo $sub['level']; ?>>
                         </header>
 
                         <?php echo $sub['content']; ?>

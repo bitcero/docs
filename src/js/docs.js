@@ -232,7 +232,11 @@ $(document).ready(function () {
 
         if ("_blank" != $(this).attr("target")) {
 
-            if ("external" == $(this).attr("rel")) return void $(this).attr("target", "_blank");
+            if ("external" == $(this).attr("rel") || 'edit' == $(this).attr("rel")){
+                return;
+            }
+
+            $(this).attr("target", "_blank");
 
             if($(this).attr("href").substring(0, 1) == '#'){
 
