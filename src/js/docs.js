@@ -236,7 +236,7 @@ $(document).ready(function () {
                 return;
             }
 
-            $(this).attr("target", "_blank");
+            //$(this).attr("target", "_blank");
 
             if($(this).attr("href").substring(0, 1) == '#'){
 

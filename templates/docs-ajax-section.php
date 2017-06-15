@@ -8,7 +8,7 @@
                     <a name="<?php echo $section->nameid; ?>"></a>
                     <?php /*h<?php echo $level <= 6 ? $level : 6; ?> class="section-title"><?php echo $number; ?> <?php echo $section->title; ?></h<?php echo $level <= 6 ? $level : 6; ?>*/?>
                     <h1 class="section-title">
-                        <?php echo $number; ?>
+                        <?php //echo $number; ?>
                         <?php echo $section->title; ?>
                         <?php if($isEditor): ?>
                         <a rel="edit" href="<?php echo XOOPS_URL; ?>/modules/docs/admin/sections.php?action=edit&amp;sec=<?php echo $section->id_sec; ?>&amp;id=<?php echo $res->id(); ?>">

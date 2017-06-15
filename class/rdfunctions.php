@@ -624,23 +624,52 @@ class RDFunctions
 
     }
 
-    static function indexRelink($sections, $link = ''){
+    static function sectionsRelink($sections, $link = ''){
 
         foreach($sections as $i => $section){
             if($section['single']){
-                $link = $section['link'];
-                $id = $section['id'];
+                $sections[$i]['sections'] = static::sectionsRelink($sections[$i]['sections'], $section['link']);
+                continue;
             }
 
-            if($link != '' && $id != $section['id']){
+            if($link != ''){
                 $sections[$i]['link'] = $link . '#section-' . $section['id'];
             }
 
-            $sections[$i]['sections'] = static::indexRelink($sections[$i]['sections'], $link);
+            $sections[$i]['sections'] = static::sectionsRelink($sections[$i]['sections'], $link);
         }
 
         return $sections;
 
+    }
+
+    public function indexRelink($sections, $link = '')
+    {
+        $switch = false;
+        $level = 0;
+
+        foreach($sections as $i => $section){
+            if($section['single']){
+                $switch = true;
+                $level = $section['jump'];
+                $link = $section['link'];
+                continue;
+            }
+
+            if($switch && $link != '' && $level < $section['jump']){
+                $sections[$i]['link'] = $link . '#section-' . $section['id'];
+                continue;
+            }
+
+            if($switch && $level <= $section['jump']){
+                $switch = false;
+                $level = 0;
+            }
+
+            //$sections = static::sectionsRelink($sections[$i]['sections'], $link);
+        }
+
+        return $sections;
     }
 
     /**

@@ -8,8 +8,8 @@
 // License: GPL 2.0
 // --------------------------------------------------------------
 
-define('RMCLOCATION', 'sections');
 include 'header.php';
+$common->location = 'sections';
 
 include_once '../include/functions.php';
 

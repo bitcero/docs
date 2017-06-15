@@ -37,12 +37,14 @@ define('RD_LOCATION', 'content');
 function docsRelink($sections, $link = ''){
 
     foreach($sections as $i => $section){
-        if($section['single']){
-            $link = $section['link'];
-            $id = $section['id'];
+        if($section['single'] && $link == ''){
+            $sections[$i]['sections'] = docsRelink($sections[$i]['sections'], $section['link']);
+            /*$link = $section['link'];
+            $id = $section['id'];*/
+            continue;
         }
 
-        if($link != '' && $id != $section['id']){
+        if($link != ''){
             $sections[$i]['link'] = $link . '#section-' . $section['id'];
         }
 
