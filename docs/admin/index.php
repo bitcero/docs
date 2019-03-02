@@ -8,7 +8,7 @@
 // License: GPL 2.0
 // --------------------------------------------------------------
 
-define( 'RMCLOCATION', 'index' );
+define('RMCLOCATION', 'index');
 include 'header.php';
 
 // Get top resources
@@ -18,34 +18,34 @@ $result = $db->query($sql);
 
 $top_data = array();
 
-while($row = $db->fetchArray($result)){
+while ($row = $db->fetchArray($result)) {
     $res = new RDResource();
     $res->assignVars($row);
     
     $top_data['reads'][] = $res->getVar('reads');
     $top_data['names'][] = $res->getVar('title').' ('.$res->getVar('reads').')';
-    
 }
 
-if ( !empty( $top_data ) )
+if (!empty($top_data)) {
     array_multisort($top_data['names'], SORT_STRING, $top_data['reads'], SORT_NUMERIC);
+}
 
 $sql = "SELECT * FROM ".$db->prefix("mod_docs_sections")." ORDER BY `comments` DESC LIMIT 0, 15";
 $result = $db->query($sql);
 
 $comm_data = array();
 
-while($row = $db->fetchArray($result)){
+while ($row = $db->fetchArray($result)) {
     $sec = new RDSection();
     $sec->assignVars($row);
     
     $comm_data['comments'][] = $sec->getVar('comments');
     $comm_data['names'][] = $sec->getVar('title').' ('.$sec->getVar('comments').')';
-    
 }
 
-if ( !empty( $comm_data ) )
+if (!empty($comm_data)) {
     array_multisort($comm_data['names'], SORT_STRING, $comm_data['comments'], SORT_NUMERIC);
+}
 
 // Resume data
 list($num) = $db->fetchRow($db->query("SELECT COUNT(*) FROM ".$db->prefix("mod_docs_resources")));
@@ -64,7 +64,7 @@ $resume_data['notes'] = $num;
 $sql = "SELECT * FROM ".$db->prefix("mod_docs_resources")." WHERE public=0 ORDER BY created DESC LIMIT 0,5";
 $result = $db->query($sql);
 $nopublished = array();
-while($row = $db->fetchArray($result)){
+while ($row = $db->fetchArray($result)) {
     $res = new RDResource();
     $res->assignVars($row);
     $nopublished[] = array(
@@ -79,7 +79,7 @@ while($row = $db->fetchArray($result)){
 $sql = "SELECT * FROM ".$db->prefix("mod_docs_resources")." WHERE approved=0 ORDER BY created DESC LIMIT 0,5";
 $result = $db->query($sql);
 $noapproved = array();
-while($row = $db->fetchArray($result)){
+while ($row = $db->fetchArray($result)) {
     $res = new RDResource();
     $res->assignVars($row);
     $noapproved[] = array(
@@ -92,7 +92,7 @@ while($row = $db->fetchArray($result)){
 
 xoops_cp_header();
 
-RMTemplate::get()->add_style('admin.min.css','docs');
+RMTemplate::get()->add_style('admin.min.css', 'docs');
 RMTemplate::get()->add_script('jquery.gcharts.js', 'rmcommon');
 RMTemplate::get()->add_head('<script type="text/javascript">var xoops_url="'.XOOPS_URL.'";</script>');
 

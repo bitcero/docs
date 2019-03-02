@@ -10,10 +10,14 @@
 
 header('Content-type: text/javascript');
 $wfile = isset($_GET['file']) ? $_GET['file'] : '';
-if ($wfile=='') exit();
+if ($wfile=='') {
+    exit();
+}
 
 $path = dirname(__FILE__);
-if (!file_exists($path.'/'.$wfile)) exit();
+if (!file_exists($path.'/'.$wfile)) {
+    exit();
+}
 
 $path .= '/'.$wfile;
 $root = dirname(dirname(dirname(dirname(__FILE__))));
@@ -25,7 +29,7 @@ $xoopsLogger->renderingEnabled = false;
 error_reporting(0);
 $xoopsLogger->activated = false;
 
-switch($wfile){
+switch ($wfile) {
     
     default:
         include $path;

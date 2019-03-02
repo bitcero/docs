@@ -29,7 +29,9 @@
 
 include_once 'include/xv-header.php';
 
-if(function_exists("load_mod_locale")) load_mod_locale('docs');
+if (function_exists("load_mod_locale")) {
+    load_mod_locale('docs');
+}
 
 $modversion = array(
 
@@ -37,7 +39,7 @@ $modversion = array(
      * XOOPS general information
      */
     'name'          => 'Documentor',
-    'description'   => __('Create documentation in Xoops, quicky and an advanced way.','docs'),
+    'description'   => __('Create documentation in Xoops, quicky and an advanced way.', 'docs'),
     'version'       => 1,
     'help'          => 'docs/readme.html',
     'license'       => 'GPL 2',
@@ -127,12 +129,12 @@ $modversion = array(
         array(
             'category' => 'general',
             'name' => 'permalinks',
-            'title' => __('URLs mode','docs'),
+            'title' => __('URLs mode', 'docs'),
             'description' => __('This options indicate the way in which RapidDocs will generate the URLs for documents.', 'docs'),
             'formtype' => 'select',
             'valuetype' => 'int',
             'default' => 0,
-            'options' => array(__('PHP Default','docs')=>0,__('Name based','docs')=>1)
+            'options' => array(__('PHP Default', 'docs')=>0,__('Name based', 'docs')=>1)
         ),
 
         array(
@@ -262,8 +264,8 @@ $modversion = array(
 
         array(
             'file' => 'rd_resources.php',
-            'name' => __('Documents','docs'),
-            'description' => __('List of Documents','docs'),
+            'name' => __('Documents', 'docs'),
+            'description' => __('List of Documents', 'docs'),
             'show_func' => 'rd_block_resources',
             'edit_func' => 'rd_block_resources_edit',
             'template' => 'rd_bk_resources.html',
@@ -272,8 +274,8 @@ $modversion = array(
 
         array(
             'file' => 'rd_index.php',
-            'name' => __('Document TOC','docs'),
-            'description' => __('Table of content for a specific Document','docs'),
+            'name' => __('Document TOC', 'docs'),
+            'description' => __('Table of content for a specific Document', 'docs'),
             'show_func' => 'rd_block_index',
             'edit_func' => '',
             'template' => 'rd_bk_index.html',

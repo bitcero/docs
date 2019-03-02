@@ -22,7 +22,7 @@ class RDFunctions
     /**
      * Get the HTMl code for editor plugin
      */
-    static public function editor_plugin($id, $type)
+    public static function editor_plugin($id, $type)
     {
         global $xoopsModule;
 
@@ -47,7 +47,6 @@ class RDFunctions
         $content = file_get_contents($file);
         $content = explode("\n", $content);
         return $content;
-
     }
 
     /**
@@ -55,9 +54,8 @@ class RDFunctions
      *
      * @param Object $res Publicación
      **/
-    function mail_approved(RDResource &$res)
+    public function mail_approved(RDResource &$res)
     {
-
         global $xoopsModuleConfig, $xoopsConfig;
 
         $config_handler =& xoops_gethandler('config');
@@ -90,7 +88,6 @@ class RDFunctions
         $page = rmc_server_var($_POST, 'page', 1);
 
         return $ret;
-
     }
 
     /**
@@ -105,7 +102,7 @@ class RDFunctions
      *
      * @return bool
      */
-    static function getSectionTree(&$array, $parent = 0, $indent = 0, $resource = 0, $fields = '*', $exclude = 0)
+    public static function getSectionTree(&$array, $parent = 0, $indent = 0, $resource = 0, $fields = '*', $exclude = 0)
     {
         global $db;
         $sql = "SELECT $fields FROM " . $db->prefix("mod_docs_sections") . " WHERE " . ($resource > 0 ? "id_res='$resource' AND" : '') . "
@@ -120,7 +117,6 @@ class RDFunctions
         }
 
         return true;
-
     }
 
     /**
@@ -137,7 +133,7 @@ class RDFunctions
      *
      * @return true;
      */
-    static function sections_tree_index(
+    public static function sections_tree_index(
         $parent = 0,
         $jumps = 0,
         RDResource $res,
@@ -146,16 +142,19 @@ class RDFunctions
         $assign = true,
         &$array = null,
         $text = false,
-        $nested = false)
-    {
-
+        $nested = false
+    ) {
         global $xoopsUser;
 
         $db = XoopsDatabaseFactory::getDatabaseConnection();
 
-        if ($var == '' && $assign) return false;
+        if ($var == '' && $assign) {
+            return false;
+        }
 
-        if (get_class($res) != 'RDResource') return;
+        if (get_class($res) != 'RDResource') {
+            return;
+        }
 
         $sql = "SELECT * FROM " . $db->prefix("mod_docs_sections") . " WHERE " . ($res->id() > 0 ? "id_res='" . $res->id() . "' AND" : '') . "
                 parent='$parent' ORDER BY `order`";
@@ -197,9 +196,7 @@ class RDFunctions
                 $section['sections'] = $secs;
 
                 $array[] = $section;
-
             } else {
-
                 if ($assign) {
                     RMTemplate::get()->assign($var, $section);
                 } else {
@@ -209,11 +206,12 @@ class RDFunctions
                 self::sections_tree_index($sec->id(), $jumps + 1, $res, $var, ($number != '' ? $number . '.' : '') . $i, $assign, $array, $text);
             }
             $i++;
-            if ($jumps == 0) $num++;
+            if ($jumps == 0) {
+                $num++;
+            }
         }
 
         return true;
-
     }
 
     /**
@@ -227,15 +225,15 @@ class RDFunctions
      *
      * @return array
      */
-    static public function references($res = 0, &$count, $search = '', $start = 0, $limit = 15)
+    public static function references($res = 0, &$count, $search = '', $start = 0, $limit = 15)
     {
-
         $db = XoopsDatabaseFactory::getDatabaseConnection();
 
         $sql = "SELECT COUNT(*) FROM " . $db->prefix('mod_docs_references') . ($res > 0 ? " WHERE id_res='$res'" : '');
 
-        if ($search != '')
+        if ($search != '') {
             $sql .= ($res > 0 ? " AND " : " WHERE ") . " (text LIKE '%$search%')";
+        }
 
         $cache = ObjectsCache::get();
         if ($res > 0) {
@@ -250,7 +248,7 @@ class RDFunctions
         $limit = $limit <= 0 ? 15 : $limit;
         $count = $num;
 
-        //Fin de navegador de páginas    
+        //Fin de navegador de páginas
         $sql = str_replace("COUNT(*)", "*", $sql);
         $sql .= " ORDER BY id_ref DESC LIMIT $start,$limit";
 
@@ -258,7 +256,6 @@ class RDFunctions
         $references = array();
         $ref = new RDReference();
         while ($rows = $db->fetchArray($result)) {
-
             $ref->assignVars($rows);
 
             if ($res->isNew()) {
@@ -274,11 +271,9 @@ class RDFunctions
                 'text' => $ref->getVar('text'),
                 'resource' => $res->getVar('title')
             );
-
         }
 
         return $references;
-
     }
 
     /**
@@ -294,21 +289,23 @@ class RDFunctions
      */
     public function figures($res = 0, &$count, $search = '', $start = 0, $limit = 15)
     {
-
         $db = XoopsDatabaseFactory::getDatabaseConnection();
 
         $sql = "SELECT COUNT(*) FROM " . $db->prefix('mod_docs_figures') . ($res > 0 ? " WHERE id_res='$res'" : '');
 
-        if ($search != '')
+        if ($search != '') {
             $sql .= ($res > 0 ? " AND " : " WHERE ") . " (desc LIKE '%$k%' OR content LIKE '%$k%')";
+        }
 
-        if ($res > 0) $res = new RDResource($res);
+        if ($res > 0) {
+            $res = new RDResource($res);
+        }
 
         list($num) = $db->fetchRow($db->query($sql));
         $limit = $limit <= 0 ? 15 : $limit;
         $count = $num;
 
-        //Fin de navegador de páginas    
+        //Fin de navegador de páginas
         $sql = str_replace("COUNT(*)", "*", $sql);
         $sql .= " ORDER BY id_fig DESC LIMIT $start,$limit";
 
@@ -318,7 +315,6 @@ class RDFunctions
         $figures = array();
         $ref = new RDFigure();
         while ($rows = $db->fetchArray($result)) {
-
             $ref->assignVars($rows);
 
             if ($res->isNew()) {
@@ -331,11 +327,9 @@ class RDFunctions
 
             $figures[] = array('id' => $ref->id(), 'title' => $ref->getVar('title'), 'desc' => $ref->getVar('desc'), 'content' => substr(TextCleaner::getInstance()->clean_disabled_tags($ref->getVar('content')), 0, 50) . "...",
                 'resource' => $res->getVar('title'));
-
         }
 
         return $figures;
-
     }
 
     /**
@@ -349,30 +343,26 @@ class RDFunctions
     {
         $db = XoopsDatabaseFactory::getDatabaseConnection();
 
-        if ($which != 'MAX' && $which != 'MIN') $which = 'MAX';
+        if ($which != 'MAX' && $which != 'MIN') {
+            $which = 'MAX';
+        }
 
         $sql = "SELECT $which(`order`) FROM " . $db->prefix("mod_docs_sections") . " WHERE parent='$parent' AND id_res='$res'";
         list($order) = $db->fetchRow($db->query($sql));
         return $order;
-
     }
 
     /**
      * Get the URL for module
      * return string
      */
-    static public function url()
+    public static function url()
     {
         $config = RMSettings::module_settings('docs');
         if ($config->permalinks) {
-
-
             $perma = ($config->subdomain != '' ? $config->subdomain : XOOPS_URL) . $config->htpath;
-
         } else {
-
             $perma = XOOPS_URL . '/modules/docs/';
-
         }
 
         return $perma;
@@ -383,13 +373,13 @@ class RDFunctions
      */
     public function resources_index($type = 'all', $limit = 15)
     {
-
         $db = XoopsDatabaseFactory::getDatabaseConnection();
         $sql = "SELECT * FROM " . $db->prefix("mod_docs_resources");
-        if ($type == 'featured')
+        if ($type == 'featured') {
             $sql .= " WHERE public=1 AND approved=1 AND featured=1 ORDER BY created DESC";
-        elseif ($type == 'all')
+        } elseif ($type == 'all') {
             $sql .= " WHERE public=1 AND approved=1 ORDER BY created DESC";
+        }
 
         $sql .= " LIMIT 0,$limit";
 
@@ -397,7 +387,6 @@ class RDFunctions
         $resources = array();
         $res = new RDResource();
         while ($row = $db->fetchArray($result)) {
-
             $res->assignVars($row);
             $resources[] = array(
                 'id' => $res->id(),
@@ -415,7 +404,6 @@ class RDFunctions
         $ret = ob_get_clean();
 
         return $ret;
-
     }
 
     /**
@@ -423,11 +411,9 @@ class RDFunctions
      *
      * @param string $msg
      */
-    static function error_404($msg = '')
+    public static function error_404($msg = '')
     {
-
         RMFunctions::error_404($msg == '' ? __('Document not found', 'docs') : $msg, 'docs');
-
     }
 
     /**
@@ -437,11 +423,13 @@ class RDFunctions
      *
      * @return RDSection object
      */
-    static function super_parent($id)
+    public static function super_parent($id)
     {
         global $db;
 
-        if ($id <= 0) return;
+        if ($id <= 0) {
+            return;
+        }
 
         $cache = ObjectsCache::get();
         $sec = $cache->cached('docs', 'sec-' . $id);
@@ -450,7 +438,9 @@ class RDFunctions
             $cache->set_cache('docs', 'sec-' . $id, $sec);
         }
 
-        if ($sec->isNew()) return array();
+        if ($sec->isNew()) {
+            return array();
+        }
 
         if ($sec->getVar('parent') > 0) {
             $section = self::super_parent($sec->getVar('parent'));
@@ -459,7 +449,6 @@ class RDFunctions
         }
 
         return $section;
-
     }
 
     /**
@@ -471,12 +460,16 @@ class RDFunctions
 
         $db = XoopsDatabaseFactory::getDatabaseConnection();
 
-        if (get_class($res) != 'RDResource') return;
+        if (get_class($res) != 'RDResource') {
+            return;
+        }
 
         $sql = "SELECT * FROM " . $db->prefix("mod_docs_sections") . " WHERE " . ($res->id() > 0 ? "id_res='" . $res->id() . "' AND" : '') . "
                 id_sec='$id'";
         $result = $db->query($sql);
-        if ($db->getRowsNum($result) <= 0) return;
+        if ($db->getRowsNum($result) <= 0) {
+            return;
+        }
 
         $sec = new RDSection();
         $row = $db->fetchArray($result);
@@ -517,25 +510,28 @@ class RDFunctions
      **/
     public function new_resource_allowed($gid)
     {
-
         $config = RMSettings::module_settings('docs');
 
         $groups = $config->create_groups;
 
         if (!is_array($gid)) {
-            if ($gid == XOOPS_GROUP_ADMIN) return true;
+            if ($gid == XOOPS_GROUP_ADMIN) {
+                return true;
+            }
             return in_array($gid, $groups);
         }
 
-        if (in_array(XOOPS_GROUP_ADMIN, $gid)) return true;
+        if (in_array(XOOPS_GROUP_ADMIN, $gid)) {
+            return true;
+        }
 
         foreach ($gid as $k) {
-
-            if (in_array($k, $groups)) return true;
+            if (in_array($k, $groups)) {
+                return true;
+            }
         }
 
         return false;
-
     }
 
     /**
@@ -555,11 +551,9 @@ class RDFunctions
      */
     public function make_link($page, $params = array())
     {
-
         $config = RMSettings::module_settings('docs');
 
         if (!$config->permalinks) {
-
             $q = '';
             foreach ($params as $k => $v) {
                 $q .= "&amp;$k=$v";
@@ -567,7 +561,6 @@ class RDFunctions
 
             $link = XOOPS_URL . '/modules/docs/index.php?page=' . ($page == 'explore' ? 'search' : $page) . $q;
             return $link;
-
         }
 
         $base_url = ($config->subdomain != '' ? $config->subdomain : XOOPS_URL) . rtrim($config->htpath, '/') . '/';
@@ -582,7 +575,6 @@ class RDFunctions
         }
 
         return $link;
-
     }
 
     /**
@@ -609,15 +601,13 @@ class RDFunctions
         unset($rd_contents);
         $xoopsTpl->display(RMTemplate::get()->get_template('docs-display-standalone.html', 'module', 'docs'));
         die();
-
     }
 
     /**
      * Construct and return the dialog to insert links in editors
      */
-    static public function insertLinkDialog()
+    public static function insertLinkDialog()
     {
-
         global $xoopsUser;
 
         $user = RMHttpRequest::post('user', 'string', $xoopsUser->uname());
@@ -657,20 +647,20 @@ class RDFunctions
         include RMTemplate::get()->get_template('ajax/docs-link-dialog.php', 'module', 'docs');
         $dialog = ob_get_clean();
         return $dialog;
-
     }
 
     /**
      * Construct and return the dialog to insert notes in content
      */
-    static public function insertNotesDialog()
+    public static function insertNotesDialog()
     {
         global $xoopsUser, $ajax;
 
         if (!$xoopsUser) {
             $ajax->ajax_response(
                 __('You don\'t have authorization for this action!', 'docs'),
-                1, 1
+                1,
+                1
             );
         }
 
@@ -684,7 +674,8 @@ class RDFunctions
         if ($id <= 0) {
             $ajax->ajax_response(
                 __('You must specify a valid book identifier', 'docs'),
-                1, 1
+                1,
+                1
             );
         }
 
@@ -692,14 +683,16 @@ class RDFunctions
         if ($id <= 0) {
             $ajax->ajax_response(
                 __('The specified book does not exists!', 'docs'),
-                1, 1
+                1,
+                1
             );
         }
 
         if ($res->owner != $xoopsUser->uid()) {
             $ajax->ajax_response(
                 __('You don\'t have access to references for this book', 'docs'),
-                1, 1
+                1,
+                1
             );
         }
 
@@ -714,15 +707,13 @@ class RDFunctions
         include RMTemplate::get()->get_template('ajax/docs-notes-dialog.php', 'module', 'docs');
         $dialog = ob_get_clean();
         return $dialog;
-
     }
 
     /**
      * Save a note to database
      */
-    static public function saveNote()
+    public static function saveNote()
     {
-
         global $xoopsUser;
 
         $id = RMHttpRequest::post('id', 'integer', 0);
@@ -735,14 +726,16 @@ class RDFunctions
         if (!$xoopsUser) {
             $ajax->ajax_response(
                 __('You must be logged in order to create notes', 'docs'),
-                1, 0
+                1,
+                0
             );
         }
 
         if ($id <= 0) {
             $ajax->ajax_response(
                 __('Book not specified', 'docs'),
-                1, 1
+                1,
+                1
             );
         }
 
@@ -750,14 +743,16 @@ class RDFunctions
         if ($res->isNew()) {
             $ajax->ajax_response(
                 __('Specified book does not exists', 'docs'),
-                1, 1
+                1,
+                1
             );
         }
 
         if (!$res->isEditor($xoopsUser->uid()) && !$xoopsUser->isAdmin() && $res->owner != $xoopsUser->uid()) {
             $ajax->ajax_response(
                 __('You don\'t have rights to add notes to this book', 'docs'),
-                1, 1
+                1,
+                1
             );
         }
 
@@ -769,7 +764,9 @@ class RDFunctions
         if ($note->save()) {
             $ajax->ajax_response(
                 __('The note has been created', 'docs'),
-                0, 1, array(
+                0,
+                1,
+                array(
                     'note' => $note->id(),
                     'res' => $res->id(),
                     'text' => $text
@@ -778,12 +775,11 @@ class RDFunctions
         } else {
             $ajax->ajax_response(
                 __('An error occurs while trying to save note:', 'docs') . ' ' . $note->errors(),
-                1, 0
+                1,
+                0
             );
         }
-
     }
-
 }
 
 /**
@@ -793,31 +789,27 @@ function rd_insert_edit(&$item, $key)
 {
     global $xoopsUser, $res, $xoopsModule;
 
-    if (!$xoopsUser) return;
+    if (!$xoopsUser) {
+        return;
+    }
 
-    if (!$item['edit']) return;
+    if (!$item['edit']) {
+        return;
+    }
 
-    if (!$res->isEditor($xoopsUser->uid()) && !$xoopsUser->isAdmin())
+    if (!$res->isEditor($xoopsUser->uid()) && !$xoopsUser->isAdmin()) {
         return array('editlink' => '');
+    }
 
     $config = RMSettings::module_settings('docs');
 
     if ($xoopsUser->isAdmin()) {
-
         $item['editlink'] = XOOPS_URL . '/modules/docs/admin/sections.php?action=edit&amp;id=' . $res->id() . '&amp;sec=' . $item['id'];
-
     } else {
-
         if ($config->permalinks) {
-
             $item['editlink'] = RDURL . '/edit/' . $item['id'] . '/' . $item['resource'] . '/';
-
         } else {
-
             $item['editlink'] = RDURL . '?page=content&amp;id=' . $item['id'] . '&amp;res=' . $res->id();
-
         }
-
     }
-
 }

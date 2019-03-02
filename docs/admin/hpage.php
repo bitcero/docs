@@ -11,17 +11,18 @@
 define('RMCLOCATION', 'homepage');
 include 'header.php';
 
-function rd_show_page(){
+function rd_show_page()
+{
     global $cuSettings;
 
-    RMTemplate::get()->assign('xoops_pagetitle', __('Home Page','docs'));
+    RMTemplate::get()->assign('xoops_pagetitle', __('Home Page', 'docs'));
     xoops_cp_header();
 
     include_once RMCPATH.'/class/form.class.php';
     $content = @file_get_contents(XOOPS_CACHE_PATH.'/docs-homepage.html');
-    $editor = new RMFormEditor('', 'homepage', '100%', '450px', $cuSettings->editor_type == 'tiny' ? TextCleaner::getInstance()->to_display( $content ) : TextCleaner::getInstance()->specialchars( $content ));
+    $editor = new RMFormEditor('', 'homepage', '100%', '450px', $cuSettings->editor_type == 'tiny' ? TextCleaner::getInstance()->to_display($content) : TextCleaner::getInstance()->specialchars($content));
     $rmc_config = RMSettings::cu_settings();
-    if ($rmc_config->editor_type == 'tiny'){
+    if ($rmc_config->editor_type == 'tiny') {
         $tiny = TinyEditor::getInstance();
         $tiny->add_config('theme_advanced_buttons1', 'res_index');
     }
@@ -31,21 +32,20 @@ function rd_show_page(){
     xoops_cp_footer();
 }
 
-function rd_save_page(){
-    
+function rd_save_page()
+{
     $page = rmc_server_var($_POST, 'homepage', '');
     
-    if (file_put_contents(XOOPS_CACHE_PATH.'/docs-homepage.html', $page)){
-        redirectMsg('hpage.php', __('Page saved successfully!','docs'), 0);
+    if (file_put_contents(XOOPS_CACHE_PATH.'/docs-homepage.html', $page)) {
+        redirectMsg('hpage.php', __('Page saved successfully!', 'docs'), 0);
     } else {
-        redirectMsg('hpage.php', __('Page could not be saved!','docs'), 1);
+        redirectMsg('hpage.php', __('Page could not be saved!', 'docs'), 1);
     }
-
 }
 
 $action=isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
 
-switch ($action){
+switch ($action) {
     case 'save':
         rd_save_page();
         break;

@@ -8,10 +8,13 @@
 // License: GPL 2.0
 // --------------------------------------------------------------
 
-function show_resources($by, $order='DESC'){
+function show_resources($by, $order='DESC')
+{
     global $xoopsConfig, $xoopsUser, $page;
     
-    if ($by=='') $by = 'created';
+    if ($by=='') {
+        $by = 'created';
+    }
     
     $db = XoopsDatabaseFactory::getDatabaseConnection();
     $sql = "SELECT COUNT(*) FROM ".$db->prefix("mod_docs_resources")." WHERE public=1 AND approved=1";
@@ -21,7 +24,7 @@ function show_resources($by, $order='DESC'){
     $limit = 15;
 
     $tpages = ceil($num/$limit);
-    $page = $page > $tpages ? $tpages : $page; 
+    $page = $page > $tpages ? $tpages : $page;
     
     $start = $num<=0 ? 0 : ($page - 1) * $limit;
     
@@ -33,7 +36,7 @@ function show_resources($by, $order='DESC'){
     
     $resources = array();
     $image = new RMImage();
-    while($row = $db->fetchArray($result)){
+    while ($row = $db->fetchArray($result)) {
         $res = new RDResource();
         $res->assignVars($row);
         $resources[] = array(
@@ -50,20 +53,20 @@ function show_resources($by, $order='DESC'){
     }
     
     RDFunctions::breadcrumb();
-    RMBreadCrumb::get()->add_crumb(__('Browsing recent Documents','docs'));
+    RMBreadCrumb::get()->add_crumb(__('Browsing recent Documents', 'docs'));
     
     RMTemplate::get()->add_style('docs.min.css', 'docs');
     
     include 'header.php';
-    $xoopsTpl->assign('xoops_pagetitle', $by=='created' ? __('Recent Documents','docs') : __('Top Documents','docs'));
+    $xoopsTpl->assign('xoops_pagetitle', $by=='created' ? __('Recent Documents', 'docs') : __('Top Documents', 'docs'));
     
-    include RMEvents::get()->run_event('docs.template.explore', RMTemplate::get()->get_template('docs-search.php','module','docs'));
+    include RMEvents::get()->run_event('docs.template.explore', RMTemplate::get()->get_template('docs-search.php', 'module', 'docs'));
     
     include 'footer.php';
-    
 }
 
-function search_resources(){
+function search_resources()
+{
     global $xoopsConfig, $xoopsUser, $page, $xoopsTpl;
      
     $keyword = rmc_server_var($_GET, 'keyword', '');
@@ -77,7 +80,7 @@ function search_resources(){
     $limit = 15;
 
     $tpages = ceil($num/$limit);
-    $page = $page > $tpages ? $tpages : $page; 
+    $page = $page > $tpages ? $tpages : $page;
     
     $start = $num<=0 ? 0 : ($page - 1) * $limit;
     
@@ -88,7 +91,7 @@ function search_resources(){
     $result = $db->query($sql);
     $resources = array();
     
-    while($row = $db->fetchArray($result)){
+    while ($row = $db->fetchArray($result)) {
         $res = new RDResource();
         $res->assignVars($row);
         $resources[] = array(
@@ -105,21 +108,20 @@ function search_resources(){
     }
     
     RDFunctions::breadcrumb();
-    RMBreadCrumb::get()->add_crumb(__('Browsing recent Documents','docs'));
+    RMBreadCrumb::get()->add_crumb(__('Browsing recent Documents', 'docs'));
     
     RMTemplate::get()->add_style('docs.min.css', 'docs');
     
     include 'header.php';
-    $xoopsTpl->assign('xoops_pagetitle', sprintf(__('Search results for "%s"','docs'), $keyword));
+    $xoopsTpl->assign('xoops_pagetitle', sprintf(__('Search results for "%s"', 'docs'), $keyword));
     
-    include RMEvents::get()->run_event('docs.template.search', RMTemplate::get()->get_template('docs-search.php','module','docs'));
+    include RMEvents::get()->run_event('docs.template.search', RMTemplate::get()->get_template('docs-search.php', 'module', 'docs'));
     
     include 'footer.php';
-     
 }
 
 
-switch($action){
+switch ($action) {
     case 'search':
         search_resources();
         break;

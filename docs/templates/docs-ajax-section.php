@@ -18,7 +18,7 @@
 
             <footer>
                 <!-- Notes and references -->
-                <?php include RMTemplate::get()->get_template('docs-notes-references.php','module','docs'); ?>
+                <?php include RMTemplate::get()->get_template('docs-notes-references.php', 'module', 'docs'); ?>
                 <!-- /End Notes and references -->
             </footer>
         </div>

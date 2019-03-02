@@ -1,4 +1,4 @@
-<?php if( !isset( $standalone ) || !$standalone): ?>
+<?php if (!isset($standalone) || !$standalone): ?>
 <div id="rd-header" class="row">
     <div class="col-md-8 col-lg-9">
         <ul class="list-inline">
@@ -6,10 +6,10 @@
                 <a href="<?php echo RDURL; ?>"><?php echo $xoopsModule->name(); ?></a>
             </li>
             <li>
-                <a href="<?php echo RDFunctions::make_link('explore', array('by'=>'recent')); ?>"><?php _e('Recent Documents','docs'); ?></a>
+                <a href="<?php echo RDFunctions::make_link('explore', array('by'=>'recent')); ?>"><?php _e('Recent Documents', 'docs'); ?></a>
             </li>
             <li>
-                <a href="<?php echo RDFunctions::make_link('explore', array('by'=>'top')); ?>"><?php _e('Top Documents','docs'); ?></a>
+                <a href="<?php echo RDFunctions::make_link('explore', array('by'=>'top')); ?>"><?php _e('Top Documents', 'docs'); ?></a>
             </li>
         </ul>
     </div>
@@ -18,7 +18,7 @@
             <div class="input-group input-group-sm">
                 <input type="text" name="keyword" size="20" class="form-control" />
                 <span class="input-group-btn">
-                    <button type="submit" class="btn btn-default"><?php _e('Search','docs'); ?></button>
+                    <button type="submit" class="btn btn-default"><?php _e('Search', 'docs'); ?></button>
                 </span>
             </div>
         </form>
@@ -28,7 +28,7 @@
 
     <div class="docs-content-header">
 
-        <?php if(!$no_content): ?>
+        <?php if (!$no_content): ?>
         <a href="#" class="btn pull-left toggle-summary">
             <span class="fa fa-bars"></span>
         </a>
@@ -42,8 +42,8 @@
             <span class="fa fa-align-justify"></span>
         </a>
         <?php endif; ?>
-        <?php if ( isset( $res ) ) : ?>
-            <a href="<?php echo $res->permalink(); ?>" class="btn pull-left" title="<?php _e('Back to document','docs'); ?>">
+        <?php if (isset($res)) : ?>
+            <a href="<?php echo $res->permalink(); ?>" class="btn pull-left" title="<?php _e('Back to document', 'docs'); ?>">
                 <span class="fa fa-book"></span>
             </a>
             <a href="<?php echo $res->permalink(); ?>" target="_blank" class="btn pull-right book-title">

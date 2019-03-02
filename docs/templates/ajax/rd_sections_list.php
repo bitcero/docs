@@ -1,9 +1,9 @@
 <table class="outer" cellspacing="0" width="100%">
 <tr class="even resources_list">
-<?php 
+<?php
     $i = 0;
-    foreach($resources as $res): 
-        if ($i>1): 
+    foreach ($resources as $res):
+        if ($i>1):
             $i = 0; ?>
         </tr><tr class="<?php echo tpl_cycle("odd,even"); ?> resources_list">
     <?php endif;

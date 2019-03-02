@@ -13,7 +13,7 @@
  * para evitar problemas en el sistema
  */
 $amod = xoops_getActiveModules();
-if(!in_array("rmcommon",$amod)){
+if (!in_array("rmcommon", $amod)) {
     $error = "<strong>WARNING:</strong> RapidDocs requires %s to be installed!<br />Please install %s before trying to use RapidDocs";
     $error = str_replace("%s", '<a href="http://www.redmexico.com.mx/w/common-utilities/" target="_blank">Common Utilities</a>', $error);
     xoops_error($error);
@@ -23,8 +23,9 @@ if(!in_array("rmcommon",$amod)){
     echo "<br />";
 }
 
-if (!function_exists("__")){
-    function __($text, $d){
+if (!function_exists("__")) {
+    function __($text, $d)
+    {
         return $text;
     }
 }

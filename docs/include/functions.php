@@ -21,32 +21,37 @@
 * @param array Reference to an array for fill.
 * @return empty
 */
-function assignSectionTree($parent = 0, $jumps = 0, AHResource $res, $var = 'index', $number='', $assign = true, &$array = null){
-	global $tpl;
-	$db = XoopsDatabaseFactory::getDatabaseConnection();
-	
-	if (get_class($res)!='AHResource') return;
-	
-	$sql = "SELECT * FROM ".$db->prefix("pa_sections")." WHERE ".($res->id()>0 ? "id_res='".$res->id()."' AND" : '')."
+function assignSectionTree($parent = 0, $jumps = 0, AHResource $res, $var = 'index', $number='', $assign = true, &$array = null)
+{
+    global $tpl;
+    $db = XoopsDatabaseFactory::getDatabaseConnection();
+    
+    if (get_class($res)!='AHResource') {
+        return;
+    }
+    
+    $sql = "SELECT * FROM ".$db->prefix("pa_sections")." WHERE ".($res->id()>0 ? "id_res='".$res->id()."' AND" : '')."
 			parent='$parent' ORDER BY `order`";
-	$result = $db->query($sql);
-	$sec = new AHSection();
-	$i = 1; // Counter
-	$num = 1;
-	while ($row = $db->fetchArray($result)){
-		$sec->assignVars($row);
-		$link = ah_make_link($res->nameId().'/'.$sec->nameId());
-		if ($assign){
-			$tpl->append($var, array('title'=>$sec->title(),'nameid'=>$sec->nameId(), 'jump'=>$jumps,'link'=>$link, 'number'=>$jumps==0 ? $num : ($number !='' ? $number.'.' : '').$i));
-		} else {
-			$array[] = array('title'=>$sec->title(), 'nameid'=>$sec->nameId(), 'jump'=>$jumps,'link'=>$link, 'number'=>$jumps==0 ? $num : ($number !='' ? $number.'.' : '').$i);
-		}
-		assignSectionTree($sec->id(), $jumps+1, $res, $var, ($number !='' ? $number.'.' : '').$i, $assign, $array);
-		$i++;
-		if ($jumps==0) $num++;
-	}
-	
-	return true;
+    $result = $db->query($sql);
+    $sec = new AHSection();
+    $i = 1; // Counter
+    $num = 1;
+    while ($row = $db->fetchArray($result)) {
+        $sec->assignVars($row);
+        $link = ah_make_link($res->nameId().'/'.$sec->nameId());
+        if ($assign) {
+            $tpl->append($var, array('title'=>$sec->title(),'nameid'=>$sec->nameId(), 'jump'=>$jumps,'link'=>$link, 'number'=>$jumps==0 ? $num : ($number !='' ? $number.'.' : '').$i));
+        } else {
+            $array[] = array('title'=>$sec->title(), 'nameid'=>$sec->nameId(), 'jump'=>$jumps,'link'=>$link, 'number'=>$jumps==0 ? $num : ($number !='' ? $number.'.' : '').$i);
+        }
+        assignSectionTree($sec->id(), $jumps+1, $res, $var, ($number !='' ? $number.'.' : '').$i, $assign, $array);
+        $i++;
+        if ($jumps==0) {
+            $num++;
+        }
+    }
+    
+    return true;
 }
 
 /**
@@ -55,47 +60,56 @@ function assignSectionTree($parent = 0, $jumps = 0, AHResource $res, $var = 'ind
 */
 
 
-function ahBuildReference($id){
-	global $xoopsModuleConfig, $tpl;
-	
-	$ref = new AHReference($id);
-	if ($ref->isNew()) return;
+function ahBuildReference($id)
+{
+    global $xoopsModuleConfig, $tpl;
+    
+    $ref = new AHReference($id);
+    if ($ref->isNew()) {
+        return;
+    }
 
-	$ret = "<a name='top$id'></a><a href='javascript:;' ".(!$xoopsModuleConfig['refs_method'] ? "title='".$ref->title()."' " : " ");
-	if ($xoopsModuleConfig['refs_method']){
-		$ret .= "onclick=\"doReference(event,'$id');\"";
-	} else {
-		$ret .= "onclick=\"showReference($id,'$xoopsModuleConfig[refs_color]');\"";
-		$tpl->append('references', array('id'=>$ref->id(),'text'=>$ref->reference()));
-		$tpl->assign('have_refs', 1);
-	}
-	$ret .= "><img src='".XOOPS_URL."/modules/ahelp/images/reflink.png' align='textop' ".(!$xoopsModuleConfig['refs_method'] ? "alt='".$ref->title()."'" : "")." /></a>";
-	
-	return $ret;
+    $ret = "<a name='top$id'></a><a href='javascript:;' ".(!$xoopsModuleConfig['refs_method'] ? "title='".$ref->title()."' " : " ");
+    if ($xoopsModuleConfig['refs_method']) {
+        $ret .= "onclick=\"doReference(event,'$id');\"";
+    } else {
+        $ret .= "onclick=\"showReference($id,'$xoopsModuleConfig[refs_color]');\"";
+        $tpl->append('references', array('id'=>$ref->id(),'text'=>$ref->reference()));
+        $tpl->assign('have_refs', 1);
+    }
+    $ret .= "><img src='".XOOPS_URL."/modules/ahelp/images/reflink.png' align='textop' ".(!$xoopsModuleConfig['refs_method'] ? "alt='".$ref->title()."'" : "")." /></a>";
+    
+    return $ret;
 }
 
-function ahBuildFigure($id){
-    
+function ahBuildFigure($id)
+{
     $fig = new AHFigure($id);
-    if ($fig->isNew()) return;
+    if ($fig->isNew()) {
+        return;
+    }
     
     $ret = "<div ";
-    if ($fig->_class()!='') $ret .= "class='".$fig->_class()."' ";
-    if ($fig->style()!='') $ret .= "style='".$fig->style()."' ";
+    if ($fig->_class()!='') {
+        $ret .= "class='".$fig->_class()."' ";
+    }
+    if ($fig->style()!='') {
+        $ret .= "style='".$fig->style()."' ";
+    }
     
     $ret .= $fig->figure();
     
     $ret .= "<div class='ahFigureFoot'>".$fig->desc()."</div></div>";
     
     return $ret;
-    
 }
 
 /**
 * @desc Función para crear las referencias del documento
 */
-function ahParseReferences($text){
-	
+function ahParseReferences($text)
+{
+    
     
     
     // Parseamos las figuras
@@ -103,16 +117,15 @@ function ahParseReferences($text){
     $replacement = "ahBuildFigure(\\1)";
     $text = preg_replace($pattern, $replacement, $text);
     
-	return $text;
-	
+    return $text;
 }
 
-function ah_make_link($link=''){
+function ah_make_link($link='')
+{
     global $xoopsModuleConfig;
     
     $mc =& $xoopsModuleConfig;
     $url = $mc['access'] ? XOOPS_URL.$mc['htpath'].'/' : XOOPS_URL.'/modules/ahelp/index.php?page=';
     
     return $url.$link;
-    
 }
