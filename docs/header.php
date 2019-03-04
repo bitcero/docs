@@ -8,13 +8,13 @@
 // License: GPL 2.0
 // --------------------------------------------------------------
 
-include(XOOPS_ROOT_PATH.'/header.php');
+include(XOOPS_ROOT_PATH . '/header.php');
 
-$mc =& $xoopsModuleConfig;
+$mc = &$xoopsModuleConfig;
 
-//include_once 'include/functions.php';
+//require_once __DIR__ . '/include/functions.php';
 define('RDURL', RDFunctions::url());
-define('RDPATH', XOOPS_ROOT_PATH.'/modules/docs');
+define('RDPATH', XOOPS_ROOT_PATH . '/modules/docs');
 $xoopsTpl->assign('rdurl', RDURL);
 
 RMTemplate::get()->add_inline_script('var docsUrl = "' . RDURL . '";');

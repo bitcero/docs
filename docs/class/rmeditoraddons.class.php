@@ -31,29 +31,28 @@ class RMEditorAddons extends RMFormElement
     private $type;
     private $id;
     private $section;
-    
-    
+
     /**
-    * @param int $editor Id del editor
-    * @param string $name Nombre del campo
-    * @param string $caption Texto para mostrar en el campo
-    * @param string $type Tipo de editor
-    * @param int $id_res Publicación
-    * @param int $id_sec Contenido
-    **/
+     * @param int $editor Id del editor
+     * @param string $name Nombre del campo
+     * @param string $caption Texto para mostrar en el campo
+     * @param string $type Tipo de editor
+     * @param int $id_res Publicación
+     * @param int $id_sec Contenido
+     **/
     public function __construct($caption, $name, $editor, $type, $id_res, $id_sec)
     {
-        $this->editor=$editor;
+        $this->editor = $editor;
         $this->setName($name);
         $this->setCaption($caption);
         $this->type = $type;
-        $this->id=$id_res;
-        $this->section=$id_sec;
+        $this->id = $id_res;
+        $this->section = $id_sec;
     }
-    
+
     public function jsFunctions()
     {
-        if ($this->type=='tiny') {
+        if ('tiny' == $this->type) {
             $ret = "<script type='text/javascript'>
 					function insertReference(id_ref){
 						var html;
@@ -86,16 +85,16 @@ class RMEditorAddons extends RMFormElement
 					}
 				</script>";
         }
-        
+
         return $ret;
     }
 
     public function render()
     {
-        $ret = '<img src="'.XOOPS_URL.'/modules/ahelp/images/refs16.png" align="absmiddle" border="0" alt="" /> ';
-        $ret .= "<a href='javascript:;' onclick=\"centerWindow(openWithSelfMain('".XOOPS_URL."/modules/ahelp/references.php?id=$this->id&amp;section=$this->section&amp;editor=$this->editor','references',500,600,true),500,600);\">"._AS_AH_REFERENCES."</a> &nbsp;";
-        $ret .= '<img src="'.XOOPS_URL.'/modules/ahelp/images/figs16.png" align="absmiddle" border="0" alt="" /> ';
-        $ret .= "<a href='javascript:;'  onclick=\"centerWindow(openWithSelfMain('".XOOPS_URL."/modules/ahelp/figures.php?id=$this->id&amp;section=$this->section&amp;editor=$this->editor','figures',710,600,true),710,600);\">"._AS_AH_FIGURES."</a>";
+        $ret = '<img src="' . XOOPS_URL . '/modules/ahelp/images/refs16.png" align="absmiddle" border="0" alt=""> ';
+        $ret .= "<a href='javascript:;' onclick=\"centerWindow(openWithSelfMain('" . XOOPS_URL . "/modules/ahelp/references.php?id=$this->id&amp;section=$this->section&amp;editor=$this->editor','references',500,600,true),500,600);\">" . _AS_AH_REFERENCES . '</a> &nbsp;';
+        $ret .= '<img src="' . XOOPS_URL . '/modules/ahelp/images/figs16.png" align="absmiddle" border="0" alt=""> ';
+        $ret .= "<a href='javascript:;'  onclick=\"centerWindow(openWithSelfMain('" . XOOPS_URL . "/modules/ahelp/figures.php?id=$this->id&amp;section=$this->section&amp;editor=$this->editor','figures',710,600,true),710,600);\">" . _AS_AH_FIGURES . '</a>';
 
         return $ret;
     }

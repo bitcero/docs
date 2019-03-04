@@ -5,11 +5,11 @@
     function make_top_resources(){
         var api = new jGCharts.Api();         
         var opt = {
-            data : [[<?php echo implode(",", $top_data['reads']); ?>]],//mandatory 
+            data : [[<?php echo implode(',', $top_data['reads']); ?>]],//mandatory 
             axis_labels: ['<?php _e('Documents by popularity', 'docs'); ?>'],
             size : $("#rd-top-resources").width()+'x300',//default 300x200 (width x height) - maximum size 300,000 pixels};//set options
             bar_width: 15,
-            bar_spacing: parseInt(($("#rd-top-resources").width()-<?php echo(count($top_data['reads'])*15); ?>)/<?php echo count($top_data['reads']); ?>),
+            bar_spacing: parseInt(($("#rd-top-resources").width()-<?php echo(count($top_data['reads']) * 15); ?>)/<?php echo count($top_data['reads']); ?>),
             title_size: 20,
             legend: ['<?php echo implode("','", $top_data['names']); ?>'],
             legend_position: 'b',
@@ -26,11 +26,11 @@
     function make_comm_resources(){
         var api = new jGCharts.Api();         
         var opt = {
-            data : [[<?php echo implode(",", $comm_data['comments']); ?>]],//mandatory 
+            data : [[<?php echo implode(',', $comm_data['comments']); ?>]],//mandatory 
             axis_labels: ['<?php _e('Sections by comments', 'docs'); ?>'],
             size : $("#rd-comms-resources").width()+'x300',//default 300x200 (width x height) - maximum size 300,000 pixels};//set options
             bar_width: 15,
-            bar_spacing: parseInt(($("#rd-comms-resources").width()-<?php echo(count($comm_data['comments'])*15); ?>)/<?php echo count($comm_data['comments']); ?>),
+            bar_spacing: parseInt(($("#rd-comms-resources").width()-<?php echo(count($comm_data['comments']) * 15); ?>)/<?php echo count($comm_data['comments']); ?>),
             title_size: 20,
             legend: ['<?php echo implode("','", $comm_data['names']); ?>'],
             legend_position: 'b',
@@ -72,18 +72,18 @@
                 <table class="table">
                     <tr>
                         <td>
-                            <a href="resources.php"><?php echo sprintf(__('%s Documents', 'docs'), '<strong>'.$resume_data['resources'].'</strong>'); ?></a>
+                            <a href="resources.php"><?php echo sprintf(__('%s Documents', 'docs'), '<strong>' . $resume_data['resources'] . '</strong>'); ?></a>
                         </td>
                         <td>
-                            <?php echo sprintf(__('%s Sections', 'docs'), '<strong>'.$resume_data['sections'].'</strong>'); ?>
+                            <?php echo sprintf(__('%s Sections', 'docs'), '<strong>' . $resume_data['sections'] . '</strong>'); ?>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <?php echo sprintf(__('%s Figures', 'docs'), '<strong>'.$resume_data['figures'].'</strong>'); ?>
+                            <?php echo sprintf(__('%s Figures', 'docs'), '<strong>' . $resume_data['figures'] . '</strong>'); ?>
                         </td>
                         <td>
-                            <?php echo sprintf(__('%s Notes & References', 'docs'), '<strong>'.$resume_data['notes'].'</strong>'); ?>
+                            <?php echo sprintf(__('%s Notes & References', 'docs'), '<strong>' . $resume_data['notes'] . '</strong>'); ?>
                         </td>
                     </tr>
                 </table>
@@ -108,7 +108,7 @@
                 <ul class="list-group">
                     <?php foreach ($noapproved as $res): ?>
                         <li class="list-group-item">
-                            <a href="resources.php?action=edit&amp;id=<?php echo $res['id']; ?>"><?php echo $res['title']; ?></a><br />
+                            <a href="resources.php?action=edit&amp;id=<?php echo $res['id']; ?>"><?php echo $res['title']; ?></a><br>
                             <?php echo $res['desc']; ?>
                         </li>
                     <?php endforeach; ?>

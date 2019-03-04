@@ -33,8 +33,7 @@
  * the ID of a section:
  * <code>/section.php?id=1</code>
  */
-
-require '../../mainfile.php';
+require dirname(__DIR__) . '/../mainfile.php';
 
 class RDAjaxResponse
 {
@@ -55,7 +54,7 @@ function get_level($id, $level)
         return $level;
     }
 
-    if ($section->parent == 0) {
+    if (0 == $section->parent) {
         return $level;
     }
 
@@ -68,9 +67,9 @@ function get_position($section)
 {
     global $xoopsDB;
 
-    $result = $xoopsDB->query("SELECT * FROM " . $xoopsDB->prefix("mod_docs_sections") . " WHERE parent = " . $section->parent . " ORDER BY `order`");
+    $result = $xoopsDB->query('SELECT * FROM ' . $xoopsDB->prefix('mod_docs_sections') . ' WHERE parent = ' . $section->parent . ' ORDER BY `order`');
     $i = 1;
-    while ($row = $xoopsDB->fetchArray($result)) {
+    while (false !== ($row = $xoopsDB->fetchArray($result))) {
         if ($row['id_sec'] == $section->id()) {
             return $i;
         }
@@ -97,7 +96,7 @@ function form_number($section, $number)
     global $parents;
 
     if ($section->parent > 0) {
-        $number = get_position($section) . ($number != '' ? '.' . $number : '');
+        $number = get_position($section) . ('' != $number ? '.' . $number : '');
         $parent = new RDSection($section->parent);
         $number = form_number($parent, $number);
     } else {
@@ -129,17 +128,17 @@ if ($section->isNew()) {
     );
 }
 
-$result = $xoopsDB->query("SELECT id_sec FROM " . $xoopsDB->prefix("mod_docs_sections") . " WHERE parent = 0 AND id_res = '". $res->id() ."' ORDER BY `order`");
-$parents = array();
+$result = $xoopsDB->query('SELECT id_sec FROM ' . $xoopsDB->prefix('mod_docs_sections') . " WHERE parent = 0 AND id_res = '" . $res->id() . "' ORDER BY `order`");
+$parents = [];
 $i = 1;
-while ($row = $xoopsDB->fetchArray($result)) {
+while (false !== ($row = $xoopsDB->fetchArray($result))) {
     $parents[$row['id_sec']] = $i;
     $i++;
 }
 
 $super = RDFunctions::super_parent($section->id());
 
-if ($section->parent == 0) {
+if (0 == $section->parent) {
     $level = 2;
     $number = get_parent_position($section->id(), $parents) . '.';
 } else {
@@ -157,9 +156,9 @@ $ajax->ajax_response(
     'ok',
     0,
     0,
-    array(
-        'content'   => $content,
-        'title'     => $section->title,
-        'id'        => $section->id()
-    )
+    [
+        'content' => $content,
+        'title' => $section->title,
+        'id' => $section->id(),
+    ]
 );

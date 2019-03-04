@@ -28,7 +28,7 @@
     <table class="table table-striped">
         <thead>
         <tr class="head" align="center">
-            <th width="20"><input type="checkbox" id="checkall" onclick='$("#frm-edits").toggleCheckboxes(":not(#checkall)");' /></th>
+            <th width="20"><input type="checkbox" id="checkall" onclick='$("#frm-edits").toggleCheckboxes(":not(#checkall)");'></th>
             <th align="left"><?php _e('Section', 'docs'); ?></th>
             <th align="left"><?php _e('New Title', 'docs') ?></th>
             <th><?php _e('Modified', 'docs'); ?></th>
@@ -37,7 +37,7 @@
         </thead>
         <tfoot>
         <tr class="head" align="center">
-            <th width="20"><input type="checkbox" id="checkall2" onclick='$("#frm-edits").toggleCheckboxes(":not(#checkall2)");' /></th>
+            <th width="20"><input type="checkbox" id="checkall2" onclick='$("#frm-edits").toggleCheckboxes(":not(#checkall2)");'></th>
             <th align="left"><?php _e('Section', 'docs'); ?></th>
             <th align="left"><?php _e('New Title', 'docs') ?></th>
             <th><?php _e('Modified', 'docs'); ?></th>
@@ -51,8 +51,8 @@
             </tr>
         <?php endif; ?>
         <?php foreach ($sections as $edit): ?>
-            <tr class="<?php echo tpl_cycle("even,odd"); ?>" align="center" valign="top">
-                <td><input type="checkbox" name="ids[]" id="item-<?php echo $edit['id']; ?>" value="<?php echo $edit['id']; ?>" /></td>
+            <tr class="<?php echo tpl_cycle('even,odd'); ?>" align="center" valign="top">
+                <td><input type="checkbox" name="ids[]" id="item-<?php echo $edit['id']; ?>" value="<?php echo $edit['id']; ?>"></td>
                 <td align="left">
                     <a href="<?php echo $edit['section']['link']; ?>"><?php echo $edit['section']['title']; ?></a>
                 </td>

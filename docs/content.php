@@ -26,49 +26,46 @@
  * @link         http://eduardocortes.mx
  * @link         http://xoopsmexico.net
  */
-
-
-if ($id=='') {
+if ('' == $id) {
     RDFunctions::error_404();
 }
 
 $browser = $_SERVER['HTTP_USER_AGENT'];
-$pos = stripos($browser, 'Mozilla/5');
+$pos = mb_stripos($browser, 'Mozilla/5');
 define('RD_LOCATION', 'content');
 
 /**
-* @desc Muestra el contenido completo de una sección
-*/
+ * @desc Muestra el contenido completo de una sección
+ */
 function showSection(RDResource &$res, RDSection &$section)
 {
     global $xoopsUser, $xoopsModuleConfig, $xoopsOption, $xoopsTpl, $xoopsConfig, $standalone;
 
-    include 'header.php';
+    require __DIR__ . '/header.php';
 
     $xoopsTpl->assign('xoops_pagetitle', $section->getVar('title'));
 
-    
     // Resource data
-    $resource = array(
+    $resource = [
         'id' => $res->id(),
         'title' => $res->getVar('title'),
         'link' => $res->permalink(),
-        'reads' => $res->getVar('reads')
-    );
-    
+        'reads' => $res->getVar('reads'),
+    ];
+
     $res->add_read($res);
 
     // Section tree
     $db = XoopsDatabaseFactory::getDatabaseConnection();
 
-    $index = array();
+    $index = [];
     RDFunctions::sections_tree_index(0, 0, $res, '', '', false, $index);
 
     $standalone = $xoopsModuleConfig['standalone'];
 
     RMTemplate::get()->add_jquery();
-    RMTemplate::get()->add_script('jquery.dotdotdot.min.js', 'docs', array( 'footer' => 1 ));
-    RMTemplate::get()->add_script('docs.min.js', 'docs', array( 'footer' => 1 ));
+    RMTemplate::get()->add_script('jquery.dotdotdot.min.js', 'docs', [ 'footer' => 1 ]);
+    RMTemplate::get()->add_script('docs.min.js', 'docs', [ 'footer' => 1 ]);
 
     if ($xoopsModuleConfig['standalone']) {
         include RMEvents::get()->run_event('docs.section.template', RMTemplate::get()->get_template('docs-display-section.php', 'module', 'docs'));
@@ -77,47 +74,46 @@ function showSection(RDResource &$res, RDSection &$section)
         RMTemplate::get()->add_style('docs.min.css', 'docs');
     }
 
-
-    $sql = "SELECT * FROM ".$db->prefix("mod_docs_sections")." WHERE id_res='".$res->id()."' AND parent = '0' ORDER BY `order`";
+    $sql = 'SELECT * FROM ' . $db->prefix('mod_docs_sections') . " WHERE id_res='" . $res->id() . "' AND parent = '0' ORDER BY `order`";
     $result = $db->query($sql);
     $i = 1;
     $first_section = 0;
     $number = 1;
     $located = false; // Check if current position has been located
-    while ($row = $db->fetchArray($result)) {
+    while (false !== ($row = $db->fetchArray($result))) {
         $sec = new RDSection();
         $sec->assignVars($row);
 
-        if ($i == 0) {
+        if (0 == $i) {
             $first_section = $row['id_sec'];
         }
 
-        if ($sec->id()==$section->id()) {
-            $number=$i;
+        if ($sec->id() == $section->id()) {
+            $number = $i;
             $located = true;
         }
-        
-        if ($sec->id()==$section->id() && isset($sprev)) {
-            $prev_section = array(
-                'id'=>$sprev->id(),
-                'title'=>$sprev->getVar('title'),
-                'link'=>$sprev->permalink()
-            );
+
+        if ($sec->id() == $section->id() && isset($sprev)) {
+            $prev_section = [
+                'id' => $sprev->id(),
+                'title' => $sprev->getVar('title'),
+                'link' => $sprev->permalink(),
+            ];
         }
-        
-        if ($number==$i-1 && $located) {
-            $next_section = array(
-                'id'=>$sec->id(),
-                'title'=>$sec->getVar('title'),
-                'link'=>$sec->permalink()
-            );
+
+        if ($number == $i - 1 && $located) {
+            $next_section = [
+                'id' => $sec->id(),
+                'title' => $sec->getVar('title'),
+                'link' => $sec->permalink(),
+            ];
             break;
         }
         $i++;
-        
+
         $sprev = $sec;
     }
-    
+
     $GLOBALS['rd_section_number'] = $number;
 
     $sections = RDFunctions::get_section_tree($section->id(), $res, $number, true);
@@ -126,12 +122,12 @@ function showSection(RDResource &$res, RDSection &$section)
     $last_modification = 0;
 
     foreach ($sections as $sec) {
-        if ($sec['modified']>$last_modification) {
+        if ($sec['modified'] > $last_modification) {
             $last_modification = $sec['modified'];
-            $last_author = array(
+            $last_author = [
                 'id' => $sec['author'],
-                'name' => $sec['author_name']
-            );
+                'name' => $sec['author_name'],
+            ];
         }
     }
 
@@ -141,61 +137,62 @@ function showSection(RDResource &$res, RDSection &$section)
     // URLs
     if ($xoopsModuleConfig['permalinks']) {
         /**
-        * @todo Generate friendly links
-        */
+         * @todo Generate friendly links
+         */
         if (RMFunctions::plugin_installed('topdf')) {
-            $pdf_book_url = RDFunctions::url().'/pdfbook/'.$section->id().'/';
-            $pdf_section_url = RDFunctions::url().'/pdfsection/'.$section->id().'/';
+            $pdf_book_url = RDFunctions::url() . '/pdfbook/' . $section->id() . '/';
+            $pdf_section_url = RDFunctions::url() . '/pdfsection/' . $section->id() . '/';
         }
-        $print_book_url = RDFunctions::url().'/printbook/'.$section->id().'/';
-        $print_section_url = RDFunctions::url().'/printsection/'.$section->id().'/';
+        $print_book_url = RDFunctions::url() . '/printbook/' . $section->id() . '/';
+        $print_section_url = RDFunctions::url() . '/printsection/' . $section->id() . '/';
         if (RDFunctions::new_resource_allowed($xoopsUser ? $xoopsUser->getGroups() : XOOPS_GROUP_ANONYMOUS)) {
-            $publish_url = RDFunctions::url().'/publish/';
+            $publish_url = RDFunctions::url() . '/publish/';
         }
     } else {
         if (RMFunctions::plugin_installed('topdf')) {
-            $pdf_book_url = XOOPS_URL.'/modules/docs/index.php?page=content&amp;id='.$section->id().'&amp;action=pdfbook';
-            $pdf_section_url = XOOPS_URL.'/modules/docs/index.php?page=content&amp;id='.$section->id().'&amp;action=pdfsection';
+            $pdf_book_url = XOOPS_URL . '/modules/docs/index.php?page=content&amp;id=' . $section->id() . '&amp;action=pdfbook';
+            $pdf_section_url = XOOPS_URL . '/modules/docs/index.php?page=content&amp;id=' . $section->id() . '&amp;action=pdfsection';
         }
-        $print_book_url = XOOPS_URL.'/modules/docs/index.php?page=content&amp;id='.$section->id().'&amp;action=printbook';
-        $print_section_url = XOOPS_URL.'/modules/docs/index.php?page=content&amp;id='.$section->id().'&amp;action=printsection';
+        $print_book_url = XOOPS_URL . '/modules/docs/index.php?page=content&amp;id=' . $section->id() . '&amp;action=printbook';
+        $print_section_url = XOOPS_URL . '/modules/docs/index.php?page=content&amp;id=' . $section->id() . '&amp;action=printsection';
         if (RDFunctions::new_resource_allowed($xoopsUser ? $xoopsUser->getGroups() : XOOPS_GROUP_ANONYMOUS)) {
-            $publish_url = RDFunctions::url().'/?action=publish';
+            $publish_url = RDFunctions::url() . '/?action=publish';
         }
     }
-    
+
     RDFunctions::breadcrumb();
     RMBreadCrumb::get()->add_crumb($res->getVar('title'), $res->permalink());
     RMBreadCrumb::get()->add_crumb($section->getVar('title'), $section->permalink());
 
     include RMEvents::get()->run_event('docs.section.template', RMTemplate::get()->path('docs-display-section.php', 'module', 'docs'));
-    
-    include 'footer.php';
+
+    require __DIR__ . '/footer.php';
 }
 
 /**
-* This function create a page to print or pdf.
-*/
+ * This function create a page to print or pdf.
+ * @param mixed $all
+ */
 function rd_section_forprint($all = 0)
 {
     global $section, $res, $xoopsConfig;
-    
-    include 'header.php';
-    
+
+    require __DIR__ . '/header.php';
+
     $xoops_langcode = $xoopsTpl->get_template_vars('xoops_langcode');
     $xoops_charset = $xoopsTpl->get_template_vars('xoops_charset');
     $xoops_pagetitle = $xoopsTpl->get_template_vars('xoops_pagetitle');
     $xoops_sitename = $xoopsTpl->get_template_vars('xoops_sitename');
     $xoops_css = $xoopsTpl->get_template_vars('xoops_themecss');
-    
+
     if ($all) {
-        $toc = array();
+        $toc = [];
         RDFunctions::sections_tree_index(0, 0, $res, '', '', false, $toc, true);
-        
+
         include RMEvents::get()->run_event('docs.print.template', RMTemplate::get()->get_template('docs-print-section.php', 'module', 'docs'));
     } else {
         $toc = RDFunctions::get_section_tree($section->id(), $res, '1', true);
-        
+
         include RMEvents::get()->run_event('docs.print.template', RMTemplate::get()->get_template('docs-print-section.php', 'module', 'docs'));
     }
 }
@@ -203,34 +200,33 @@ function rd_section_forprint($all = 0)
 function rd_section_forpdf($all = 0)
 {
     global $section, $res, $xoopsConfig, $xoopsModuleConfig;
-    
-    $plugin = RMFunctions::load_plugin('topdf');
-    
-    if ($xoopsModuleConfig['permalinks']) {
-        $print_book_url = RDFunctions::url().'/printbook/'.$section->id().'/';
-        $print_section_url = RDFunctions::url().'/printsection/'.$section->id().'/';
-    } else {
-        $print_book_url = XOOPS_URL.'/modules/docs/index.php?page=content&amp;id='.$section->id().'&amp;action=printbook';
-        $print_section_url = XOOPS_URL.'/modules/docs/index.php?page=content&amp;id='.$section->id().'&amp;action=printsection';
-    }
-    
-    // This options only works when pdfmyurl is enabled on topdf plugin
-    $options = array(
-        '--filename'=>$res->getVar('title').'.pdf',
-        '--header-left'=>$res->getVar('title'),
-        '--header-right'=>$xoopsConfig['sitename'],
-        '--header-line'=>'1'
-    );
-    
-    header("Expires: Tue, 03 Jul 2001 06:00:00 GMT");
-    header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
-    header("Cache-Control: no-store, no-cache, must-revalidate");
-    header("Cache-Control: post-check=0, pre-check=0", false);
-    header("Pragma: no-cache");
-      
-    $plugin->create_pdf_url($all ? $print_book_url : $print_section_url, $res->getVar('title').'.pdf', $options);
-}
 
+    $plugin = RMFunctions::load_plugin('topdf');
+
+    if ($xoopsModuleConfig['permalinks']) {
+        $print_book_url = RDFunctions::url() . '/printbook/' . $section->id() . '/';
+        $print_section_url = RDFunctions::url() . '/printsection/' . $section->id() . '/';
+    } else {
+        $print_book_url = XOOPS_URL . '/modules/docs/index.php?page=content&amp;id=' . $section->id() . '&amp;action=printbook';
+        $print_section_url = XOOPS_URL . '/modules/docs/index.php?page=content&amp;id=' . $section->id() . '&amp;action=printsection';
+    }
+
+    // This options only works when pdfmyurl is enabled on topdf plugin
+    $options = [
+        '--filename' => $res->getVar('title') . '.pdf',
+        '--header-left' => $res->getVar('title'),
+        '--header-right' => $xoopsConfig['sitename'],
+        '--header-line' => '1',
+    ];
+
+    header('Expires: Tue, 03 Jul 2001 06:00:00 GMT');
+    header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT');
+    header('Cache-Control: no-store, no-cache, must-revalidate');
+    header('Cache-Control: post-check=0, pre-check=0', false);
+    header('Pragma: no-cache');
+
+    $plugin->create_pdf_url($all ? $print_book_url : $print_section_url, $res->getVar('title') . '.pdf', $options);
+}
 
 // Sección
 $section = new RDSection($id, isset($res) ? $res : null);
@@ -252,7 +248,7 @@ if ($res->isNew()) {
     header('location: '.html_entity_decode($top->permalink()).'#'.$section->getVar('nameid'));
     die();
 }*/
-    
+
 if (!$res->getVar('approved')) {
     redirect_header(RDURL, 0, __('This content is not available!', 'docs'));
     die();
@@ -262,7 +258,6 @@ if (!$res->isAllowed($xoopsUser ? $xoopsUser->groups() : XOOPS_GROUP_ANONYMOUS))
     redirect_header(RDURL, 0, __('You are not allowed to read this content!', 'docs'));
     die();
 }
-
 
 // Select correct operation
 $action = rmc_server_var($_GET, 'action', '');

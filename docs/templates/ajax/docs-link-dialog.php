@@ -47,10 +47,10 @@
                     <li style="padding-left: <?php echo($section['jump'] * 13); ?>px;">
                         <a href="#"
                            data-title="<?php echo $section['title']; ?>"
-                           data-link="<?php echo RMUris::relative_url($section['link']); ?>"<?php if ($section['jump'] == 0): ?> class="root"<?php endif; ?>>
+                           data-link="<?php echo RMUris::relative_url($section['link']); ?>"<?php if (0 == $section['jump']): ?> class="root"<?php endif; ?>>
                             <span class="icon icon-forward pull-right"></span>
                             <?php echo $section['number']; ?>.
-                            <?php if ($section['jump'] == 0): ?>
+                            <?php if (0 == $section['jump']): ?>
                                 <strong><?php echo $section['title']; ?></strong>
                             <?php else: ?>
                                 <?php echo $section['title']; ?>

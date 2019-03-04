@@ -1,6 +1,6 @@
-<div class="docs-figure <?php echo $fig->getVar('align')=='left' ? 'left' : ($fig->align == 'right' ? 'right' : 'center'); ?>" style="width: <?php echo $fig->getVar('size') . 'px'; ?>">
+<div class="docs-figure <?php echo 'left' == $fig->getVar('align') ? 'left' : ('right' == $fig->align ? 'right' : 'center'); ?>" style="width: <?php echo $fig->getVar('size') . 'px'; ?>">
     <div class="thumbnail">
-        <?php if ($fig->type == 'image'):?>
+        <?php if ('image' == $fig->type):?>
             <?php
             $image = new RMImage();
             $image->load_from_params($fig->getVar('content', 'e'));
@@ -9,8 +9,8 @@
         <?php else: ?>
             <?php echo $fig->content; ?>
         <?php endif; ?>
-        <div class="caption<?php echo $fig->type == 'content' ? ' caption-content' : ''; ?>">
-            <?php if ($fig->type == 'image'):?>
+        <div class="caption<?php echo 'content' == $fig->type ? ' caption-content' : ''; ?>">
+            <?php if ('image' == $fig->type):?>
                 <?php echo $fig->getVar('desc'); ?>
             <?php else: ?>
                 <strong><?php echo $fig->title; ?></strong>

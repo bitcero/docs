@@ -8,7 +8,7 @@
 // License: GPL 2.0
 // --------------------------------------------------------------
 
-class RDFunctions
+class rdfunctions
 {
     public function toolbar()
     {
@@ -21,6 +21,8 @@ class RDFunctions
 
     /**
      * Get the HTMl code for editor plugin
+     * @param mixed $id
+     * @param mixed $type
      */
     public static function editor_plugin($id, $type)
     {
@@ -33,6 +35,7 @@ class RDFunctions
         ob_start();
         include RMTemplate::get()->path('specials/docs-plugin-content.php', 'module', 'docs');
         $plugin = ob_get_clean();
+
         return $plugin;
     }
 
@@ -46,30 +49,31 @@ class RDFunctions
 
         $content = file_get_contents($file);
         $content = explode("\n", $content);
+
         return $content;
     }
 
     /**
      * @desc Envía correo de aprobación de publicación
      *
-     * @param Object $res Publicación
+     * @param object $res Publicación
      **/
     public function mail_approved(RDResource &$res)
     {
         global $xoopsModuleConfig, $xoopsConfig;
 
-        $config_handler =& xoops_gethandler('config');
-        $mconfig = $config_handler->getConfigsByCat(XOOPS_CONF_MAILER);
+        $configHandler =  xoops_getHandler('config');
+        $mconfig = $configHandler->getConfigsByCat(XOOPS_CONF_MAILER);
 
         $errors = '';
         $user = new XoopsUser($res->getVar('owner'));
-        $member_handler =& xoops_gethandler('member');
+        $memberHandler =  xoops_getHandler('member');
         $method = $user->getVar('notify_method');
 
         $mailer = new RMMailer('text/plain');
         $mailer->add_xoops_users($user);
         $mailer->set_subject(sprintf(__('Publication <%s> approved!', 'docs'), $res->getVar('title')));
-        $mailer->assign('dear_user', $user->getVar('name') != '' ? $user->getVar('name') : $user->getVar('uname'));
+        $mailer->assign('dear_user', '' != $user->getVar('name') ? $user->getVar('name') : $user->getVar('uname'));
         $mailer->assign('link_to_resource', $res->permalink());
         $mailer->assign('site_name', $xoopsConfig['sitename']);
         $mailer->assign('resource_name', $res->getVar('title'));
@@ -105,11 +109,11 @@ class RDFunctions
     public static function getSectionTree(&$array, $parent = 0, $indent = 0, $resource = 0, $fields = '*', $exclude = 0)
     {
         global $db;
-        $sql = "SELECT $fields FROM " . $db->prefix("mod_docs_sections") . " WHERE " . ($resource > 0 ? "id_res='$resource' AND" : '') . "
-                parent='$parent' " . ($exclude > 0 ? "AND id_sec<>'$exclude'" : '') . " ORDER BY `order`";
+        $sql = "SELECT $fields FROM " . $db->prefix('mod_docs_sections') . ' WHERE ' . ($resource > 0 ? "id_res='$resource' AND" : '') . "
+                parent='$parent' " . ($exclude > 0 ? "AND id_sec<>'$exclude'" : '') . ' ORDER BY `order`';
         $result = $db->query($sql);
-        while ($row = $db->fetchArray($result)) {
-            $ret = array();
+        while (false !== ($row = $db->fetchArray($result))) {
+            $ret = [];
             $ret = $row;
             $ret['saltos'] = $indent;
             $array[] = $ret;
@@ -130,12 +134,19 @@ class RDFunctions
      * @param bool       Indicates that the index must be assigned to {@link RMTemplate}
      * @param array      Refernce to an array that will be filled with index (when $assign = false)
      * @param bool       Indicates if function must be return also the content for section
+     * @param mixed $parent
+     * @param mixed $jumps
+     * @param mixed $var
+     * @param mixed $number
+     * @param null|mixed $array
+     * @param mixed $text
+     * @param mixed $nested
      *
      * @return true;
      */
     public static function sections_tree_index(
-        $parent = 0,
-        $jumps = 0,
+        $parent,
+        $jumps,
         RDResource $res,
         $var = 'rd_sections_index',
         $number = '',
@@ -148,24 +159,24 @@ class RDFunctions
 
         $db = XoopsDatabaseFactory::getDatabaseConnection();
 
-        if ($var == '' && $assign) {
+        if ('' == $var && $assign) {
             return false;
         }
 
-        if (get_class($res) != 'RDResource') {
+        if ('RDResource' != get_class($res)) {
             return;
         }
 
-        $sql = "SELECT * FROM " . $db->prefix("mod_docs_sections") . " WHERE " . ($res->id() > 0 ? "id_res='" . $res->id() . "' AND" : '') . "
+        $sql = 'SELECT * FROM ' . $db->prefix('mod_docs_sections') . ' WHERE ' . ($res->id() > 0 ? "id_res='" . $res->id() . "' AND" : '') . "
                 parent='$parent' ORDER BY `order`";
         $result = $db->query($sql);
         $sec = new RDSection();
         $i = 1; // Counter
         $num = 1;
 
-        while ($row = $db->fetchArray($result)) {
+        while (false !== ($row = $db->fetchArray($result))) {
             $sec->assignVars($row);
-            $section = array(
+            $section = [
                 'id' => $sec->id(),
                 'title' => $sec->getVar('title'),
                 'nameid' => $sec->getVar('nameid'),
@@ -176,13 +187,13 @@ class RDFunctions
                 'author_name' => $sec->getVar('uname'),
                 'created' => $sec->getVar('created'),
                 'modified' => $sec->getVar('modified'),
-                'number' => $jumps == 0 ? $num : ($number != '' ? $number . '.' : '') . $i,
+                'number' => 0 == $jumps ? $num : ('' != $number ? $number . '.' : '') . $i,
                 'comments' => $sec->getVar('comments'),
                 'edit' => !$xoopsUser ? 0 : ($xoopsUser->isAdmin() ? true : $res->isEditor($xoopsUser->uid())),
                 'resource' => $sec->getVar('id_res'),
                 'metas' => $sec->metas(),
-                'parent' => $sec->getVar('parent')
-            );
+                'parent' => $sec->getVar('parent'),
+            ];
 
             if ($text) {
                 $section['content'] = $sec->getVar('content');
@@ -190,8 +201,8 @@ class RDFunctions
 
             $sec->clear_metas();
             if ($nested) {
-                $secs = array();
-                self::sections_tree_index($sec->id(), $jumps + 1, $res, $var, ($number != '' ? $number . '.' : '') . $i, $assign, $secs, $text, true);
+                $secs = [];
+                self::sections_tree_index($sec->id(), $jumps + 1, $res, $var, ('' != $number ? $number . '.' : '') . $i, $assign, $secs, $text, true);
 
                 $section['sections'] = $secs;
 
@@ -203,10 +214,10 @@ class RDFunctions
                     $array[] = $section;
                 }
 
-                self::sections_tree_index($sec->id(), $jumps + 1, $res, $var, ($number != '' ? $number . '.' : '') . $i, $assign, $array, $text);
+                self::sections_tree_index($sec->id(), $jumps + 1, $res, $var, ('' != $number ? $number . '.' : '') . $i, $assign, $array, $text);
             }
             $i++;
-            if ($jumps == 0) {
+            if (0 == $jumps) {
                 $num++;
             }
         }
@@ -222,17 +233,22 @@ class RDFunctions
      * @param string     Search keyword
      * @param int        Start results
      * @param int        Results number limit
+     * @param mixed $res
+     * @param mixed $count
+     * @param mixed $search
+     * @param mixed $start
+     * @param mixed $limit
      *
      * @return array
      */
-    public static function references($res = 0, &$count, $search = '', $start = 0, $limit = 15)
+    public static function references($res, &$count, $search = '', $start = 0, $limit = 15)
     {
         $db = XoopsDatabaseFactory::getDatabaseConnection();
 
-        $sql = "SELECT COUNT(*) FROM " . $db->prefix('mod_docs_references') . ($res > 0 ? " WHERE id_res='$res'" : '');
+        $sql = 'SELECT COUNT(*) FROM ' . $db->prefix('mod_docs_references') . ($res > 0 ? " WHERE id_res='$res'" : '');
 
-        if ($search != '') {
-            $sql .= ($res > 0 ? " AND " : " WHERE ") . " (text LIKE '%$search%')";
+        if ('' != $search) {
+            $sql .= ($res > 0 ? ' AND ' : ' WHERE ') . " (text LIKE '%$search%')";
         }
 
         $cache = ObjectsCache::get();
@@ -249,13 +265,13 @@ class RDFunctions
         $count = $num;
 
         //Fin de navegador de páginas
-        $sql = str_replace("COUNT(*)", "*", $sql);
+        $sql = str_replace('COUNT(*)', '*', $sql);
         $sql .= " ORDER BY id_ref DESC LIMIT $start,$limit";
 
         $result = $db->query($sql);
-        $references = array();
+        $references = [];
         $ref = new RDReference();
-        while ($rows = $db->fetchArray($result)) {
+        while (false !== ($rows = $db->fetchArray($result))) {
             $ref->assignVars($rows);
 
             if ($res->isNew()) {
@@ -266,11 +282,11 @@ class RDFunctions
                 }
             }
 
-            $references[] = array(
+            $references[] = [
                 'id' => $ref->id(),
                 'text' => $ref->getVar('text'),
-                'resource' => $res->getVar('title')
-            );
+                'resource' => $res->getVar('title'),
+            ];
         }
 
         return $references;
@@ -284,17 +300,22 @@ class RDFunctions
      * @param string     Search keyword
      * @param int        Start results
      * @param int        Results number limit
+     * @param mixed $res
+     * @param mixed $count
+     * @param mixed $search
+     * @param mixed $start
+     * @param mixed $limit
      *
      * @return array
      */
-    public function figures($res = 0, &$count, $search = '', $start = 0, $limit = 15)
+    public function figures($res, &$count, $search = '', $start = 0, $limit = 15)
     {
         $db = XoopsDatabaseFactory::getDatabaseConnection();
 
-        $sql = "SELECT COUNT(*) FROM " . $db->prefix('mod_docs_figures') . ($res > 0 ? " WHERE id_res='$res'" : '');
+        $sql = 'SELECT COUNT(*) FROM ' . $db->prefix('mod_docs_figures') . ($res > 0 ? " WHERE id_res='$res'" : '');
 
-        if ($search != '') {
-            $sql .= ($res > 0 ? " AND " : " WHERE ") . " (desc LIKE '%$k%' OR content LIKE '%$k%')";
+        if ('' != $search) {
+            $sql .= ($res > 0 ? ' AND ' : ' WHERE ') . " (desc LIKE '%$k%' OR content LIKE '%$k%')";
         }
 
         if ($res > 0) {
@@ -306,15 +327,15 @@ class RDFunctions
         $count = $num;
 
         //Fin de navegador de páginas
-        $sql = str_replace("COUNT(*)", "*", $sql);
+        $sql = str_replace('COUNT(*)', '*', $sql);
         $sql .= " ORDER BY id_fig DESC LIMIT $start,$limit";
 
         $cache = ObjectsCache::get();
 
         $result = $db->query($sql);
-        $figures = array();
+        $figures = [];
         $ref = new RDFigure();
-        while ($rows = $db->fetchArray($result)) {
+        while (false !== ($rows = $db->fetchArray($result))) {
             $ref->assignVars($rows);
 
             if ($res->isNew()) {
@@ -325,8 +346,8 @@ class RDFunctions
                 }
             }
 
-            $figures[] = array('id' => $ref->id(), 'title' => $ref->getVar('title'), 'desc' => $ref->getVar('desc'), 'content' => substr(TextCleaner::getInstance()->clean_disabled_tags($ref->getVar('content')), 0, 50) . "...",
-                'resource' => $res->getVar('title'));
+            $figures[] = ['id' => $ref->id(), 'title' => $ref->getVar('title'), 'desc' => $ref->getVar('desc'), 'content' => mb_substr(TextCleaner::getInstance()->clean_disabled_tags($ref->getVar('content')), 0, 50) . '...',
+                'resource' => $res->getVar('title'), ];
         }
 
         return $figures;
@@ -338,17 +359,21 @@ class RDFunctions
      * Get the current order of a section (max or min)
      *
      * @param string MAX or MIN
+     * @param mixed $which
+     * @param mixed $parent
+     * @param mixed $res
      */
     public function order($which = 'MAX', $parent = 0, $res = 0)
     {
         $db = XoopsDatabaseFactory::getDatabaseConnection();
 
-        if ($which != 'MAX' && $which != 'MIN') {
+        if ('MAX' != $which && 'MIN' != $which) {
             $which = 'MAX';
         }
 
-        $sql = "SELECT $which(`order`) FROM " . $db->prefix("mod_docs_sections") . " WHERE parent='$parent' AND id_res='$res'";
+        $sql = "SELECT $which(`order`) FROM " . $db->prefix('mod_docs_sections') . " WHERE parent='$parent' AND id_res='$res'";
         list($order) = $db->fetchRow($db->query($sql));
+
         return $order;
     }
 
@@ -360,7 +385,7 @@ class RDFunctions
     {
         $config = RMSettings::module_settings('docs');
         if ($config->permalinks) {
-            $perma = ($config->subdomain != '' ? $config->subdomain : XOOPS_URL) . $config->htpath;
+            $perma = ('' != $config->subdomain ? $config->subdomain : XOOPS_URL) . $config->htpath;
         } else {
             $perma = XOOPS_URL . '/modules/docs/';
         }
@@ -370,31 +395,33 @@ class RDFunctions
 
     /**
      * Get resources index according to given options
+     * @param mixed $type
+     * @param mixed $limit
      */
     public function resources_index($type = 'all', $limit = 15)
     {
         $db = XoopsDatabaseFactory::getDatabaseConnection();
-        $sql = "SELECT * FROM " . $db->prefix("mod_docs_resources");
-        if ($type == 'featured') {
-            $sql .= " WHERE public=1 AND approved=1 AND featured=1 ORDER BY created DESC";
-        } elseif ($type == 'all') {
-            $sql .= " WHERE public=1 AND approved=1 ORDER BY created DESC";
+        $sql = 'SELECT * FROM ' . $db->prefix('mod_docs_resources');
+        if ('featured' == $type) {
+            $sql .= ' WHERE public=1 AND approved=1 AND featured=1 ORDER BY created DESC';
+        } elseif ('all' == $type) {
+            $sql .= ' WHERE public=1 AND approved=1 ORDER BY created DESC';
         }
 
         $sql .= " LIMIT 0,$limit";
 
         $result = $db->query($sql);
-        $resources = array();
+        $resources = [];
         $res = new RDResource();
-        while ($row = $db->fetchArray($result)) {
+        while (false !== ($row = $db->fetchArray($result))) {
             $res->assignVars($row);
-            $resources[] = array(
+            $resources[] = [
                 'id' => $res->id(),
                 'title' => $res->getVar('title'),
                 'desc' => $res->getVar('tagline'),
                 'link' => $res->permalink(),
-                'image' => $res->image
-            );
+                'image' => $res->image,
+            ];
         }
 
         ob_start();
@@ -413,7 +440,7 @@ class RDFunctions
      */
     public static function error_404($msg = '')
     {
-        RMFunctions::error_404($msg == '' ? __('Document not found', 'docs') : $msg, 'docs');
+        RMFunctions::error_404('' == $msg ? __('Document not found', 'docs') : $msg, 'docs');
     }
 
     /**
@@ -439,7 +466,7 @@ class RDFunctions
         }
 
         if ($sec->isNew()) {
-            return array();
+            return [];
         }
 
         if ($sec->getVar('parent') > 0) {
@@ -453,6 +480,9 @@ class RDFunctions
 
     /**
      * Get a single section and all his sub sections
+     * @param mixed $id
+     * @param mixed $number
+     * @param mixed $text
      */
     public function get_section_tree($id, RDResource $res, $number = 1, $text = false)
     {
@@ -460,11 +490,11 @@ class RDFunctions
 
         $db = XoopsDatabaseFactory::getDatabaseConnection();
 
-        if (get_class($res) != 'RDResource') {
+        if ('RDResource' != get_class($res)) {
             return;
         }
 
-        $sql = "SELECT * FROM " . $db->prefix("mod_docs_sections") . " WHERE " . ($res->id() > 0 ? "id_res='" . $res->id() . "' AND" : '') . "
+        $sql = 'SELECT * FROM ' . $db->prefix('mod_docs_sections') . ' WHERE ' . ($res->id() > 0 ? "id_res='" . $res->id() . "' AND" : '') . "
                 id_sec='$id'";
         $result = $db->query($sql);
         if ($db->getRowsNum($result) <= 0) {
@@ -475,7 +505,7 @@ class RDFunctions
         $row = $db->fetchArray($result);
         $sec->assignVars($row);
 
-        $sections[0] = array(
+        $sections[0] = [
             'id' => $sec->id(),
             'title' => $sec->getVar('title'),
             'nameid' => $sec->getVar('nameid'),
@@ -490,8 +520,8 @@ class RDFunctions
             'comments' => $sec->getVar('comments'),
             'edit' => !$xoopsUser ? 0 : ($xoopsUser->isAdmin() ? true : $res->isEditor($xoopsUser->uid())),
             'resource' => $sec->getVar('id_res'),
-            'metas' => $sec->metas()
-        );
+            'metas' => $sec->metas(),
+        ];
 
         if ($text) {
             $sections[0]['content'] = $sec->getVar('content');
@@ -515,18 +545,19 @@ class RDFunctions
         $groups = $config->create_groups;
 
         if (!is_array($gid)) {
-            if ($gid == XOOPS_GROUP_ADMIN) {
+            if (XOOPS_GROUP_ADMIN == $gid) {
                 return true;
             }
-            return in_array($gid, $groups);
+
+            return in_array($gid, $groups, true);
         }
 
-        if (in_array(XOOPS_GROUP_ADMIN, $gid)) {
+        if (in_array(XOOPS_GROUP_ADMIN, $gid, true)) {
             return true;
         }
 
         foreach ($gid as $k) {
-            if (in_array($k, $groups)) {
+            if (in_array($k, $groups, true)) {
                 return true;
             }
         }
@@ -543,13 +574,15 @@ class RDFunctions
         // Breadcrumb
         $bc = RMBreadCrumb::get();
         $bc->add_crumb(__('Home Page', 'docs'), XOOPS_URL);
-        $bc->add_crumb($xoopsModule->name(), RDFunctions::url());
+        $bc->add_crumb($xoopsModule->name(), self::url());
     }
 
     /**
      * Make the correct link for a specific page
+     * @param mixed $page
+     * @param mixed $params
      */
-    public function make_link($page, $params = array())
+    public function make_link($page, $params = [])
     {
         $config = RMSettings::module_settings('docs');
 
@@ -559,11 +592,12 @@ class RDFunctions
                 $q .= "&amp;$k=$v";
             }
 
-            $link = XOOPS_URL . '/modules/docs/index.php?page=' . ($page == 'explore' ? 'search' : $page) . $q;
+            $link = XOOPS_URL . '/modules/docs/index.php?page=' . ('explore' == $page ? 'search' : $page) . $q;
+
             return $link;
         }
 
-        $base_url = ($config->subdomain != '' ? $config->subdomain : XOOPS_URL) . rtrim($config->htpath, '/') . '/';
+        $base_url = ('' != $config->subdomain ? $config->subdomain : XOOPS_URL) . rtrim($config->htpath, '/') . '/';
 
         switch ($page) {
             case 'explore':
@@ -586,13 +620,13 @@ class RDFunctions
 
         RMTemplate::get()->add_style('standalone.min.css', 'docs');
         RMTemplate::get()->add_script('jquery.ck.js', 'rmcommon');
-        //RMTemplate::get()->add_head('<link rel="stylesheet" type="text/css" media="all" href="'.$xoopsModuleConfig['standalone_css'].'" />');
+        //RMTemplate::get()->add_head('<link rel="stylesheet" type="text/css" media="all" href="'.$xoopsModuleConfig['standalone_css'].'">');
         $rd_contents = ob_get_clean();
         $xoopsTpl->assign('rd_contents', $rd_contents);
 
         // Text alignment
         $align = isset($_COOKIE['docu_align']) ? $_COOKIE['docu_align'] : 'left';
-        if (!in_array($align, array('left', 'center', 'justify'))) {
+        if (!in_array($align, ['left', 'center', 'justify'], true)) {
             $align = 'left';
         }
         $xoopsTpl->assign('body_align', 'align-' . $align);
@@ -617,20 +651,19 @@ class RDFunctions
 
         $user = str_replace('@', '', $user);
 
-
         $db = XoopsDatabaseFactory::getDatabaseConnection();
 
         // Load books
-        $sql = "SELECT id_res, `title` FROM " . $db->prefix("mod_docs_resources") . " WHERE owname = '$user' AND approved = 1 AND (`public` = 1 OR owner = " . $xoopsUser->uid() . ")";
+        $sql = 'SELECT id_res, `title` FROM ' . $db->prefix('mod_docs_resources') . " WHERE owname = '$user' AND approved = 1 AND (`public` = 1 OR owner = " . $xoopsUser->uid() . ')';
         $result = $db->query($sql);
-        $books = array();
-        $sections = array();
+        $books = [];
+        $sections = [];
 
-        while ($row = $db->fetchArray($result)) {
-            $books[] = array(
+        while (false !== ($row = $db->fetchArray($result))) {
+            $books[] = [
                 'title' => $row['title'],
-                'id' => $row['id_res']
-            );
+                'id' => $row['id_res'],
+            ];
         }
 
         // Load sections if exists
@@ -642,10 +675,10 @@ class RDFunctions
             }
         }
 
-
         ob_start();
         include RMTemplate::get()->get_template('ajax/docs-link-dialog.php', 'module', 'docs');
         $dialog = ob_get_clean();
+
         return $dialog;
     }
 
@@ -706,6 +739,7 @@ class RDFunctions
         ob_start();
         include RMTemplate::get()->get_template('ajax/docs-notes-dialog.php', 'module', 'docs');
         $dialog = ob_get_clean();
+
         return $dialog;
     }
 
@@ -766,11 +800,11 @@ class RDFunctions
                 __('The note has been created', 'docs'),
                 0,
                 1,
-                array(
+                [
                     'note' => $note->id(),
                     'res' => $res->id(),
-                    'text' => $text
-                )
+                    'text' => $text,
+                ]
             );
         } else {
             $ajax->ajax_response(
@@ -784,6 +818,8 @@ class RDFunctions
 
 /**
  * Insert edit link in sectionsa array
+ * @param mixed $item
+ * @param mixed $key
  */
 function rd_insert_edit(&$item, $key)
 {
@@ -798,7 +834,7 @@ function rd_insert_edit(&$item, $key)
     }
 
     if (!$res->isEditor($xoopsUser->uid()) && !$xoopsUser->isAdmin()) {
-        return array('editlink' => '');
+        return ['editlink' => ''];
     }
 
     $config = RMSettings::module_settings('docs');

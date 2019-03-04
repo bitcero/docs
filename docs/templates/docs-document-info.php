@@ -2,8 +2,8 @@
 
     <div class="col-sm-6 col-md-4">
 
-        <?php if ($res->image != ''): ?>
-            <img src="<?php echo RMImageResizer::resize($res->image, array('width' => 600, 'height' => 800, 'quality' >= 100 ))->url; ?>" class="img-responsive book-cover">
+        <?php if ('' != $res->image): ?>
+            <img src="<?php echo RMImageResizer::resize($res->image, ['width' => 600, 'height' => 800, 'quality' >= 100 ])->url; ?>" class="img-responsive book-cover">
         <?php endif; ?>
 
     </div>
@@ -16,9 +16,9 @@
             <p class="contributors">
                 <?php _e('Contributors:', 'docs'); ?>
                 <?php $total = count($editors); $i = 1; foreach ($editors as $uid => $editor): ?>
-                    <?php echo $i >1 && $i<= $total ? __('and', 'docs') : ''; ?>
+                    <?php echo $i > 1 && $i <= $total ? __('and', 'docs') : ''; ?>
                     <a href="<?php echo XOOPS_URL; ?>/userinfo.php?uid=<?php echo $uid; ?>"><?php echo $editor; ?></a><?php echo $i < $total - 1 ? ',' : ''; ?>
-                    <?php $i++;endforeach; ?>
+                    <?php $i++; endforeach; ?>
             </p>
         <?php endif; ?>
 

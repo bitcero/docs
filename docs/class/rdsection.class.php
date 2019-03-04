@@ -10,112 +10,115 @@
 
 class RDSection extends RMObject
 {
-    
     /**
-    * Meta values container
-    */
-    private $metas = array();
+     * Meta values container
+     */
+    private $metas = [];
 
-    public function __construct($id=null, $res=0, $parent = null)
+    public function __construct($id = null, $res = 0, $parent = null)
     {
-        $this->db =& XoopsDatabaseFactory::getDatabaseConnection();
-        $this->_dbtable = $this->db->prefix("mod_docs_sections");
+        $this->db =  XoopsDatabaseFactory::getDatabaseConnection();
+        $this->_dbtable = $this->db->prefix('mod_docs_sections');
         $this->setNew();
         $this->initVarsFromTable();
 
-        if ($id==null) {
+        if (null === $id) {
             return;
         }
-        
+
         if (is_numeric($id)) {
             if (!$this->loadValues($id)) {
                 return;
             }
             $this->unsetNew();
         } else {
-            $sql = "SELECT * FROM ".$this->_dbtable." WHERE nameid='$id' AND id_res='$res'" . ($parent > 0 ? " AND parent=$parent" : '');
+            $sql = 'SELECT * FROM ' . $this->_dbtable . " WHERE nameid='$id' AND id_res='$res'" . ($parent > 0 ? " AND parent=$parent" : '');
             $result = $this->db->query($sql);
-            if ($this->db->getRowsNum($result)<=0) {
+            if ($this->db->getRowsNum($result) <= 0) {
                 return;
             }
-            
+
             $row = $this->db->fetchArray($result);
             $this->assignVars($row);
             $this->unsetNew();
         }
     }
-    
+
     /**
-    * Meta data
-    */
+     * Meta data
+     */
     private function load_meta()
     {
         if (!empty($this->metas)) {
             return;
         }
 
-        $result = $this->db->query("SELECT * FROM ".$this->db->prefix("mod_docs_meta")." WHERE section='".$this->id()."' AND edit='0'");
-        while ($row = $this->db->fetchArray($result)) {
+        $result = $this->db->query('SELECT * FROM ' . $this->db->prefix('mod_docs_meta') . " WHERE section='" . $this->id() . "' AND edit='0'");
+        while (false !== ($row = $this->db->fetchArray($result))) {
             $this->metas[$row['name']] = $row;
         }
     }
-    
+
     /**
-    * Add metas to the current section
-    */
+     * Add metas to the current section
+     * @param mixed $key
+     * @param mixed $value
+     */
     public function add_meta($key, $value)
     {
-        if ($key=='') {
+        if ('' == $key) {
             return;
         }
         $this->metas[$key] = $value;
     }
-    
+
     /**
-    * Clear metas array
-    */
+     * Clear metas array
+     */
     public function clear_metas()
     {
-        $this->metas = array();
+        $this->metas = [];
     }
-    
+
     /**
-    * Get a single meta from section
-    * @param string Meta name
-    * @return string|array
-    */
-    public function meta($name='')
+     * Get a single meta from section
+     * @param string Meta name
+     * @param mixed $name
+     * @return string|array
+     */
+    public function meta($name = '')
     {
         $this->load_meta();
-        
-        if (trim($name)=='') {
+
+        if ('' == trim($name)) {
             return false;
         }
-        
+
         if (!isset($this->metas[$name])) {
             return false;
         }
-            
+
         return $this->metas[$name]['value'];
     }
-    
+
     /**
-    * Return all metas existing for a section
-    * @return array
-    */
+     * Return all metas existing for a section
+     * @param mixed $values
+     * @return array
+     */
     public function metas($values = true)
     {
         $this->load_meta();
-        $metas = array();
-        
+        $metas = [];
+
         if (!$values) {
             return $this->metas;
         }
-        
+
         foreach ($this->metas as $data) {
             $metas[$data['name']] = $data['value'];
         }
-        
+
         return $metas;
     }
 
@@ -123,28 +126,29 @@ class RDSection extends RMObject
     {
         return $this->getVar('id_sec');
     }
-    
+
     /**
-    * Get the permalink for this section
-    */
+     * Get the permalink for this section
+     * @param mixed $edit
+     */
     public function permalink($edit = 0)
     {
         global $standalone;
         $config = RMSettings::module_settings('docs');
-        
+
         $cache = ObjectsCache::get();
         $res = $cache->cached('docs', 'res-' . $this->id_res);
         if (!$res) {
             $res = new RDResource($this->getVar('id_res'));
             $cache->set_cache('docs', 'res-' . $this->id_res, $res);
         }
-        
-        if ($res->getVar('single') && defined('RD_LOCATION') && RD_LOCATION=='resource_content') {
-            return "#".$this->getVar('nameid');
+
+        if ($res->getVar('single') && defined('RD_LOCATION') && RD_LOCATION == 'resource_content') {
+            return '#' . $this->getVar('nameid');
         }
-        
+
         if ($config->permalinks) {
-            $perma = ($config->subdomain != '' ? $config->subdomain : XOOPS_URL).$config->htpath . '/'.$res->owname . '/' . $res->getVar('nameid').'/'.($edit ? '<span>'.$this->getVar('nameid').'</span>' : $this->getVar('nameid')).'/';
+            $perma = ('' != $config->subdomain ? $config->subdomain : XOOPS_URL) . $config->htpath . '/' . $res->owname . '/' . $res->getVar('nameid') . '/' . ($edit ? '<span>' . $this->getVar('nameid') . '</span>' : $this->getVar('nameid')) . '/';
         /*
         if($this->getVar('parent')>0){
 
@@ -157,7 +161,7 @@ class RDSection extends RMObject
         }
         */
         } else {
-            $perma = XOOPS_URL.'/modules/docs/index.php?page=content&amp;id='.$this->id();
+            $perma = XOOPS_URL . '/modules/docs/index.php?page=content&amp;id=' . $this->id();
             /*if($this->getVar('parent')>0){
                 $perma = XOOPS_URL.'/modules/docs/index.php?page=content&amp;id='.$this->id();
                 $sec = $cache->cached( 'docs', 'sec-' . $this->parent );
@@ -171,19 +175,19 @@ class RDSection extends RMObject
                 $perma .= $standalone ? '&amp;standalone=1' : '';
             }*/
         }
-        
+
         return $perma;
     }
-    
+
     public function editlink()
     {
         $config = RMSettings::module_settings('docs');
         if ($config->permalinks) {
-            $link = RDFunctions::url().'/edit/'.$this->id().'/'.$this->getVar('id_res');
+            $link = RDFunctions::url() . '/edit/' . $this->id() . '/' . $this->getVar('id_res');
         } else {
-            $link = RDFunctions::url().'?page=edit&id='.$this->id().'&res='.$this->getVar('id_res');
+            $link = RDFunctions::url() . '?page=edit&id=' . $this->id() . '&res=' . $this->getVar('id_res');
         }
-        
+
         return $link;
     }
 
@@ -194,51 +198,51 @@ class RDSection extends RMObject
         } else {
             $ret = $this->updateTable();
         }
-        
+
         if (!$ret) {
             return false;
         }
-        
+
         return $this->save_metas();
     }
-    
+
     private function save_metas()
     {
-        $this->db->queryF("DELETE FROM ".$this->db->prefix("mod_docs_meta")." WHERE section='".$this->id()."'");
+        $this->db->queryF('DELETE FROM ' . $this->db->prefix('mod_docs_meta') . " WHERE section='" . $this->id() . "'");
         if (empty($this->metas)) {
             return true;
         }
-        $sql = "INSERT INTO ".$this->db->prefix("mod_docs_meta")." (`name`,`value`,`section`,`edit`) VALUES ";
+        $sql = 'INSERT INTO ' . $this->db->prefix('mod_docs_meta') . ' (`name`,`value`,`section`,`edit`) VALUES ';
         $values = '';
         foreach ($this->metas as $name => $value) {
             if (is_array($value)) {
                 $value = $value['value'];
             }
-            $values .= ($values=='' ? '' : ',')."('".MyTextSanitizer::addSlashes($name)."','".MyTextSanitizer::addSlashes($value)."','".$this->id()."','0')";
+            $values .= ('' == $values ? '' : ',') . "('" . MyTextSanitizer::addSlashes($name) . "','" . MyTextSanitizer::addSlashes($value) . "','" . $this->id() . "','0')";
         }
-        
-        if ($this->db->queryF($sql.$values)) {
+
+        if ($this->db->queryF($sql . $values)) {
             return true;
-        } else {
-            $this->addError($this->db->error());
-            return false;
         }
+        $this->addError($this->db->error());
+
+        return false;
     }
 
     public function delete()
     {
-        $ret=false;
-    
+        $ret = false;
+
         // Change the parent on child sections
-        $sql="UPDATE ".$this->db->prefix('mod_docs_sections')." SET parent=0 WHERE parent='".$this->id()."'";
-        $result=$this->db->queryF($sql);
+        $sql = 'UPDATE ' . $this->db->prefix('mod_docs_sections') . " SET parent=0 WHERE parent='" . $this->id() . "'";
+        $result = $this->db->queryF($sql);
 
         if (!$result) {
             return $ret;
         }
 
-        $ret=$this->deleteFromTable();
-    
+        $ret = $this->deleteFromTable();
+
         return $ret;
     }
 }

@@ -1,15 +1,15 @@
 <?php
-function rd_print_sections($sections, $id, $table=true)
+function rd_print_sections($sections, $id, $table = true)
 {
     if ($table): ?>
 <?php foreach ($sections as $section): ?>
-	<tr align="center" valign="top" class="<?php echo tpl_cycle("even,odd"); ?>" id="sec-<?php echo $section['parent']; ?>-<?php echo $section['id']; ?>">
+	<tr align="center" valign="top" class="<?php echo tpl_cycle('even,odd'); ?>" id="sec-<?php echo $section['parent']; ?>-<?php echo $section['id']; ?>">
 		<td align="left">
             <strong><?php echo $section['number']; ?>.
             <a href="?action=edit&amp;sec=<?php echo $section['id']; ?>&amp;id=<?php echo $id; ?>"><?php echo $section['title']; ?></a></strong>
             <span class="cu-item-options">
                 <a href="./sections.php?action=edit&amp;sec=<?php echo $section['id']; ?>&amp;id=<?php echo $id; ?>"><?php _e('Edit', 'docs'); ?></a> |
-                <a href="./sections.php?action=delete&amp;sec=<?php echo $section['id']; ?>&amp;id=<?php echo $id; ?>" onclick="return confirm('<?php echo sprintf(__("Do you really wish to delete %s?", 'docs'), $section['title']); ?>');"><?php _e('Delete', 'docs'); ?></a> |
+                <a href="./sections.php?action=delete&amp;sec=<?php echo $section['id']; ?>&amp;id=<?php echo $id; ?>" onclick="return confirm('<?php echo sprintf(__('Do you really wish to delete %s?', 'docs'), $section['title']); ?>');"><?php _e('Delete', 'docs'); ?></a> |
                 <a href="?action=new&amp;id=<?php echo $id; ?>&amp;parent=<?php echo $section['id']; ?>"><?php _e('Add Section', 'docs'); ?></a> |
                 <a href="<?php echo $section['link']; ?>">View</a>
             </span>
@@ -72,7 +72,7 @@ function rd_print_sections($sections, $id, $table=true)
         <th class="text-center"><?php _e('Author', 'docs'); ?></th>
         <th class="text-center"><?php _e('Created', 'docs'); ?></th>
         <th class="text-center"><?php _e('Updated', 'docs'); ?></th>
-        <th class="text-center"><img src="../images/comment.png" alt="<?php _e('Comments', 'docs'); ?>" title="<?php _e('Comments', 'docs'); ?>" /></th>
+        <th class="text-center"><img src="../images/comment.png" alt="<?php _e('Comments', 'docs'); ?>" title="<?php _e('Comments', 'docs'); ?>"></th>
 	</tr>
     </thead>
     <tfoot>
@@ -81,7 +81,7 @@ function rd_print_sections($sections, $id, $table=true)
         <th class="text-center"><?php _e('Author', 'docs'); ?></th>
         <th class="text-center"><?php _e('Created', 'docs'); ?></th>
         <th class="text-center"><?php _e('Updated', 'docs'); ?></th>
-        <th class="text-center"><img src="../images/comment.png" alt="<?php _e('Comments', 'docs'); ?>" title="<?php _e('Comments', 'docs'); ?>" /></th>
+        <th class="text-center"><img src="../images/comment.png" alt="<?php _e('Comments', 'docs'); ?>" title="<?php _e('Comments', 'docs'); ?>"></th>
     </tr>
     </tfoot>
     <tbody>
@@ -91,13 +91,13 @@ function rd_print_sections($sections, $id, $table=true)
         </tr>
         <?php endif; ?>
 	<?php foreach ($sections as $section): ?>
-	<tr align="center" valign="top" class="<?php echo tpl_cycle("even,odd"); ?>" id="sec-<?php echo $section['parent']; ?>-<?php echo $section['id']; ?>">
+	<tr align="center" valign="top" class="<?php echo tpl_cycle('even,odd'); ?>" id="sec-<?php echo $section['parent']; ?>-<?php echo $section['id']; ?>">
 		<td align="left">
             <strong><?php echo $section['number']; ?>.
             <a href="?action=edit&amp;sec=<?php echo $section['id']; ?>&amp;id=<?php echo $id; ?>"><?php echo $section['title']; ?></a></strong>
             <span class="cu-item-options">
                 <a href="./sections.php?action=edit&amp;sec=<?php echo $section['id']; ?>&amp;id=<?php echo $id; ?>"><?php _e('Edit', 'docs'); ?></a> |
-                <a href="./sections.php?action=delete&amp;sec=<?php echo $section['id']; ?>&amp;id=<?php echo $id; ?>" onclick="return confirm('<?php echo sprintf(__("Do you really wish to delete %s?", 'docs'), $section['title']); ?>');"><?php _e('Delete', 'docs'); ?></a> |
+                <a href="./sections.php?action=delete&amp;sec=<?php echo $section['id']; ?>&amp;id=<?php echo $id; ?>" onclick="return confirm('<?php echo sprintf(__('Do you really wish to delete %s?', 'docs'), $section['title']); ?>');"><?php _e('Delete', 'docs'); ?></a> |
                 <a href="?action=new&amp;id=<?php echo $id; ?>&amp;parent=<?php echo $section['id']; ?>"><?php _e('Add Section', 'docs'); ?></a> |
                 <a href="<?php echo $section['link']; ?>">View</a>
             </span>
@@ -128,6 +128,6 @@ function rd_print_sections($sections, $id, $table=true)
 </div>
     
 <?php echo $xoopsSecurity->getTokenHTML(); ?>
-<input type="hidden" name="id" value="<?php echo $id; ?>" />
+<input type="hidden" name="id" value="<?php echo $id; ?>">
 </form>
-<div id="rd-wait"><img src="../images/wait.gif" alt="" /><br /><?php _e('Saving', 'docs'); ?><br /><?php _e('...', 'docs'); ?></div>
+<div id="rd-wait"><img src="../images/wait.gif" alt=""><br><?php _e('Saving', 'docs'); ?><br><?php _e('...', 'docs'); ?></div>

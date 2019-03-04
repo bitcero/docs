@@ -10,18 +10,18 @@
 
 class RDFigure extends RMObject
 {
-    public function __construct($id=null)
+    public function __construct($id = null)
     {
-        $this->db =& XoopsDatabaseFactory::getDatabaseConnection();
-        $this->_dbtable = $this->db->prefix("mod_docs_figures");
+        $this->db =  XoopsDatabaseFactory::getDatabaseConnection();
+        $this->_dbtable = $this->db->prefix('mod_docs_figures');
         $this->setNew();
         $this->initVarsFromTable();
         $this->setVarType('attrs', XOBJ_DTYPE_SOURCE);
 
-        if ($id==null) {
+        if (null === $id) {
             return;
         }
-        
+
         if (is_numeric($id)) {
             if (!$this->loadValues($id)) {
                 return;
@@ -29,7 +29,6 @@ class RDFigure extends RMObject
             $this->unsetNew();
         }
     }
-
 
     public function id()
     {
@@ -40,11 +39,10 @@ class RDFigure extends RMObject
     {
         if ($this->isNew()) {
             return $this->saveToTable();
-        } else {
-            return $this->updateTable();
         }
-    }
 
+        return $this->updateTable();
+    }
 
     public function delete()
     {

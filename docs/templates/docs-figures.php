@@ -1,14 +1,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $xoops_langcode; ?>" lang="<?php echo $xoops_langcode; ?>">
 <head><?php $rmc_config = RMSettings::cu_settings(); ?>
-    <meta http-equiv="content-type" content="text/html; charset=<?php echo $xoops_charset; ?>" />
-    <meta http-equiv="content-language" content="<?php echo $xoops_langcode; ?>" />
+    <meta http-equiv="content-type" content="text/html; charset=<?php echo $xoops_charset; ?>">
+    <meta http-equiv="content-language" content="<?php echo $xoops_langcode; ?>">
     <title><?php _e('Figures', 'docs'); ?> &raquo; <?php echo $xoops_sitename; ?></title>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <?php if ($rmc_config->editor_type == 'tiny'): ?>
+    <?php if ('tiny' == $rmc_config->editor_type): ?>
         <script type="text/javascript" src="<?php echo XOOPS_URL; ?>/modules/rmcommon/api/editors/tinymce/tiny_mce_popup.js"></script>
-    <?php elseif ($rmc_config->editor_type=='xoops'): ?>
+    <?php elseif ('xoops' == $rmc_config->editor_type): ?>
         <script type="text/javascript" src="<?php echo XOOPS_URL; ?>/modules/rmcommon/api/editors/exmcode/editor-popups.js"></script>
     <?php endif; ?>
     <!-- RMTemplateHeader -->
@@ -22,9 +22,9 @@
             width: 100%;
         }
     </style>
-    <?php if (defined('DF_LOCATION') && DF_LOCATION=='form'): ?>
+    <?php if (defined('DF_LOCATION') && DF_LOCATION == 'form'): ?>
     <script type="text/javascript">
-    <?php include 'js/figures-form.js'; ?>
+    <?php require  dirname(__DIR__) . '/figures-form.js'; ?>
     </script>
     <?php endif; ?>
     <script type="text/javascript">
@@ -52,7 +52,7 @@
 </div>
 <?php endforeach; ?>
 
-<?php if (defined('DF_LOCATION') && DF_LOCATION=='list'): ?>
+<?php if (defined('DF_LOCATION') && DF_LOCATION == 'list'): ?>
 <div id='nav'>
  <form name="frm" method="post" action="./figures.php">
  <table class="table" cellspacing="1" width="100%">
@@ -64,8 +64,8 @@
                     <button name="sbtsearch" class="btn btn-default" type="submit"><span class="fa fa-search"></span>&nbsp;</button>
                 </span>
             </div>
-            <input name="id" value="<?php echo $id; ?>" type="hidden" />
-            <input name="page" value="<?php echo $page; ?>" type="hidden" />
+            <input name="id" value="<?php echo $id; ?>" type="hidden">
+            <input name="page" value="<?php echo $page; ?>" type="hidden">
 	    </td>
         <td align="center">
             <?php $nav->render(false); echo $nav->get_showing(); ?>
@@ -76,7 +76,7 @@
                     <a href="javascript:;" id="option-top"><?php _e('Options', 'docs'); ?></a>
                     <ul>
                         <?php foreach ($options as $opt): ?>
-                        <li><a title="<?php echo $opt['tip']; ?>" href="<?php echo $opt['href']; ?>"<?php if ($opt['attrs']!=''): echo $opt['attrs']; endif; ?>><?php echo $opt['title']; ?></a></li>
+                        <li><a title="<?php echo $opt['tip']; ?>" href="<?php echo $opt['href']; ?>"<?php if ('' != $opt['attrs']): echo $opt['attrs']; endif; ?>><?php echo $opt['title']; ?></a></li>
                         <?php endforeach; ?>
                     </ul>
                 </li>
@@ -94,7 +94,7 @@
         <th colspan="4"><?php _e('Existing Figures', 'docs'); ?></th>
     </tr>
     <tr class="head" align="center">
-        <th width="20"><input type="checkbox" name="checkall" id="checkall" onchange="$('#frm-figures').toggleCheckboxes(':not(#checkall)');"/></th>
+        <th width="20"><input type="checkbox" name="checkall" id="checkall" onchange="$('#frm-figures').toggleCheckboxes(':not(#checkall)');"></th>
         <th><?php _e('Id', 'docs'); ?></th>
         <th><?php _e('Description', 'docs'); ?></th>
         <th><?php _e('Options', 'docs'); ?></th>
@@ -102,8 +102,8 @@
     </thead>
 	<tbody>
     <?php foreach ($figures as $figure): ?>
-        <tr align="center" class="<?php echo tpl_cycle("even,odd"); ?>">
-            <td width="20"><input type="checkbox" name="figs[]" value="<?php echo $figure['id']; ?>" /></td>
+        <tr align="center" class="<?php echo tpl_cycle('even,odd'); ?>">
+            <td width="20"><input type="checkbox" name="figs[]" value="<?php echo $figure['id']; ?>"></td>
             <td><?php echo $figure['id']; ?></td>
             <td align="left"><a href="javascript:;" onclick="editor.insertFigure(<?php echo $figure['id']; ?>);"><?php echo $figure['title']; ?></a></td>
             <td>
@@ -128,22 +128,22 @@
     </tfoot>
 </table>
 <?php echo $xoopsSecurity->getTokenHTML(); ?>
-<input name="action" type="hidden" value="delete" />
-<input name="id" value="<?php echo $id; ?>" type="hidden" />
-<input name="page" value="<?php echo $page; ?>" type="hidden" />
-<input name="search" value="<?php echo $search; ?>" type="hidden" />
+<input name="action" type="hidden" value="delete">
+<input name="id" value="<?php echo $id; ?>" type="hidden">
+<input name="page" value="<?php echo $page; ?>" type="hidden">
+<input name="search" value="<?php echo $search; ?>" type="hidden">
 </form>
-<div id="resources-list" title="<?php _e('Select Document', 'docs'); ?>"><img src="images/wait.gif" class="image_waiting" alt="<?php _e('Wait a second...', 'docs'); ?>" /></div>
+<div id="resources-list" title="<?php _e('Select Document', 'docs'); ?>"><img src="images/wait.gif" class="image_waiting" alt="<?php _e('Wait a second...', 'docs'); ?>"></div>
 <?php else: ?>
 
 <div class="container">
     <h2><?php $edit ? _e('Edit Figure', 'docs') : _e('Create Figure', 'docs'); ?></h2>
 
     <ul class="nav nav-tabs">
-        <li class="active<?php echo $edit && $fig->type == 'image' ? ' hidden' : ''; ?>">
+        <li class="active<?php echo $edit && 'image' == $fig->type ? ' hidden' : ''; ?>">
             <a href="#type-content" data-toggle="tab"><?php _e('With Content', 'docs'); ?></a>
         </li>
-        <li<?php echo $edit && $fig->type == 'content' ? ' class="hidden"' : ($edit ? ' class="active"' : ''); ?>>
+        <li<?php echo $edit && 'content' == $fig->type ? ' class="hidden"' : ($edit ? ' class="active"' : ''); ?>>
             <a href="#type-image" data-toggle="tab"><?php _e('Only Image', 'docs'); ?></a>
         </li>
     </ul><br>
@@ -158,7 +158,7 @@
             </span>
             </div>
         </div>
-        <div id="type-content" class="tab-pane fade in active<?php echo $edit && $fig->type == 'image' ? ' hidden' : ''; ?>">
+        <div id="type-content" class="tab-pane fade in active<?php echo $edit && 'image' == $fig->type ? ' hidden' : ''; ?>">
             <form name="frmfigContent" id="frm-figs" method="post" action="figures.php">
 
                 <div class="form-group">
@@ -194,12 +194,12 @@
                     </div>
                 </div>
 
-                <input type="hidden" name="action" value="<?php echo $edit ? 'saveedit' : 'save'; ?>" />
-                <input type="hidden" name="page" value="<?php echo $page; ?>" />
-                <input type="hidden" name="id" value="<?php echo $id; ?>" />
-                <input type="hidden" name="type" value="content" />
+                <input type="hidden" name="action" value="<?php echo $edit ? 'saveedit' : 'save'; ?>">
+                <input type="hidden" name="page" value="<?php echo $page; ?>">
+                <input type="hidden" name="id" value="<?php echo $id; ?>">
+                <input type="hidden" name="type" value="content">
                 <?php if ($edit): ?>
-                    <input type="hidden" name="id_fig" value="<?php echo $id_fig; ?>" />
+                    <input type="hidden" name="id_fig" value="<?php echo $id_fig; ?>">
                 <?php endif; ?>
                 <?php echo $xoopsSecurity->getTokenHTML(); ?>
 
@@ -210,7 +210,7 @@
             </form>
         </div>
 
-        <div id="type-image" class="tab-pane fade<?php echo $edit && $fig->type=='content' ? ' hidden' : ' in active'; ?>">
+        <div id="type-image" class="tab-pane fade<?php echo $edit && 'content' == $fig->type ? ' hidden' : ' in active'; ?>">
 
             <form name="frmFiguresImage" id="frm-fig-image" method="post" action="figures.php">
                 <div class="form-group">
@@ -234,9 +234,9 @@
                         <div class="form-group">
                             <label for="fig-align-image"><?php _e('Alignment', 'docs'); ?></label>
                             <select class="form-control" name="align" id="fig-align-image">
-                                <option value="left"<?php echo $fig->align == 'left' ? ' selected' : ''; ?>><?php _e('Left', 'docs'); ?></option>
-                                <option value="center"<?php echo $fig->align == 'center' ? ' selected' : ''; ?>><?php _e('Center', 'docs'); ?></option>
-                                <option value="right"<?php echo $fig->align == 'right' ? ' selected' : ''; ?>><?php _e('Right', 'docs'); ?></option>
+                                <option value="left"<?php echo 'left' == $fig->align ? ' selected' : ''; ?>><?php _e('Left', 'docs'); ?></option>
+                                <option value="center"<?php echo 'center' == $fig->align ? ' selected' : ''; ?>><?php _e('Center', 'docs'); ?></option>
+                                <option value="right"<?php echo 'right' == $fig->align ? ' selected' : ''; ?>><?php _e('Right', 'docs'); ?></option>
                             </select>
                         </div>
                     </div>
@@ -248,12 +248,12 @@
                     </div>
                 </div>
 
-                <input type="hidden" name="action" value="<?php echo $edit ? 'saveedit' : 'save'; ?>" />
-                <input type="hidden" name="page" value="<?php echo $page; ?>" />
-                <input type="hidden" name="id" value="<?php echo $id; ?>" />
-                <input type="hidden" name="type" value="image" />
+                <input type="hidden" name="action" value="<?php echo $edit ? 'saveedit' : 'save'; ?>">
+                <input type="hidden" name="page" value="<?php echo $page; ?>">
+                <input type="hidden" name="id" value="<?php echo $id; ?>">
+                <input type="hidden" name="type" value="image">
                 <?php if ($edit): ?>
-                    <input type="hidden" name="id_fig" value="<?php echo $id_fig; ?>" />
+                    <input type="hidden" name="id_fig" value="<?php echo $id_fig; ?>">
                 <?php endif; ?>
                 <?php echo $xoopsSecurity->getTokenHTML(); ?>
 

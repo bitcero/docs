@@ -8,13 +8,12 @@
 // License: GPL 2.0
 // --------------------------------------------------------------
 
-require '../../mainfile.php';
+require dirname(__DIR__) . '/../mainfile.php';
 define('INCLUDED_INDEX', 1);
 
 /**
-* This file redirects all petions directly to his content
-*/
-
+ * This file redirects all petions directly to his content
+ */
 $isStandalone = $xoopsModuleConfig['standalone'];
 
 if ($isStandalone) {
@@ -23,55 +22,54 @@ if ($isStandalone) {
 
 if ($xoopsModuleConfig['permalinks']) {
     $url = RMUris::current_url();
-    if (false!==strpos($url, XOOPS_URL.'/modules/docs')) {
-        header('location: '.RDFunctions::url());
+    if (false !== mb_strpos($url, XOOPS_URL . '/modules/docs')) {
+        header('location: ' . RDFunctions::url());
         die();
     }
-    
+
     // If friendly urls are activated
     $path = str_replace(XOOPS_URL, '', RMUris::current_url());
     $path = str_replace($xoopsModuleConfig['htpath'], '', $path);
     $path = trim($path, '/');
-    
-    if ($xoopsModuleConfig['subdomain']!='') {
+
+    if ('' != $xoopsModuleConfig['subdomain']) {
         $path = str_replace(rtrim($xoopsModuleConfig['subdomain'], '/'), '', $path);
         $path = trim($path, '/');
     }
-    
-    $params = explode("/", $path);
+
+    $params = explode('/', $path);
 } else {
-    
     // If friendly urls are disabled
     $path = parse_url(RMUris::current_url());
     if (isset($path['query'])) {
         parse_str($path['query']);
     }
-    
-    if (!isset($page) || $page=='') {
-        require 'mainpage.php';
+
+    if (!isset($page) || '' == $page) {
+        require __DIR__ . '/mainpage.php';
         die();
     }
-    
-    $file = $page.'.php';
-    if (!file_exists(XOOPS_ROOT_PATH.'/modules/docs/'.$file)) {
+
+    $file = $page . '.php';
+    if (!file_exists(XOOPS_ROOT_PATH . '/modules/docs/' . $file)) {
         RDfunctions::error_404();
     }
-    
+
     if (!$xoopsModuleConfig['standalone'] && isset($standalone)) {
         unset($standalone);
     }
-    
+
     include $file;
-    
+
     die();
 }
 
 foreach ($params as $i => $p) {
-    if ($p=='standalone') {
-        $standalone = $params[$i+1];
+    if ('standalone' == $p) {
+        $standalone = $params[$i + 1];
         $temp = array_slice($params, 0, $i);
-        if ($i==count($params)-1) {
-            $temp = array_merge($temp, array_slice($params, $i+1));
+        if ($i == count($params) - 1) {
+            $temp = array_merge($temp, array_slice($params, $i + 1));
         }
         $params = $temp;
         break;
@@ -79,92 +77,92 @@ foreach ($params as $i => $p) {
 }
 
 // Mainpage
-if (!isset($params[0]) || $params[0]=='' || $params[0]=='standalone') {
-    include 'mainpage.php';
+if (!isset($params[0]) || '' == $params[0] || 'standalone' == $params[0]) {
+    require __DIR__ . '/mainpage.php';
     die();
 }
 
 // PDF Book
-if ($params[0]=='pdfbook') {
+if ('pdfbook' == $params[0]) {
     $id = $params[1];
     $_GET['action'] = 'pdfbook';
-    include 'content.php';
+    require __DIR__ . '/content.php';
     die();
 }
 
 // Print Book
-if ($params[0]=='printbook') {
+if ('printbook' == $params[0]) {
     $id = $params[1];
     $_GET['action'] = 'printbook';
-    include 'content.php';
+    require __DIR__ . '/content.php';
     die();
 }
 
 // Print Book
-if ($params[0]=='pdfsection') {
+if ('pdfsection' == $params[0]) {
     $id = $params[1];
     $_GET['action'] = 'pdfsection';
-    include 'content.php';
+    require __DIR__ . '/content.php';
     die();
 }
 
 // Print Section
-if ($params[0]=='printsection') {
+if ('printsection' == $params[0]) {
     $id = $params[1];
     $_GET['action'] = 'printsection';
-    include 'content.php';
+    require __DIR__ . '/content.php';
     die();
 }
 
 // Edit form
-if ($params[0]=='edit') {
+if ('edit' == $params[0]) {
     $id = $params[1];
     $res = $params[2];
     $action = 'edit';
-    include 'edit.php';
+    require __DIR__ . '/edit.php';
     die();
 }
 
 // Publish
-if ($params[0]=='publish') {
+if ('publish' == $params[0]) {
     $action = 'publish';
-    include 'publish.php';
+    require __DIR__ . '/publish.php';
     die();
 }
 
 // Book edition
-if ('edit-book'==$params[0]) {
+if ('edit-book' == $params[0]) {
     $action = 'publish';
     $id = $params[1];
-    include 'publish.php';
+    require __DIR__ . '/publish.php';
     die();
 }
 
 // New form
-if ($params[0]=='new') {
+if ('new' == $params[0]) {
     $res = $params[1];
     $action = 'new';
-    include 'edit.php';
+    require __DIR__ . '/edit.php';
     die();
 }
 
 // Sections list
-if ($params[0]=='list') {
+if ('list' == $params[0]) {
     $id = $params[1];
-    include 'edit.php';
+    require __DIR__ . '/edit.php';
     die();
 }
 
 // Explore
-if ($params[0]=='explore' || $params[0]=='search') {
+if ('explore' == $params[0] || 'search' == $params[0]) {
     $action = $params[0];
-    
+
     if (isset($params[3])) {
         $page = $params[3];
     }
-    
+
     $by = isset($params[1]) ? $params[1] : '';
-    include 'search.php';
+    require __DIR__ . '/search.php';
     die();
 }
 
@@ -183,8 +181,7 @@ if ($user->isNew()) {
 }
 
 // Section
-if (count($params)>=3) {
-
+if (count($params) >= 3) {
     /**
      * $params[0] = Owner user name
      * $params[1] = Document slug
@@ -196,13 +193,13 @@ if (count($params)>=3) {
         $id = $params[2];
 
         $hideIndex = RMHttpRequest::get('hideIndex', 'integer', 0);
-        if ($hideIndex == 1) {
-            require 'section.php';
+        if (1 == $hideIndex) {
+            require __DIR__ . '/section.php';
             exit();
         }
 
         $res = $res->id();
-        include 'content.php';
+        require __DIR__ . '/content.php';
         die();
     }
 }
@@ -211,4 +208,4 @@ if (count($params)>=3) {
 // param is present, then we will show it
 
 $id = $params[1];
-require 'resource.php';
+require __DIR__ . '/resource.php';

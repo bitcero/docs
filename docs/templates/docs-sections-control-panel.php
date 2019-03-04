@@ -19,8 +19,8 @@
             </thead>
             <tbody>
             <?php foreach ($sections as $sec): ?>
-                <tr align="center"  class="<?php echo tpl_cycle("even,odd"); ?>">
-                    <td align="left" style="padding-left: <?php echo $sec['jump']*10+8; ?>px;"><a href="<?php echo $sec['link']; ?>"><?php echo $sec['number']; ?>. <?php echo $sec['title']; ?></a></td>
+                <tr align="center"  class="<?php echo tpl_cycle('even,odd'); ?>">
+                    <td align="left" style="padding-left: <?php echo $sec['jump'] * 10 + 8; ?>px;"><a href="<?php echo $sec['link']; ?>"><?php echo $sec['number']; ?>. <?php echo $sec['title']; ?></a></td>
                     <td><?php echo $sec['id']; ?></td>
                     <td><input type="text" name="orders[<?php echo $sec['id']; ?>]" id="orders[<?php echo $sec['id']; ?>]" size="5" value="<?php echo $sec['order']; ?>" class="form-control input-sm text-center"></td>
                     <td>
@@ -40,6 +40,6 @@
     </div>
 
 <?php echo $xoopsSecurity->getTokenHTML(); ?>
-<input type="hidden" name="action" value="" />
-<input type="hidden" name="id" value="<?php echo $id; ?>" />
+<input type="hidden" name="action" value="">
+<input type="hidden" name="id" value="<?php echo $id; ?>">
 </form>

@@ -10,7 +10,7 @@
                 </div>
             </div>
 
-            <input type="hidden" name="res" value="<?php echo $id_res; ?>" />
+            <input type="hidden" name="res" value="<?php echo $id_res; ?>">
         </form>
     </div>
 </div>
@@ -46,7 +46,7 @@
         <table class="table table-striped">
             <thead>
             <tr class="head" align="center">
-                <th width="20"><input type="checkbox" id="checkall" onclick='$("#frm-notes").toggleCheckboxes(":not(#checkall)");' /></th>
+                <th width="20"><input type="checkbox" id="checkall" onclick='$("#frm-notes").toggleCheckboxes(":not(#checkall)");'></th>
                 <th width="20"><?php _e('ID', 'docs'); ?></th>
                 <th align="left"><?php _e('Title', 'docs'); ?></th>
                 <th align="left"><?php _e('Content', 'docs'); ?></th>
@@ -54,7 +54,7 @@
             </thead>
             <tfoot>
             <tr class="head" align="center">
-                <th width="20"><input type="checkbox" id="checkall" onclick='$("#frm-notes").toggleCheckboxes(":not(#checkall)");' /></th>
+                <th width="20"><input type="checkbox" id="checkall" onclick='$("#frm-notes").toggleCheckboxes(":not(#checkall)");'></th>
                 <th width="20"><?php _e('ID', 'docs'); ?></th>
                 <th align="left"><?php _e('Title', 'docs'); ?></th>
                 <th align="left"><?php _e('Content', 'docs'); ?></th>
@@ -68,7 +68,7 @@
             <?php endif; ?>
             <?php foreach ($notes as $note): ?>
                 <tr class="<?php echo tpl_cycle('even,odd'); ?>" valign="top">
-                    <td align="center"><input type="checkbox" name="ids[]" value="<?php echo $note['id']; ?>" id="item-<?php echo $note['id']; ?>" /></td>
+                    <td align="center"><input type="checkbox" name="ids[]" value="<?php echo $note['id']; ?>" id="item-<?php echo $note['id']; ?>"></td>
                     <td align="center"><?php echo $note['id']; ?></td>
                     <td><a id="note<?php echo $note['id']; ?>"></a>
                         <strong><?php echo $note['title']; ?></strong>
@@ -102,7 +102,7 @@
 
     </div>
     <?php echo $xoopsSecurity->getTokenHTML(); ?>
-    <input type="hidden" name="page" value="<?php echo $page; ?>" />
-    <input type="hidden" name="search" value="<?php echo $search; ?>" />
-    <input type="hidden" name="res" value="<?php echo $id_res; ?>" />
+    <input type="hidden" name="page" value="<?php echo $page; ?>">
+    <input type="hidden" name="search" value="<?php echo $search; ?>">
+    <input type="hidden" name="res" value="<?php echo $id_res; ?>">
     </form>

@@ -7,7 +7,7 @@
             <li style="padding-left: <?php echo $section['jump'] * 15; ?>px;" data-section="<?php echo $section['id']; ?>">
                 <a href="<?php echo $section['link']; ?>" data-level="<?php echo $section['number']; ?>">
                     <strong><?php echo $section['number']; ?>.</strong>
-                    <?php if ($section['jump']==0): ?>
+                    <?php if (0 == $section['jump']): ?>
                         <strong><?php echo $section['title']; ?></strong>
                     <?php else: ?>
                         <?php echo $section['title']; ?>
@@ -74,19 +74,19 @@
                 <?php if (!$standalone): ?>
                     <section class="rd-section-data row">
                         <div class="col-sm-6">
-                            <?php if (isset($pdf_book_url)): ?><a href="<?php echo $pdf_book_url; ?>"><?php _e('Create PDF Book', 'docs'); ?></a><br /><?php endif; ?>
-                            <?php if (isset($pdf_section_url)): ?><a href="<?php echo $pdf_section_url; ?>"><?php _e('Generate PDF', 'docs'); ?></a><br /><?php endif; ?>
-                            <?php if (isset($print_book_url)): ?><a href="<?php echo $print_book_url; ?>"><?php _e('Print Book', 'docs'); ?></a><br /><?php endif; ?>
-                            <?php if (isset($print_section_url)): ?><a href="<?php echo $print_section_url; ?>"><?php _e('Print Section', 'docs'); ?></a><br /><?php endif; ?>
+                            <?php if (isset($pdf_book_url)): ?><a href="<?php echo $pdf_book_url; ?>"><?php _e('Create PDF Book', 'docs'); ?></a><br><?php endif; ?>
+                            <?php if (isset($pdf_section_url)): ?><a href="<?php echo $pdf_section_url; ?>"><?php _e('Generate PDF', 'docs'); ?></a><br><?php endif; ?>
+                            <?php if (isset($print_book_url)): ?><a href="<?php echo $print_book_url; ?>"><?php _e('Print Book', 'docs'); ?></a><br><?php endif; ?>
+                            <?php if (isset($print_section_url)): ?><a href="<?php echo $print_section_url; ?>"><?php _e('Print Section', 'docs'); ?></a><br><?php endif; ?>
                             <?php if (isset($publish_url)): ?>
                                 <a href="<?php echo $publish_url; ?>"><?php _e('Create Document', 'docs'); ?></a>
                             <?php endif; ?>
                         </div>
                         <div class="col-sm-6 text-right">
                             <small class="help-block" style="margin: 0;">
-                                <?php echo sprintf(__('Modified by last time at %s.', 'docs'), '<strong>'.RMTimeFormatter::get()->format($last_modification, __('%T% %d%, %Y%', 'docs')).'</strong>'); ?><br />
-                                <?php echo sprintf(__('Edited by %s.', 'docs'), '<a href="'.XOOPS_URL.'/userinfo.php?uid='.$last_author['id'].'">'.$last_author['name'].'</a>'); ?><br />
-                                <?php echo sprintf(__("Read %s times.", 'docs'), '<strong>'.$resource['reads'].'</strong>'); ?>
+                                <?php echo sprintf(__('Modified by last time at %s.', 'docs'), '<strong>' . RMTimeFormatter::get()->format($last_modification, __('%T% %d%, %Y%', 'docs')) . '</strong>'); ?><br>
+                                <?php echo sprintf(__('Edited by %s.', 'docs'), '<a href="' . XOOPS_URL . '/userinfo.php?uid=' . $last_author['id'] . '">' . $last_author['name'] . '</a>'); ?><br>
+                                <?php echo sprintf(__('Read %s times.', 'docs'), '<strong>' . $resource['reads'] . '</strong>'); ?>
                             </small>
                         </div>
                     </section>

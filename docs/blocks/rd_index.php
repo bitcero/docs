@@ -11,20 +11,21 @@
 function rd_block_index($options)
 {
     global $xoopsModule, $xoopsModuleConfig, $res, $sec;
-    
-    if (!$xoopsModule || $xoopsModule->dirname()!='docs') {
+
+    if (!$xoopsModule || 'docs' != $xoopsModule->dirname()) {
         return;
     }
-    if (!defined('RD_LOCATION') || (RD_LOCATION!='content' && RD_LOCATION!='resource_content')) {
+    if (!defined('RD_LOCATION') || (RD_LOCATION != 'content' && RD_LOCATION != 'resource_content')) {
         return;
     }
-    
+
     // get the sections
-    $sections = array();
+    $sections = [];
     RDFunctions::sections_tree_index(0, 0, $res, '', '', false, $sections, false);
-    
+
     $block['sections'] = $sections;
     $block['section'] = $sec;
     $block['resource'] = $res->getVar('nameid');
+
     return $block;
 }

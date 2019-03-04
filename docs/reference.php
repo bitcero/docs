@@ -9,11 +9,11 @@
 // @license: GPL v2
 
 define('AH_LOCATION', 'references');
-include '../../mainfile.php';
+require  dirname(dirname(__DIR__)) . '/mainfile.php';
 
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
-if ($id<=0) {
+if ($id <= 0) {
     die(_MS_AH_NOID);
 }
 

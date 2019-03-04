@@ -24,9 +24,9 @@
             <div class="col-sm-6">
                 <label for="sec-parent"><?php _e('Parent', 'docs'); ?></label>
                 <select name="parent" id="sec-parent" class="form-control">
-                    <option value=""<?php echo $edit && $section->getVar('parent')<=0 ? ' selected="selected"' : ''; ?>><?php _e('Select parent...', 'docs'); ?></option>
+                    <option value=""<?php echo $edit && $section->getVar('parent') <= 0 ? ' selected="selected"' : ''; ?>><?php _e('Select parent...', 'docs'); ?></option>
                     <?php foreach ($sections as $sec): ?>
-                        <option value="<?php echo $sec['id']; ?>"<?php echo $edit && $section->getVar('parent')==$sec['id'] ? ' selected="selected"' : ''; ?>><?php echo str_repeat('&#151;', $sec['jump']); echo $sec['title']; ?></option>
+                        <option value="<?php echo $sec['id']; ?>"<?php echo $edit && $section->getVar('parent') == $sec['id'] ? ' selected="selected"' : ''; ?>><?php echo str_repeat('&#151;', $sec['jump']); echo $sec['title']; ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
@@ -41,13 +41,13 @@
     <hr>
 
     <h3><?php _e('Custom Fields', 'docs'); ?></h3>
-    <table id="metas-container" class="table table-striped<?php echo !$edit || (!isset($sec) && !$sec->metas()) ? ' hidden' : ''; ?>" cellspacing="0" width="100%" />
+    <table id="metas-container" class="table table-striped<?php echo !$edit || (!isset($sec) && !$sec->metas()) ? ' hidden' : ''; ?>" cellspacing="0" width="100%">
     <tr class="head">
         <td width="30%"><strong><?php _e('Name', 'docs'); ?></strong></td>
         <td><strong><?php _e('Value', 'docs'); ?></strong></td>
     </tr>
     <?php if ($edit || (isset($section) && $section->metas())): ?>
-        <?php $i=0;
+        <?php $i = 0;
         foreach ($section->metas() as $key => $value): ?>
             <tr>
                 <td valign="top">
@@ -63,7 +63,7 @@
 
     <div class="form-group">
         <label><strong><?php _e('Add new field:', 'docs'); ?></strong></label>
-        <table class="table" />
+        <table class="table">
         <tr align="center">
             <th width="30%"><?php _e('Name', 'docs'); ?></th>
             <th><?php _e('Value', 'docs'); ?></th>
@@ -105,9 +105,9 @@
     <!-- End Extra Fields -->
 
     <div class="form-group">
-        <label class="checkbox-inline"><input type="radio" name="return" value="1" checked="checked" /> <?php _e('Save and return to content', 'docs'); ?></label>
-        <label class="checkbox-inline"><input type="radio" name="return" value="2" /> <?php _e('Save and return to form', 'docs'); ?></label>
-        <label class="checkbox-inline"><input type="radio" name="return" value="3" /> <?php _e('Save and return to list', 'docs'); ?></label>
+        <label class="checkbox-inline"><input type="radio" name="return" value="1" checked> <?php _e('Save and return to content', 'docs'); ?></label>
+        <label class="checkbox-inline"><input type="radio" name="return" value="2"> <?php _e('Save and return to form', 'docs'); ?></label>
+        <label class="checkbox-inline"><input type="radio" name="return" value="3"> <?php _e('Save and return to list', 'docs'); ?></label>
     </div>
 
     <div class="form-group">
@@ -117,8 +117,8 @@
     
 
 
-<input type="hidden" name="action" value="<?php echo $edit ? 'saveedit' : 'save'; ?>" />
-<?php if ($edit): ?><input type="hidden" name="id" value="<?php echo $id; ?>" /><?php endif; ?>
-<input type="hidden" name="res" value="<?php echo $res->id(); ?>" />
+<input type="hidden" name="action" value="<?php echo $edit ? 'saveedit' : 'save'; ?>">
+<?php if ($edit): ?><input type="hidden" name="id" value="<?php echo $id; ?>"><?php endif; ?>
+<input type="hidden" name="res" value="<?php echo $res->id(); ?>">
 </form>
 

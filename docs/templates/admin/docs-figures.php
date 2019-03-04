@@ -13,7 +13,7 @@
                 </div>
             </div>
 
-            <input type="hidden" name="res" value="<?php echo $id_res; ?>" />
+            <input type="hidden" name="res" value="<?php echo $id_res; ?>">
         </form>
     </div>
 </div>
@@ -52,7 +52,7 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th width="20"><input type="checkbox" id="checkall" onclick='$("#frm-figures").toggleCheckboxes(":not(#checkall)");' /></th>
+                <th width="20"><input type="checkbox" id="checkall" onclick='$("#frm-figures").toggleCheckboxes(":not(#checkall)");'></th>
                 <th width="20"><?php _e('ID', 'docs'); ?></th>
                 <th><?php _e('Title', 'docs'); ?></th>
                 <th><?php _e('Description', 'docs'); ?></th>
@@ -60,7 +60,7 @@
             </thead>
             <tfoot>
             <tr align="center">
-                <th width="20"><input type="checkbox" id="checkall" onclick='$("#frm-figures").toggleCheckboxes(":not(#checkall)");' /></th>
+                <th width="20"><input type="checkbox" id="checkall" onclick='$("#frm-figures").toggleCheckboxes(":not(#checkall)");'></th>
                 <th width="20"><?php _e('ID', 'docs'); ?></th>
                 <th><?php _e('Title', 'docs'); ?></th>
                 <th><?php _e('Description', 'docs'); ?></th>
@@ -74,7 +74,7 @@
             <?php endif; ?>
             <?php foreach ($figures as $fig): ?>
                 <tr valign="top">
-                    <td class="text-center"><input type="checkbox" name="ids[]" value="<?php echo $fig['id']; ?>" id="item-<?php echo $fig['id']; ?>" /></td>
+                    <td class="text-center"><input type="checkbox" name="ids[]" value="<?php echo $fig['id']; ?>" id="item-<?php echo $fig['id']; ?>"></td>
                     <td class="text-center"><?php echo $fig['id']; ?></td>
                     <td><a id="figure<?php echo $fig['id']; ?>"></a>
                         <strong><?php echo $fig['title']; ?></strong>
@@ -106,7 +106,7 @@
 
     </div>
     <?php echo $xoopsSecurity->getTokenHTML(); ?>
-    <input type="hidden" name="page" value="<?php echo $page; ?>" />
-    <input type="hidden" name="search" value="<?php echo $search; ?>" />
-    <input type="hidden" name="res" value="<?php echo $id_res; ?>" />
+    <input type="hidden" name="page" value="<?php echo $page; ?>">
+    <input type="hidden" name="search" value="<?php echo $search; ?>">
+    <input type="hidden" name="res" value="<?php echo $id_res; ?>">
     </form>

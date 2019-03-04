@@ -9,38 +9,38 @@
 // --------------------------------------------------------------
 
 define('RMCLOCATION', 'index');
-include 'header.php';
+require __DIR__ . '/header.php';
 
 // Get top resources
 $db = XoopsDatabaseFactory::getDatabaseConnection();
-$sql = "SELECT * FROM ".$db->prefix("mod_docs_resources")." WHERE public=1 ORDER BY `reads` DESC LIMIT 0, 15";
+$sql = 'SELECT * FROM ' . $db->prefix('mod_docs_resources') . ' WHERE public=1 ORDER BY `reads` DESC LIMIT 0, 15';
 $result = $db->query($sql);
 
-$top_data = array();
+$top_data = [];
 
-while ($row = $db->fetchArray($result)) {
+while (false !== ($row = $db->fetchArray($result))) {
     $res = new RDResource();
     $res->assignVars($row);
-    
+
     $top_data['reads'][] = $res->getVar('reads');
-    $top_data['names'][] = $res->getVar('title').' ('.$res->getVar('reads').')';
+    $top_data['names'][] = $res->getVar('title') . ' (' . $res->getVar('reads') . ')';
 }
 
 if (!empty($top_data)) {
     array_multisort($top_data['names'], SORT_STRING, $top_data['reads'], SORT_NUMERIC);
 }
 
-$sql = "SELECT * FROM ".$db->prefix("mod_docs_sections")." ORDER BY `comments` DESC LIMIT 0, 15";
+$sql = 'SELECT * FROM ' . $db->prefix('mod_docs_sections') . ' ORDER BY `comments` DESC LIMIT 0, 15';
 $result = $db->query($sql);
 
-$comm_data = array();
+$comm_data = [];
 
-while ($row = $db->fetchArray($result)) {
+while (false !== ($row = $db->fetchArray($result))) {
     $sec = new RDSection();
     $sec->assignVars($row);
-    
+
     $comm_data['comments'][] = $sec->getVar('comments');
-    $comm_data['names'][] = $sec->getVar('title').' ('.$sec->getVar('comments').')';
+    $comm_data['names'][] = $sec->getVar('title') . ' (' . $sec->getVar('comments') . ')';
 }
 
 if (!empty($comm_data)) {
@@ -48,53 +48,53 @@ if (!empty($comm_data)) {
 }
 
 // Resume data
-list($num) = $db->fetchRow($db->query("SELECT COUNT(*) FROM ".$db->prefix("mod_docs_resources")));
+list($num) = $db->fetchRow($db->query('SELECT COUNT(*) FROM ' . $db->prefix('mod_docs_resources')));
 $resume_data['resources'] = $num;
 
-list($num) = $db->fetchRow($db->query("SELECT COUNT(*) FROM ".$db->prefix("mod_docs_sections")));
+list($num) = $db->fetchRow($db->query('SELECT COUNT(*) FROM ' . $db->prefix('mod_docs_sections')));
 $resume_data['sections'] = $num;
 
-list($num) = $db->fetchRow($db->query("SELECT COUNT(*) FROM ".$db->prefix("mod_docs_figures")));
+list($num) = $db->fetchRow($db->query('SELECT COUNT(*) FROM ' . $db->prefix('mod_docs_figures')));
 $resume_data['figures'] = $num;
 
-list($num) = $db->fetchRow($db->query("SELECT COUNT(*) FROM ".$db->prefix("mod_docs_references")));
+list($num) = $db->fetchRow($db->query('SELECT COUNT(*) FROM ' . $db->prefix('mod_docs_references')));
 $resume_data['notes'] = $num;
 
 // No published resoruces
-$sql = "SELECT * FROM ".$db->prefix("mod_docs_resources")." WHERE public=0 ORDER BY created DESC LIMIT 0,5";
+$sql = 'SELECT * FROM ' . $db->prefix('mod_docs_resources') . ' WHERE public=0 ORDER BY created DESC LIMIT 0,5';
 $result = $db->query($sql);
-$nopublished = array();
-while ($row = $db->fetchArray($result)) {
+$nopublished = [];
+while (false !== ($row = $db->fetchArray($result))) {
     $res = new RDResource();
     $res->assignVars($row);
-    $nopublished[] = array(
+    $nopublished[] = [
         'id' => $res->id(),
         'title' => $res->getVar('title'),
         'created' => $res->getVar('created'),
-        'desc' => TextCleaner::getInstance()->truncate($res->getVar('description'), 60)
-    );
+        'desc' => TextCleaner::getInstance()->truncate($res->getVar('description'), 60),
+    ];
 }
 
 // No published resoruces
-$sql = "SELECT * FROM ".$db->prefix("mod_docs_resources")." WHERE approved=0 ORDER BY created DESC LIMIT 0,5";
+$sql = 'SELECT * FROM ' . $db->prefix('mod_docs_resources') . ' WHERE approved=0 ORDER BY created DESC LIMIT 0,5';
 $result = $db->query($sql);
-$noapproved = array();
-while ($row = $db->fetchArray($result)) {
+$noapproved = [];
+while (false !== ($row = $db->fetchArray($result))) {
     $res = new RDResource();
     $res->assignVars($row);
-    $noapproved[] = array(
+    $noapproved[] = [
         'id' => $res->id(),
         'title' => $res->getVar('title'),
         'created' => $res->getVar('created'),
-        'desc' => TextCleaner::getInstance()->truncate($res->getVar('description'), 60)
-    );
+        'desc' => TextCleaner::getInstance()->truncate($res->getVar('description'), 60),
+    ];
 }
 
 xoops_cp_header();
 
 RMTemplate::get()->add_style('admin.min.css', 'docs');
 RMTemplate::get()->add_script('jquery.gcharts.js', 'rmcommon');
-RMTemplate::get()->add_head('<script type="text/javascript">var xoops_url="'.XOOPS_URL.'";</script>');
+RMTemplate::get()->add_head('<script type="text/javascript">var xoops_url="' . XOOPS_URL . '";</script>');
 
 include RMTemplate::get()->get_template('admin/docs-dashboard.php', 'module', 'docs');
 

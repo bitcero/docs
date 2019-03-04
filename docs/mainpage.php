@@ -15,7 +15,7 @@ RDFunctions::breadcrumb();
 
 RMTemplate::get()->add_style('docs.min.css', 'docs');
 
-$content = @file_get_contents(XOOPS_CACHE_PATH.'/docs-homepage.html');
+$content = @file_get_contents(XOOPS_CACHE_PATH . '/docs-homepage.html');
 $content = TextCleaner::getInstance()->to_display($content);
 include RMEvents::get()->run_event('docs.get.home.page', RMtemplate::get()->get_template('docs-index.php', 'module', 'docs'));
 

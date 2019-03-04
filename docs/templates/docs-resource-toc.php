@@ -6,7 +6,7 @@
                 <li style="padding-left: <?php echo($sec['jump'] * 15); ?>px;">
                     <?php echo $sec['number']; ?>.
                     <a href="<?php echo $sec['link']; ?>">
-                        <?php if ($sec['jump'] == 0): ?>
+                        <?php if (0 == $sec['jump']): ?>
                             <strong><?php echo $sec['title']; ?></strong>
                         <?php else: ?>
                             <?php echo $sec['title']; ?>

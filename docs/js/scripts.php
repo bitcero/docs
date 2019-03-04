@@ -10,19 +10,19 @@
 
 header('Content-type: text/javascript');
 $wfile = isset($_GET['file']) ? $_GET['file'] : '';
-if ($wfile=='') {
+if ('' == $wfile) {
     exit();
 }
 
-$path = dirname(__FILE__);
-if (!file_exists($path.'/'.$wfile)) {
+$path = __DIR__;
+if (!file_exists($path . '/' . $wfile)) {
     exit();
 }
 
-$path .= '/'.$wfile;
-$root = dirname(dirname(dirname(dirname(__FILE__))));
-include_once $root . '/mainfile.php';
-include_once $root . '/modules/rmcommon/loader.php';
+$path .= '/' . $wfile;
+$root = dirname(dirname(dirname(__DIR__)));
+require_once $root . '/mainfile.php';
+require_once $root . '/modules/rmcommon/loader.php';
 
 global $xoopsLogger;
 $xoopsLogger->renderingEnabled = false;
@@ -30,9 +30,7 @@ error_reporting(0);
 $xoopsLogger->activated = false;
 
 switch ($wfile) {
-    
     default:
         include $path;
         break;
-    
 }

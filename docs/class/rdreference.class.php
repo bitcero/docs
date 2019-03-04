@@ -10,17 +10,17 @@
 
 class RDReference extends RMObject
 {
-    public function __construct($id=null)
+    public function __construct($id = null)
     {
-        $this->db =& XoopsDatabaseFactory::getDatabaseConnection();
-        $this->_dbtable = $this->db->prefix("mod_docs_references");
+        $this->db =  XoopsDatabaseFactory::getDatabaseConnection();
+        $this->_dbtable = $this->db->prefix('mod_docs_references');
         $this->setNew();
         $this->initVarsFromTable();
 
-        if ($id==null) {
+        if (null === $id) {
             return;
         }
-        
+
         if (is_numeric($id)) {
             if (!$this->loadValues($id)) {
                 return;
@@ -29,22 +29,19 @@ class RDReference extends RMObject
         }
     }
 
-
     public function id()
     {
         return $this->getVar('id_ref');
     }
 
-
     public function save()
     {
         if ($this->isNew()) {
             return $this->saveToTable();
-        } else {
-            return $this->updateTable();
         }
-    }
 
+        return $this->updateTable();
+    }
 
     public function delete()
     {

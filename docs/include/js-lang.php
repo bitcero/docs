@@ -30,7 +30,6 @@
 /**
  * This files include all language strings to use in Javascript files
  */
-
 ob_start();
 ?>
 
@@ -45,4 +44,5 @@ var docsLang = {
 
 <?php
 $lang = ob_get_clean();
+
 return $lang;

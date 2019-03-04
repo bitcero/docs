@@ -1,10 +1,10 @@
 <div id="rd_res_search" class="pull-right">
     <form action="resources.php" method="get">
         <strong><?php _e('Search Documents:', 'docs'); ?></strong>
-        <input type="text" name="query" value="<?php echo isset($query) ? $query : ''; ?>" class="form-control" />
+        <input type="text" name="query" value="<?php echo isset($query) ? $query : ''; ?>" class="form-control">
     </form>
 </div>
-<?php if ($query!=''): ?>
+<?php if ('' != $query): ?>
 <h1 class="cu-section-title"><span style="background-position: left -32px;">&nbsp;</span><?php echo sprintf(__('Documents: results for "%s"', 'docs'), $query); ?></h1>
 <?php else: ?>
 <h1 class="cu-section-title"><span style="background-position: left -32px;">&nbsp;</span><?php _e('Available Documents', 'docs'); ?></h1>
@@ -24,7 +24,7 @@
                 <option value="noqindex"><?php _e('Disable quick index', 'docs'); ?></option>
                 <option value="delete"><?php _e('Delete', 'docs'); ?></option>
             </select>
-            <input type="button" id="the-op-top" value="<?php _e('Apply', 'docs'); ?>" onclick="before_submit('frm-resources');" class="btn btn-default" />
+            <input type="button" id="the-op-top" value="<?php _e('Apply', 'docs'); ?>" onclick="before_submit('frm-resources');" class="btn btn-default">
             &nbsp; &nbsp;
             <a href="resources.php"><?php _e('Show All', 'docs'); ?></a>
         </div>
@@ -39,7 +39,7 @@
     <table class="table" width="100%" cellspacing="1">
         <thead>
         <tr>
-            <th width="20" class="text-center"><input type="checkbox" id="checkall" onclick='$("#frm-resources").toggleCheckboxes(":not(#checkall)");' /></th>
+            <th width="20" class="text-center"><input type="checkbox" id="checkall" onclick='$("#frm-resources").toggleCheckboxes(":not(#checkall)");'></th>
             <th width="30" class="text-center"><?php _e('ID', 'docs'); ?></th>
             <th align="left"><?php _e('Title', 'docs'); ?></th>
             <th class="text-center"><?php _e('Owner', 'docs'); ?></th>
@@ -52,7 +52,7 @@
         </thead>
         <tfoot>
         <tr>
-            <th width="20"><input type="checkbox" id="checkall2" onclick='$("#frm-resources").toggleCheckboxes(":not(#checkall2)");' /></th>
+            <th width="20"><input type="checkbox" id="checkall2" onclick='$("#frm-resources").toggleCheckboxes(":not(#checkall2)");'></th>
             <th width="30" class="text-center"><?php _e('ID', 'docs'); ?></th>
             <th align="left"><?php _e('Title', 'docs'); ?></th>
             <th class="text-center"><?php _e('Owner', 'docs'); ?></th>
@@ -73,7 +73,7 @@
         <?php endif; ?>
         <?php foreach ($resources as $res): ?>
             <tr align="center" valign="top">
-                <td><input type="checkbox" name="ids[]" value="<?php echo $res['id']; ?>" id="item-<?php echo $res['id']; ?>" /></td>
+                <td><input type="checkbox" name="ids[]" value="<?php echo $res['id']; ?>" id="item-<?php echo $res['id']; ?>"></td>
                 <td><strong><?php echo $res['id']; ?></strong></td>
                 <td align="left">
                     <a href="./sections.php?id=<?php echo $res['id']; ?>" ><?php echo $res['title']; ?></a>
@@ -105,10 +105,10 @@
                 </span>
                 </td>
                 <td>
-                    <?php if ($res['featured']): ?><img src="../images/featured.png" border="0" title="<?php _e('Featured', 'docs'); ?>" alt="<?php _e('Featured', 'docs'); ?>" /><?php endif; ?>
-                    <?php if ($res['approved']): ?><img src="../images/approved.png" border="0" title="<?php _e('Approved', 'docs'); ?>" alt="<?php _e('Approved', 'docs'); ?>" /><?php endif; ?>
-                    <?php if ($res['public']): ?><img src="../images/public.png" border="0" title="<?php _e('Published', 'docs'); ?>" alt="<?php _e('Published', 'docs'); ?>" /><?php endif; ?>
-                    <?php if ($res['quick']): ?><img src="../images/quick.png" border="0" title="<?php _e('Quick Index', 'docs'); ?>" alt="<?php _e('Quick Index', 'docs'); ?>" /><?php endif; ?>
+                    <?php if ($res['featured']): ?><img src="../images/featured.png" border="0" title="<?php _e('Featured', 'docs'); ?>" alt="<?php _e('Featured', 'docs'); ?>"><?php endif; ?>
+                    <?php if ($res['approved']): ?><img src="../images/approved.png" border="0" title="<?php _e('Approved', 'docs'); ?>" alt="<?php _e('Approved', 'docs'); ?>"><?php endif; ?>
+                    <?php if ($res['public']): ?><img src="../images/public.png" border="0" title="<?php _e('Published', 'docs'); ?>" alt="<?php _e('Published', 'docs'); ?>"><?php endif; ?>
+                    <?php if ($res['quick']): ?><img src="../images/quick.png" border="0" title="<?php _e('Quick Index', 'docs'); ?>" alt="<?php _e('Quick Index', 'docs'); ?>"><?php endif; ?>
                 </td>
             </tr>
         <?php endforeach; ?>
@@ -130,7 +130,7 @@
                 <option value="noqindex"><?php _e('Disable quick index', 'docs'); ?></option>
                 <option value="delete"><?php _e('Delete', 'docs'); ?></option>
             </select>
-            <input type="button" id="the-op-bottom" value="<?php _e('Apply', 'docs'); ?>" onclick="before_submit('frm-resources');" class="btn btn-default" />
+            <input type="button" id="the-op-bottom" value="<?php _e('Apply', 'docs'); ?>" onclick="before_submit('frm-resources');" class="btn btn-default">
         </div>
 
         <div class="col-md-7">
@@ -141,5 +141,5 @@
 
 </div>
 <?php echo $xoopsSecurity->getTokenHTML(); ?>
-<input type="hidden" name="page" value="<?php echo $page; ?>" />
+<input type="hidden" name="page" value="<?php echo $page; ?>">
 </form>

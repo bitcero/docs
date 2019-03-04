@@ -8,6 +8,6 @@
 // License: GPL 2.0
 // --------------------------------------------------------------
 
-if (function_exists("load_mod_locale")) {
+if (function_exists('load_mod_locale')) {
     load_mod_locale('docs');
 }

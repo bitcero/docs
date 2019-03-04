@@ -9,7 +9,7 @@
         <label><?php _e('Section Content:', 'docs'); ?></label>
         <div class="content"><?php echo $section['text']; ?></div>
         </div>
-        <br />
+        <br>
             <a href="<?php echo $section['link']; ?>" target="_blank" class="button"><?php _e('View Section', 'docs'); ?></a>
             <a href="sections.php?sec=<?php echo $section['id']; ?>&amp;id=<?php echo $section['res']; ?>&amp;action=edit" class="button formButton"><?php _e('Edit Section', 'docs'); ?></a>
     </div>
@@ -22,7 +22,7 @@
         <label><?php _e('Section Content:', 'docs'); ?></label>
         <div class="content"><?php echo $new_content['text']; ?></div>
         </div>
-        <br />
+        <br>
         <a href="edits.php?action=approve&amp;ids[]=<?php echo $new_content['id']; ?>" class="button formButton"><?php _e('Approve', 'docs'); ?></a>
         <a href="edits.php?action=edit&amp;id=<?php echo $new_content['id']; ?>" class="button formButton"><?php _e('Edit', 'docs'); ?></a>
         <a href="edits.php?action=delete&amp;ids[]=<?php echo $new_content['id']; ?>" class="button formButton"><?php _e('Discard', 'docs'); ?></a>
