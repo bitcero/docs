@@ -10,7 +10,7 @@
 
 class rdfunctions
 {
-    public function toolbar()
+    public static function toolbar()
     {
         RMTemplate::get()->add_tool(__('Dashboard', 'docs'), './index.php', '../images/dashboard.png', 'dashboard');
         RMTemplate::get()->add_tool(__('Documents', 'docs'), './resources.php', '../images/book.png', 'resources');
@@ -538,7 +538,7 @@ class rdfunctions
      * @param int array $gid  Ids de grupos a que pertenece usuario
      * @param int array $groups Ids de grupos con permiso a crear publicación
      **/
-    public function new_resource_allowed($gid)
+    public static function new_resource_allowed($gid)
     {
         $config = RMSettings::module_settings('docs');
 

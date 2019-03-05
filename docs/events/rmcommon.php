@@ -36,7 +36,7 @@ class DocsRmcommonPreload
      * @param mixed $text
      * @param mixed $source
      */
-    public function eventRmcommonTextTodisplay($text, $source)
+    public static function eventRmcommonTextTodisplay($text, $source)
     {
         global $xoopsModule;
 
@@ -65,7 +65,7 @@ class DocsRmcommonPreload
     /**
      * Add custom codes support
      */
-    public function eventRmcommonIncludeCommonLanguage()
+    public static function eventRmcommonIncludeCommonLanguage()
     {
         global $rmCodes;
 
@@ -85,7 +85,7 @@ class DocsRmcommonPreload
      * @param array $add New settings added to database
      * @param array $delete Existing settings deleted from database
      */
-    public function eventRmcommonSavedSettings($dirname, $save, $add, $delete)
+    public static function eventRmcommonSavedSettings($dirname, $save, $add, $delete)
     {
         if ('docs' != $dirname) {
             return $dirname;
