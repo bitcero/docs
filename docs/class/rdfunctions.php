@@ -582,7 +582,7 @@ class RDFunctions
      * @param mixed $page
      * @param mixed $params
      */
-    public function make_link($page, $params = [])
+    public static function make_link($page, $params = [])
     {
         $config = RMSettings::module_settings('docs');
 
