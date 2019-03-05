@@ -473,7 +473,7 @@ class RDFunctions
      * @param mixed       $number
      * @param mixed       $text
      */
-    public function get_section_tree($id, RDResource $res, $number = 1, $text = false)
+    public static function get_section_tree($id, RDResource $res, $number = 1, $text = false)
     {
         global $xoopsUser;
 
@@ -559,7 +559,7 @@ class RDFunctions
     /**
      * Creates the BreadCrumb bar with basic options
      */
-    public function breadcrumb()
+    public static function breadcrumb()
     {
         global $xoopsModule;
         // Breadcrumb
@@ -606,7 +606,7 @@ class RDFunctions
     /**
      * For standalone documents
      */
-    public function standalone()
+    public static function standalone()
     {
         global $xoopsTpl, $xoopsModuleConfig;
 

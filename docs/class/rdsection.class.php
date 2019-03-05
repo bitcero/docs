@@ -214,11 +214,12 @@ class RDSection extends RMObject
         }
         $sql = 'INSERT INTO ' . $this->db->prefix('mod_docs_meta') . ' (`name`,`value`,`section`,`edit`) VALUES ';
         $values = '';
+        $myts = MyTextSanitizer::getInstance();
         foreach ($this->metas as $name => $value) {
             if (is_array($value)) {
                 $value = $value['value'];
             }
-            $values .= ('' == $values ? '' : ',') . "('" . MyTextSanitizer::addSlashes($name) . "','" . MyTextSanitizer::addSlashes($value) . "','" . $this->id() . "','0')";
+            $values .= ('' == $values ? '' : ',') . "('" . $myts->addSlashes($name) . "','" . $myts->addSlashes($value) . "','" . $this->id() . "','0')";
         }
 
         if ($this->db->queryF($sql . $values)) {
