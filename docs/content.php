@@ -39,7 +39,7 @@ define('RD_LOCATION', 'content');
  * @param \RDResource $res
  * @param \RDSection  $section
  */
-function showSection(RDResource &$res, RDSection &$section)
+function showSection(RDResource $res, RDSection $section)
 {
     global $xoopsUser, $xoopsModuleConfig, $xoopsOption, $xoopsTpl, $xoopsConfig, $standalone;
 

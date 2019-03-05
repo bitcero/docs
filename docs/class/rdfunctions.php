@@ -61,7 +61,7 @@ class RDFunctions
      *
      * @return bool|int|null
      */
-    public static function mail_approved(RDResource &$res)
+    public static function mail_approved(RDResource $res)
     {
         global $xoopsModuleConfig, $xoopsConfig;
 
@@ -346,8 +346,8 @@ class RDFunctions
      * Get the current order of a section (max or min)
      *
      * @param string $which MAX or MIN
-     * @param int $parent
-     * @param mixed $res
+     * @param int    $parent
+     * @param mixed  $res
      * @return
      */
     public static function order($which = 'MAX', $parent = 0, $res = 0)
