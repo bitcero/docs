@@ -11,8 +11,8 @@
 define('AH_LOCATION', 'rate');
 require  dirname(dirname(__DIR__)) . '/mainfile.php';
 
-$id = isset($_GET['id']) ? intval($_GET['id']) : 0;
-$rate = isset($_GET['rate']) ? intval($_GET['rate']) : 0;
+$id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+$rate = isset($_GET['rate']) ? (int)$_GET['rate'] : 0;
 $ret = isset($_GET['ret']) ? $_GET['ret'] : '';
 
 $mc = &$xoopsModuleConfig;

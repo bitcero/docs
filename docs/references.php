@@ -51,7 +51,7 @@ function references($edit = 0)
 
     $db = XoopsDatabaseFactory::getDatabaseConnection();
 
-    $id = intval($id);
+    $id = (int)$id;
     //Navegador de páginas
     $sql = 'SELECT COUNT(*) FROM ' . $db->prefix('mod_docs_references') . " WHERE id_res='$id'";
     $sql1 = '';

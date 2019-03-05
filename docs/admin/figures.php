@@ -18,7 +18,7 @@ function rd_show_figures()
 {
     global $xoopsModule, $xoopsSecurity;
 
-    $id_res = isset($_REQUEST['res']) ? intval($_REQUEST['res']) : 0;
+    $id_res = isset($_REQUEST['res']) ? (int)$_REQUEST['res'] : 0;
     $search = isset($_REQUEST['search']) ? $_REQUEST['search'] : '';
 
     if ($id_res <= 0) {

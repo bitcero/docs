@@ -11,7 +11,7 @@
 define('AH_LOCATION', 'references');
 require  dirname(dirname(__DIR__)) . '/mainfile.php';
 
-$id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+$id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
 if ($id <= 0) {
     die(_MS_AH_NOID);
