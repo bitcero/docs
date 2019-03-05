@@ -16,6 +16,7 @@
  * 2. Publicaciones Populares (Mas Leídas)
  * 3. Publicaciones Mejor Votadas
  * @param mixed $options
+ * @return array
  */
 function rd_block_resources($options)
 {

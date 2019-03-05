@@ -15,6 +15,7 @@
  * @param mixed $limit
  * @param mixed $offset
  * @param mixed $userid
+ * @return array
  */
 function ahelpSearch($queryarray, $andor, $limit, $offset, $userid)
 {

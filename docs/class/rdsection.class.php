@@ -130,6 +130,7 @@ class RDSection extends RMObject
     /**
      * Get the permalink for this section
      * @param mixed $edit
+     * @return string
      */
     public function permalink($edit = 0)
     {

@@ -35,6 +35,7 @@ class DocsRmcommonPreload
      * Add new code converter to decode [TOC], [RDRESOURCE] and [RDFEATURED]
      * @param mixed $text
      * @param mixed $source
+     * @return mixed|string|string[]|null
      */
     public static function eventRmcommonTextTodisplay($text, $source)
     {
@@ -81,9 +82,10 @@ class DocsRmcommonPreload
      * Save htaccess configuration
      *
      * @param string $dirname Module directory
-     * @param array $save Array with options saved
-     * @param array $add New settings added to database
-     * @param array $delete Existing settings deleted from database
+     * @param array  $save    Array with options saved
+     * @param array  $add     New settings added to database
+     * @param array  $delete  Existing settings deleted from database
+     * @return string|null
      */
     public static function eventRmcommonSavedSettings($dirname, $save, $add, $delete)
     {

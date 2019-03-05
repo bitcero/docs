@@ -122,7 +122,9 @@ class RDResource extends RMObject
     /**
      * @desc Determina si usuario tiene permiso para acceder a la publicación
      * @param int array $gid Id(s) de Grupo(s)
-     **/
+     *
+     * @return bool
+     */
     public function isAllowed($gid)
     {
         $groups = $this->getVar('groups');
@@ -155,7 +157,9 @@ class RDResource extends RMObject
     /**
      * @desc Determina si un usuario es editor de un recurso
      * @param int $uid Id de usuario
-     **/
+     *
+     * @return bool
+     */
     public function isEditor($uid)
     {
         $editors = $this->getVar('editors');

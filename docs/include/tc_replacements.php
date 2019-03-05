@@ -39,6 +39,7 @@ function generate_res_index($matches)
  *
  * @param int ID of note
  * @param mixed $atts
+ * @return string|void
  */
 function rd_build_note($atts)
 {
@@ -125,6 +126,7 @@ function rd_build_figure($atts)
 /**
  * Generate a Table of Contents for an specific section
  * @param mixed $atts
+ * @return false|string|void
  */
 function rd_generate_toc($atts)
 {

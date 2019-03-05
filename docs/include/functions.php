@@ -62,6 +62,7 @@ function assignSectionTree($parent, $jumps, AHResource $res, $var = 'index', $nu
  * @desc Obtiene el primer parent de la sección especificada
  * @param int Id de la sección
  * @param mixed $id
+ * @return string|void
  */
 function ahBuildReference($id)
 {
@@ -110,6 +111,7 @@ function ahBuildFigure($id)
 /**
  * @desc Función para crear las referencias del documento
  * @param mixed $text
+ * @return mixed|string|string[]|null
  */
 function ahParseReferences($text)
 {

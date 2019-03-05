@@ -23,6 +23,7 @@ class RDFunctions
      * Get the HTMl code for editor plugin
      * @param mixed $id
      * @param mixed $type
+     * @return false|string
      */
     public static function editor_plugin($id, $type)
     {
@@ -57,7 +58,9 @@ class RDFunctions
      * @desc Envía correo de aprobación de publicación
      *
      * @param object $res Publicación
-     **/
+     *
+     * @return bool|int|null
+     */
     public function mail_approved(RDResource &$res)
     {
         global $xoopsModuleConfig, $xoopsConfig;
@@ -362,6 +365,7 @@ class RDFunctions
      * @param mixed $which
      * @param mixed $parent
      * @param mixed $res
+     * @return
      */
     public function order($which = 'MAX', $parent = 0, $res = 0)
     {
@@ -397,6 +401,7 @@ class RDFunctions
      * Get resources index according to given options
      * @param mixed $type
      * @param mixed $limit
+     * @return false|string
      */
     public function resources_index($type = 'all', $limit = 15)
     {
@@ -537,7 +542,9 @@ class RDFunctions
      *
      * @param int array $gid  Ids de grupos a que pertenece usuario
      * @param int array $groups Ids de grupos con permiso a crear publicación
-     **/
+     *
+     * @return bool
+     */
     public static function new_resource_allowed($gid)
     {
         $config = RMSettings::module_settings('docs');
@@ -581,6 +588,7 @@ class RDFunctions
      * Make the correct link for a specific page
      * @param mixed $page
      * @param mixed $params
+     * @return string
      */
     public static function make_link($page, $params = [])
     {
@@ -820,6 +828,7 @@ class RDFunctions
  * Insert edit link in sectionsa array
  * @param mixed $item
  * @param mixed $key
+ * @return array|void
  */
 function rd_insert_edit(&$item, $key)
 {
