@@ -160,7 +160,7 @@ class RDFunctions
             return false;
         }
 
-        if ('RDResource' !== get_class($res)) {
+        if (!$res instanceof \RDResource) {
             return;
         }
 
@@ -479,7 +479,7 @@ class RDFunctions
 
         $db = XoopsDatabaseFactory::getDatabaseConnection();
 
-        if ('RDResource' !== get_class($res)) {
+        if (!$res instanceof \RDResource) {
             return;
         }
 
