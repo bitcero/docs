@@ -10,7 +10,7 @@
 
 class DocsRmcommonPreload
 {
-    public function eventRmcommonLoadRightWidgets($widgets)
+    public static function eventRmcommonLoadRightWidgets($widgets)
     {
         global $xoopsModule;
 
@@ -110,7 +110,7 @@ class DocsRmcommonPreload
         return null;
     }
 
-    public function eventRmcommonEditorTopPlugins($plugins, $type, $id)
+    public static function eventRmcommonEditorTopPlugins($plugins, $type, $id)
     {
         global $xoopsModule;
 
