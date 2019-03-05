@@ -8,7 +8,7 @@
 // License: GPL 2.0
 // --------------------------------------------------------------
 
-include('../../mainfile.php');
+include '../../mainfile.php';
 
 if (!$xoopsUser) {
     redirect_header(RDFunctions::url(), 2, __('Operation not allowed!', 'docs'));
@@ -23,7 +23,7 @@ function showSection()
     global $xoopsModule,$xoopsUser,$xoopsModuleConfig, $xoopsTpl, $xoopsConfig;
     global $id, $xoopsSecurity;
 
-    include('header.php');
+    include 'header.php';
 
     //Verifica si se proporcionó una publicación para la sección
     if ('' == trim($id)) {
@@ -72,7 +72,7 @@ function showSection()
 
     include RMEvents::get()->run_event('docs.template.editsection', RMTemplate::get()->get_template('docs-sections-control-panel.php', 'module', 'docs'));
 
-    include('footer.php');
+    include 'footer.php';
 }
 
 /**
@@ -124,7 +124,7 @@ function formSection($edit = 0)
         }
     }
 
-    include('header.php');
+    include 'header.php';
 
     require_once RMCPATH . '/class/form.class.php';
     define('NO_CUSTOM_CODES', 1);
@@ -156,7 +156,7 @@ function formSection($edit = 0)
     RMTemplate::get()->add_script('scripts.php?file=metas.js', 'docs');
     include RMEvents::get()->run_event('docs.template.formsections.front', RMTemplate::get()->get_template('docs-section-form.php', 'module', 'docs'));
 
-    include('footer.php');
+    include 'footer.php';
 }
 
 /**

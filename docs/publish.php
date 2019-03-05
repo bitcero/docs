@@ -8,7 +8,7 @@
 // @author BitC3R0 <i.bitcero@gmail.com>
 // @license: GPL v2
 
-include('../../mainfile.php');
+include '../../mainfile.php';
 
 /**
  * @desc Formulario para la creación de una nueva publicación
@@ -17,7 +17,7 @@ function formPublish()
 {
     global $xoopsModuleConfig, $xoopsUser, $xoopsTpl, $xoopsConfig, $global, $id;
 
-    include('header.php');
+    include 'header.php';
 
     if ($id <= 0) {
         $id = RMHttpRequest::get('id', 'integer', 0);
@@ -105,7 +105,7 @@ function formPublish()
 
     RMTemplate::get()->add_style('docs.min.css', 'docs');
 
-    include('footer.php');
+    include 'footer.php';
 }
 
 /**

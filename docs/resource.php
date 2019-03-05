@@ -25,7 +25,7 @@ if ($res->getVar('single')) {
     define('RD_LOCATION', 'resource_content');
 }
 
-include('header.php');
+include 'header.php';
 
 //Verificamos si la publicacion esta aprobada
 if (!$res->getVar('approved')) {
@@ -167,4 +167,4 @@ if ($standalone) {
     RDFunctions::standalone();
 }
 
-include('footer.php');
+include 'footer.php';

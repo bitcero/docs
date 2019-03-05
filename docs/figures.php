@@ -8,8 +8,8 @@
 // License: GPL 2.0
 // --------------------------------------------------------------
 
-include('../../mainfile.php');
-include('header.php');
+include '../../mainfile.php';
+include 'header.php';
 load_mod_locale('docs');
 
 // Mensajes de Error

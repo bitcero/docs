@@ -21,8 +21,8 @@ function ahelpSearch($queryarray, $andor, $limit, $offset, $userid)
 {
     global $myts;
 
-    include_once(XOOPS_ROOT_PATH . '/modules/docs/class/rdsection.class.php');
-    include_once(XOOPS_ROOT_PATH . '/modules/docs/class/rdresource.class.php');
+    include_once XOOPS_ROOT_PATH . '/modules/docs/class/rdsection.class.php';
+    include_once XOOPS_ROOT_PATH . '/modules/docs/class/rdresource.class.php';
 
     $mc = RMSettings::module_settings('docs');
 

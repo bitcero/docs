@@ -160,7 +160,7 @@ function rd_show_form($edit = 0)
     RMTemplate::get()->add_script('docs.min.js', 'docs', ['footer' => 1]);
     RMTemplate::get()->add_head_script('var docsurl = "' . XOOPS_URL . '/modules/docs";');
 
-    $lang = include(XOOPS_ROOT_PATH . '/modules/docs/include/js-lang.php');
+    $lang = include XOOPS_ROOT_PATH . '/modules/docs/include/js-lang.php';
     RMTemplate::get()->add_head_script($lang);
 
     $bc = RMBreadCrumb::get();
