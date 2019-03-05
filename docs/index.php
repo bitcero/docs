@@ -42,7 +42,7 @@ if ($xoopsModuleConfig['permalinks']) {
     // If friendly urls are disabled
     $path = parse_url(RMUris::current_url());
     if (isset($path['query'])) {
-        parse_str($path['query']);
+        $output = parse_str($path['query'], $output);
     }
 
     if (!isset($page) || '' == $page) {

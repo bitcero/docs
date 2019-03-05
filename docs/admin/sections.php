@@ -9,6 +9,7 @@
 // --------------------------------------------------------------
 
 define('RMCLOCATION', 'sections');
+
 require __DIR__ . '/header.php';
 
 require_once dirname(__DIR__) . '/include/functions.php';
@@ -392,7 +393,7 @@ function changeOrderSections()
         json_response(__('Session token expired!', 'docs'), 1);
     }
 
-    parse_str(rmc_server_var($_POST, 'items', ''));
+    $output = parse_str(rmc_server_var($_POST, 'items', ''), $output);
 
     if (empty($list)) {
         json_response(__('Data not valid!', 'docs'), 1);
