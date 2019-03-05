@@ -19,7 +19,7 @@ class docscontroller implements iCommentsController
     {
         $db = XoopsDatabaseFactory::getDatabaseConnection();
         $params = urldecode($comment->getVar('params'));
-        parse_str($params);
+        $output = parse_str($params, $output);
 
         // Invalid parameters
         if (!isset($res) || $res <= 0) {
@@ -39,7 +39,7 @@ class docscontroller implements iCommentsController
     {
         $db = XoopsDatabaseFactory::getDatabaseConnection();
         $params = urldecode($comment->getVar('params'));
-        parse_str($params);
+        $output = parse_str($params, $output);
 
         // Invalid parameters
         if (!isset($res) || $res <= 0) {
@@ -61,7 +61,7 @@ class docscontroller implements iCommentsController
         static $csections;
 
         $params = urldecode($params);
-        parse_str($params);
+        $output = parse_str($params, $output);
         if (!isset($res) || $res <= 0) {
             return __('Unknow element', 'docs');
         }
@@ -109,7 +109,7 @@ class docscontroller implements iCommentsController
         static $csections;
 
         $params = urldecode($params);
-        parse_str($params);
+        $output = parse_str($params, $output);
         if (!isset($res) || $res <= 0) {
             return __('Unknow element', 'docs');
         }
