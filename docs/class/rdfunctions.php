@@ -61,7 +61,7 @@ class RDFunctions
      *
      * @return bool|int|null
      */
-    public function mail_approved(RDResource &$res)
+    public static function mail_approved(RDResource &$res)
     {
         global $xoopsModuleConfig, $xoopsConfig;
 
@@ -350,7 +350,7 @@ class RDFunctions
      * @param mixed $res
      * @return
      */
-    public function order($which = 'MAX', $parent = 0, $res = 0)
+    public static function order($which = 'MAX', $parent = 0, $res = 0)
     {
         $db = XoopsDatabaseFactory::getDatabaseConnection();
 
@@ -386,7 +386,7 @@ class RDFunctions
      * @param mixed $limit
      * @return false|string
      */
-    public function resources_index($type = 'all', $limit = 15)
+    public static function resources_index($type = 'all', $limit = 15)
     {
         $db = XoopsDatabaseFactory::getDatabaseConnection();
         $sql = 'SELECT * FROM ' . $db->prefix('mod_docs_resources');
