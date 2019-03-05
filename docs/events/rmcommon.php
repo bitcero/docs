@@ -25,7 +25,7 @@ class DocsRmcommonPreload
 
         if (defined('RMCSUBLOCATION') && RMCSUBLOCATION === 'notes_list') {
             require_once dirname(__DIR__) . '/include/admin-widgets.php';
-            $widgets[] = rd_widget_newnote();
+            $widgets[] = rd_widget_newnote(); //TODO it's missing
         }
 
         return $widgets;
