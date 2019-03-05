@@ -83,8 +83,8 @@ function rd_block_resources_edit($options)
 				<tr class='even'>
 					<td>" . __('Show description', 'docs') . "</td>
 					<td>
-						<input type='radio' value='1' name='options[2]'" . ($options[2] ? " checked" : '') . '> ' . _YES . "
-						<input type='radio' value='0' name='options[2]'" . (!$options[2] ? " checked" : '') . '> ' . _NO . "
+						<input type='radio' value='1' name='options[2]'" . ($options[2] ? ' checked' : '') . '> ' . _YES . "
+						<input type='radio' value='0' name='options[2]'" . (!$options[2] ? ' checked' : '') . '> ' . _NO . "
 					</td>
 				</tr>
 				<tr class='even'>
