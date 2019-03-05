@@ -161,4 +161,8 @@ class docscontroller implements iCommentsController
 
         return XOOPS_URL . '/modules/docs';
     }
+
+    public static function getInstance(){
+
+    }
 }
