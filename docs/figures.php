@@ -38,7 +38,7 @@ if (!$xoopsUser) {
 /**
  * @desc Visualiza  todas las figuras existentes de una publicación
  **/
-function Figures()
+function figures()
 {
     global $rmc_messages, $xoopsTpl, $xoopsSecurity;
 

@@ -8,7 +8,7 @@
 // License: GPL 2.0
 // --------------------------------------------------------------
 
-class rdfunctions
+class RDFunctions
 {
     public static function toolbar()
     {

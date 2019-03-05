@@ -312,7 +312,7 @@ function rd_save_resource($edit = 0)
          * al administrador actual.
          */
         if (!$app && $app != $res->getVar('approved') && $xoopsUser->uid() != $res->getVar('owner')) {
-            $errors = RDfunctions::mail_approved($res);
+            $errors = RDFunctions::mail_approved($res);
             redirectMsg('./resources.php?page=' . $page, $errors, 1);
         }
     }

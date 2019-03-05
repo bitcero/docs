@@ -232,7 +232,7 @@ function rd_section_forpdf($all = 0)
 $section = new RDSection($id, isset($res) ? $res : null);
 
 if ($section->isNew()) {
-    RDfunctions::error_404();
+    RDFunctions::error_404();
 }
 
 $res = new RDResource($section->getVar('id_res'));
@@ -244,7 +244,7 @@ if ($res->isNew()) {
 
 // Check if section is a top parent
 /*if ($section->getVar('parent')>0){
-    $top = RDfunctions::super_parent($section->getVar('parent'));
+    $top = RDFunctions::super_parent($section->getVar('parent'));
     header('location: '.html_entity_decode($top->permalink()).'#'.$section->getVar('nameid'));
     die();
 }*/

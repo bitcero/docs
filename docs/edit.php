@@ -11,7 +11,7 @@
 include('../../mainfile.php');
 
 if (!$xoopsUser) {
-    redirect_header(RDfunctions::url(), 2, __('Operation not allowed!', 'docs'));
+    redirect_header(RDFunctions::url(), 2, __('Operation not allowed!', 'docs'));
     die();
 }
 
@@ -34,7 +34,7 @@ function showSection()
     global $res;
     $res = new RDResource($id);
     if ($res->isNew()) {
-        RDfunctions::error_404();
+        RDFunctions::error_404();
     }
 
     //Verificamos si es una publicación aprobada
@@ -114,7 +114,7 @@ function formSection($edit = 0)
 
         //Verifica si la sección es válida
         if ('' == $id) {
-            RDfunctions::error_404();
+            RDFunctions::error_404();
         }
 
         //Comprueba si la sección es existente
@@ -336,7 +336,7 @@ function changeOrderSections()
     $id = rmc_server_var($_POST, 'id', 0);
 
     if ($xoopsModuleConfig['permalinks']) {
-        $url_ret = RDfunctions::url() . '/list/' . $id . '/';
+        $url_ret = RDFunctions::url() . '/list/' . $id . '/';
     } else {
         $url_ret = RDFunctions::url() . '?page=edit&action=list&id=' . $id;
     }

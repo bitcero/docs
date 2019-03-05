@@ -52,7 +52,7 @@ if ($xoopsModuleConfig['permalinks']) {
 
     $file = $page . '.php';
     if (!file_exists(XOOPS_ROOT_PATH . '/modules/docs/' . $file)) {
-        RDfunctions::error_404();
+        RDFunctions::error_404();
     }
 
     if (!$xoopsModuleConfig['standalone'] && isset($standalone)) {

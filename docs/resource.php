@@ -67,7 +67,7 @@ foreach ($res->editors as $uid) {
 if ($res->getVar('single')) {
     global $last_author;
     if (!$allowed) {
-        RDfunctions::error_404();
+        RDFunctions::error_404();
     }
 
     // Show all content
