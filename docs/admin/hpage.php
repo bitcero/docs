@@ -20,9 +20,9 @@ function rd_show_page()
 
     require_once RMCPATH . '/class/form.class.php';
     $content = @file_get_contents(XOOPS_CACHE_PATH . '/docs-homepage.html');
-    $editor = new RMFormEditor('', 'homepage', '100%', '450px', 'tiny' == $cuSettings->editor_type ? TextCleaner::getInstance()->to_display($content) : TextCleaner::getInstance()->specialchars($content));
+    $editor = new RMFormEditor('', 'homepage', '100%', '450px', 'tiny' === $cuSettings->editor_type ? TextCleaner::getInstance()->to_display($content) : TextCleaner::getInstance()->specialchars($content));
     $rmc_config = RMSettings::cu_settings();
-    if ('tiny' == $rmc_config->editor_type) {
+    if ('tiny' === $rmc_config->editor_type) {
         $tiny = TinyEditor::getInstance();
         $tiny->add_config('theme_advanced_buttons1', 'res_index');
     }

@@ -144,14 +144,14 @@ function rd_show_form($edit = 0)
     $rmc_config = RMSettings::cu_settings();
     $form = new RMForm('', 'frmsec', 'sections.php');
 
-    if ('tiny' == $rmc_config->editor_type) {
+    if ('tiny' === $rmc_config->editor_type) {
         $tiny = TinyEditor::getInstance();
         $tiny->add_config('theme_advanced_buttons1', 'rd_refs');
         $tiny->add_config('theme_advanced_buttons1', 'rd_figures');
         $tiny->add_config('theme_advanced_buttons1', 'rd_toc');
     }
 
-    $editor = new RMFormEditor('', 'content', '100%', '400px', $edit ? 'tiny' == $rmc_config->editor_type ? $sec->getVar('content') : $sec->getVar('content', 'e') : '', '', 0);
+    $editor = new RMFormEditor('', 'content', '100%', '400px', $edit ? 'tiny' === $rmc_config->editor_type ? $sec->getVar('content') : $sec->getVar('content', 'e') : '', '', 0);
     $usrfield = new RMFormUser('', 'uid', false, $edit ? [$sec->getVar('uid')] : $xoopsUser->getVar('uid'));
 
     RMTemplate::get()->add_style('admin.min.css', 'docs');
@@ -403,7 +403,7 @@ function changeOrderSections()
 
     $pos = 0;
     foreach ($list as $id => $parent) {
-        $parent = 'root' == $parent ? 0 : $parent;
+        $parent = 'root' === $parent ? 0 : $parent;
 
         if (0 == $parent && !is_object($res)) {
             $res = new RDSection($id);

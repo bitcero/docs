@@ -14,16 +14,16 @@ class DocsRmcommonPreload
     {
         global $xoopsModule;
 
-        if (!isset($xoopsModule) || ('system' != $xoopsModule->getVar('dirname') && 'docs' != $xoopsModule->getVar('dirname'))) {
+        if (!isset($xoopsModule) || ('system' !== $xoopsModule->getVar('dirname') && 'docs' !== $xoopsModule->getVar('dirname'))) {
             return $widgets;
         }
 
-        if (defined('RMCSUBLOCATION') && RMCSUBLOCATION == 'newresource') {
+        if (defined('RMCSUBLOCATION') && RMCSUBLOCATION === 'newresource') {
             require_once dirname(__DIR__) . '/include/admin-widgets.php';
             $widgets[] = rd_widget_options();
         }
 
-        if (defined('RMCSUBLOCATION') && RMCSUBLOCATION == 'notes_list') {
+        if (defined('RMCSUBLOCATION') && RMCSUBLOCATION === 'notes_list') {
             require_once dirname(__DIR__) . '/include/admin-widgets.php';
             $widgets[] = rd_widget_newnote();
         }
@@ -40,7 +40,7 @@ class DocsRmcommonPreload
     {
         global $xoopsModule;
 
-        if (!$xoopsModule || 'docs' != $xoopsModule->dirname() || defined('RD_NO_FIGURES')) {
+        if (!$xoopsModule || 'docs' !== $xoopsModule->dirname() || defined('RD_NO_FIGURES')) {
             return $text;
         }
 
@@ -87,7 +87,7 @@ class DocsRmcommonPreload
      */
     public static function eventRmcommonSavedSettings($dirname, $save, $add, $delete)
     {
-        if ('docs' != $dirname) {
+        if ('docs' !== $dirname) {
             return $dirname;
         }
 
@@ -112,7 +112,7 @@ class DocsRmcommonPreload
     {
         global $xoopsModule;
 
-        if (!$xoopsModule || 'docs' != $xoopsModule->getVar('dirname')) {
+        if (!$xoopsModule || 'docs' !== $xoopsModule->getVar('dirname')) {
             return $plugins;
         }
 

@@ -29,7 +29,7 @@ function show_resources($by, $order = 'DESC')
     $start = $num <= 0 ? 0 : ($page - 1) * $limit;
 
     $nav = new RMPageNav($num, $limit, $page, 5);
-    $nav->target_url(RDFunctions::make_link('explore', ['by' => 'created' == $by ? 'recent' : 'top', 'page' => '{PAGE_NUM}']));
+    $nav->target_url(RDFunctions::make_link('explore', ['by' => 'created' === $by ? 'recent' : 'top', 'page' => '{PAGE_NUM}']));
 
     $sql = 'SELECT * FROM ' . $db->prefix('mod_docs_resources') . " WHERE public=1 AND approved=1 ORDER BY `$by` $order LIMIT $start,$limit";
     $result = $db->query($sql);
@@ -58,7 +58,7 @@ function show_resources($by, $order = 'DESC')
     RMTemplate::get()->add_style('docs.min.css', 'docs');
 
     require __DIR__ . '/header.php';
-    $xoopsTpl->assign('xoops_pagetitle', 'created' == $by ? __('Recent Documents', 'docs') : __('Top Documents', 'docs'));
+    $xoopsTpl->assign('xoops_pagetitle', 'created' === $by ? __('Recent Documents', 'docs') : __('Top Documents', 'docs'));
 
     include RMEvents::get()->run_event('docs.template.explore', RMTemplate::get()->get_template('docs-search.php', 'module', 'docs'));
 
@@ -126,6 +126,6 @@ switch ($action) {
         break;
     case 'explore':
     default:
-        show_resources('recent' == $by ? 'created' : 'reads');
+        show_resources('recent' === $by ? 'created' : 'reads');
         break;
 }

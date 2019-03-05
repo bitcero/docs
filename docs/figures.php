@@ -246,9 +246,9 @@ function saveFigures($edit = 0)
         $fig = new RDFigure();
     }
 
-    if ('image' == $type && '' == $content) {
+    if ('image' === $type && '' == $content) {
         RMUris::redirect_with_message(__('Please provide an image for this figure.', 'docs'), 'action=new&figures.php?id=' . $id);
-    } elseif ('content' == $type && '' == $content) {
+    } elseif ('content' === $type && '' == $content) {
         RMUris::redirect_with_message(__('Please provide the content for this figure.', 'docs'), 'action=new&figures.php?id=' . $id);
     }
 

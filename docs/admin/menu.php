@@ -10,7 +10,7 @@
 
 load_mod_locale('docs');
 
-if (RMCLOCATION == 'sections') {
+if (RMCLOCATION === 'sections') {
     $res = RMHttpRequest::request('id', 'integer', 0);
 } else {
     $res = RMHttpRequest::request('res', 'integer', 0);

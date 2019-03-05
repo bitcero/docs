@@ -52,7 +52,7 @@ class RMEditorAddons extends RMFormElement
 
     public function jsFunctions()
     {
-        if ('tiny' == $this->type) {
+        if ('tiny' === $this->type) {
             $ret = "<script type='text/javascript'>
 					function insertReference(id_ref){
 						var html;

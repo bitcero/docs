@@ -12,10 +12,10 @@ function rd_block_index($options)
 {
     global $xoopsModule, $xoopsModuleConfig, $res, $sec;
 
-    if (!$xoopsModule || 'docs' != $xoopsModule->dirname()) {
+    if (!$xoopsModule || 'docs' !== $xoopsModule->dirname()) {
         return;
     }
-    if (!defined('RD_LOCATION') || (RD_LOCATION != 'content' && RD_LOCATION != 'resource_content')) {
+    if (!defined('RD_LOCATION') || (RD_LOCATION !== 'content' && RD_LOCATION !== 'resource_content')) {
         return;
     }
 

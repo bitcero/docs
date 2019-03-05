@@ -129,8 +129,8 @@ function formSection($edit = 0)
     require_once RMCPATH . '/class/form.class.php';
     define('NO_CUSTOM_CODES', 1);
     $rmc_config = RMFunctions::configs();
-    $editor = new RMFormEditor('', 'content', '100%', '300px', $edit ? $section->getVar('content', 'tiny' == $rmc_config['editor_type'] ? 's' : 'e') : '', '', false);
-    if ('tiny' == $rmc_config['editor_type']) {
+    $editor = new RMFormEditor('', 'content', '100%', '300px', $edit ? $section->getVar('content', 'tiny' === $rmc_config['editor_type'] ? 's' : 'e') : '', '', false);
+    if ('tiny' === $rmc_config['editor_type']) {
         $tiny = TinyEditor::getInstance();
         $tiny->add_config('theme_advanced_buttons1', 'rd_refs');
         $tiny->add_config('theme_advanced_buttons1', 'rd_figures');

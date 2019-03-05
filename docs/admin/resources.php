@@ -135,16 +135,16 @@ function rd_show_form($edit = 0)
         $form->addElement(new RMFormText(__('Document slug', 'docs'), 'nameid', 50, 150, $res->getVar('nameid')));
     }
 
-    $form->addElement(new RMFormEditor(__('Description', 'docs'), 'desc', '100%', '400px', $edit ? $res->getVar('description', 'tiny' == $cuSettings->editor_type ? 'e' : '') : ''), true);
+    $form->addElement(new RMFormEditor(__('Description', 'docs'), 'desc', '100%', '400px', $edit ? $res->getVar('description', 'tiny' === $cuSettings->editor_type ? 'e' : '') : ''), true);
 
     $select = new RMFormSelect(__('License', 'docs'), 'license', 0, $edit ? [$res->getVar('license')] : null);
     $select->addOption('', __('No license', 'docs'));
     $licenses = RDFunctions::get_licenses();
     foreach ($licenses  as $license) {
         $license = trim($license);
-        if ('---books' == $license) {
+        if ('---books' === $license) {
             $select->addGroup(__('Licenses for Books', 'docs'), 'books');
-        } elseif ('---others' == $license) {
+        } elseif ('---others' === $license) {
             $select->addGroup(__('Other Licenses', 'docs'), 'others');
         } else {
             $select->addOption($license, $license);
@@ -208,13 +208,13 @@ function rd_save_resource($edit = 0)
     $q = '';
     foreach ($_POST as $k => $v) {
         $$k = $v;
-        if ('XOOPS_TOKEN_REQUEST' == $k || 'action' == $k) {
+        if ('XOOPS_TOKEN_REQUEST' === $k || 'action' === $k) {
             continue;
         }
         $q .= '' == $q ? "$k=" . urlencode($v) : "&$k=" . urlencode($v);
     }
 
-    if ('save' == $action) {
+    if ('save' === $action) {
         $q .= '&amp;action=new';
     } else {
         $q .= '&amp;action=edit';
@@ -582,5 +582,5 @@ switch ($action) {
         approved_resources(0);
     break;
     default:
-        show_resources('drafts' == $action ? 0 : 1);
+        show_resources('drafts' === $action ? 0 : 1);
 }

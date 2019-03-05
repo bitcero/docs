@@ -65,7 +65,7 @@ if ($xoopsModuleConfig['permalinks']) {
 }
 
 foreach ($params as $i => $p) {
-    if ('standalone' == $p) {
+    if ('standalone' === $p) {
         $standalone = $params[$i + 1];
         $temp = array_slice($params, 0, $i);
         if ($i == count($params) - 1) {
@@ -77,13 +77,13 @@ foreach ($params as $i => $p) {
 }
 
 // Mainpage
-if (!isset($params[0]) || '' == $params[0] || 'standalone' == $params[0]) {
+if (!isset($params[0]) || '' == $params[0] || 'standalone' === $params[0]) {
     require __DIR__ . '/mainpage.php';
     die();
 }
 
 // PDF Book
-if ('pdfbook' == $params[0]) {
+if ('pdfbook' === $params[0]) {
     $id = $params[1];
     $_GET['action'] = 'pdfbook';
     require __DIR__ . '/content.php';
@@ -91,7 +91,7 @@ if ('pdfbook' == $params[0]) {
 }
 
 // Print Book
-if ('printbook' == $params[0]) {
+if ('printbook' === $params[0]) {
     $id = $params[1];
     $_GET['action'] = 'printbook';
     require __DIR__ . '/content.php';
@@ -99,7 +99,7 @@ if ('printbook' == $params[0]) {
 }
 
 // Print Book
-if ('pdfsection' == $params[0]) {
+if ('pdfsection' === $params[0]) {
     $id = $params[1];
     $_GET['action'] = 'pdfsection';
     require __DIR__ . '/content.php';
@@ -107,7 +107,7 @@ if ('pdfsection' == $params[0]) {
 }
 
 // Print Section
-if ('printsection' == $params[0]) {
+if ('printsection' === $params[0]) {
     $id = $params[1];
     $_GET['action'] = 'printsection';
     require __DIR__ . '/content.php';
@@ -115,7 +115,7 @@ if ('printsection' == $params[0]) {
 }
 
 // Edit form
-if ('edit' == $params[0]) {
+if ('edit' === $params[0]) {
     $id = $params[1];
     $res = $params[2];
     $action = 'edit';
@@ -124,14 +124,14 @@ if ('edit' == $params[0]) {
 }
 
 // Publish
-if ('publish' == $params[0]) {
+if ('publish' === $params[0]) {
     $action = 'publish';
     require __DIR__ . '/publish.php';
     die();
 }
 
 // Book edition
-if ('edit-book' == $params[0]) {
+if ('edit-book' === $params[0]) {
     $action = 'publish';
     $id = $params[1];
     require __DIR__ . '/publish.php';
@@ -139,7 +139,7 @@ if ('edit-book' == $params[0]) {
 }
 
 // New form
-if ('new' == $params[0]) {
+if ('new' === $params[0]) {
     $res = $params[1];
     $action = 'new';
     require __DIR__ . '/edit.php';
@@ -147,14 +147,14 @@ if ('new' == $params[0]) {
 }
 
 // Sections list
-if ('list' == $params[0]) {
+if ('list' === $params[0]) {
     $id = $params[1];
     require __DIR__ . '/edit.php';
     die();
 }
 
 // Explore
-if ('explore' == $params[0] || 'search' == $params[0]) {
+if ('explore' === $params[0] || 'search' === $params[0]) {
     $action = $params[0];
 
     if (isset($params[3])) {

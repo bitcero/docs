@@ -70,8 +70,8 @@ function rd_block_resources_edit($options)
 					<td style='width: 180px;'>" . __('Block type:', 'docs') . "</td>
 					<td>
 					<select name='options[0]'>
-						<option value='recents'" . ('recents' == $options[0] ? " selected='selected'" : '') . '>' . __('Recent Documents', 'docs') . "</option>
-						<option value='popular'" . ('popular' == $options[0] ? " selected='selected'" : '') . '>' . __('Top Documents', 'docs') . "</option>
+						<option value='recents'" . ('recents' === $options[0] ? " selected='selected'" : '') . '>' . __('Recent Documents', 'docs') . "</option>
+						<option value='popular'" . ('popular' === $options[0] ? " selected='selected'" : '') . '>' . __('Top Documents', 'docs') . "</option>
 					</select>
 					</td>
 				</tr>

@@ -28,7 +28,7 @@ class rdfunctions
     {
         global $xoopsModule;
 
-        if (defined('RMCSUBLOCATION') && 'newresource' == RMCSUBLOCATION) {
+        if (defined('RMCSUBLOCATION') && 'newresource' === RMCSUBLOCATION) {
             $id_res = RMHttpRequest::get('id');
         }
 
@@ -163,7 +163,7 @@ class rdfunctions
             return false;
         }
 
-        if ('RDResource' != get_class($res)) {
+        if ('RDResource' !== get_class($res)) {
             return;
         }
 
@@ -367,7 +367,7 @@ class rdfunctions
     {
         $db = XoopsDatabaseFactory::getDatabaseConnection();
 
-        if ('MAX' != $which && 'MIN' != $which) {
+        if ('MAX' !== $which && 'MIN' !== $which) {
             $which = 'MAX';
         }
 
@@ -402,9 +402,9 @@ class rdfunctions
     {
         $db = XoopsDatabaseFactory::getDatabaseConnection();
         $sql = 'SELECT * FROM ' . $db->prefix('mod_docs_resources');
-        if ('featured' == $type) {
+        if ('featured' === $type) {
             $sql .= ' WHERE public=1 AND approved=1 AND featured=1 ORDER BY created DESC';
-        } elseif ('all' == $type) {
+        } elseif ('all' === $type) {
             $sql .= ' WHERE public=1 AND approved=1 ORDER BY created DESC';
         }
 
@@ -490,7 +490,7 @@ class rdfunctions
 
         $db = XoopsDatabaseFactory::getDatabaseConnection();
 
-        if ('RDResource' != get_class($res)) {
+        if ('RDResource' !== get_class($res)) {
             return;
         }
 
@@ -592,7 +592,7 @@ class rdfunctions
                 $q .= "&amp;$k=$v";
             }
 
-            $link = XOOPS_URL . '/modules/docs/index.php?page=' . ('explore' == $page ? 'search' : $page) . $q;
+            $link = XOOPS_URL . '/modules/docs/index.php?page=' . ('explore' === $page ? 'search' : $page) . $q;
 
             return $link;
         }

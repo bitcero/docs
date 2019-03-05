@@ -69,9 +69,9 @@ function formPublish()
     $licenses = RDFunctions::get_licenses();
     foreach ($licenses  as $license) {
         $license = trim($license);
-        if ('---books' == $license) {
+        if ('---books' === $license) {
             $select->addGroup(__('Licenses for Books', 'docs'), 'books');
-        } elseif ('---others' == $license) {
+        } elseif ('---others' === $license) {
             $select->addGroup(__('Other Licenses', 'docs'), 'others');
         } else {
             $select->addOption($license, $license);

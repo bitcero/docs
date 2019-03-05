@@ -8,7 +8,7 @@
 // License: GPL 2.0
 // --------------------------------------------------------------
 
-if (isset($special) && ('references' == $special || 'figures' == $special)) {
+if (isset($special) && ('references' === $special || 'figures' === $special)) {
     $xoopsOption['module_subpage'] = 'content';
 } else {
     $xoopsOption['module_subpage'] = 'resource';

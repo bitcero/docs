@@ -6,9 +6,9 @@
     <title><?php _e('Figures', 'docs'); ?> &raquo; <?php echo $xoops_sitename; ?></title>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <?php if ('tiny' == $rmc_config->editor_type): ?>
+    <?php if ('tiny' === $rmc_config->editor_type): ?>
         <script type="text/javascript" src="<?php echo XOOPS_URL; ?>/modules/rmcommon/api/editors/tinymce/tiny_mce_popup.js"></script>
-    <?php elseif ('xoops' == $rmc_config->editor_type): ?>
+    <?php elseif ('xoops' === $rmc_config->editor_type): ?>
         <script type="text/javascript" src="<?php echo XOOPS_URL; ?>/modules/rmcommon/api/editors/exmcode/editor-popups.js"></script>
     <?php endif; ?>
     <!-- RMTemplateHeader -->
@@ -22,7 +22,7 @@
             width: 100%;
         }
     </style>
-    <?php if (defined('DF_LOCATION') && DF_LOCATION == 'form'): ?>
+    <?php if (defined('DF_LOCATION') && DF_LOCATION === 'form'): ?>
     <script type="text/javascript">
     <?php require  dirname(__DIR__) . '/figures-form.js'; ?>
     </script>
@@ -52,7 +52,7 @@
 </div>
 <?php endforeach; ?>
 
-<?php if (defined('DF_LOCATION') && DF_LOCATION == 'list'): ?>
+<?php if (defined('DF_LOCATION') && DF_LOCATION === 'list'): ?>
 <div id='nav'>
  <form name="frm" method="post" action="./figures.php">
  <table class="table" cellspacing="1" width="100%">
@@ -140,10 +140,10 @@
     <h2><?php $edit ? _e('Edit Figure', 'docs') : _e('Create Figure', 'docs'); ?></h2>
 
     <ul class="nav nav-tabs">
-        <li class="active<?php echo $edit && 'image' == $fig->type ? ' hidden' : ''; ?>">
+        <li class="active<?php echo $edit && 'image' === $fig->type ? ' hidden' : ''; ?>">
             <a href="#type-content" data-toggle="tab"><?php _e('With Content', 'docs'); ?></a>
         </li>
-        <li<?php echo $edit && 'content' == $fig->type ? ' class="hidden"' : ($edit ? ' class="active"' : ''); ?>>
+        <li<?php echo $edit && 'content' === $fig->type ? ' class="hidden"' : ($edit ? ' class="active"' : ''); ?>>
             <a href="#type-image" data-toggle="tab"><?php _e('Only Image', 'docs'); ?></a>
         </li>
     </ul><br>
@@ -158,7 +158,7 @@
             </span>
             </div>
         </div>
-        <div id="type-content" class="tab-pane fade in active<?php echo $edit && 'image' == $fig->type ? ' hidden' : ''; ?>">
+        <div id="type-content" class="tab-pane fade in active<?php echo $edit && 'image' === $fig->type ? ' hidden' : ''; ?>">
             <form name="frmfigContent" id="frm-figs" method="post" action="figures.php">
 
                 <div class="form-group">
@@ -210,7 +210,7 @@
             </form>
         </div>
 
-        <div id="type-image" class="tab-pane fade<?php echo $edit && 'content' == $fig->type ? ' hidden' : ' in active'; ?>">
+        <div id="type-image" class="tab-pane fade<?php echo $edit && 'content' === $fig->type ? ' hidden' : ' in active'; ?>">
 
             <form name="frmFiguresImage" id="frm-fig-image" method="post" action="figures.php">
                 <div class="form-group">
@@ -234,9 +234,9 @@
                         <div class="form-group">
                             <label for="fig-align-image"><?php _e('Alignment', 'docs'); ?></label>
                             <select class="form-control" name="align" id="fig-align-image">
-                                <option value="left"<?php echo 'left' == $fig->align ? ' selected' : ''; ?>><?php _e('Left', 'docs'); ?></option>
-                                <option value="center"<?php echo 'center' == $fig->align ? ' selected' : ''; ?>><?php _e('Center', 'docs'); ?></option>
-                                <option value="right"<?php echo 'right' == $fig->align ? ' selected' : ''; ?>><?php _e('Right', 'docs'); ?></option>
+                                <option value="left"<?php echo 'left' === $fig->align ? ' selected' : ''; ?>><?php _e('Left', 'docs'); ?></option>
+                                <option value="center"<?php echo 'center' === $fig->align ? ' selected' : ''; ?>><?php _e('Center', 'docs'); ?></option>
+                                <option value="right"<?php echo 'right' === $fig->align ? ' selected' : ''; ?>><?php _e('Right', 'docs'); ?></option>
                             </select>
                         </div>
                     </div>

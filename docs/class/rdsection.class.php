@@ -143,7 +143,7 @@ class RDSection extends RMObject
             $cache->set_cache('docs', 'res-' . $this->id_res, $res);
         }
 
-        if ($res->getVar('single') && defined('RD_LOCATION') && RD_LOCATION == 'resource_content') {
+        if ($res->getVar('single') && defined('RD_LOCATION') && RD_LOCATION === 'resource_content') {
             return '#' . $this->getVar('nameid');
         }
 

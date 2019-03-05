@@ -6,9 +6,9 @@
 	<title><?php _e('Notes & References', 'docs'); ?> &raquo; <?php echo $xoops_sitename; ?></title>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <?php if ('tiny' == $rmc_config->editor_type): ?>
+    <?php if ('tiny' === $rmc_config->editor_type): ?>
     <script type="text/javascript" src="<?php echo XOOPS_URL; ?>/modules/rmcommon/api/editors/tinymce/tiny_mce_popup.js"></script>
-    <?php elseif ('xoops' == $rmc_config->editor_type): ?>
+    <?php elseif ('xoops' === $rmc_config->editor_type): ?>
     <script type="text/javascript" src="<?php echo XOOPS_URL; ?>/modules/rmcommon/api/editors/exmcode/editor-popups.js"></script>
     <?php endif; ?>
 </head>
