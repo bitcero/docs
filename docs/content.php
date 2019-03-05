@@ -36,6 +36,8 @@ define('RD_LOCATION', 'content');
 
 /**
  * @desc Muestra el contenido completo de una sección
+ * @param \RDResource $res
+ * @param \RDSection  $section
  */
 function showSection(RDResource &$res, RDSection &$section)
 {

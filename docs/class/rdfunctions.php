@@ -57,7 +57,7 @@ class RDFunctions
     /**
      * @desc Envía correo de aprobación de publicación
      *
-     * @param object $res Publicación
+     * @param \RDResource $res Publicación
      *
      * @return bool|int|null
      */
@@ -129,21 +129,15 @@ class RDFunctions
     /**
      * Crea un índice numerado de las seccione existentes
      *
-     * @param int        Parent ID of the section
-     * @param int        Number of spaces for indentation
-     * @param RDResource Resource object
-     * @param string     Var name to assign in {@link RMTemplate}
-     * @param string     Contains the number for current section
-     * @param bool       Indicates that the index must be assigned to {@link RMTemplate}
-     * @param array      Refernce to an array that will be filled with index (when $assign = false)
-     * @param bool       Indicates if function must be return also the content for section
-     * @param mixed $parent
-     * @param mixed $jumps
-     * @param mixed $var
-     * @param mixed $number
-     * @param null|mixed $array
-     * @param mixed $text
-     * @param mixed $nested
+     * @param int         $parent Parent ID of the section
+     * @param int         $jumps  Number of spaces for indentation
+     * @param \RDResource $res    Resource object
+     * @param string      $var    Var name to assign in {@link RMTemplate}
+     * @param string      $number Contains the number for current section
+     * @param bool        $assign Indicates that the index must be assigned to {@link RMTemplate}
+     * @param null|array  $array  Refernce to an array that will be filled with index (when $assign = false)
+     * @param bool        $text   Indicates if function must be return also the content for section
+     * @param mixed       $nested
      *
      * @return true;
      */
@@ -231,16 +225,11 @@ class RDFunctions
     /**
      * Get all references list according to given parameters
      *
-     * @param int        Resource ID
-     * @param Referenced var to return results count
-     * @param string     Search keyword
-     * @param int        Start results
-     * @param int        Results number limit
-     * @param mixed $res
-     * @param mixed $count
-     * @param mixed $search
-     * @param mixed $start
-     * @param mixed $limit
+     * @param int    $res    Resource ID
+     * @param mixed  $count  Referenced var to return results count
+     * @param string $search Search keyword
+     * @param int    $start  Start results
+     * @param int    $limit  Results number limit
      *
      * @return array
      */
@@ -298,16 +287,11 @@ class RDFunctions
     /**
      * Get all figures list according to given parameters
      *
-     * @param int        Resource ID
-     * @param Referenced var to return results count
-     * @param string     Search keyword
-     * @param int        Start results
-     * @param int        Results number limit
-     * @param mixed $res
-     * @param mixed $count
-     * @param mixed $search
-     * @param mixed $start
-     * @param mixed $limit
+     * @param int    $res    Resource ID
+     * @param mixed  $count  Referenced var to return results count
+     * @param string $search Search keyword
+     * @param int    $start  Start results
+     * @param int    $limit  Results number limit
      *
      * @return array
      */
@@ -361,9 +345,8 @@ class RDFunctions
      *
      * Get the current order of a section (max or min)
      *
-     * @param string MAX or MIN
-     * @param mixed $which
-     * @param mixed $parent
+     * @param string $which MAX or MIN
+     * @param int $parent
      * @param mixed $res
      * @return
      */
@@ -485,9 +468,10 @@ class RDFunctions
 
     /**
      * Get a single section and all his sub sections
-     * @param mixed $id
-     * @param mixed $number
-     * @param mixed $text
+     * @param int       $id
+     * @param \RDResource $res
+     * @param mixed       $number
+     * @param mixed       $text
      */
     public function get_section_tree($id, RDResource $res, $number = 1, $text = false)
     {

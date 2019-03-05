@@ -37,8 +37,7 @@ function generate_res_index($matches)
 /**
  * Build a note or reference
  *
- * @param int ID of note
- * @param mixed $atts
+ * @param int $atts ID of note
  * @return string|void
  */
 function rd_build_note($atts)
@@ -92,8 +91,7 @@ function rd_build_table($atts, $content)
 /**
  * Build a figure
  *
- * @param int ID of figure
- * @param mixed $atts
+ * @param int $atts ID of figure
  * @return string
  */
 function rd_build_figure($atts)

@@ -10,20 +10,14 @@
 
 /**
  * Assign vars to Smarty var, then this var can be used as index of the resource
- * @param int Id of the section parent
- * @param int Jumps (level)
- * @param object Resource (owner)
- * @param string Smarty var to append
- * @param string Index number to add (eg. 1.1)
- * @param bool Indicates if the array will be assigned to Smarty var or not
- * @param array Reference to an array for fill.
- * @param mixed $parent
- * @param mixed $jumps
- * @param mixed $var
- * @param mixed $number
- * @param mixed $assign
- * @param null|mixed $array
- * @return empty
+ * @param int         $parent Id of the section parent
+ * @param int         $jumps  Jumps (level)
+ * @param \AHResource $res    Resource (owner)
+ * @param string      $var    Smarty var to append
+ * @param string      $number Index number to add (eg. 1.1)
+ * @param bool        $assign Indicates if the array will be assigned to Smarty var or not
+ * @param null|array  $array  Reference to an array for fill.
+ * @return bool|void
  */
 function assignSectionTree($parent, $jumps, AHResource $res, $var = 'index', $number = '', $assign = true, &$array = null)
 {
@@ -60,8 +54,7 @@ function assignSectionTree($parent, $jumps, AHResource $res, $var = 'index', $nu
 
 /**
  * @desc Obtiene el primer parent de la sección especificada
- * @param int Id de la sección
- * @param mixed $id
+ * @param int $id Id de la sección
  * @return string|void
  */
 function ahBuildReference($id)

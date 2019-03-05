@@ -82,8 +82,7 @@ class RDSection extends RMObject
 
     /**
      * Get a single meta from section
-     * @param string Meta name
-     * @param mixed $name
+     * @param mixed $name Meta name
      * @return string|array
      */
     public function meta($name = '')
