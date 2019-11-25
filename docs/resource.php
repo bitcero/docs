@@ -8,6 +8,8 @@
 // License: GPL 2.0
 // --------------------------------------------------------------
 
+require __DIR__ . '/header.php';
+
 if (isset($special) && ('references' === $special || 'figures' === $special)) {
     $xoopsOption['module_subpage'] = 'content';
 } else {
@@ -25,7 +27,7 @@ if ($res->getVar('single')) {
     define('RD_LOCATION', 'resource_content');
 }
 
-include 'header.php';
+include __DIR__ . '/header.php';
 
 //Verificamos si la publicacion esta aprobada
 if (!$res->getVar('approved')) {
@@ -54,13 +56,15 @@ RMFunctions::comments_form('docs', 'res=' . $res->id(), 'module', RDPATH . '/cla
 
 // Owner and editors
 $owner = new RMUser($res->owner);
-$editors = [];
-foreach ($res->editors as $uid) {
-    if ($uid == $res->owner) {
-        continue;
+if (isset($res->editors)) {
+    $editors = [];
+    foreach ($res->editors as $uid) {
+        if ($uid == $res->owner) {
+            continue;
+        }
+        $editor        = new RMUser($uid);
+        $editors[$uid] = '' != $editor->name ? $editor->name : $editor->uname;
     }
-    $editor = new RMUser($uid);
-    $editors[$uid] = '' != $editor->name ? $editor->name : $editor->uname;
 }
 
 // Check if we must show all content for Document
@@ -86,8 +90,8 @@ if ($res->getVar('single')) {
         }
     }
 
-    RMTemplate::get()->add_jquery();
-    RMTemplate::get()->add_script('docs.min.js', 'docs');
+    RMTemplate::getInstance()->add_jquery();
+    RMTemplate::getInstance()->add_script('docs.min.js', 'docs');
 
     // Comments
     RMFunctions::get_comments('docs', 'res=' . $res->id(), 'module', 0);
@@ -98,7 +102,7 @@ if ($res->getVar('single')) {
     // URLs
     if ($xoopsModuleConfig['permalinks']) {
         $config = [];
-        $config = &$xoopsModuleConfig;
+        $config =& $xoopsModuleConfig;
         /**
          * @todo Generate friendly links
          */
@@ -119,7 +123,7 @@ if ($res->getVar('single')) {
         }
     }
 
-    include RMTemplate::get()->get_template('docs-display-full-resource.php', 'module', 'docs');
+    include RMTemplate::getInstance()->get_template('docs-display-full-resource.php', 'module', 'docs');
 } else {
     if (!$allowed) {
         RDFunctions::error_404();
@@ -156,15 +160,15 @@ if ($res->getVar('single')) {
     RMFunctions::get_comments('docs', 'res=' . $res->id(), 'module', 0);
     RMFunctions::comments_form('docs', 'res=' . $res->id(), 'module', RDPATH . '/class/docscontroller.php');
 
-    include RMTemplate::get()->get_template('docs-resource-index.php', 'module', 'docs');
+    include RMTemplate::getInstance()->get_template('docs-resource-index.php', 'module', 'docs');
 }
 
-RMTemplate::get()->add_style('docs.min.css', 'docs');
-RMTemplate::get()->add_jquery();
-RMTemplate::get()->add_script('docs.min.js', 'docs');
+RMTemplate::getInstance()->add_style('docs.min.css', 'docs');
+RMTemplate::getInstance()->add_jquery();
+RMTemplate::getInstance()->add_script('docs.min.js', 'docs');
 
 if ($standalone) {
     RDFunctions::standalone();
 }
 
-include 'footer.php';
+include __DIR__ . '/footer.php';

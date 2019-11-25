@@ -1,4 +1,4 @@
-<?php include RMTemplate::get()->get_template('docs-document-info.php', 'module', 'docs'); ?>
+<?php include RMTemplate::getInstance()->get_template('docs-document-info.php', 'module', 'docs'); ?>
 
 <hr>
 

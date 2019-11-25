@@ -8,7 +8,7 @@
 // License: GPL 2.0
 // --------------------------------------------------------------
 
-include '../../mainfile.php';
+require __DIR__ . '/header.php';
 
 if (!$xoopsUser) {
     redirect_header(RDFunctions::url(), 2, __('Operation not allowed!', 'docs'));
@@ -23,7 +23,7 @@ function showSection()
     global $xoopsModule,$xoopsUser,$xoopsModuleConfig, $xoopsTpl, $xoopsConfig;
     global $id, $xoopsSecurity;
 
-    include 'header.php';
+    include __DIR__ . '/header.php';
 
     //Verifica si se proporcionó una publicación para la sección
     if ('' == trim($id)) {
@@ -58,7 +58,7 @@ function showSection()
     RDFunctions::breadcrumb();
     RMBreadCrumb::get()->add_crumb(sprintf(__('Manage Document "%s"', 'docs'), $res->getVar('title')));
 
-    RMTemplate::get()->add_style('docs.min.css', 'docs');
+    RMTemplate::getInstance()->add_style('docs.min.css', 'docs');
 
     array_walk($sections, 'rd_insert_edit');
 
@@ -70,9 +70,9 @@ function showSection()
         $new_link = RDFunctions::url() . '?page=edit&action=new&res=' . $res->id();
     }
 
-    include RMEvents::get()->run_event('docs.template.editsection', RMTemplate::get()->get_template('docs-sections-control-panel.php', 'module', 'docs'));
+    include RMEvents::get()->run_event('docs.template.editsection', RMTemplate::getInstance()->get_template('docs-sections-control-panel.php', 'module', 'docs'));
 
-    include 'footer.php';
+    include __DIR__ . '/footer.php';
 }
 
 /**
@@ -124,7 +124,7 @@ function formSection($edit = 0)
         }
     }
 
-    include 'header.php';
+    include __DIR__ . '/header.php';
 
     require_once RMCPATH . '/class/form.class.php';
     define('NO_CUSTOM_CODES', 1);
@@ -151,12 +151,12 @@ function formSection($edit = 0)
         RMBreadCrumb::get()->add_crumb(__('Create new section', 'docs'));
     }
 
-    RMTemplate::get()->add_jquery(true);
-    RMTemplate::get()->add_style('docs.min.css', 'docs');
-    RMTemplate::get()->add_script('scripts.php?file=metas.js', 'docs');
-    include RMEvents::get()->run_event('docs.template.formsections.front', RMTemplate::get()->get_template('docs-section-form.php', 'module', 'docs'));
+    RMTemplate::getInstance()->add_jquery(true);
+    RMTemplate::getInstance()->add_style('docs.min.css', 'docs');
+    RMTemplate::getInstance()->add_script('scripts.php?file=metas.js', 'docs');
+    include RMEvents::get()->run_event('docs.template.formsections.front', RMTemplate::getInstance()->get_template('docs-section-form.php', 'module', 'docs'));
 
-    include 'footer.php';
+    include __DIR__ . '/footer.php';
 }
 
 /**

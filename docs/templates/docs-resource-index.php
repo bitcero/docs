@@ -1,9 +1,9 @@
-<?php $no_content = true; include RMTemplate::get()->get_template('docs-header.php', 'module', 'docs'); ?>
+<?php $no_content = true; include RMTemplate::getInstance()->get_template('docs-header.php', 'module', 'docs'); ?>
 
 <?php if (!$standalone): ?>
 
     <div class="document-info">
-        <?php include RMTemplate::get()->get_template('docs-document-info.php', 'module', 'docs'); ?>
+        <?php include RMTemplate::getInstance()->get_template('docs-document-info.php', 'module', 'docs'); ?>
     </div>
 
     <div class="row">
@@ -25,7 +25,7 @@
         </div>
         <div class="col-sm-5 col-sm-offset-1">
             <!-- Table of Contents -->
-            <?php include RMTEmplate::get()->get_template('docs-resource-toc.php', 'module', 'docs'); ?>
+            <?php include RMTemplate::getInstance()->get_template('docs-resource-toc.php', 'module', 'docs'); ?>
             <!-- /Table of Contents -->
         </div>
     </div>
@@ -38,7 +38,7 @@
 <?php else: ?>
 
     <div class="container standalone-container">
-        <?php include RMTemplate::get()->get_template('docs-document-info.php', 'module', 'docs'); ?>
+        <?php include RMTemplate::getInstance()->get_template('docs-document-info.php', 'module', 'docs'); ?>
         <hr>
 
         <div class="row">
@@ -60,7 +60,7 @@
             </div>
             <div class="col-sm-5 col-sm-offset-1">
                 <!-- Table of Contents -->
-                <?php include RMTEmplate::get()->get_template('docs-resource-toc.php', 'module', 'docs'); ?>
+                <?php include RMTemplate::getInstance()->get_template('docs-resource-toc.php', 'module', 'docs'); ?>
                 <!-- /Table of Contents -->
             </div>
         </div>

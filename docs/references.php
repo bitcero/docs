@@ -8,8 +8,7 @@
 // License: GPL 2.0
 // --------------------------------------------------------------
 
-include '../../mainfile.php';
-include 'header.php';
+require __DIR__ . '/header.php';
 load_mod_locale('docs');
 
 // Mensajes de Error
@@ -121,13 +120,13 @@ function references($edit = 0)
     $vars = $xoopsTpl->get_template_vars();
     extract($vars);
 
-    RMTemplate::get()->add_script('jquery.checkboxes.js', 'rmcommon', ['footer' => 1]);
-    RMTemplate::get()->add_script('scripts.php?file=ajax.js', 'docs');
-    RMTemplate::get()->add_script('references.js', 'docs');
-    RMTemplate::get()->add_script('editor-' . $rmc_config->editor_type . '.js', 'docs');
+    RMTemplate::getInstance()->add_script('jquery.checkboxes.js', 'rmcommon', ['footer' => 1]);
+    RMTemplate::getInstance()->add_script('scripts.php?file=ajax.js', 'docs');
+    RMTemplate::getInstance()->add_script('references.js', 'docs');
+    RMTemplate::getInstance()->add_script('editor-' . $rmc_config->editor_type . '.js', 'docs');
 
-    RMTemplate::get()->add_style('refs.css', 'docs');
-    RMTemplate::get()->add_style('jquery.css', 'rmcommon');
+    RMTemplate::getInstance()->add_style('refs.css', 'docs');
+    RMTemplate::getInstance()->add_style('jquery.css', 'rmcommon');
 
     // Options for table header
     $options[] = [
@@ -149,7 +148,7 @@ function references($edit = 0)
     $other_content = '';
     $other_content = RMEvents::get()->run_event('docs.additional.notes.content', $other_content, $id, $edit, $edit ? $ref : null);
 
-    include RMTemplate::get()->get_template('docs-references.php', 'module', 'docs');
+    include RMTemplate::getInstance()->get_template('docs-references.php', 'module', 'docs');
 }
 
 /**

@@ -149,7 +149,7 @@ if (0 == $section->parent) {
 $standalone = $xoopsModuleConfig['standalone'];
 
 ob_start();
-include RMTemplate::get()->get_template('docs-ajax-section.php', 'module', 'docs');
+include RMTemplate::getInstance()->get_template('docs-ajax-section.php', 'module', 'docs');
 $content = ob_get_clean();
 
 $ajax->ajax_response(

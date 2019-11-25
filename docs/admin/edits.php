@@ -57,11 +57,11 @@ function showEdits()
 
     xoops_cp_header();
 
-    RMTemplate::get()->add_script('jquery.checkboxes.js', 'rmcommon');
-    RMTemplate::get()->add_script('admin.min.js', 'docs');
-    RMTemplate::get()->add_style('admin.min.css', 'docs');
+    RMTemplate::getInstance()->add_script('jquery.checkboxes.js', 'rmcommon');
+    RMTemplate::getInstance()->add_script('admin.min.js', 'docs');
+    RMTemplate::getInstance()->add_style('admin.min.css', 'docs');
 
-    include RMEvents::get()->run_event('docs.waiting.template', RMTemplate::get()->get_template('admin/docs-waiting.php', 'module', 'docs'));
+    include RMEvents::get()->run_event('docs.waiting.template', RMTemplate::getInstance()->get_template('admin/docs-waiting.php', 'module', 'docs'));
 
     xoops_cp_footer();
 }
@@ -112,9 +112,9 @@ function reviewEdit()
 
     xoops_cp_header();
 
-    RMTemplate::get()->add_style('admin.min.css', 'docs');
+    RMTemplate::getInstance()->add_style('admin.min.css', 'docs');
 
-    include RMEvents::get()->run_event('docs.template.review.waiting', RMTemplate::get()->get_template('admin/docs-review-edit.php', 'module', 'docs'));
+    include RMEvents::get()->run_event('docs.template.review.waiting', RMTemplate::getInstance()->get_template('admin/docs-review-edit.php', 'module', 'docs'));
 
     xoops_cp_footer();
 }
@@ -274,7 +274,7 @@ function showFormEdits()
     xoops_cp_location("<a href='./'>" . $xoopsModule->name() . "</a> &raquo; <a href='./edits.php'>" . __('Waiting Content', 'docs') . '</a> &raquo; ' . sprintf(__('Editing %s', 'docs'), $edit->getVar('title')));
     xoops_cp_header();
 
-    RMTemplate::get()->assign('xoops_pagetitle', __('Editing Waiting Content', 'docs'));
+    RMTemplate::getInstance()->assign('xoops_pagetitle', __('Editing Waiting Content', 'docs'));
     $form->display();
 
     xoops_cp_footer();

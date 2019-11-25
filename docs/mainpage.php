@@ -8,15 +8,14 @@
 // License: GPL 2.0
 // --------------------------------------------------------------
 
-include '../../mainfile.php';
-include 'header.php';
+require __DIR__ . '/header.php';
 
 RDFunctions::breadcrumb();
 
-RMTemplate::get()->add_style('docs.min.css', 'docs');
+RMTemplate::getInstance()->add_style('docs.min.css', 'docs');
 
 $content = @file_get_contents(XOOPS_CACHE_PATH . '/docs-homepage.html');
 $content = TextCleaner::getInstance()->to_display($content);
-include RMEvents::get()->run_event('docs.get.home.page', RMtemplate::get()->get_template('docs-index.php', 'module', 'docs'));
+include RMEvents::get()->run_event('docs.get.home.page', RMTemplate::getInstance()->get_template('docs-index.php', 'module', 'docs'));
 
-include 'footer.php';
+include __DIR__ . '/footer.php';

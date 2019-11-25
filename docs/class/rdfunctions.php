@@ -12,11 +12,11 @@ class RDFunctions
 {
     public static function toolbar()
     {
-        RMTemplate::get()->add_tool(__('Dashboard', 'docs'), './index.php', '../images/dashboard.png', 'dashboard');
-        RMTemplate::get()->add_tool(__('Documents', 'docs'), './resources.php', '../images/book.png', 'resources');
-        RMTemplate::get()->add_tool(__('Sections', 'docs'), './sections.php', '../images/section.png', 'sections');
-        RMTemplate::get()->add_tool(__('Notes', 'docs'), './notes.php', '../images/notes.png', 'notes');
-        RMTemplate::get()->add_tool(__('Figures', 'docs'), './figures.php', '../images/figures.png', 'figures');
+        RMTemplate::getInstance()->add_tool(__('Dashboard', 'docs'), './index.php', '../images/dashboard.png', 'dashboard');
+        RMTemplate::getInstance()->add_tool(__('Documents', 'docs'), './resources.php', '../images/book.png', 'resources');
+        RMTemplate::getInstance()->add_tool(__('Sections', 'docs'), './sections.php', '../images/section.png', 'sections');
+        RMTemplate::getInstance()->add_tool(__('Notes', 'docs'), './notes.php', '../images/notes.png', 'notes');
+        RMTemplate::getInstance()->add_tool(__('Figures', 'docs'), './figures.php', '../images/figures.png', 'figures');
     }
 
     /**
@@ -34,7 +34,7 @@ class RDFunctions
         }
 
         ob_start();
-        include RMTemplate::get()->path('specials/docs-plugin-content.php', 'module', 'docs');
+        include RMTemplate::getInstance()->path('specials/docs-plugin-content.php', 'module', 'docs');
         $plugin = ob_get_clean();
 
         return $plugin;
@@ -80,7 +80,7 @@ class RDFunctions
         $mailer->assign('link_to_resource', $res->permalink());
         $mailer->assign('site_name', $xoopsConfig['sitename']);
         $mailer->assign('resource_name', $res->getVar('title'));
-        $mailer->template(RMTemplate::get()->get_template('mail/resource_approved.php', 'module', 'docs'));
+        $mailer->template(RMTemplate::getInstance()->get_template('mail/resource_approved.php', 'module', 'docs'));
 
         switch ($method) {
             case '1':
@@ -206,7 +206,7 @@ class RDFunctions
                 $array[] = $section;
             } else {
                 if ($assign) {
-                    RMTemplate::get()->assign($var, $section);
+                    RMTemplate::getInstance()->assign($var, $section);
                 } else {
                     $array[] = $section;
                 }
@@ -414,7 +414,7 @@ class RDFunctions
 
         ob_start();
 
-        include RMEvents::get()->run_event('docs.template.resources.index', RMTemplate::get()->get_template('docs-resources-index.php', 'module', 'docs'));
+        include RMEvents::get()->run_event('docs.template.resources.index', RMTemplate::getInstance()->get_template('docs-resources-index.php', 'module', 'docs'));
 
         $ret = ob_get_clean();
 
@@ -610,9 +610,9 @@ class RDFunctions
     {
         global $xoopsTpl, $xoopsModuleConfig;
 
-        RMTemplate::get()->add_style('standalone.min.css', 'docs');
-        RMTemplate::get()->add_script('jquery.ck.js', 'rmcommon');
-        //RMTemplate::get()->add_head('<link rel="stylesheet" type="text/css" media="all" href="'.$xoopsModuleConfig['standalone_css'].'">');
+        RMTemplate::getInstance()->add_style('standalone.min.css', 'docs');
+        RMTemplate::getInstance()->add_script('jquery.ck.js', 'rmcommon');
+        //RMTemplate::getInstance()->add_head('<link rel="stylesheet" type="text/css" media="all" href="'.$xoopsModuleConfig['standalone_css'].'">');
         $rd_contents = ob_get_clean();
         $xoopsTpl->assign('rd_contents', $rd_contents);
 
@@ -625,7 +625,7 @@ class RDFunctions
         $xoopsTpl->assign('standalone_theme', 'theme-' . $xoopsModuleConfig['theme']);
 
         unset($rd_contents);
-        $xoopsTpl->display(RMTemplate::get()->get_template('docs-display-standalone.html', 'module', 'docs'));
+        $xoopsTpl->display(RMTemplate::getInstance()->get_template('docs-display-standalone.html', 'module', 'docs'));
         die();
     }
 
@@ -668,7 +668,7 @@ class RDFunctions
         }
 
         ob_start();
-        include RMTemplate::get()->get_template('ajax/docs-link-dialog.php', 'module', 'docs');
+        include RMTemplate::getInstance()->get_template('ajax/docs-link-dialog.php', 'module', 'docs');
         $dialog = ob_get_clean();
 
         return $dialog;
@@ -729,7 +729,7 @@ class RDFunctions
         $nav->target_url('#" data-page="{PAGE_NUM}');
 
         ob_start();
-        include RMTemplate::get()->get_template('ajax/docs-notes-dialog.php', 'module', 'docs');
+        include RMTemplate::getInstance()->get_template('ajax/docs-notes-dialog.php', 'module', 'docs');
         $dialog = ob_get_clean();
 
         return $dialog;

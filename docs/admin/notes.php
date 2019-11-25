@@ -83,11 +83,11 @@ function rd_show_notes()
     // Event
     $notes = RMEvents::get()->run_event('docs.loading.notes', $notes, $res);
 
-    RMTemplate::get()->add_style('admin.min.css', 'docs');
-    RMTemplate::get()->add_script('admin.min.js', 'docs');
-    RMTemplate::get()->assign('xoops_pagetitle', sprintf(__('Notes in %s', 'docs'), $res->getVar('title')));
-    RMTemplate::get()->add_script('jquery.checkboxes.js', 'rmcommon');
-    RMTemplate::get()->add_head_script('var rd_select_message = "' . __('You have not selected any note!', 'docs') . '";
+    RMTemplate::getInstance()->add_style('admin.min.css', 'docs');
+    RMTemplate::getInstance()->add_script('admin.min.js', 'docs');
+    RMTemplate::getInstance()->assign('xoops_pagetitle', sprintf(__('Notes in %s', 'docs'), $res->getVar('title')));
+    RMTemplate::getInstance()->add_script('jquery.checkboxes.js', 'rmcommon');
+    RMTemplate::getInstance()->add_head_script('var rd_select_message = "' . __('You have not selected any note!', 'docs') . '";
     var rd_message = "' . __('Do you really wish to delete selected notes?', 'docs') . '";');
 
     $bc = RMBreadCrumb::get();
@@ -96,7 +96,7 @@ function rd_show_notes()
 
     xoops_cp_header();
 
-    include RMEvents::get()->run_event('docs.admin.template.notes', RMTemplate::get()->get_template('admin/docs-notes.php', 'module', 'docs'));
+    include RMEvents::get()->run_event('docs.admin.template.notes', RMTemplate::getInstance()->get_template('admin/docs-notes.php', 'module', 'docs'));
 
     xoops_cp_footer();
 }
@@ -138,7 +138,7 @@ function rd_edit_note()
     $bc->add_crumb($res->getVar('title'), 'resources.php', 'fa fa-book');
     $bc->add_crumb(__('Notes & references', 'docs'), 'notes.php?res=' . $res->id(), 'fa fa-hand-o-right');
     $bc->add_crumb(__('Editing Note', 'docs'), '', 'fa fa-edit');
-    RMTemplate::get()->assign('xoops_pagetitle', __('Editing Note', 'docs'));
+    RMTemplate::getInstance()->assign('xoops_pagetitle', __('Editing Note', 'docs'));
 
     xoops_cp_header();
 

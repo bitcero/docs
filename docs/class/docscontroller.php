@@ -162,7 +162,14 @@ class docscontroller implements iCommentsController
         return XOOPS_URL . '/modules/docs';
     }
 
-    public static function getInstance(){
+    public static function getInstance()
+    {
+        static $instance;
 
+        if (!isset($instance)) {
+            $instance = new self();
+        }
+
+        return $instance;
     }
 }

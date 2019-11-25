@@ -1,5 +1,4 @@
 <?php
-// $Id: hpage.php 821 2011-12-08 23:46:19Z i.bitcero $
 // --------------------------------------------------------------
 // RapidDocs
 // Documentation system for Xoops.
@@ -15,7 +14,7 @@ function rd_show_page()
 {
     global $cuSettings;
 
-    RMTemplate::get()->assign('xoops_pagetitle', __('Home Page', 'docs'));
+    RMTemplate::getInstance()->assign('xoops_pagetitle', __('Home Page', 'docs'));
     xoops_cp_header();
 
     require_once RMCPATH . '/class/form.class.php';
@@ -27,7 +26,7 @@ function rd_show_page()
         $tiny->add_config('theme_advanced_buttons1', 'res_index');
     }
 
-    include RMEvents::get()->run_event('docs.get.homepage.template', RMTemplate::get()->get_template('admin/docs-homepage.php', 'module', 'docs'));
+    include RMEvents::get()->run_event('docs.get.homepage.template', RMTemplate::getInstance()->get_template('admin/docs-homepage.php', 'module', 'docs'));
 
     xoops_cp_footer();
 }

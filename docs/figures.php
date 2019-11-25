@@ -8,8 +8,8 @@
 // License: GPL 2.0
 // --------------------------------------------------------------
 
-include '../../mainfile.php';
-include 'header.php';
+require __DIR__ . '/header.php';
+
 load_mod_locale('docs');
 
 // Mensajes de Error
@@ -103,18 +103,18 @@ function figures()
         $figures[] = ['id' => $fig->id(), 'title' => $fig->title, 'desc' => $fig->getVar('desc')];
     }
 
-    //RMTemplate::get()->add_script(RMCURL.'/include/js/jquery.min.js');
-    //RMTemplate::get()->add_script(RMCURL.'/include/js/jquery-ui.min.js');
-    RMTemplate::get()->add_script('jquery.checkboxes.js', 'rmcommon');
-    RMTemplate::get()->add_script('scripts.php?file=ajax.js', 'docs');
-    RMTemplate::get()->add_script('editor-' . $rmc_config->editor_type . '.js', 'docs');
+    //RMTemplate::getInstance()->add_script(RMCURL.'/include/js/jquery.min.js');
+    //RMTemplate::getInstance()->add_script(RMCURL.'/include/js/jquery-ui.min.js');
+    RMTemplate::getInstance()->add_script('jquery.checkboxes.js', 'rmcommon');
+    RMTemplate::getInstance()->add_script('scripts.php?file=ajax.js', 'docs');
+    RMTemplate::getInstance()->add_script('editor-' . $rmc_config->editor_type . '.js', 'docs');
 
     $theme_css = xoops_getcss();
     $vars = $xoopsTpl->get_template_vars();
     extract($vars);
 
-    RMTemplate::get()->add_style('refs.css', 'docs');
-    RMTemplate::get()->add_style('jquery.css', 'rmcommon');
+    RMTemplate::getInstance()->add_style('refs.css', 'docs');
+    RMTemplate::getInstance()->add_style('jquery.css', 'rmcommon');
 
     // Options for table header
     $options[] = [
@@ -136,7 +136,7 @@ function figures()
     $other_content = '';
     $other_content = RMEvents::get()->run_event('docs.additional.figures.content', $other_content, $id);
 
-    include RMTemplate::get()->get_template('docs-figures.php', 'module', 'docs');
+    include RMTemplate::getInstance()->get_template('docs-figures.php', 'module', 'docs');
 }
 
 /**
@@ -180,13 +180,13 @@ function formFigures($edit = 0)
     $vars = $xoopsTpl->get_template_vars();
     extract($vars);
 
-    RMTemplate::get()->add_style('docs.min.css', 'docs');
-    RMTemplate::get()->add_style('jquery.css', 'rmcommon');
+    RMTemplate::getInstance()->add_style('docs.min.css', 'docs');
+    RMTemplate::getInstance()->add_style('jquery.css', 'rmcommon');
 
     $editor = new RMFormEditor('', 'content', '100%', '200px', $edit ? $fig->getVar('content', 'e') : '');
     $rmc_config = RMFunctions::configs();
 
-    include RMTemplate::get()->get_template('docs-figures.php', 'module', 'docs');
+    include RMTemplate::getInstance()->get_template('docs-figures.php', 'module', 'docs');
 }
 
 /**

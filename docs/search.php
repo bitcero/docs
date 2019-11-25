@@ -55,12 +55,12 @@ function show_resources($by, $order = 'DESC')
     RDFunctions::breadcrumb();
     RMBreadCrumb::get()->add_crumb(__('Browsing recent Documents', 'docs'));
 
-    RMTemplate::get()->add_style('docs.min.css', 'docs');
+    RMTemplate::getInstance()->add_style('docs.min.css', 'docs');
 
     require __DIR__ . '/header.php';
     $xoopsTpl->assign('xoops_pagetitle', 'created' === $by ? __('Recent Documents', 'docs') : __('Top Documents', 'docs'));
 
-    include RMEvents::get()->run_event('docs.template.explore', RMTemplate::get()->get_template('docs-search.php', 'module', 'docs'));
+    include RMEvents::get()->run_event('docs.template.explore', RMTemplate::getInstance()->get_template('docs-search.php', 'module', 'docs'));
 
     require __DIR__ . '/footer.php';
 }
@@ -110,15 +110,17 @@ function search_resources()
     RDFunctions::breadcrumb();
     RMBreadCrumb::get()->add_crumb(__('Browsing recent Documents', 'docs'));
 
-    RMTemplate::get()->add_style('docs.min.css', 'docs');
+    RMTemplate::getInstance()->add_style('docs.min.css', 'docs');
 
     require __DIR__ . '/header.php';
     $xoopsTpl->assign('xoops_pagetitle', sprintf(__('Search results for "%s"', 'docs'), $keyword));
 
-    include RMEvents::get()->run_event('docs.template.search', RMTemplate::get()->get_template('docs-search.php', 'module', 'docs'));
+    include RMEvents::get()->run_event('docs.template.search', RMTemplate::getInstance()->get_template('docs-search.php', 'module', 'docs'));
 
     require __DIR__ . '/footer.php';
 }
+
+$action = rmc_server_var($_REQUEST, 'action', '');
 
 switch ($action) {
     case 'search':

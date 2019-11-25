@@ -65,7 +65,7 @@ function resources_list()
         ];
     }
 
-    include RMTemplate::get()->get_template('ajax/rd_sections_list.php', 'module', 'docs');
+    include RMTemplate::getInstance()->get_template('ajax/rd_sections_list.php', 'module', 'docs');
 }
 
 /**
@@ -149,7 +149,7 @@ function notes_list()
         $references[] = ['id' => $rows['id_ref'], 'title' => $rows['title'], 'content' => TextCleaner::getInstance()->truncate($rows['text'], 150)];
     }
 
-    include RMTemplate::get()->get_template('ajax/rd_notes_list.php', 'module', 'docs');
+    include RMTemplate::getInstance()->get_template('ajax/rd_notes_list.php', 'module', 'docs');
     die();
 }
 
@@ -205,7 +205,7 @@ function figures_list()
         $figures[] = ['id' => $rows['id_fig'], 'desc' => $rows['desc'], 'content' => TextCleaner::getInstance()->truncate($rows['content'], 150)];
     }
 
-    include RMTemplate::get()->get_template('ajax/rd_figures_list.php', 'module', 'docs');
+    include RMTemplate::getInstance()->get_template('ajax/rd_figures_list.php', 'module', 'docs');
     die();
 }
 

@@ -76,19 +76,19 @@ function show_resources($public = 1)
         ];
     }
 
-    RMTemplate::get()->add_style('admin.min.css', 'docs');
-    RMTemplate::get()->assign('xoops_pagetitle', __('Documents', 'docs'));
-    RMTemplate::get()->add_script('jquery.checkboxes.js', 'rmcommon', ['footer' => 1]);
-    RMTemplate::get()->add_script('admin.min.js', 'docs');
+    RMTemplate::getInstance()->add_style('admin.min.css', 'docs');
+    RMTemplate::getInstance()->assign('xoops_pagetitle', __('Documents', 'docs'));
+    RMTemplate::getInstance()->add_script('jquery.checkboxes.js', 'rmcommon', ['footer' => 1]);
+    RMTemplate::getInstance()->add_script('admin.min.js', 'docs');
 
-    RMTemplate::get()->add_head_script('var rd_message = "' . __('Do you really wish to delete selected Documents?', 'docs') . '";
+    RMTemplate::getInstance()->add_head_script('var rd_message = "' . __('Do you really wish to delete selected Documents?', 'docs') . '";
     var rd_select_message = "' . __('You must select an element before to do this action!', 'docs') . '";');
 
     xoops_cp_location("<a href='./'>" . $xoopsModule->name() . '</a> &raquo; ' . __('Documents', 'docs'));
 
     xoops_cp_header();
 
-    include RMTemplate::get()->get_template('admin/docs-resources.php', 'module', 'docs');
+    include RMTemplate::getInstance()->get_template('admin/docs-resources.php', 'module', 'docs');
 
     xoops_cp_footer();
 }
@@ -105,8 +105,8 @@ function rd_show_form($edit = 0)
     $bc->add_crumb(__('Documents', 'docs'), 'resources.php');
     $bc->add_crumb($edit ? __('Edit Document', 'docs') : __('New Document', 'docs'));
 
-    RMTemplate::get()->add_style('admin.min.css', 'docs');
-    RMTemplate::get()->add_script('docs.min.js', 'docs', ['footer' => 1]);
+    RMTemplate::getInstance()->add_style('admin.min.css', 'docs');
+    RMTemplate::getInstance()->add_script('docs.min.js', 'docs', ['footer' => 1]);
 
     xoops_cp_header();
 

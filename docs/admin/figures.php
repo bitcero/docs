@@ -80,12 +80,12 @@ function rd_show_figures()
     // Event
     $figures = RMEvents::get()->run_event('docs.loading.figures', $figures, $res);
 
-    RMTemplate::get()->add_style('admin.min.css', 'docs');
-    RMTemplate::get()->add_style('jquery.css', 'rmcommon');
-    RMTemplate::get()->add_script('admin.min.js', 'docs');
-    RMTemplate::get()->assign('xoops_pagetitle', sprintf(__('Figures in %s', 'docs'), $res->getVar('title')));
-    RMTemplate::get()->add_script('jquery.checkboxes.js', 'rmcommon');
-    RMTemplate::get()->add_head_script('var rd_select_message = "' . __('You have not selected any figure!', 'docs') . '";
+    RMTemplate::getInstance()->add_style('admin.min.css', 'docs');
+    RMTemplate::getInstance()->add_style('jquery.css', 'rmcommon');
+    RMTemplate::getInstance()->add_script('admin.min.js', 'docs');
+    RMTemplate::getInstance()->assign('xoops_pagetitle', sprintf(__('Figures in %s', 'docs'), $res->getVar('title')));
+    RMTemplate::getInstance()->add_script('jquery.checkboxes.js', 'rmcommon');
+    RMTemplate::getInstance()->add_head_script('var rd_select_message = "' . __('You have not selected any figure!', 'docs') . '";
     var rd_message = "' . __('Do you really wish to delete selected figures?', 'docs') . '";');
 
     $bc = RMBreadCrumb::get();
@@ -94,7 +94,7 @@ function rd_show_figures()
 
     xoops_cp_header();
 
-    include RMEvents::get()->run_event('docs.admin.template.figures', RMTemplate::get()->get_template('admin/docs-figures.php', 'module', 'docs'));
+    include RMEvents::get()->run_event('docs.admin.template.figures', RMTemplate::getInstance()->get_template('admin/docs-figures.php', 'module', 'docs'));
 
     xoops_cp_footer();
 }

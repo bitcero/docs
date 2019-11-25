@@ -8,7 +8,7 @@
 // @author BitC3R0 <i.bitcero@gmail.com>
 // @license: GPL v2
 
-include '../../mainfile.php';
+require __DIR__ . '/header.php';
 
 /**
  * @desc Formulario para la creación de una nueva publicación
@@ -17,7 +17,7 @@ function formPublish()
 {
     global $xoopsModuleConfig, $xoopsUser, $xoopsTpl, $xoopsConfig, $global, $id;
 
-    include 'header.php';
+    include __DIR__ . '/header.php';
 
     if ($id <= 0) {
         $id = RMHttpRequest::get('id', 'integer', 0);
@@ -103,9 +103,9 @@ function formPublish()
 
     $form->display();
 
-    RMTemplate::get()->add_style('docs.min.css', 'docs');
+    RMTemplate::getInstance()->add_style('docs.min.css', 'docs');
 
-    include 'footer.php';
+    include __DIR__ . '/footer.php';
 }
 
 /**
@@ -232,7 +232,7 @@ function savePublish($edit = 0)
 
             $mailer->assign('to_name', $xconfig['fromname']);
             $mailer->assign('link_to_resource', XOOPS_URL . '/modules/docs/admin/resources.php?action=edit&id=' . $res->id());
-            $mailer->template(RMTemplate::get()->get_template('mail/resource_for_approval.php', 'module', 'docs'));
+            $mailer->template(RMTemplate::getInstance()->get_template('mail/resource_for_approval.php', 'module', 'docs'));
 
             if (!$mailer->send()) {
                 redirect_header(RDFunctions::url(), 1, __('Your Document has been created, however the email to administrator could no be sent.', 'docs'));

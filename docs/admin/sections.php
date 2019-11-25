@@ -85,13 +85,13 @@ function rd_show_sections()
     // Event
     $sections = RMEvents::get()->run_event('docs.loading.sections', $sections);
 
-    RMTemplate::get()->assign('xoops_pagetitle', __('Sections Management', 'docs'));
-    RMTemplate::get()->add_style('admin.min.css', 'docs');
-    RMTemplate::get()->add_script('sections.js', 'docs');
-    RMTemplate::get()->add_script('jquery.ui.nestedSortable.js', 'docs', ['footer' => 1]);
+    RMTemplate::getInstance()->assign('xoops_pagetitle', __('Sections Management', 'docs'));
+    RMTemplate::getInstance()->add_style('admin.min.css', 'docs');
+    RMTemplate::getInstance()->add_script('sections.js', 'docs');
+    RMTemplate::getInstance()->add_script('jquery.ui.nestedSortable.js', 'docs', ['footer' => 1]);
     xoops_cp_header();
 
-    include RMEvents::get()->run_event('docs.get.sections.template', RMTemplate::get()->get_template('admin/docs-sections.php', 'module', 'docs'));
+    include RMEvents::get()->run_event('docs.get.sections.template', RMTemplate::getInstance()->get_template('admin/docs-sections.php', 'module', 'docs'));
 
     xoops_cp_footer();
 }
@@ -155,25 +155,25 @@ function rd_show_form($edit = 0)
     $editor = new RMFormEditor('', 'content', '100%', '400px', $edit ? 'tiny' === $rmc_config->editor_type ? $sec->getVar('content') : $sec->getVar('content', 'e') : '', '', 0);
     $usrfield = new RMFormUser('', 'uid', false, $edit ? [$sec->getVar('uid')] : $xoopsUser->getVar('uid'));
 
-    RMTemplate::get()->add_style('admin.min.css', 'docs');
-    RMTemplate::get()->add_script('scripts.php?file=metas.js', 'docs');
-    RMTemplate::get()->add_script('jquery.validate.min.js', 'rmcommon', ['footer' => 1]);
-    RMTemplate::get()->add_script('docs.min.js', 'docs', ['footer' => 1]);
-    RMTemplate::get()->add_head_script('var docsurl = "' . XOOPS_URL . '/modules/docs";');
+    RMTemplate::getInstance()->add_style('admin.min.css', 'docs');
+    RMTemplate::getInstance()->add_script('scripts.php?file=metas.js', 'docs');
+    RMTemplate::getInstance()->add_script('jquery.validate.min.js', 'rmcommon', ['footer' => 1]);
+    RMTemplate::getInstance()->add_script('docs.min.js', 'docs', ['footer' => 1]);
+    RMTemplate::getInstance()->add_head_script('var docsurl = "' . XOOPS_URL . '/modules/docs";');
 
     $lang = include XOOPS_ROOT_PATH . '/modules/docs/include/js-lang.php';
-    RMTemplate::get()->add_head_script($lang);
+    RMTemplate::getInstance()->add_head_script($lang);
 
     $bc = RMBreadCrumb::get();
     $bc->add_crumb(__('Documents', 'docs'), 'resources.php', 'fa fa-book');
     $bc->add_crumb(__('Sections', 'docs'), 'sections.php?id=' . RMHttpRequest::get('id', 'integer', 0), 'fa fa-list');
     $bc->add_crumb($edit ? __('Edit Section', 'docs') : __('New Section', 'docs'), '', $edit ? 'fa fa-edit' : 'fa fa-plus');
-    RMTemplate::get()->assign('xoops_pagetitle', ($edit ? __('Edit Section', 'docs') : __('Create Section', 'docs')));
+    RMTemplate::getInstance()->assign('xoops_pagetitle', ($edit ? __('Edit Section', 'docs') : __('Create Section', 'docs')));
     xoops_cp_header();
 
     $sections = [];
     RDFunctions::getSectionTree($sections, 0, 0, $id, 'id_sec, title', isset($sec) ? $sec->id() : 0);
-    include RMEvents::get()->run_event('docs.get.secform.template', RMTemplate::get()->get_template('admin/docs-sections-form.php', 'module', 'docs'));
+    include RMEvents::get()->run_event('docs.get.secform.template', RMTemplate::getInstance()->get_template('admin/docs-sections-form.php', 'module', 'docs'));
 
     xoops_cp_footer();
 }
@@ -393,7 +393,7 @@ function changeOrderSections()
         json_response(__('Session token expired!', 'docs'), 1);
     }
 
-    $output = parse_str(rmc_server_var($_POST, 'items', ''), $output);
+    parse_str(rmc_server_var($_POST, 'items', ''), $output);
 
     if (empty($list)) {
         json_response(__('Data not valid!', 'docs'), 1);
@@ -497,18 +497,18 @@ function docs_review_content()
         }
     }
 
-    RMTemplate::get()->assign('xoops_pagetitle', __('Content review', 'docs'));
+    RMTemplate::getInstance()->assign('xoops_pagetitle', __('Content review', 'docs'));
     $bc = RMBreadCrumb::get();
     $bc->add_crumb($document->title, 'resources.php', 'fa fa-book');
     $bc->add_crumb($page->title, 'sections.php?id=' . $doc_id, 'fa fa-list');
     $bc->add_crumb(__('Content review', 'docs'), '', 'fa fa-eye');
-    RMTemplate::get()->add_style('admin.min.css', 'docs');
+    RMTemplate::getInstance()->add_style('admin.min.css', 'docs');
 
-    RMTemplate::get()->header();
+    RMTemplate::getInstance()->header();
 
-    include RMTemplate::get()->get_template('admin/docs-review-content.php', 'module', 'docs');
+    include RMTemplate::getInstance()->get_template('admin/docs-review-content.php', 'module', 'docs');
 
-    RMTemplate::get()->footer();
+    RMTemplate::getInstance()->footer();
 }
 
 function docs_create_reviewed_content()

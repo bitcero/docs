@@ -1,4 +1,4 @@
-<?php include RMTemplate::get()->get_template('docs-header.php', 'module', 'docs'); ?>
+<?php include RMTemplate::getInstance()->get_template('docs-header.php', 'module', 'docs'); ?>
 
 <h1><?php $edit ? _e('Edit Page', 'docs') : _e('New Page', 'docs'); ?></h1>
 
@@ -114,7 +114,7 @@
         <button type="submit" class="btn btn-primary btn-lg"><?php $edit ? _e('Save Changes', 'docs') : _e('Save Page', 'docs'); ?></button>
         <button type="button" class="btn btn-default btn-lg" onclick="history.go(-1);"><?php _e('Cancel', 'docs'); ?></button>
     </div>
-    
+
 
 
 <input type="hidden" name="action" value="<?php echo $edit ? 'saveedit' : 'save'; ?>">

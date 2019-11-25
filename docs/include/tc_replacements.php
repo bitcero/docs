@@ -113,7 +113,7 @@ function rd_build_figure($atts)
     }
 
     ob_start();
-    include RMEvents::get()->run_event('docs.template.build.figure', RMTemplate::get()->get_template('specials/docs-single-figure.php', 'module', 'docs'));
+    include RMEvents::get()->run_event('docs.template.build.figure', RMTemplate::getInstance()->get_template('specials/docs-single-figure.php', 'module', 'docs'));
     $ret = ob_get_clean();
 
     $figures_number++;
@@ -146,7 +146,7 @@ function rd_generate_toc($atts)
     $toc = RDFunctions::get_section_tree($id, new RDResource($sec->getVar('id_res')));
 
     ob_start();
-    include RMEvents::get()->run_event('docs.template.toc', RMTemplate::get()->get_template('specials/docs-section-toc.php', 'module', 'docs'));
+    include RMEvents::get()->run_event('docs.template.toc', RMTemplate::getInstance()->get_template('specials/docs-section-toc.php', 'module', 'docs'));
     $ret = ob_get_clean();
 
     return $ret;

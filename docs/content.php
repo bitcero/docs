@@ -65,15 +65,15 @@ function showSection(RDResource $res, RDSection $section)
 
     $standalone = $xoopsModuleConfig['standalone'];
 
-    RMTemplate::get()->add_jquery();
-    RMTemplate::get()->add_script('jquery.dotdotdot.min.js', 'docs', [ 'footer' => 1 ]);
-    RMTemplate::get()->add_script('docs.min.js', 'docs', [ 'footer' => 1 ]);
+    RMTemplate::getInstance()->add_jquery();
+    RMTemplate::getInstance()->add_script('jquery.dotdotdot.min.js', 'docs', [ 'footer' => 1 ]);
+    RMTemplate::getInstance()->add_script('docs.min.js', 'docs', [ 'footer' => 1 ]);
 
     if ($xoopsModuleConfig['standalone']) {
-        include RMEvents::get()->run_event('docs.section.template', RMTemplate::get()->get_template('docs-display-section.php', 'module', 'docs'));
+        include RMEvents::get()->run_event('docs.section.template', RMTemplate::getInstance()->get_template('docs-display-section.php', 'module', 'docs'));
         RDFunctions::standalone();
     } else {
-        RMTemplate::get()->add_style('docs.min.css', 'docs');
+        RMTemplate::getInstance()->add_style('docs.min.css', 'docs');
     }
 
     $sql = 'SELECT * FROM ' . $db->prefix('mod_docs_sections') . " WHERE id_res='" . $res->id() . "' AND parent = '0' ORDER BY `order`";
@@ -166,7 +166,7 @@ function showSection(RDResource $res, RDSection $section)
     RMBreadCrumb::get()->add_crumb($res->getVar('title'), $res->permalink());
     RMBreadCrumb::get()->add_crumb($section->getVar('title'), $section->permalink());
 
-    include RMEvents::get()->run_event('docs.section.template', RMTemplate::get()->path('docs-display-section.php', 'module', 'docs'));
+    include RMEvents::get()->run_event('docs.section.template', RMTemplate::getInstance()->path('docs-display-section.php', 'module', 'docs'));
 
     require __DIR__ . '/footer.php';
 }
@@ -191,11 +191,11 @@ function rd_section_forprint($all = 0)
         $toc = [];
         RDFunctions::sections_tree_index(0, 0, $res, '', '', false, $toc, true);
 
-        include RMEvents::get()->run_event('docs.print.template', RMTemplate::get()->get_template('docs-print-section.php', 'module', 'docs'));
+        include RMEvents::get()->run_event('docs.print.template', RMTemplate::getInstance()->get_template('docs-print-section.php', 'module', 'docs'));
     } else {
         $toc = RDFunctions::get_section_tree($section->id(), $res, '1', true);
 
-        include RMEvents::get()->run_event('docs.print.template', RMTemplate::get()->get_template('docs-print-section.php', 'module', 'docs'));
+        include RMEvents::get()->run_event('docs.print.template', RMTemplate::getInstance()->get_template('docs-print-section.php', 'module', 'docs'));
     }
 }
 
