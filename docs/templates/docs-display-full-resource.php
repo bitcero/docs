@@ -33,9 +33,13 @@
         </div>
         <div class="col-sm-6 text-right">
             <small class="help-block" style="margin: 0;">
-                <?php echo sprintf(__('Published at %s.', 'docs'), '<strong>' . RMTimeFormatter::get()->format($toc[0]['created'], __('%T% %d%, %Y%', 'docs')) . '</strong>'); ?><br>
+                <?php if(isset($toc[0])) {
+                    echo sprintf(__('Published at %s.', 'docs'), '<strong>' . RMTimeFormatter::get()->format($toc[0]['created'], __('%T% %d%, %Y%', 'docs')) . '</strong>'
+                );} ?><br>
                 <?php echo sprintf(__('Modified by last time at %s.', 'docs'), '<strong>' . RMTimeFormatter::get()->format($res->getVar('modified'), __('%T% %d%, %Y%', 'docs')) . '</strong>'); ?><br>
-                <?php echo sprintf(__('Edited by %s.', 'docs'), '<a href="' . XOOPS_URL . '/userinfo.php?uid=' . $last_author['id'] . '">' . $last_author['name'] . '</a>'); ?><br>
+                <?php if(isset($last_author['id'])) {
+                    echo sprintf(__('Edited by %s.', 'docs'), '<a href="' . XOOPS_URL . '/userinfo.php?uid=' . $last_author['id'] . '">' . $last_author['name'] . '</a>');
+                } ?><br>
                 <?php echo sprintf(__('Read %s times.', 'docs'), '<strong>' . $res->getVar('reads') . '</strong>'); ?>
             </small>
         </div>
@@ -50,7 +54,7 @@
 <hr>
 <!-- Comments -->
 <h4><?php _e('Comments', 'docs'); ?></h4>
-<?php echo $xoopsTpl->fetch(RMCPATH . '/templates/rmc-comments-display.html'); ?>
+<?php echo $xoopsTpl->fetch(RMCPATH . '/templates/rmc-comments-display.tpl'); ?>
 <hr>
-<?php echo $xoopsTpl->fetch(RMCPATH . '/templates/rmc-comments-form.html'); ?>
+<?php echo $xoopsTpl->fetch(RMCPATH . '/templates/rmc-comments-form.tpl'); ?>
 <!-- End Comments -->

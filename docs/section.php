@@ -33,7 +33,8 @@
  * the ID of a section:
  * <code>/section.php?id=1</code>
  */
-require dirname(__DIR__) . '/../mainfile.php';
+
+require __DIR__ . '/header.php';
 
 class RDAjaxResponse
 {
@@ -43,7 +44,7 @@ class RDAjaxResponse
 /**
  * This function get the level of current section
  * in order to create the hteml header tag (h1, h2, etc.)
- * @param int $id Id of parent section
+ * @param int $id    Id of parent section
  * @param int $level Current level
  * @return mixed
  */
@@ -68,7 +69,7 @@ function get_position($section)
     global $xoopsDB;
 
     $result = $xoopsDB->query('SELECT * FROM ' . $xoopsDB->prefix('mod_docs_sections') . ' WHERE parent = ' . $section->parent . ' ORDER BY `order`');
-    $i = 1;
+    $i      = 1;
     while (false !== ($row = $xoopsDB->fetchArray($result))) {
         if ($row['id_sec'] == $section->id()) {
             return $i;
@@ -112,25 +113,17 @@ $ajax->prepare_ajax_response();
 define('RDURL', RDFunctions::url());
 
 if (empty($id)) {
-    $ajax->ajax_response(
-        __('No ID', 'docs'),
-        1,
-        0
-    );
+    $ajax->ajax_response(__('No ID', 'docs'), 1, 0);
 }
 
 $section = new RDSection($id, $res->id());
 if ($section->isNew()) {
-    $ajax->ajax_response(
-        __('Content not found', 'docs'),
-        1,
-        0
-    );
+    $ajax->ajax_response(__('Content not found', 'docs'), 1, 0);
 }
 
-$result = $xoopsDB->query('SELECT id_sec FROM ' . $xoopsDB->prefix('mod_docs_sections') . " WHERE parent = 0 AND id_res = '" . $res->id() . "' ORDER BY `order`");
+$result  = $xoopsDB->query('SELECT id_sec FROM ' . $xoopsDB->prefix('mod_docs_sections') . " WHERE parent = 0 AND id_res = '" . $res->id() . "' ORDER BY `order`");
 $parents = [];
-$i = 1;
+$i       = 1;
 while (false !== ($row = $xoopsDB->fetchArray($result))) {
     $parents[$row['id_sec']] = $i;
     $i++;
@@ -139,10 +132,10 @@ while (false !== ($row = $xoopsDB->fetchArray($result))) {
 $super = RDFunctions::super_parent($section->id());
 
 if (0 == $section->parent) {
-    $level = 2;
+    $level  = 2;
     $number = get_parent_position($section->id(), $parents) . '.';
 } else {
-    $level = get_level($section->parent, 3);
+    $level  = get_level($section->parent, 3);
     $number = form_number($section, '') . '.';
 }
 
@@ -152,13 +145,8 @@ ob_start();
 include RMTemplate::getInstance()->get_template('docs-ajax-section.php', 'module', 'docs');
 $content = ob_get_clean();
 
-$ajax->ajax_response(
-    'ok',
-    0,
-    0,
-    [
-        'content' => $content,
-        'title' => $section->title,
-        'id' => $section->id(),
-    ]
-);
+$ajax->ajax_response('ok', 0, 0, [
+                             'content' => $content,
+                             'title'   => $section->title,
+                             'id'      => $section->id(),
+                         ]);

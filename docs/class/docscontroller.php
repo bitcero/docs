@@ -9,17 +9,17 @@
 // --------------------------------------------------------------
 
 /**
- * This file contains the object MywordsController that
+ * This file contains the object DocsController that
  * will be uses by Common Utilities to do some actions
  * like update comments
  */
-class docscontroller implements iCommentsController
+class DocsController implements iCommentsController
 {
     public function increment_comments_number($comment)
     {
         $db = XoopsDatabaseFactory::getDatabaseConnection();
         $params = urldecode($comment->getVar('params'));
-        $output = parse_str($params, $output);
+        parse_str($params, $output);
 
         // Invalid parameters
         if (!isset($res) || $res <= 0) {
@@ -39,7 +39,7 @@ class docscontroller implements iCommentsController
     {
         $db = XoopsDatabaseFactory::getDatabaseConnection();
         $params = urldecode($comment->getVar('params'));
-        $output = parse_str($params, $output);
+        parse_str($params, $output);
 
         // Invalid parameters
         if (!isset($res) || $res <= 0) {
@@ -61,7 +61,7 @@ class docscontroller implements iCommentsController
         static $csections;
 
         $params = urldecode($params);
-        $output = parse_str($params, $output);
+        parse_str($params, $output);
         if (!isset($res) || $res <= 0) {
             return __('Unknow element', 'docs');
         }
@@ -109,7 +109,7 @@ class docscontroller implements iCommentsController
         static $csections;
 
         $params = urldecode($params);
-        $output = parse_str($params, $output);
+        parse_str($params, $output);
         if (!isset($res) || $res <= 0) {
             return __('Unknow element', 'docs');
         }

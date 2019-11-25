@@ -11,10 +11,10 @@
     <link rel="stylesheet" type="text/css" media="all" href="<?php echo XOOPS_URL; ?>/modules/docs/css/docs.min.css">
 </head>
 <body onload="window.print();">
-<?php include RMTemplate::get()->get_template('docs-resource-toc.php', 'module', 'docs'); ?>
+<?php include RMTemplate::getInstance()->get_template('docs-resource-toc.php', 'module', 'docs'); ?>
 <?php $not_show_top = 1; ?>
 <?php foreach ($toc as $sec): ?>
-    <?php include RMTemplate::get()->get_template('docs-item-section.php', 'module', 'docs'); ?>
+    <?php include RMTemplate::getInstance()->get_template('docs-item-section.php', 'module', 'docs'); ?>
 <?php endforeach; ?>
 </body>
 </html>

@@ -26,7 +26,10 @@
  * @link         http://eduardocortes.mx
  * @link         http://xoopsmexico.net
  */
-if ('' == $id) {
+
+require __DIR__ . '/header.php';
+
+if (!isset($id) || (isset($id) && '' == $id)) {
     RDFunctions::error_404();
 }
 
@@ -86,7 +89,7 @@ function showSection(RDResource $res, RDSection $section)
         $sec = new RDSection();
         $sec->assignVars($row);
 
-        if (0 == $i) {
+        if (0 === $i) {
             $first_section = $row['id_sec'];
         }
 
@@ -95,7 +98,7 @@ function showSection(RDResource $res, RDSection $section)
             $located = true;
         }
 
-        if ($sec->id() == $section->id() && isset($sprev)) {
+        if (isset($sprev) && $sec->id() == $section->id()) {
             $prev_section = [
                 'id' => $sprev->id(),
                 'title' => $sprev->getVar('title'),

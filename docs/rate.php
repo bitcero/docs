@@ -9,13 +9,13 @@
 // @license: GPL v2
 
 define('AH_LOCATION', 'rate');
-require  dirname(dirname(__DIR__)) . '/mainfile.php';
+require __DIR__ . '/header.php';
 
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 $rate = isset($_GET['rate']) ? (int)$_GET['rate'] : 0;
 $ret = isset($_GET['ret']) ? $_GET['ret'] : '';
 
-$mc = &$xoopsModuleConfig;
+$mc =& $xoopsModuleConfig;
 
 if ($id <= 0) {
     redirect_header(XOOPS_URL . '/modules/ahelp/', 2, _MS_AH_NOID);
@@ -55,7 +55,7 @@ if ($num > 0) {
 
 if ($res->addVote($rate)) {
     $db->queryF('INSERT INTO ' . $db->prefix('pa_votedata') . " (`uid`,`ip`,`date`,`res`) VALUES
-			('" . ($xoopsUser ? $xoopsUser->uid() : 0) . "','$ip','" . time() . "','$id')");
+            ('" . ($xoopsUser ? $xoopsUser->uid() : 0) . "','$ip','" . time() . "','$id')");
     redirect_header($retlink, 1, _MS_AH_VOTEOK);
     die();
 }

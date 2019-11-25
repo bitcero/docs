@@ -10,6 +10,8 @@
 
 load_mod_locale('docs');
 
+defined('RMCLOCATION') || define('RMCLOCATION', 'index');
+
 if (RMCLOCATION === 'sections') {
     $res = RMHttpRequest::request('id', 'integer', 0);
 } else {

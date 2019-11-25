@@ -8,7 +8,9 @@
 // License: GPL 2.0
 // --------------------------------------------------------------
 
-require dirname(__DIR__) . '/../mainfile.php';
+
+require __DIR__ . '/header.php';
+
 define('INCLUDED_INDEX', 1);
 
 /**
@@ -42,7 +44,16 @@ if ($xoopsModuleConfig['permalinks']) {
     // If friendly urls are disabled
     $path = parse_url(RMUris::current_url());
     if (isset($path['query'])) {
-        $output = parse_str($path['query'], $output);
+        parse_str($path['query'], $output);
+        if (isset($output['page'])) {
+            $page = $output['page'];
+        }
+        if (isset($output['by'])) {
+            $by = $output['by'];
+        }
+        if (isset($output['id'])) {
+            $id = $output['id'];
+        }
     }
 
     if (!isset($page) || '' == $page) {
@@ -55,7 +66,7 @@ if ($xoopsModuleConfig['permalinks']) {
         RDFunctions::error_404();
     }
 
-    if (!$xoopsModuleConfig['standalone'] && isset($standalone)) {
+    if (isset($standalone) && !$xoopsModuleConfig['standalone']) {
         unset($standalone);
     }
 

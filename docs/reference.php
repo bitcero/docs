@@ -9,7 +9,7 @@
 // @license: GPL v2
 
 define('AH_LOCATION', 'references');
-require  dirname(dirname(__DIR__)) . '/mainfile.php';
+require __DIR__ . '/header.php';
 
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
