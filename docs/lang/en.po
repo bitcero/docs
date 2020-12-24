@@ -1957,7 +1957,7 @@ msgid ""
 msgstr ""
 
 #: xoops_version.php:185
-msgid "Hoja de estilos para despliegue independiente"
+msgid "Style sheet for standalone display"
 msgstr ""
 
 #: xoops_version.php:194

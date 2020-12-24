@@ -4,7 +4,7 @@
     <li>
         <h3 style="margin: 0;"><a href="<{$res.link}>"><{$res.title}></a></h3>
         <span class="description"><{$res.desc}></span>
-        <span class="info"><{$res.reads}> <br /><{$res.author}></span>
+        <span class="info"><{$res.reads}> <br><{$res.author}></span>
     </li>
 <{/foreach}>
 </ul>

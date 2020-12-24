@@ -1,6 +1,6 @@
 <!-- Document Content -->
 <article class="docs-content-article">
-    <?php include RMTemplate::get()->get_template('docs-header.php', 'module', 'docs'); ?>
+    <?php include RMTemplate::getInstance()->get_template('docs-header.php', 'module', 'docs'); ?>
     <div class="docs-content-wrapper">
         <div class="docs-content-inner">
             <section id="section-<?php echo $section->id(); ?>" class="doc-section is-header">
@@ -18,7 +18,7 @@
 
             <footer>
                 <!-- Notes and references -->
-                <?php include RMTemplate::get()->get_template('docs-notes-references.php','module','docs'); ?>
+                <?php include RMTemplate::getInstance()->get_template('docs-notes-references.php','module','docs'); ?>
                 <!-- /End Notes and references -->
             </footer>
         </div>

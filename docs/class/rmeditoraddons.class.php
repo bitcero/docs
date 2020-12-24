@@ -23,51 +23,52 @@
 // --------------------------------------------------------------
 // @copyright:  2007 - 2008. Red México
 
-class RMEditorAddons extends RMFormElement{
-		
-	private $editor;
-	private $name;
-	private $caption;
-	private $type;
-	private $id;
-	private $section;
-	
-	
-	/**
-	* @param int $editor Id del editor
-	* @param string $name Nombre del campo
-	* @param string $caption Texto para mostrar en el campo
-	* @param string $type Tipo de editor 
-	* @param int $id_res Publicación
-	* @param int $id_sec Contenido
-	**/	
-	function __construct($caption,$name,$editor,$type,$id_res,$id_sec){
-		$this->editor=$editor;
-		$this->setName($name);
-		$this->setCaption($caption);
-		$this->type = $type;	
-		$this->id=$id_res;
-		$this->section=$id_sec;
-	}
-	
-	public function jsFunctions(){
-		if ($this->type=='tiny'){
-			$ret = "<script type='text/javascript'>
+class RMEditorAddons extends RMFormElement
+{
+    private $editor;
+    private $name;
+    private $caption;
+    private $type;
+    private $id;
+    private $section;
+
+    /**
+     * @param int $editor Id del editor
+     * @param string $name Nombre del campo
+     * @param string $caption Texto para mostrar en el campo
+     * @param string $type Tipo de editor
+     * @param int $id_res Publicación
+     * @param int $id_sec Contenido
+     **/
+    public function __construct($caption, $name, $editor, $type, $id_res, $id_sec)
+    {
+        $this->editor = $editor;
+        $this->setName($name);
+        $this->setCaption($caption);
+        $this->type = $type;
+        $this->id = $id_res;
+        $this->section = $id_sec;
+    }
+
+    public function jsFunctions()
+    {
+        if ('tiny' === $this->type) {
+            $ret = "<script type='text/javascript'>
 					function insertReference(id_ref){
 						var html;
 						html ='[ref:'+id_ref+']';
 						tinyMCE.execInstanceCommand('$this->editor','mceInsertContent',true,html);
 					}
 				</script>";
-			$ret .= "<script type='text/javascript'>
+            $ret .= "<script type='text/javascript'>
 					function insertFigure(id_fig){
 						var html;
 						html ='[fig:'+id_fig+']';
 						tinyMCE.execInstanceCommand('$this->editor','mceInsertContent',true,html);
 					}
 				</script>";
-		} else {
-			$ret = "<script type='text/javascript'>
+        } else {
+            $ret = "<script type='text/javascript'>
 					function insertReference(id_ref){
 						var html;
 						html ='[ref:'+id_ref+']';
@@ -75,7 +76,7 @@ class RMEditorAddons extends RMFormElement{
 						xoopsInsertText(edit,html);		
 					}
 				</script>";
-			$ret .= "<script type='text/javascript'>
+            $ret .= "<script type='text/javascript'>
 					function insertFigure(id_fig){
 						var html;
 						html ='[fig:'+id_fig+']';
@@ -83,21 +84,18 @@ class RMEditorAddons extends RMFormElement{
 						xoopsInsertText(edit,html);		
 					}
 				</script>";
-		}
-		
-		return $ret;
-	}
+        }
 
-	public function render(){
-	
-		$ret = '<img src="'.XOOPS_URL.'/modules/ahelp/images/refs16.png" align="absmiddle" border="0" alt="" /> ';
-		$ret .= "<a href='javascript:;' onclick=\"centerWindow(openWithSelfMain('".XOOPS_URL."/modules/ahelp/references.php?id=$this->id&amp;section=$this->section&amp;editor=$this->editor','references',500,600,true),500,600);\">"._AS_AH_REFERENCES."</a> &nbsp;";
-		$ret .= '<img src="'.XOOPS_URL.'/modules/ahelp/images/figs16.png" align="absmiddle" border="0" alt="" /> ';
-		$ret .= "<a href='javascript:;'  onclick=\"centerWindow(openWithSelfMain('".XOOPS_URL."/modules/ahelp/figures.php?id=$this->id&amp;section=$this->section&amp;editor=$this->editor','figures',710,600,true),710,600);\">"._AS_AH_FIGURES."</a>";
+        return $ret;
+    }
 
-		return $ret;
+    public function render()
+    {
+        $ret = '<img src="' . XOOPS_URL . '/modules/ahelp/images/refs16.png" align="absmiddle" border="0" alt=""> ';
+        $ret .= "<a href='javascript:;' onclick=\"centerWindow(openWithSelfMain('" . XOOPS_URL . "/modules/ahelp/references.php?id=$this->id&amp;section=$this->section&amp;editor=$this->editor','references',500,600,true),500,600);\">" . _AS_AH_REFERENCES . '</a> &nbsp;';
+        $ret .= '<img src="' . XOOPS_URL . '/modules/ahelp/images/figs16.png" align="absmiddle" border="0" alt=""> ';
+        $ret .= "<a href='javascript:;'  onclick=\"centerWindow(openWithSelfMain('" . XOOPS_URL . "/modules/ahelp/figures.php?id=$this->id&amp;section=$this->section&amp;editor=$this->editor','figures',710,600,true),710,600);\">" . _AS_AH_FIGURES . '</a>';
 
-	}
-
+        return $ret;
+    }
 }
-?>

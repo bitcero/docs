@@ -8,43 +8,43 @@
 // License: GPL 2.0
 // --------------------------------------------------------------
 
-class RDReference extends RMObject{
+class RDReference extends RMObject
+{
+    public function __construct($id = null)
+    {
+        $this->db =  XoopsDatabaseFactory::getDatabaseConnection();
+        $this->_dbtable = $this->db->prefix('mod_docs_references');
+        $this->setNew();
+        $this->initVarsFromTable();
 
-	function __construct($id=null){
+        if (null === $id) {
+            return;
+        }
 
-		$this->db =& XoopsDatabaseFactory::getDatabaseConnection();
-		$this->_dbtable = $this->db->prefix("mod_docs_references");
-		$this->setNew();
-		$this->initVarsFromTable();
+        if (is_numeric($id)) {
+            if (!$this->loadValues($id)) {
+                return;
+            }
+            $this->unsetNew();
+        }
+    }
 
-		if ($id==null) return;
-		
-		if (is_numeric($id)){
-			
-			if (!$this->loadValues($id)) return;
-			$this->unsetNew();
-		}	
-	
-	}
+    public function id()
+    {
+        return $this->getVar('id_ref');
+    }
 
+    public function save()
+    {
+        if ($this->isNew()) {
+            return $this->saveToTable();
+        }
 
-	public function id(){
-		return $this->getVar('id_ref');
-	}
+        return $this->updateTable();
+    }
 
-
-	public function save(){
-		if ($this->isNew()){
-			return $this->saveToTable();
-		}else{
-			return $this->updateTable();
-		}
-	}
-
-
-	public function delete(){
-		return $this->deleteFromTable();
-
-	}
-
+    public function delete()
+    {
+        return $this->deleteFromTable();
+    }
 }

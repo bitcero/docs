@@ -8,44 +8,44 @@
 // License: GPL 2.0
 // --------------------------------------------------------------
 
-class RDFigure extends RMObject{
-
-
-	function __construct($id=null){
-
-		$this->db =& XoopsDatabaseFactory::getDatabaseConnection();
-		$this->_dbtable = $this->db->prefix("mod_docs_figures");
-		$this->setNew();
-		$this->initVarsFromTable();
+class RDFigure extends RMObject
+{
+    public function __construct($id = null)
+    {
+        $this->db =  XoopsDatabaseFactory::getDatabaseConnection();
+        $this->_dbtable = $this->db->prefix('mod_docs_figures');
+        $this->setNew();
+        $this->initVarsFromTable();
         $this->setVarType('attrs', XOBJ_DTYPE_SOURCE);
 
-		if ($id==null) return;
-		
-		if (is_numeric($id)){
-			
-			if (!$this->loadValues($id)) return;
-			$this->unsetNew();
-		}	
-	
-	}
+        if (null === $id) {
+            return;
+        }
 
+        if (is_numeric($id)) {
+            if (!$this->loadValues($id)) {
+                return;
+            }
+            $this->unsetNew();
+        }
+    }
 
-	public function id(){
-		return $this->getVar('id_fig');
-	}
+    public function id()
+    {
+        return $this->getVar('id_fig');
+    }
 
-	public function save(){
-		if ($this->isNew()){
-			return $this->saveToTable();
-		}else{
-			return $this->updateTable();
-		}
-	}
+    public function save()
+    {
+        if ($this->isNew()) {
+            return $this->saveToTable();
+        }
 
+        return $this->updateTable();
+    }
 
-	public function delete(){
-		return $this->deleteFromTable();
-
-	}
-    
+    public function delete()
+    {
+        return $this->deleteFromTable();
+    }
 }

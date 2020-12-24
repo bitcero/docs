@@ -58,7 +58,7 @@
                 <h5><?php _e('What do you want to do?', 'docs'); ?></h5>
                 <button type="button" class="btn btn-primary" onclick="window.location.href='sections.php?action=create-review&id=<?php echo $id; ?>&res=<?php echo $doc_id; ?>&return=<?php echo $return; ?>';"><?php _e('Create documents and pages', 'docs'); ?></button>
                 <?php endif; ?>
-                <button type="button" class="btn <?php echo empty( $resported ) ? 'btn-warning' : 'btn-default'; ?>" onclick="window.location.href='sections.php?<?php echo $return ? 'action=edit&sec=' . $id . '&id=' . $doc_id : 'id=' . $doc_id; ?>';"><?php _E('Continue','docs'); ?></button>
+                <button type="button" class="btn <?php echo empty( $resported ) ? 'btn-warning' : 'btn-default'; ?>" onclick="window.location.href='sections.php?<?php echo $return ? 'action=edit&sec=' . $id . '&id=' . $doc_id : 'id=' . $doc_id; ?>';"><?php _e('Continue','docs'); ?></button>
             </div>
         </div>
 

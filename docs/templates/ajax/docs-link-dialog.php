@@ -34,8 +34,8 @@
             <?php _e('Sections in Book', 'docs'); ?>
         </span>
         <div class="the-list">
-            <?php if(empty($sections)): ?>
-                <?php if($res): ?>
+            <?php if (empty($sections)): ?>
+                <?php if ($res): ?>
                     <span class="label label-warning"><?php _e('There are not sections in this book', 'docs'); ?></span>
                 <?php else: ?>
                     <span class="label label-info"><?php _e('You have not selected a book to show sections in it', 'docs'); ?></span>
@@ -43,14 +43,14 @@
             <?php else: ?>
 
                 <ul>
-                    <?php foreach($sections as $section): ?>
-                    <li style="padding-left: <?php echo ($section['jump'] * 13); ?>px;">
+                    <?php foreach ($sections as $section): ?>
+                    <li style="padding-left: <?php echo($section['jump'] * 13); ?>px;">
                         <a href="#"
                            data-title="<?php echo $section['title']; ?>"
-                           data-link="<?php echo RMUris::relative_url($section['link']); ?>"<?php if($section['jump'] == 0): ?> class="root"<?php endif; ?>>
+                           data-link="<?php echo RMUris::relative_url($section['link']); ?>"<?php if (0 == $section['jump']): ?> class="root"<?php endif; ?>>
                             <span class="icon icon-forward pull-right"></span>
                             <?php echo $section['number']; ?>.
-                            <?php if($section['jump'] == 0): ?>
+                            <?php if (0 == $section['jump']): ?>
                                 <strong><?php echo $section['title']; ?></strong>
                             <?php else: ?>
                                 <?php echo $section['title']; ?>

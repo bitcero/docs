@@ -26,14 +26,14 @@
     <div class="table-responsive">
         <table class="table">
             <tbody>
-            <?php if(empty($notes)): ?>
+            <?php if (empty($notes)): ?>
                 <tr>
                     <td class="text-info text-center">
                         <?php _e('There are not notes or references for this book.', 'docs'); ?>
                     </td>
                 </tr>
             <?php endif; ?>
-            <?php foreach($notes as $note): ?>
+            <?php foreach ($notes as $note): ?>
                 <tr>
                     <td class="text-right">
                         <strong><?php echo $note['id']; ?></strong>

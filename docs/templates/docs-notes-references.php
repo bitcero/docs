@@ -1,5 +1,5 @@
 <?php
-$references = RMTemplate::get()->get_var('references');
+$references = RMTemplate::getInstance()->get_var('references');
 if ( $references ): ?>
     <hr>
 <section class="row" id="notes-and-references">

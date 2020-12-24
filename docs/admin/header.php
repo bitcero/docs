@@ -8,7 +8,7 @@
 // License: GPL 2.0
 // --------------------------------------------------------------
 
-include '../../../include/cp_header.php';
+require  dirname(dirname(dirname(__DIR__))) . '/include/cp_header.php';
 
-$mc =& $xoopsModuleConfig;
+$mc = &$xoopsModuleConfig;
 $db = XoopsDatabaseFactory::getDatabaseConnection();

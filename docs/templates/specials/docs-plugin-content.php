@@ -11,7 +11,7 @@
                 <?php _e('Link existing content', 'docs'); ?>
             </a>
         </li>
-        <?php if ( defined('RMCSUBLOCATION') && 'newresource' == RMCSUBLOCATION ): ?>
+        <?php if ( defined('RMCSUBLOCATION') && 'newresource' === RMCSUBLOCATION ): ?>
             <li>
                 <a href="#"
                    data-action="load-remote-dialog"
